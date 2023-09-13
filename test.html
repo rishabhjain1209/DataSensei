@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Udemy-like Website</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0e0025; 
+    color: white;
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    color: white;
+  }
+  .card {
+    width: calc(33.33% - 5px);
+    background-color: #8600e6;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    overflow: hidden;
+    height: 280px;
+    color: white;
+  }
+  .card-content {
+    padding: 20px;
+    text-align: center;
+    color: white;
+  }
+  .course-name {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: white;
+  }
+  .course-description {
+    font-size: 12px;
+    margin-bottom: 5px;
+    color: white;
+  }
+  .btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: rgb(255, 255, 255);
+  }
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #000000;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-bottom: 15px;
+  }
+  .btn:hover {
+    background-color: #001f3e;
+    color: #fff;
+  }
+  .breadcrumb {
+    margin: 40px auto;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    font-size: 20px;
+    color: #fff; 
+  }
+  .breadcrumb-item {
+    margin: 0 10px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="card-content">
+        <div class="course-name">Python</div>
+        <br>
+        <div class="course-description">Discover the Magic of Python: Dive into the world of Python programming, where code becomes poetry. Master the art of web development, data analysis, and machine learning as you wield Python's versatile power. Join us on an expedition where Python isn't just a language; it's your passport to a digital realm of endless creativity and innovation.</div>
+        <div class="btn-container">
+          <a href="python" class="btn" target="_self">Enroll Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <div class="course-name">R</div>
+        <br>
+        <div class="course-description">Unlock the Power of Data with R: Dive into the world of R programming, where data becomes your canvas and R is your brush. Unleash the magic of statistical analysis, data visualization, and machine learning as you master the language of data science. Join us on a journey where data insights turn into data artistry, and you emerge as a data virtuoso!</div>
+        <div class="btn-container">
+          <a href="r" class="btn" target="_self">Enroll Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <div class="course-name">Pandas</div>
+        <br>
+        <div class="course-description">Pandas: Your Data's Best Friend! Dive into the world of Pandas, where data manipulation becomes effortless. Master data wrangling, analysis, and visualization with Python's powerhouse library. Join us on a journey where Pandas isn't just a tool; it's your key to unlocking the stories hidden within your data.</div>
+        <div class="btn-container">
+          <a href="pandas" class="btn" target="_self">Enroll Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <div class="course-name">Numpy</div>
+        <br>
+        <div class="course-description">Supercharge Your Data with NumPy: Dive into the world of numerical computing, where NumPy is your trusty companion. Harness the power of lightning-fast mathematical operations, data manipulation, and scientific exploration. Join us on a journey where numbers transform into insights, and you become a data maestro!</div>
+        <div class="btn-container">
+          <a href="numpy" class="btn" target="_self">Enroll Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <div class="course-name">Tableau</div>
+        <br>
+        <div class="course-description">Chart Your Course with Tableau: Navigate the seas of data with Tableau as your compass. Dive into interactive data visualization, storytelling, and business intelligence. Join us on a journey where data transforms into actionable insights, and you become the captain of your data-driven destiny!</div>
+        <div class="btn-container">
+          <a href="tableauu" class="btn" target="_self">Enroll Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <div class="course-name">Power BI</div>
+        <br>
+        <div class="course-description">Empower Your Insights with Power BI: Harness the energy of your data universe with Power BI as your conduit. Unleash the force of interactive reporting, data analytics, and business intelligence. Join us on a journey where data becomes your superpower, and you reign as the ruler of data-driven decisions!</div>
+        <div class="btn-container">
+          <a href="powerbi" class="btn" target="_self">Enroll Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="breadcrumb">
+    <div class="breadcrumb-item"><a href="course1" target="_self">1</a></div>
+    <div class="breadcrumb-item"><a href="course2" target="_self">2</a></div>
+    <div class="breadcrumb-item"><a href="course3" target="_self">3</a></div>
+    <div class="breadcrumb-item"><a href="course4" target="_self">4</a></div>
+    <div class="breadcrumb-item"><a href="course5" target="_self">5</a></div>
+  </div>
+</body>
+</html>

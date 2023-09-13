@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Week 3: Data Relationships and Patterns</title>
+</head>
+<body>
+    <h1>Visualizing Relationships in Data: Regression Plots and Correlation Matrices</h1>
+    <h2>1. Regression Plots:</h2>
+    <p>Regression plots are used to visualize the relationship between two continuous variables and fit a regression model to the data. Seaborn's <code>sns.regplot()</code> allows you to create regression plots easily.</p>
+    <pre><code>import seaborn as sns
+import matplotlib.pyplot as plt
+# Sample data
+data = sns.load_dataset("tips")
+# Create a regression plot
+sns.regplot(x='total_bill', y='tip', data=data)
+plt.xlabel("Total Bill")
+plt.ylabel("Tip")
+plt.title("Regression Plot Example")
+plt.show()
+</code></pre>
+    <h2>2. Correlation Matrices:</h2>
+    <p>Correlation matrices are used to visualize the relationships between multiple variables by displaying correlation coefficients. Seaborn's <code>sns.heatmap()</code> is commonly used to create correlation matrices.</p>
+    <pre><code>import seaborn as sns
+import matplotlib.pyplot as plt
+# Sample data
+data = sns.load_dataset("iris")
+# Compute the correlation matrix
+corr_matrix = data.corr()
+# Create a heatmap of the correlation matrix
+sns.heatmap(corr_matrix, annot=True, cmap="coolwarm")
+plt.title("Correlation Matrix Heatmap")
+plt.show()
+</code></pre>
+    <h1>Exploring Categorical Data: Count Plots, Bar Plots, and Point Plots</h1>
+    <h2>1. Count Plots:</h2>
+    <p>Count plots are used to visualize the counts of categorical variables. They show how many times each category appears in the data. Seaborn's <code>sns.countplot()</code> is used for creating count plots.</p>
+    <pre><code>import seaborn as sns
+import matplotlib.pyplot as plt
+# Sample data
+data = sns.load_dataset("titanic")
+# Create a count plot
+sns.countplot(x='class', data=data)
+plt.xlabel("Class")
+plt.ylabel("Count")
+plt.title("Count Plot Example")
+plt.show()
+</code></pre>
+    <h2>2. Bar Plots:</h2>
+    <p>Bar plots are used to visualize the relationship between one categorical variable and one continuous variable. They display the average value of the continuous variable for each category. Seaborn's <code>sns.barplot()</code> is used for creating bar plots.</p>
+    <pre><code>import seaborn as sns
+import matplotlib.pyplot as plt
+# Sample data
+data = sns.load_dataset("titanic")
+# Create a bar plot
+sns.barplot(x='class', y='fare', data=data, ci=None)
+plt.xlabel("Class")
+plt.ylabel("Fare")
+plt.title("Bar Plot Example")
+plt.show()
+</code></pre>
+    <h2>3. Point Plots:</h2>
+    <p>Point plots are similar to bar plots but display the point estimate and confidence intervals. They are useful when you want to show both the average and variability of the data. Seaborn's <code>sns.pointplot()</code> can be used to create point plots.</p>
+    <pre><code>import seaborn as sns
+import matplotlib.pyplot as plt
+# Sample data
+data = sns.load_dataset("titanic")
+# Create a point plot
+sns.pointplot(x='class', y='fare', data=data, ci="sd")
+plt.xlabel("Class")
+plt.ylabel("Fare")
+plt.title("Point Plot Example")
+plt.show()
+</code></pre>
+    <h1>Visualizing Data on Multiple Facets: Facet Grids and Categorical Plots</h1>
+    <h2>1. Facet Grids:</h2>
+    <p>Facet grids allow you to create multiple plots that share the same structure but display different subsets of your data. Seaborn's <code>sns.FacetGrid()</code> is used to create facet grids.</p>
+    <pre><code>import seaborn as sns
+import matplotlib.pyplot as plt
+# Sample data
+data = sns.load_dataset("titanic")
+# Create a facet grid
+g = sns.FacetGrid(data, col="class", row="sex")
+g.map(sns.histplot, "age")
+plt.show()
+</code></pre>
+    <h2>2. Categorical Plots:</h2>
+    <p>Categorical plots allow you to create different types of plots for categorical data within a facet grid. For example, <code>sns.catplot()</code> is a versatile function for creating categorical plots, such as box plots, violin plots, and strip plots, across multiple facets.</p>
+    <pre><code>import seaborn as sns
+import matplotlib.pyplot as plt
+# Sample data
+data = sns.load_dataset("titanic")
+# Create a categorical plot (box plot)
+sns.catplot(x="class", y="age", data=data, kind="box")
+plt.xlabel("Class")
+plt.ylabel("Age")
+plt.title("Categorical Plot Example")
+plt.show()
+</code></pre>
+    <p>Understanding these visualization techniques helps you uncover patterns and relationships in your data, whether you're dealing with continuous or categorical variables. Seaborn provides a wide range of tools for creating meaningful visualizations, especially when exploring complex datasets with multiple facets and categorical variables.</p>
+</body>
+</html>

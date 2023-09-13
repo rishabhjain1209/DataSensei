@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Week 2: Data Visualization Fundamentals</title>
+</head>
+<body>
+    <h1>Understanding Data Distributions:</h1>
+    <p>Data distributions describe how data values are spread or distributed across a dataset. Understanding these distributions is crucial for data analysis and visualization. Some key points to consider when analyzing data distributions include central tendencies (mean, median, mode), spread (range, variance, standard deviation), and the shape of the distribution (normal, skewed, bimodal).</p>
+    <h2>Visualizing Univariate Data: Histograms, KDE Plots, and Box Plots:</h2>
+    <h3>1. Histograms:</h3>
+    <p>Histograms are used to visualize the distribution of a single variable. They divide the data into intervals (bins) and display the frequency or count of data points within each bin. Seaborn provides an easy way to create histograms using <code>sns.histplot()</code>.</p>
+    <pre><code>import seaborn as sns
+import matplotlib.pyplot as plt
+# Sample data
+data = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5]
+# Create a histogram
+sns.histplot(data, bins=5, kde=True)
+plt.xlabel("Value")
+plt.ylabel("Frequency")
+plt.title("Histogram Example")
+plt.show()
+</code></pre>
+    <h3>2. KDE (Kernel Density Estimation) Plots:</h3>
+    <p>KDE plots provide a smoothed estimate of the probability density function of a continuous variable. They are useful for visualizing the underlying distribution of data. Seaborn's <code>sns.kdeplot()</code> can be used to create KDE plots.</p>
+    <pre><code>import seaborn as sns
+import matplotlib.pyplot as plt
+# Sample data
+data = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5]
+# Create a KDE plot
+sns.kdeplot(data, shade=True)
+plt.xlabel("Value")
+plt.ylabel("Density")
+plt.title("KDE Plot Example")
+plt.show()
+</code></pre>
+    <h3>3. Box Plots:</h3>
+    <p>Box plots, also known as box-and-whisker plots, are used to display the summary statistics of a dataset, including the median, quartiles, and potential outliers. Seaborn's <code>sns.boxplot()</code> is a handy tool for creating box plots.</p>
+    <pre><code>import seaborn as sns
+import matplotlib.pyplot as plt
+# Sample data
+data = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5]
+# Create a box plot
+sns.boxplot(data)
+plt.xlabel("Value")
+plt.title("Box Plot Example")
+plt.show()
+</code></pre>
+    <h2>Visualizing Bivariate Data: Scatter Plots, Joint Plots, and Pair Plots:</h2>
+    <h3>1. Scatter Plots:</h3>
+    <p>Scatter plots are used to visualize the relationship between two continuous variables. They display data points as individual dots on a two-dimensional plane. Seaborn's <code>sns.scatterplot()</code> can be used to create scatter plots.</p>
+    <pre><code>import seaborn as sns
+import matplotlib.pyplot as plt
+# Sample data
+data = pd.DataFrame({'x': [1, 2, 3, 4, 5], 'y': [2, 4, 1, 3, 5]})
+# Create a scatter plot
+sns.scatterplot(x='x', y='y', data=data)
+plt.xlabel("X")
+plt.ylabel("Y")
+plt.title("Scatter Plot Example")
+plt.show()
+</code></pre>
+    <h3>2. Joint Plots:</h3>
+    <p>Joint plots combine univariate plots for two variables, such as a scatter plot and histograms of each variable's distribution. They help visualize both the relationship between the variables and their individual distributions. Seaborn's <code>sns.jointplot()</code> is useful for creating joint plots.</p>
+    <pre><code>import seaborn as sns
+# Sample data
+data = pd.DataFrame({'x': [1, 2, 3, 4, 5], 'y': [2, 4, 1, 3, 5]})
+# Create a joint plot
+sns.jointplot(x='x', y='y', data=data, kind='scatter')
+</code></pre>
+    <h3>3. Pair Plots:</h3>
+    <p>Pair plots are used to visualize relationships between multiple variables in a dataset. They create scatter plots for all pairs of variables and histograms for the variables along the diagonal. Pair plots are especially helpful when exploring multivariate data. Seaborn's <code>sns.pairplot()</code> is a convenient tool for creating pair plots.</p>
+    <pre><code>import seaborn as sns
+# Sample data (consider using a dataset with multiple columns)
+data = sns.load_dataset("iris")
+# Create a pair plot
+sns.pairplot(data, hue="species")
+</code></pre>
+    <p>These fundamental visualization techniques are essential for understanding and exploring your data, whether you're working with single variables or examining relationships between multiple variables. Seaborn provides a powerful and user-friendly interface to create these visualizations with ease.</p>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Udemy-like Website</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0e1117; 
+    color: white;
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    color: white;
+  }
+  .card {
+    width: calc(33.33% - 5px);
+    background-color: #8600e6;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    overflow: hidden;
+    height: 280px;
+    color: white;
+  }
+  .card-content {
+    padding: 20px;
+    text-align: center;
+    color: white;
+  }
+  .course-name {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: white;
+  }
+  .course-description {
+    font-size: 12px;
+    margin-bottom: 5px;
+    color: white;
+  }
+  .btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: rgb(255, 255, 255);
+  }
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #000000;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-bottom: 15px;
+  }
+  .btn:hover {
+    background-color: #001f3e;
+    color: #fff;
+  }
+  .breadcrumb {
+    margin: 40px auto;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    font-size: 20px;
+    color: #fff; 
+  }
+  .breadcrumb-item {
+    margin: 0 10px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="card-content">
+        <div class="course-name">MySQL</div>
+        <br>
+        <div class="course-description">SQL: The Data Wizard's Wand! Embark on a journey into the realm of SQL, where data dances to your command. Master the art of database design, query with precision, and uncover insights hidden within data's depths. Join us on a path where SQL isn't just a tool; it's your gateway to transforming data into invaluable wisdom.</div>
+        <div class="btn-container">
+          <a href="mysql" class="btn" target="_self">Enroll Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <div class="course-name">MongoDB</div>
+        <br>
+        <div class="course-description">Explore Data Freedom with MongoDB: Venture into the realm of NoSQL databases, where MongoDB is your data wilderness guide. Master flexible schema design, scale with ease, and embrace the future of data. Join us on a journey where data becomes your adventure, and you pioneer the landscape of modern database management!</div>
+        <div class="btn-container">
+          <a href="mongodb" class="btn" target="_self">Enroll Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <div class="course-name">Hadoop</div>
+        <br>
+        <div class="course-description">Navigate the Big Data Seas with Hadoop: Dive into the world of massive data processing, where Hadoop is your trusted vessel. Conquer data lakes, distributed computing, and analytics at scale. Join us on a journey where big data becomes your treasure trove, and you emerge as the captain of data-driven innovation!</div>
+        <div class="btn-container">
+          <a href="hadoop" class="btn" target="_self">Enroll Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <div class="course-name">Matplotlib</div>
+        <br>
+        <div class="course-description">Paint with Data Using Matplotlib: Immerse yourself in the vibrant world of data visualization, where Matplotlib is your artistic palette. Craft stunning graphs, charts, and visual stories. Unleash the power of data representation, turning numbers into masterpieces. Embark on a journey where every data point is a brushstroke in your canvas of insights!</div>
+        <div class="btn-container">
+          <a href="matplotlib" class="btn" target="_self">Enroll Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <div class="course-name">Django</div>
+        <br>
+        <div class="course-description">Django is a high-level Python web framework that simplifies web development. It offers a robust toolkit for creating dynamic websites and applications, with built-in features like authentication, database handling, and templating. Django empowers developers to build scalable and secure web projects efficiently.</div>
+        <div class="btn-container">
+          <a href="django" class="btn" target="_self">Enroll Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <div class="course-name">Seaborn</div>
+        <br>
+        <div class="course-description">Seaborn is a Python data visualization library based on Matplotlib. It provides a high-level interface for creating informative and attractive statistical graphics. Seaborn simplifies the process of visualizing complex datasets with elegant and customizable plots, making it a valuable tool for data analysis and exploration.</div>
+        <div class="btn-container">
+          <a href="seaborn" class="btn" target="_self">Enroll Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="breadcrumb">
+    <div class="breadcrumb-item"><a href="course1" target="_self">1</a></div>
+    <div class="breadcrumb-item"><a href="course2" target="_self">2</a></div>
+    <div class="breadcrumb-item"><a href="course3" target="_self">3</a></div>
+    <div class="breadcrumb-item"><a href="course4" target="_self">4</a></div>
+    <div class="breadcrumb-item"><a href="course5" target="_self">5</a></div>
+  </div>
+</body>
+</html>

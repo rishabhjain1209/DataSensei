@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Week 5: Advanced Techniques</title>
+</head>
+<body>
+<h2>Lesson 9: Calculations and Expressions</h2>
+<ol>
+    <li>
+        <h3>Introduction to Calculated Fields</h3>
+        <p>Calculated fields in Tableau allow you to create new fields by performing calculations on existing data. They are powerful for creating custom metrics and transforming data.</p>
+        <p>To create a calculated field:</p>
+        <ul>
+            <li>Right-click in the "Data" pane and select "Create Calculated Field."</li>
+            <li>Enter a formula or expression.</li>
+        </ul>
+        <p>Example Code for Creating a Calculated Field:</p>
+        <pre>
+            1. Right-click in the "Data" pane and select "Create Calculated Field."
+            2. Name your calculated field (e.g., "Profit Margin").
+            3. Enter the formula: (SUM([Profit]) / SUM([Sales])) * 100
+            4. Click OK to create the calculated field.
+        </pre>
+    </li>
+    <li>
+        <h3>Using Functions and Formulas</h3>
+        <p>Tableau provides a wide range of functions and formulas for calculated fields. These include mathematical, string, date, logical, and table calculations.</p>
+        <p>Example Code for Using a Function in a Calculated Field:</p>
+        <pre>
+            1. Create a calculated field.
+            2. Name it (e.g., "Year of Order Date").
+            3. Use the DATEPART() function: DATEPART('year', [Order Date])
+        </pre>
+    </li>
+    <li>
+        <h3>Creating Custom Calculations</h3>
+        <p>Calculated fields can be customized to meet specific analytical needs. You can use IF statements, logical operators, and nesting to create complex calculations.</p>
+        <p>Example Code for Creating a Custom Calculation:</p>
+        <pre>
+            1. Create a calculated field.
+            2. Name it (e.g., "Customer Segment Classification").
+            3. Use an IF statement: IF [Profit] > 1000 THEN 'High Profit'
+                                   ELSEIF [Profit] > 0 THEN 'Profit'
+                                   ELSE 'Loss'
+                                   END
+        </pre>
+    </li>
+</ol>
+<h2>Lesson 10: Parameters and Actions</h2>
+<ol start="27">
+    <li>
+        <h3>Understanding Parameters</h3>
+        <p>Parameters in Tableau allow users to input a value that can be used in calculations, filters, and dynamic actions.</p>
+        <p>To create a parameter:</p>
+        <ul>
+            <li>Right-click in the "Data" pane and select "Create Parameter."</li>
+            <li>Define the parameter properties, including data type, allowable values, and current value.</li>
+        </ul>
+        <p>Example Code for Creating a Parameter:</p>
+        <pre>
+            1. Right-click in the "Data" pane and select "Create Parameter."
+            2. Name your parameter (e.g., "Discount Percentage").
+            3. Choose the data type (e.g., float).
+            4. Define allowable values (e.g., between 0 and 100).
+        </pre>
+    </li>
+    <li>
+        <h3>Implementing Actions for User Interactivity</h3>
+        <p>Actions in Tableau enable interactive features by allowing users to interact with one visualization to affect another.</p>
+        <p>To create an action:</p>
+        <ul>
+            <li>Go to the "Dashboard" tab and select "Actions."</li>
+            <li>Choose the type of action (e.g., filter, highlight, or URL).</li>
+            <li>Define the source sheet and target sheet.</li>
+        </ul>
+        <p>Example Code for Implementing a Filter Action:</p>
+        <pre>
+            1. Create a dashboard.
+            2. Go to the "Dashboard" tab and select "Actions."
+            3. Click "Add Action" and choose "Filter."
+            4. Define the source sheet (e.g., a bar chart) and the target sheet (e.g., a map).
+            5. Set the field to filter and configure the action as needed.
+        </pre>
+    </li>
+</ol>
+</body>
+</html>

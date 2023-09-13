@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Week 1: Introduction to Seaborn</title>
+</head>
+<body>
+    <h1>Overview of Seaborn and its capabilities:</h1>
+    <p>Seaborn is a powerful data visualization library in Python that is built on top of Matplotlib. It provides a high-level interface for creating informative and attractive statistical graphics. Seaborn is particularly well-suited for visualizing complex datasets with minimal code, making it a popular choice for data analysis and exploration.</p>
+    <p>Seaborn's capabilities include:</p>
+    <ol>
+        <li><strong>Built-in themes and color palettes:</strong> Seaborn offers a variety of aesthetically pleasing themes and color palettes to enhance the visual appeal of your plots.</li>
+        <li><strong>Statistical plotting:</strong> It provides functions for creating various statistical plots like scatter plots, bar plots, violin plots, and more, which can include summary statistics.</li>
+        <li><strong>Integration with Pandas:</strong> Seaborn seamlessly works with Pandas DataFrames, making it easy to visualize data stored in DataFrames.</li>
+        <li><strong>Facet grids:</strong> You can use Seaborn to create complex multi-plot grids that allow you to visualize relationships within subsets of your data.</li>
+        <li><strong>Customization:</strong> Seaborn provides options to customize the appearance of your plots, including axis labels, titles, and legends.</li>
+    </ol>
+    <h2>Installation and Setup:</h2>
+    <p>To get started with Seaborn, you'll first need to install it if you haven't already. You can install Seaborn using pip:</p>
+    <pre><code>pip install seaborn</code></pre>
+    <p>Once Seaborn is installed, you can import it in your Python script or Jupyter Notebook:</p>
+    <pre><code>import seaborn as sns</code></pre>
+    <h2>Basic Data Visualization with Seaborn:</h2>
+    <p>Let's create a simple scatter plot to visualize a dataset using Seaborn. We'll use the built-in <code>sns.scatterplot()</code> function.</p>
+    <pre><code>import seaborn as sns
+import matplotlib.pyplot as plt
+# Sample data
+import pandas as pd
+data = pd.DataFrame({'x': [1, 2, 3, 4, 5], 'y': [2, 4, 1, 3, 5]})
+# Create a scatter plot
+sns.scatterplot(x='x', y='y', data=data)
+# Show the plot
+plt.show()
+</code></pre>
+    <p>This code will generate a basic scatter plot of the 'x' and 'y' columns from the DataFrame 'data'.</p>
+    <h2>Customizing Seaborn Plots: Color Palettes, Styles, and Aesthetics:</h2>
+    <p>Seaborn allows you to customize the appearance of your plots in various ways:</p>
+    <ul>
+        <li><strong>Color Palettes:</strong> You can choose different color palettes for your plots using <code>sns.set_palette()</code>. For example, using a "deep" color palette:</li>
+        <pre><code>sns.set_palette("deep")</code></pre>
+        <li><strong>Styles:</strong> Seaborn has built-in styles that change the overall look of your plots. You can set a style using <code>sns.set_style()</code>. For example, using the "whitegrid" style:</li>
+        <pre><code>sns.set_style("whitegrid")</code></pre>
+        <li><strong>Aesthetics:</strong> You can adjust various aesthetic elements of your plot, such as the font size and the size of plot elements, using <code>sns.set()</code>. For example, increasing the font size:</li>
+        <pre><code>sns.set(font_scale=1.2)</code></pre>
+    </ul>
+    <p>By combining these customization options, you can create visually appealing and informative Seaborn plots tailored to your specific needs.</p>
+</body>
+</html>

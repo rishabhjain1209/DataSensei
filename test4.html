@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Udemy-like Website</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0e1117; 
+    color: white;
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    color: white;
+  }
+  .card {
+    width: calc(33.33% - 5px);
+    background-color: #8600e6;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    overflow: hidden;
+    height: 280px;
+    color: white;
+  }
+  .card-content {
+    padding: 20px;
+    text-align: center;
+    color: white;
+  }
+  .course-name {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: white;
+  }
+  .course-description {
+    font-size: 12px;
+    margin-bottom: 5px;
+    color: white;
+  }
+  .btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: rgb(255, 255, 255);
+  }
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #000000;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-bottom: 15px;
+  }
+  .btn:hover {
+    background-color: #001f3e;
+    color: #fff;
+  }
+  .breadcrumb {
+    margin: 40px auto;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    font-size: 20px;
+    color: #fff; 
+  }
+  .breadcrumb-item {
+    margin: 0 10px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="card-content">
+        <div class="course-name">SciPy</div>
+        <br>
+        <div class="course-description">Dive into Data Alchemy with SciPy: Enter the mystical realm of scientific computing, where SciPy is your spellbook. Master the art of numerical optimization, signal processing, and statistical sorcery. Join us on a journey where data challenges bend to your will, and you emerge as a true data wizard!</div>
+        <div class="btn-container">
+          <a href="scipy" class="btn" target="_self">Enroll Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <div class="course-name">SAS</div>
+        <br>
+        <div class="course-description">Conquer Data Realms with SAS: Enter the realm of advanced analytics and business intelligence, where SAS is your guiding star. Master data mining, machine learning, and predictive modeling. Join us on a journey where data-driven decisions pave your path to success, and you become the architect of data insights!</div>
+        <div class="btn-container">
+          <a href="sas" class="btn" target="_self">Enroll Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <div class="course-name">GitHub</div>
+        <br>
+        <div class="course-description">GitHub is a web-based platform for collaborative software development, offering version control, code hosting, and project management. Developers use it to host repositories, track changes, and work together on coding projects with features like pull requests and issue tracking.</div>
+        <div class="btn-container">
+          <a href="github" class="btn" target="_self">Enroll Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <div class="course-name">NLP</div>
+        <br>
+        <div class="course-description">NLP (Natural Language Processing) is AI's branch devoted to understanding and generating human language. It encompasses tasks like translation, sentiment analysis, and chatbots, enabling applications from virtual assistants to automated content analysis by interpreting and generating text-based data.</div>
+        <div class="btn-container">
+          <a href="nlp" class="btn" target="_self">Enroll Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <div class="course-name">Flask</div>
+        <br>
+        <div class="course-description">Flask is a lightweight Python web framework for building web applications. Known for its simplicity and flexibility, Flask provides the essentials for creating web-based projects. It's widely used for developing RESTful APIs, microservices, and web applications due to its minimalistic design and extensive ecosystem of extensions.</div>
+        <div class="btn-container">
+          <a href="flask" class="btn" target="_self">Enroll Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <div class="course-name">Keras</div>
+        <br>
+        <div class="course-description">Keras is a popular Python-based neural networks API that simplifies deep learning model development. Its user-friendly, modular design is often combined with frameworks like TensorFlow, enabling efficient creation and training of deep neural networks for tasks such as image recognition and natural language processing.</div>
+        <div class="btn-container">
+          <a href="keras" class="btn" target="_self">Enroll Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="breadcrumb">
+    <div class="breadcrumb-item"><a href="course1" target="_self">1</a></div>
+    <div class="breadcrumb-item"><a href="course2" target="_self">2</a></div>
+    <div class="breadcrumb-item"><a href="course3" target="_self">3</a></div>
+    <div class="breadcrumb-item"><a href="course4" target="_self">4</a></div>
+    <div class="breadcrumb-item"><a href="course5" target="_self">5</a></div>
+  </div>
+</body>
+</html>

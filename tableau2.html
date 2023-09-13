@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Week 2: Data Preparation and Transformation</title>
+</head>
+<body>
+<h2>Lesson 3: Data Import and Data Types</h2>
+<ol>
+    <li>
+        <h3>Importing Data into Tableau</h3>
+        <p>Tableau offers several methods for importing data:</p>
+        <ul>
+            <li><strong>Connect to Data Source:</strong> As discussed in the previous lesson, you can connect to various data sources, including files, databases, and online sources.</li>
+            <li><strong>Data Extracts:</strong> Tableau can create data extracts, which are optimized subsets of data for faster performance and offline use.</li>
+            <li><strong>Copy and Paste:</strong> You can also copy data from spreadsheets and paste it directly into Tableau.</li>
+        </ul>
+    </li>
+    <li>
+        <h3>Understanding Data Types</h3>
+        <p>Data in Tableau is classified into various data types, including:</p>
+        <ul>
+            <li><strong>Dimension:</strong> Categorical data, such as names, categories, or dates.</li>
+            <li><strong>Measure:</strong> Numeric data that can be aggregated, like sales, profits, or quantities.</li>
+            <li><strong>Continuous:</strong> Numeric data that can take any value within a range (e.g., temperature).</li>
+            <li><strong>Discrete:</strong> Numeric data that consists of distinct, separate values (e.g., number of customers).</li>
+        </ul>
+    </li>
+    <li>
+        <h3>Cleaning and Formatting Data</h3>
+        <p>Data often requires cleaning and formatting to be useful. Tableau provides tools to:</p>
+        <ul>
+            <li><strong>Remove Null Values:</strong> Eliminate rows with missing data.</li>
+            <li><strong>Rename Fields:</strong> Make field names more descriptive.</li>
+            <li><strong>Create Calculated Fields:</strong> Generate new fields based on existing data.</li>
+            <li><strong>Split and Merge Fields:</strong> Divide or combine data within fields.</li>
+        </ul>
+    </li>
+</ol>
+<h2>Lesson 4: Data Joins and Blending</h2>
+<ol start="10">
+    <li>
+        <h3>Joining Data from Multiple Sources</h3>
+        <p>Tableau allows you to combine data from different sources using joins. Common types of joins include:</p>
+        <ul>
+            <li><strong>Inner Join:</strong> Returns only the matching rows from both tables.</li>
+            <li><strong>Left Join (Outer Join):</strong> Returns all rows from the left table and matching rows from the right table.</li>
+            <li><strong>Right Join (Outer Join):</strong> Returns all rows from the right table and matching rows from the left table.</li>
+            <li><strong>Full Outer Join:</strong> Returns all rows from both tables, including non-matching rows.</li>
+        </ul>
+        <p>Example Code for Joining Two Excel Sheets:</p>
+        <pre>
+            1. Connect to your first Excel data source.
+            2. Drag a second Excel data source onto the canvas.
+            3. Define the join conditions by dragging fields from one source to another (e.g., linking a common customer ID).
+            4. Choose the join type (inner, left, right, or full outer).
+            5. Click "Add" to add the join clause.
+        </pre>
+    </li>
+    <li>
+        <h3>Data Blending for Combining Data</h3>
+        <p>Data blending is used when you have data from different data sources (e.g., Excel and a database) and you want to combine them without a traditional database join. It's often used when joins are not feasible due to data source limitations.</p>
+        <p>Example Code for Data Blending:</p>
+        <pre>
+            1. Connect to your primary data source (e.g., Excel).
+            2. Drag a secondary data source (e.g., a database) onto the canvas.
+            3. Define relationships by matching fields from both sources (e.g., customer ID).
+            4. Tableau will automatically create a data blend relationship.
+            5. Use fields from both sources in your visualization.
+        </pre>
+    </li>
+</ol>
+</body>
+</html>

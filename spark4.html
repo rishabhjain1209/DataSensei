@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Module 4: Spark Data Sources</title>
+</head>
+<body>
+<h1>Module 4: Spark Data Sources</h1>
+<h2>Reading and Writing Data from Various Sources:</h2>
+<p>Apache Spark provides extensive support for reading and writing data from a wide range of sources, making it a versatile tool for data processing. Some of the common data sources supported by Spark include:</p>
+<ol>
+    <li>
+        <h3>CSV (Comma-Separated Values):</h3>
+        <p>You can read and write data from CSV files using Spark. Use the <code>spark.read.csv()</code> method to read CSV data and the <code>DataFrame.write.csv()</code> method to write DataFrames to CSV files.</p>
+    </li>    
+    <li>
+        <h3>Parquet:</h3>
+        <p>Parquet is a columnar storage format that's highly efficient for analytics. Spark can read and write Parquet files, providing high performance and compression. Use <code>spark.read.parquet()</code> and <code>DataFrame.write.parquet()</code> for Parquet data.</p>
+    </li>    
+    <li>
+        <h3>JSON (JavaScript Object Notation):</h3>
+        <p>JSON is a common data format for semi-structured data. Spark supports reading and writing JSON data via <code>spark.read.json()</code> and <code>DataFrame.write.json()</code>.</p>
+    </li>    
+    <li>
+        <h3>Avro:</h3>
+        <p>Avro is a binary data format with schema support. You can read and write Avro data with Spark using the <code>spark.read.format("avro")</code> and <code>DataFrame.write.format("avro")</code> methods.</p>
+    </li>    
+    <li>
+        <h3>ORC (Optimized Row Columnar):</h3>
+        <p>ORC is another columnar storage format like Parquet. You can work with ORC files using <code>spark.read.format("orc")</code> and <code>DataFrame.write.format("orc")</code>.</p>
+    </li>    
+    <li>
+        <h3>Hive Tables:</h3>
+        <p>Spark can read and write data from Hive tables, enabling integration with the Hive metastore and existing Hive workflows.</p>
+    </li>    
+    <li>
+        <h3>JDBC Databases:</h3>
+        <p>You can connect to various relational databases using Spark's JDBC data source. Use <code>spark.read.jdbc()</code> and <code>DataFrame.write.jdbc()</code> to read from and write to JDBC databases.</p>
+    </li>    
+    <li>
+        <h3>Kafka:</h3>
+        <p>Spark Streaming can consume data from Apache Kafka topics, allowing real-time processing of streaming data.</p>
+    </li>    
+    <li>
+        <h3>S3, HDFS, and Other Distributed File Systems:</h3>
+        <p>Spark can read and write data from distributed file systems like HDFS and cloud storage systems like Amazon S3.</p>
+    </li>
+</ol>
+<h2>DataFrame API for Structured Data:</h2>
+<p>DataFrames in Spark are a high-level API for working with structured data, offering several advantages over RDDs:</p>
+<ol>
+    <li>
+        <h3>Schema:</h3>
+        <p>DataFrames have a well-defined schema, which means you can specify the data types and column names. This schema information helps with data validation and optimization.</p>
+    </li>    
+    <li>
+        <h3>Optimization:</h3>
+        <p>Spark's Catalyst query optimizer can optimize DataFrame operations, resulting in more efficient query execution plans.</p>
+    </li>    
+    <li>
+        <h3>SQL Support:</h3>
+        <p>DataFrames can be queried using SQL, making it easy to work with structured data using familiar SQL syntax.</p>
+    </li>    
+    <li>
+        <h3>Integration:</h3>
+        <p>DataFrames seamlessly integrate with Spark's other libraries, such as Spark SQL, MLlib, and GraphX.</p>
+    </li>
+</ol>
+<h2>Basic Data Manipulations with DataFrames:</h2>
+<p>You can perform various data manipulations on DataFrames, similar to SQL operations. Some common operations include:</p>
+<ol>
+    <li>
+        <h3>Selecting Columns:</h3>
+        <p>Use the <code>select()</code> method to choose specific columns from a DataFrame.</p>
+    </li>    
+    <li>
+        <h3>Filtering Data:</h3>
+        <p>Apply filters to DataFrames using the <code>filter()</code> method or SQL-like <code>where()</code> method.</p>
+    </li>    
+    <li>
+        <h3>Grouping and Aggregating:</h3>
+        <p>Group data using the <code>groupBy()</code> method and perform aggregation operations like <code>sum()</code>, <code>avg()</code>, <code>max()</code>, etc.</p>
+    </li>    
+    <li>
+        <h3>Joining DataFrames:</h3>
+        <p>Combine DataFrames using the <code>join()</code> method, specifying join conditions and types (inner, outer, left, right).</p>
+    </li>    
+    <li>
+        <h3>Sorting Data:</h3>
+        <p>Sort DataFrames using the <code>orderBy()</code> or <code>sort()</code> methods.</p>
+    </li>    
+    <li>
+        <h3>Adding and Renaming Columns:</h3>
+        <p>Use the <code>withColumn()</code> method to add new columns or <code>alias()</code> to rename existing ones.</p>
+    </li>    
+    <li>
+        <h3>Pivoting Data:</h3>
+        <p>Transform data from long to wide format or vice versa using the <code>pivot()</code> method.</p>
+    </li>    
+    <li>
+        <h3>Handling Missing Data:</h3>
+        <p>Handle missing values using <code>na</code> functions like <code>drop()</code>, <code>fill()</code>, or <code>replace()</code>.</p>
+    </li>   
+    <li>
+        <h3>User-Defined Functions (UDFs):</h3>
+        <p>You can define custom functions and apply them to DataFrame columns using <code>withColumn()</code> and <code>udf()</code>.</p>
+    </li>
+</ol>
+<p>Overall, Spark's support for various data sources, its DataFrame API for structured data, and the ability to perform basic data manipulations make it a powerful tool for data ingestion, transformation, and analysis in a distributed and scalable manner.</p>
+</body>
+</html>

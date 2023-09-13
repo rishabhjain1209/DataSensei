@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Udemy-like Website</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0e1117; 
+    color: white;
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    color: white;
+  }
+  .card {
+    width: calc(33.33% - 5px);
+    background-color: #8600e6;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    overflow: hidden;
+    height: 280px;
+    color: white;
+  }
+  .card-content {
+    padding: 20px;
+    text-align: center;
+    color: white;
+  }
+  .course-name {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: white;
+  }
+  .course-description {
+    font-size: 12px;
+    margin-bottom: 5px;
+    color: white;
+  }
+  .btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: rgb(255, 255, 255);
+  }
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #000000;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-bottom: 15px;
+  }
+  .btn:hover {
+    background-color: #001f3e;
+    color: #fff;
+  }
+  .breadcrumb {
+    margin: 40px auto;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    font-size: 20px;
+    color: #fff; 
+  }
+  .breadcrumb-item {
+    margin: 0 10px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="card-content">
+        <div class="course-name">Machine Learning Algorithms</div>
+        <br>
+        <div class="course-description">Machine learning algorithms are computational techniques that enable computers to learn patterns from data and make predictions or decisions. They include supervised, unsupervised, and reinforcement learning methods, vital for tasks like classification, clustering, regression, and various AI and data science applications.</div>
+        <div class="btn-container">
+          <a href="mla" class="btn" target="_self">Enroll Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <div class="course-name">Deep Learning</div>
+        <br>
+        <div class="course-description">Deep learning is a subfield of machine learning that focuses on neural networks with multiple layers, called deep neural networks. These networks can automatically learn hierarchical representations of data, making them well-suited for tasks such as image and speech recognition, natural language processing, and complex pattern analysis.</div>
+        <div class="btn-container">
+          <a href="dl" class="btn" target="_self">Enroll Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <div class="course-name">Kubernetes</div>
+        <br>
+        <div class="course-description">Kubernetes, often abbreviated as K8s, is an open-source container orchestration platform used to automate the deployment, scaling, and management of containerized applications. It provides a robust framework for container orchestration, allowing for efficient resource utilization, scaling, and automated maintenance in containerized environments.</div>
+        <div class="btn-container">
+          <a href="kubernate" class="btn" target="_self">Enroll Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <div class="course-name">AWS</div>
+        <br>
+        <div class="course-description">Amazon Web Services (AWS) is a leading cloud computing platform by Amazon. It delivers an extensive range of cloud services, encompassing computing, storage, databases, machine learning, and more. AWS empowers organizations to scale, host applications, and manage data cost-effectively and flexibly in the cloud.</div>
+        <div class="btn-container">
+          <a href="aws" class="btn" target="_self">Enroll Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <div class="course-name">Azure</div>
+        <br>
+        <div class="course-description">Microsoft Azure is a cloud computing platform and service by Microsoft. It offers a wide range of cloud services, including computing, storage, databases, analytics, and AI. Azure enables businesses to build, deploy, and manage applications and services in a secure and scalable cloud environment.</div>
+        <div class="btn-container"> 
+          <a href="azure" class="btn" target="_self">Enroll Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-content">
+        <div class="course-name">Docker</div>
+        <br>
+        <div class="course-description">Docker is an open-source platform that automates application deployment and management using containers. Containers package applications and their dependencies for consistent and portable deployment across diverse environments, streamlining development and scaling processes in modern software development.</div>
+        <div class="btn-container">
+          <a href="docker" class="btn" target="_self">Enroll Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="breadcrumb">
+    <div class="breadcrumb-item"><a href="course1" target="_self">1</a></div>
+    <div class="breadcrumb-item"><a href="course2" target="_self">2</a></div>
+    <div class="breadcrumb-item"><a href="course3" target="_self">3</a></div>
+    <div class="breadcrumb-item"><a href="course4" target="_self">4</a></div>
+    <div class="breadcrumb-item"><a href="course5" target="_self">5</a></div>
+  </div>
+</body>
+</html>

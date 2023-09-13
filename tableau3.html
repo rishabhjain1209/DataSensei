@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Week 3: Building Basic Visualizations</title>
+</head>
+<body>
+<h2>Lesson 5: Creating Bar Charts and Line Charts</h2>
+<ol>
+    <li>
+        <h3>Building Bar Charts</h3>
+        <p>Bar charts are useful for displaying categorical data. Here's how to create one in Tableau:</p>
+        <ul>
+            <li>Drag a dimension (e.g., Product Category) to the Columns shelf.</li>
+            <li>Drag a measure (e.g., Sales) to the Rows shelf.</li>
+            <li>Tableau will automatically create a bar chart.</li>
+        </ul>
+        <p>Example Code for Creating a Bar Chart:</p>
+        <pre>
+            1. Connect to your data source.
+            2. Drag "Product Category" to Columns.
+            3. Drag "Sales" to Rows.
+            4. Tableau creates a bar chart showing sales by product category.
+        </pre>
+    </li>
+    <li>
+        <h3>Constructing Line Charts</h3>
+        <p>Line charts are effective for visualizing trends over time or continuous data. Here's how to create one:</p>
+        <ul>
+            <li>Drag a dimension or date field to the Columns shelf.</li>
+            <li>Drag a measure to the Rows shelf.</li>
+            <li>Change the mark type to "Line."</li>
+        </ul>
+        <p>Example Code for Creating a Line Chart:</p>
+        <pre>
+            1. Connect to your data source.
+            2. Drag "Date" to Columns.
+            3. Drag "Revenue" to Rows.
+            4. Change the mark type to "Line."
+        </pre>
+    </li>
+    <li>
+        <h3>Adding Filters and Sorting</h3>
+        <p>To enhance your visualizations, you can add filters to allow users to interact with the data. To add a filter:</p>
+        <ul>
+            <li>Drag a dimension (e.g., Region) to the Filters shelf.</li>
+            <li>Users can now select specific regions to filter the data.</li>
+        </ul>
+        <p>To sort your visualizations:</p>
+        <ul>
+            <li>Right-click a dimension or measure.</li>
+            <li>Choose "Sort" and select the desired sorting option (e.g., ascending or descending).</li>
+        </ul>
+    </li>
+</ol>
+<h2>Lesson 6: Pie Charts and Scatter Plots</h2>
+<ol start="15">
+    <li>
+        <h3>Creating Pie Charts</h3>
+        <p>Pie charts are suitable for showing parts of a whole. To create one in Tableau:</p>
+        <ul>
+            <li>Drag a dimension (e.g., Product Category) to the "Color" shelf.</li>
+            <li>Drag a measure (e.g., Sales) to the "Angle" shelf.</li>
+            <li>Tableau will create a pie chart.</li>
+        </ul>
+        <p>Example Code for Creating a Pie Chart:</p>
+        <pre>
+            1. Connect to your data source.
+            2. Drag "Product Category" to Color.
+            3. Drag "Sales" to Angle.
+            4. Tableau generates a pie chart representing sales by product category.
+        </pre>
+    </li>
+    <li>
+        <h3>Building Scatter Plots</h3>
+        <p>Scatter plots are excellent for visualizing relationships between two continuous variables. To create one:</p>
+        <ul>
+            <li>Drag a measure to the Columns shelf.</li>
+            <li>Drag another measure to the Rows shelf.</li>
+            <li>Tableau will create a scatter plot.</li>
+        </ul>
+        <p>Example Code for Creating a Scatter Plot:</p>
+        <pre>
+            1. Connect to your data source.
+            2. Drag "Profit" to Columns.
+            3. Drag "Sales" to Rows.
+            4. Tableau generates a scatter plot showing the relationship between profit and sales.
+        </pre>
+    </li>
+    <li>
+        <h3>Customizing Visuals</h3>
+        <p>Tableau provides extensive customization options, such as changing colors, labels, and formatting axes. To customize a visualization:</p>
+        <ul>
+            <li>Click on various elements in the chart.</li>
+            <li>Use the "Marks" card to adjust the appearance and behavior of marks.</li>
+            <li>Explore the "Format" menu for further customization options.</li>
+        </ul>
+    </li>
+</ol>
+
+</body>
+</html>

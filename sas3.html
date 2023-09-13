@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Module 3: Data Import and Export</title>
+</head>
+<body>
+    <h2>Module 3: Data Import and Export</h2>
+    <h3>Reading Data from External Sources:</h3>
+    <p>One of the fundamental tasks in data analysis is importing data from external sources into SAS for further processing. SAS provides multiple methods and procedures for reading data from various sources, including:</p>
+    <ol>
+        <li><strong>Reading Text Files:</strong> You can use the <code>DATA</code> step with the <code>INFILE</code> statement to read data from plain text files, such as CSV, tab-delimited, or space-delimited files. Here's an example:</li>
+    </ol>
+    <pre><code>
+DATA mydata;
+   INFILE 'data.csv' DLM=','; /* Read a CSV file */
+   INPUT var1 var2 var3;
+RUN;
+    </code></pre>
+    <ol start="2">
+        <li><strong>Reading Excel Files:</strong> You can use the <code>LIBNAME</code> statement with the <code>EXCEL</code> engine to read data directly from Excel files (.xlsx). Alternatively, you can use the <code>IMPORT</code> procedure to import Excel files.</li>
+    </ol>
+    <ol start="3">
+        <li><strong>Reading Databases:</strong> SAS can connect to various databases (e.g., SQL Server, Oracle, MySQL) using the appropriate SAS/ACCESS engines and procedures to read data.</li>
+    </ol>
+    <ol start="4">
+        <li><strong>Reading Other Data Formats:</strong> SAS supports reading data from various other formats, such as SAS datasets, JSON, XML, and more, using the appropriate procedures and data steps.</li>
+    </ol>
+    <h3>Exporting Data to Various Formats:</h3>
+    <p>SAS allows you to export datasets to different file formats for sharing, reporting, or analysis in other tools. Some common methods for exporting data include:</p>
+    <ol>
+        <li><strong>Export to Text Files:</strong> You can use the <code>EXPORT</code> procedure or the <code>DATA</code> step with the <code>FILE</code> statement to export data to plain text files in various formats (e.g., CSV, tab-delimited).</li>
+    </ol>
+    <ol start="2">
+        <li><strong>Export to Excel:</strong> SAS provides the <code>EXPORT</code> procedure to export datasets directly to Excel files (.xlsx) or other spreadsheet formats.</li>
+    </ol>
+    <ol start="3">
+        <li><strong>Export to Databases:</strong> You can use the <code>DATA</code> step or the appropriate SAS/ACCESS engine to export data to relational databases.</li>
+    </ol>
+    <ol start="4">
+        <li><strong>Export to SAS Transport Files:</strong> SAS datasets can be saved in transport file format for transferring data between different SAS environments.</li>
+    </ol>
+    <ol start="5">
+        <li><strong>Export to Other Data Formats:</strong> SAS offers procedures for exporting data to other formats like JSON, XML, and more, depending on your needs.</li>
+    </ol>
+    <p>Here's an example of exporting a SAS dataset to a CSV file:</p>
+    <pre><code>
+DATA mydata;
+   SET original_dataset;
+   /* SAS code to process data */
+RUN;
+/* Export the modified dataset to a CSV file */
+PROC EXPORT DATA=mydata
+   OUTFILE='output.csv'
+   DBMS=CSV REPLACE;
+RUN;
+    </code></pre>
+    <h3>Data Cleaning and Validation:</h3>
+    <p>Before and after importing data, it's crucial to perform data cleaning and validation to ensure data quality and consistency. SAS provides tools and techniques for data cleaning and validation, including:</p>
+    <ul>
+        <li><strong>Handling Missing Data:</strong> Identify and handle missing values using functions like <code>MISSING</code> and techniques like imputation.</li>
+        <li><strong>Data Transformation:</strong> Perform data transformations to convert data types, standardize variables, and create derived variables.</li>
+        <li><strong>Data Validation:</strong> Validate data against predefined business rules or data quality standards using conditional statements and data checks.</li>
+        <li><strong>Data Imputation:</strong> Impute missing values using statistical techniques or domain-specific knowledge.</li>
+        <li><strong>Data Profiling:</strong> Use procedures like <code>PROC MEANS</code> and <code>PROC FREQ</code> to generate summary statistics and identify potential issues in the data.</li>
+        <li><strong>Data Quality Assessment:</strong> Assess data quality and integrity by examining distributions, outliers, and relationships within the data.</li>
+    </ul>
+    <p>Data cleaning and validation are essential steps in data preparation to ensure that the data used for analysis and reporting is accurate and reliable.</p>
+    <p>In summary, Module 3 covers the critical aspects of importing data from various sources into SAS, exporting data to different formats, and performing data cleaning and validation to ensure data quality and integrity for subsequent analysis and reporting tasks.</p>
+</body>
+</html>

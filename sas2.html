@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Module 2: SAS Programming Basics</title>
+</head>
+<body>
+    <h2>Module 2: SAS Programming Basics</h2>
+    <h3>SAS Syntax and Data Step:</h3>
+    <p>SAS programming involves writing code in the SAS language to perform various data manipulation and analysis tasks. The fundamental building block of SAS programming is the DATA step. In the DATA step, you read, modify, and create datasets. Here's an overview of the basic syntax and structure of a DATA step:</p>
+    <pre><code>
+DATA output_dataset;
+   /* SAS code for data manipulation */
+RUN;
+    </code></pre>
+    <ul>
+        <li><code>DATA output_dataset;</code>: This line defines the name of the output dataset you want to create or modify. You can specify any valid SAS dataset name.</li>
+        <li><code>/* SAS code for data manipulation */</code>: This is where you write SAS code to perform data operations. SAS code within the DATA step includes various statements to read, process, and transform data.</li>
+        <li><code>RUN;</code>: The <code>RUN;</code> statement indicates the end of the DATA step.</li>
+    </ul>
+    <h3>Creating and Modifying Datasets:</h3>
+    <p>In SAS, you can create new datasets or modify existing ones using the DATA step. Common operations include:</p>
+    <ul>
+        <li><strong>Creating a New Dataset:</strong> To create a new dataset, specify its name in the <code>DATA</code> statement. For example:</li>
+    </ul>
+    <pre><code>
+DATA new_dataset;
+   /* SAS code to create new_dataset */
+RUN;
+    </code></pre>
+    <ul>
+        <li><strong>Modifying an Existing Dataset:</strong> You can modify an existing dataset by specifying its name in the <code>DATA</code> statement and using data manipulation techniques within the DATA step.</li>
+    </ul>
+    <h3>Working with Variables and Observations:</h3>
+    <p>SAS datasets are organized into rows and columns, with rows representing observations and columns representing variables. Here are some common tasks related to variables and observations:</p>
+    <ul>
+        <li><strong>Selecting Variables:</strong> To include specific variables in your analysis, use the <code>SET</code> statement followed by the dataset name and a list of variable names. For example:</li>
+    </ul>
+    <pre><code>
+DATA selected_vars;
+   SET original_dataset (keep = var1 var2);
+   /* SAS code to work with selected variables */
+RUN;
+    </code></pre>
+    <ul>
+        <li><strong>Filtering Observations:</strong> You can filter observations based on specific conditions using the <code>IF</code> statement. For example:</li>
+    </ul>
+    <pre><code>
+DATA filtered_obs;
+   SET original_dataset;
+   IF condition; /* Specify your filtering condition */
+   /* SAS code to process filtered observations */
+RUN;
+    </code></pre>
+    <ul>
+        <li><strong>Creating New Variables:</strong> To create new variables, use the <code>DATA</code> step to define the new variable's name and calculate its value based on existing variables.</li>
+    </ul>
+    <h3>Data Transformation and Manipulation:</h3>
+    <p>SAS provides a wide range of functions and operations for data transformation and manipulation within the DATA step. Some common tasks include:</p>
+    <ul>
+        <li><strong>Data Cleaning:</strong> Identify and handle missing values, outliers, and data quality issues.</li>
+        <li><strong>Data Aggregation:</strong> Summarize data using PROC MEANS, PROC SUMMARY, or other aggregation techniques.</li>
+        <li><strong>Data Merging:</strong> Combine datasets using the MERGE statement or SQL joins.</li>
+        <li><strong>Data Sorting:</strong> Sort data using the SORT procedure or the SORT statement within the DATA step.</li>
+        <li><strong>Data Subset Selection:</strong> Create subsets of data using the WHERE statement or WHERE condition.</li>
+        <li><strong>Data Transposition:</strong> Reshape data from wide to long format or vice versa using data transformation techniques.</li>
+        <li><strong>Data Labeling:</strong> Assign labels to variables and values using the LABEL statement.</li>
+    </ul>
+    <p>Here's a simplified example of a DATA step that creates a new dataset by selecting specific variables and filtering observations:</p>
+    <pre><code>
+DATA new_dataset;
+   SET original_dataset;
+   IF age >= 18; /* Keep only adults */
+   /* SAS code to work with the selected variables and filtered observations */
+RUN;
+    </code></pre>
+    <p>These fundamental concepts in SAS programming are essential for data preparation, manipulation, and analysis in various domains, including research, business analytics, and healthcare.</p>
+</body>
+</html>

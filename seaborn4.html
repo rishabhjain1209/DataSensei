@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Week 4: Advanced Seaborn Techniques</title>
+</head>
+<body>
+    <h1>Working with Time Series Data:</h1>
+    <p>Seaborn can be used to visualize time series data effectively. Time series data typically involves plotting data points against time intervals. You can use Seaborn in conjunction with libraries like Pandas to manipulate and visualize time series data. Below is an example of visualizing time series data:</p>
+    <pre><code>import seaborn as sns
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+# Generate sample time series data
+date_rng = pd.date_range(start='2023-01-01', end='2023-01-10', freq='D')
+data = {'Date': date_rng, 'Value': np.random.randn(len(date_rng))}
+df = pd.DataFrame(data)
+# Create a line plot for time series data
+sns.set_style("whitegrid")
+plt.figure(figsize=(10, 5))
+sns.lineplot(x='Date', y='Value', data=df)
+plt.xlabel("Date")
+plt.ylabel("Value")
+plt.title("Time Series Data Visualization")
+plt.xticks(rotation=45)
+plt.show()
+</code></pre>
+    <h1>Creating Complex Visualizations: Heatmaps and Cluster Maps</h1>
+    <h2>1. Heatmaps:</h2>
+    <p>Heatmaps are used to display data in a grid format where the color intensity represents the magnitude of the data. Seaborn's <code>sns.heatmap()</code> is often used for this purpose.</p>
+    <pre><code>import seaborn as sns
+import matplotlib.pyplot as plt
+# Sample data (correlation matrix)
+data = sns.load_dataset("iris")
+corr_matrix = data.corr()
+# Create a heatmap
+sns.heatmap(corr_matrix, annot=True, cmap="coolwarm")
+plt.title("Correlation Heatmap")
+plt.show()
+</code></pre>
+    <h2>2. Cluster Maps:</h2>
+    <p>Cluster maps combine hierarchical clustering and heatmaps to reveal patterns and groupings in data. Seaborn's <code>sns.clustermap()</code> is used for this purpose.</p>
+    <pre><code>import seaborn as sns
+import matplotlib.pyplot as plt
+# Sample data (correlation matrix)
+data = sns.load_dataset("iris")
+corr_matrix = data.corr()
+# Create a cluster map
+sns.clustermap(corr_matrix, annot=True, cmap="coolwarm")
+plt.title("Cluster Map of Correlation")
+plt.show()
+</code></pre>
+    <h1>Customizing Seaborn Plots Further: Annotations and Custom Themes</h1>
+    <h2>1. Annotations:</h2>
+    <p>You can add annotations to your Seaborn plots to provide additional information or highlight specific points. For example, adding text annotations to a scatter plot:</p>
+    <pre><code>import seaborn as sns
+import matplotlib.pyplot as plt
+# Sample data
+data = sns.load_dataset("tips")
+# Create a scatter plot
+sns.scatterplot(x='total_bill', y='tip', data=data)
+# Add text annotation
+plt.text(30, 5, "Annotated Point", fontsize=12, color='red')
+plt.xlabel("Total Bill")
+plt.ylabel("Tip")
+plt.title("Scatter Plot with Annotation")
+plt.show()
+</code></pre>
+    <h2>2. Custom Themes:</h2>
+    <p>Seaborn allows you to customize the appearance of your plots further by defining custom themes. You can create your theme or use one of Seaborn's built-in themes. For example, using a dark theme:</p>
+    <pre><code>import seaborn as sns
+import matplotlib.pyplot as plt
+# Set a custom theme (dark)
+sns.set_style("darkgrid")
+# Sample data
+data = sns.load_dataset("tips")
+# Create a bar plot
+sns.barplot(x='day', y='total_bill', data=data)
+plt.xlabel("Day")
+plt.ylabel("Total Bill")
+plt.title("Custom Theme Example")
+plt.show()
+</code></pre>
+    <p>These advanced techniques in Seaborn allow you to handle time series data, create complex visualizations, and further customize your plots to meet specific needs. By mastering these techniques, you can produce more insightful and tailored data visualizations.</p>
+</body>
+</html>

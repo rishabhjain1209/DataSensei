@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Module 2: Numerical Computing with SciPy</title>
+</head>
+<body>
+<h1>Module 2: Numerical Computing with SciPy</h1>
+<h2>NumPy vs. SciPy:</h2>
+<p>NumPy and SciPy are two closely related libraries in the Python scientific computing ecosystem, but they serve different purposes:</p>
+<ul>
+    <li>
+        <strong>NumPy (Numerical Python):</strong> NumPy is primarily focused on providing efficient array operations and fundamental mathematical functions for working with multi-dimensional arrays (ndarrays). It forms the foundation for numerical computing in Python and provides the data structures and tools needed for efficient data manipulation.
+    </li>    
+    <li>
+        <strong>SciPy:</strong> SciPy builds on NumPy and extends its capabilities by adding specialized modules and functions for various scientific and technical computing tasks. SciPy includes modules for optimization, integration, interpolation, linear algebra, signal and image processing, statistics, and more. While NumPy handles basic array operations, SciPy provides higher-level functions for solving specific numerical problems commonly encountered in scientific research and engineering.
+    </li>
+</ul>
+<h2>Arrays and Basic Array Operations:</h2>
+<p>Arrays are the core data structure in both NumPy and SciPy. They are similar to lists in Python but are more efficient for numerical computations, especially when dealing with large datasets. Some basic array operations in NumPy and SciPy include:</p>
+<ul>
+    <li>
+        <strong>Creating Arrays:</strong> You can create arrays using functions like <code>numpy.array()</code>, <code>numpy.zeros()</code>, <code>numpy.ones()</code>, and more.
+    </li>   
+    <li>
+        <strong>Array Operations:</strong> NumPy and SciPy provide a wide range of mathematical operations for arrays, including element-wise addition, subtraction, multiplication, division, and more.
+    </li>    
+    <li>
+        <strong>Array Indexing and Slicing:</strong> You can access elements of an array using indexing and slicing, similar to Python lists.
+    </li>    
+    <li>
+        <strong>Array Shape and Reshaping:</strong> Functions like <code>numpy.shape()</code>, <code>numpy.reshape()</code>, and <code>numpy.transpose()</code> allow you to manipulate the shape and dimensions of arrays.
+    </li>
+</ul>
+<h2>Linear Algebra with SciPy:</h2>
+<p>SciPy's <code>scipy.linalg</code> module provides comprehensive support for linear algebra operations. You can perform tasks like matrix multiplication, eigenvalue and eigenvector calculations, solving linear equations, and more. Some common linear algebra functions in SciPy include:</p>
+<ul>
+    <li>
+        <strong>Matrix Multiplication:</strong> Use <code>scipy.linalg.dot()</code> or the <code>@</code> operator to perform matrix multiplication.
+    </li>    
+    <li>
+        <strong>Eigenvalue and Eigenvector Calculation:</strong> The <code>scipy.linalg.eig()</code> function computes eigenvalues and eigenvectors of a square matrix.
+    </li>    
+    <li>
+        <strong>Solving Linear Equations:</strong> The <code>scipy.linalg.solve()</code> function solves systems of linear equations of the form Ax = b.
+    </li>    
+    <li>
+        <strong>Matrix Inversion:</strong> You can calculate the inverse of a matrix using <code>scipy.linalg.inv()</code>.
+    </li>
+</ul>
+<h2>Numerical Integration and Differentiation:</h2>
+<p>SciPy's <code>scipy.integrate</code> module provides functions for numerical integration and differentiation. Some important functions in this module include:</p>
+<ul>
+    <li>
+        <strong>Integration:</strong> You can perform numerical integration using the <code>scipy.integrate.quad()</code> function for one-dimensional integration and <code>scipy.integrate.simps()</code> for Simpson's rule.
+    </li>    
+    <li>
+        <strong>Differentiation:</strong> SciPy provides numerical differentiation using functions like <code>scipy.misc.derivative()</code> and <code>scipy.interpolate.BarycentricInterpolator()</code>.
+    </li>
+</ul>
+<p>These numerical tools are valuable for solving complex mathematical problems, modeling physical systems, and performing scientific simulations where analytical solutions are challenging or impossible to obtain.</p>
+<p>In summary, SciPy complements NumPy by offering specialized numerical computing capabilities for scientific and technical applications. It provides an extensive set of functions and modules for tasks like linear algebra, numerical integration, and differentiation, making it a valuable tool for researchers and engineers working in various fields of science and engineering.</p>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Module 3: Spark Basics</title>
+</head>
+<body>
+<h1>Module 3: Spark Basics</h1>
+<h2>Resilient Distributed Datasets (RDDs):</h2>
+<p>Resilient Distributed Datasets (RDDs) are the fundamental data structure in Spark. RDDs are distributed collections of data that can be processed in parallel across a cluster. Key characteristics of RDDs include:</p>
+<ol>
+    <li>
+        <h3>Immutable:</h3>
+        <p>Once created, RDDs are immutable, meaning you cannot change their content. If you need to modify data, you create a new RDD.</p>
+    </li>    
+    <li>
+        <h3>Distributed:</h3>
+        <p>RDDs are automatically partitioned across the nodes of the Spark cluster, allowing for parallel processing.</p>
+    </li>    
+    <li>
+        <h3>Resilient:</h3>
+        <p>RDDs are fault-tolerant. Spark keeps track of the lineage information, allowing lost data partitions to be recomputed from the original data source.</p>
+    </li>    
+    <li>
+        <h3>Lazily Evaluated:</h3>
+        <p>RDDs are lazily evaluated, meaning transformations on RDDs are not executed immediately but are recorded as a sequence of transformations. Actions trigger the actual computation.</p>
+    </li>
+</ol>
+<h2>Transformations and Actions on RDDs:</h2>
+<p>In Spark, you can perform two types of operations on RDDs:</p>
+<ol>
+    <li>
+        <h3>Transformations:</h3>
+        <p>These are operations that create a new RDD from an existing one. Transformations are lazy, which means they are not executed until an action is called. Examples of transformations include <code>map()</code>, <code>filter()</code>, <code>reduceByKey()</code>, and <code>join()</code>.</p>
+    </li>    
+    <li>
+        <h3>Actions:</h3>
+        <p>Actions are operations that return values or produce side effects, such as writing data to storage or printing to the console. When an action is invoked, Spark schedules the necessary transformations to compute the result. Examples of actions include <code>count()</code>, <code>collect()</code>, <code>saveAsTextFile()</code>, and <code>foreach()</code>.</p>
+    </li>
+</ol>
+<h2>Caching and Persistence:</h2>
+<p>Caching in Spark allows you to persist an RDD in memory so that it can be reused efficiently across multiple actions. Caching can significantly improve the performance of iterative algorithms or when you need to reuse the same data multiple times. Key caching methods include:</p>
+<ol>
+    <li>
+        <code>persist()</code>: You can use the <code>persist()</code> method to indicate which RDDs should be cached in memory or on disk. You can specify storage levels (e.g., MEMORY_ONLY, MEMORY_AND_DISK) and the level of replication.
+    </li>    
+    <li>
+        <code>cache()</code>: This is a shorthand for <code>persist(MEMORY_ONLY)</code> and is commonly used to cache RDDs in memory.
+    </li>    
+    <li>
+        <code>unpersist()</code>: Use this method to remove an RDD from cache when it's no longer needed to free up memory.
+    </li>
+</ol>
+<h2>Understanding Lazy Evaluation:</h2>
+<p>Lazy evaluation is a fundamental concept in Spark and allows for optimization of data processing workflows. Here's how it works:</p>
+<ol>
+    <li>
+        <p><strong>Transformation Operations Are Recorded:</strong> When you apply transformation operations to an RDD, Spark does not immediately execute them. Instead, it records the transformations in a lineage graph.</p>
+    </li>    
+    <li>
+        <p><strong>Actions Trigger Execution:</strong> When an action is invoked (e.g., <code>count()</code>, <code>collect()</code>), Spark examines the lineage graph to determine the most efficient way to compute the result.</p>
+    </li>    
+    <li>
+        <p><strong>Only Necessary Data Is Processed:</strong> Spark only computes the partitions of data that are needed to satisfy the action. It skips unnecessary data, which can significantly optimize performance.</p>
+    </li>
+</ol>
+<p>Lazy evaluation has several advantages, including:</p>
+<ul>
+    <li>It minimizes unnecessary data shuffling and computation, which can be especially important in distributed environments.</li>
+    <li>It allows Spark to optimize the execution plan based on the actual actions invoked, leading to more efficient data processing.</li>
+    <li>It enables Spark to recover lost data partitions by recomputing them from the original source in case of node failures.</li>
+</ul>
+<p>In summary, RDDs are the building blocks of Spark, and they offer a resilient, distributed, and lazily evaluated way to process data. Transformations and actions allow you to manipulate and analyze RDDs efficiently, and caching can further optimize performance when working with frequently used data. Lazy evaluation is a key concept that helps Spark minimize unnecessary computation and improve efficiency in data processing workflows.</p>
+</body>
+</html>
