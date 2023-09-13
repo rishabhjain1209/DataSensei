@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Week 2: Basic Plotly Charts</title>
+</head>
+<body>
+    <h2>Week 2: Basic Plotly Charts</h2>
+    <p>In Week 2, you'll learn about three fundamental types of basic Plotly charts: Line charts, Scatter plots, and Bar
+        charts. Additionally, you'll explore some basic customization options to enhance your visualizations.</p>
+    <h3>1. Line Charts</h3>
+    <p>Line charts are used to display data points connected by lines, making them suitable for showing trends and changes
+        over time. Here's an example of creating a simple line chart using Plotly:</p>
+    <pre><code>import plotly.graph_objects as go
+# Sample data
+x = [1, 2, 3, 4, 5]
+y = [10, 11, 12, 13, 14]
+# Create a line chart
+fig = go.Figure(data=go.Scatter(x=x, y=y, mode='lines'))
+# Customize the plot
+fig.update_layout(
+    title='Simple Line Chart',
+    xaxis=dict(title='X-axis Label'),
+    yaxis=dict(title='Y-axis Label')
+)
+# Show the plot
+fig.show()
+</code></pre>
+    <p>In this example, we use the <code>go.Scatter</code> trace type with the <code>mode</code> parameter set to
+        'lines' to create a line chart.</p>
+    <h3>2. Scatter Plots</h3>
+    <p>Scatter plots are used to visualize individual data points. They are great for showing the relationship between two
+        variables. Here's an example of creating a simple scatter plot:</p>
+    <pre><code>import plotly.graph_objects as go
+# Sample data
+x = [1, 2, 3, 4, 5]
+y = [10, 11, 12, 13, 14]
+# Create a scatter plot
+fig = go.Figure(data=go.Scatter(x=x, y=y, mode='markers'))
+# Customize the plot
+fig.update_layout(
+    title='Simple Scatter Plot',
+    xaxis=dict(title='X-axis Label'),
+    yaxis=dict(title='Y-axis Label')
+)
+# Show the plot
+fig.show()
+</code></pre>
+    <p>In this example, we use the <code>go.Scatter</code> trace type with the <code>mode</code> parameter set to
+        'markers' to create a scatter plot.</p>
+    <h3>3. Bar Charts</h3>
+    <p>Bar charts are used to represent categorical data with rectangular bars. They are useful for comparing different
+        categories or groups. Here's an example of creating a simple bar chart:</p>
+    <pre><code>import plotly.graph_objects as go
+# Sample data
+categories = ['Category A', 'Category B', 'Category C', 'Category D']
+values = [30, 45, 20, 60]
+# Create a bar chart
+fig = go.Figure(data=go.Bar(x=categories, y=values))
+# Customize the plot
+fig.update_layout(
+    title='Simple Bar Chart',
+    xaxis=dict(title='Categories'),
+    yaxis=dict(title='Values')
+)
+# Show the plot
+fig.show()
+</code></pre>
+    <p>In this example, we use the <code>go.Bar</code> trace type to create a bar chart.</p>
+    <h3>4. Basic Customization Options</h3>
+    <p>Customizing your charts can help convey your data more effectively. In the code examples above, we've already seen
+        some customization options like setting titles and axis labels using <code>update_layout</code>.</p>
+    <p>You can further customize your plots by modifying attributes such as colors, markers, fonts, and more. For example:</p>
+    <pre><code># Change the marker color in a scatter plot
+fig.update_traces(marker=dict(color='red'))
+# Change the bar color in a bar chart
+fig.update_traces(marker_color='blue')
+# Adjust the font size of axis labels and titles
+fig.update_layout(
+    xaxis=dict(title='X-axis Label', title_font=dict(size=16)),
+    yaxis=dict(title='Y-axis Label', title_font=dict(size=16)),
+    title_font=dict(size=20)
+)
+</code></pre>
+    <p>These are just a few examples of customization options you can explore to make your charts more visually appealing
+        and informative.</p>
+    <p>By mastering these basic Plotly chart types and customization options, you'll have a strong foundation for
+        creating a wide range of data visualizations in the following weeks of your course.</p>
+</body>
+</html>

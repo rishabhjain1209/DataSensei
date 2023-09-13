@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Overview of Hadoop's Architecture</h2>
+    <p>Hadoop's architecture is designed to process and store large datasets across a cluster of commodity hardware. It consists of several key components that work together to distribute and process data efficiently. The primary components of Hadoop architecture include:</p>
+    <ol>
+        <li><strong>Hadoop Distributed File System (HDFS):</strong> A distributed file storage system that provides high-throughput access to data and is designed for fault tolerance. It divides large files into smaller blocks and stores multiple copies of each block across the cluster.</li>
+        <li><strong>Hadoop MapReduce:</strong> A programming model and processing engine for distributed data processing. It divides tasks into map and reduce phases and distributes them across the cluster, allowing parallel processing of data.</li>
+        <li><strong>Yet Another Resource Negotiator (YARN):</strong> A resource management layer that manages and allocates resources (CPU, memory) for applications running on a Hadoop cluster. It enables multiple data processing frameworks to coexist on the same cluster.</li>
+        <li><strong>Hadoop Common:</strong> A set of utilities and libraries shared by all Hadoop modules, including tools for distributed computing, data serialization, and more.</li>
+    </ol>
+    <h3>Hadoop Distributed File System (HDFS)</h3>
+    <p>HDFS is a fundamental component of Hadoop's architecture. It is designed to store and manage vast amounts of data reliably. Key features of HDFS include:</p>
+    <ul>
+        <li><strong>Blocks:</strong> HDFS divides files into fixed-size blocks (typically 128MB or 256MB). These blocks are distributed across the cluster.</li>
+        <li><strong>Replication:</strong> HDFS replicates each block multiple times (usually three) across different DataNodes to ensure fault tolerance. If one replica becomes unavailable, HDFS can retrieve the data from another replica.</li>
+        <li><strong>Master-Slave Architecture:</strong> HDFS follows a master-slave architecture. The key components are the NameNode and DataNodes:</li>
+        <ul>
+            <li><strong>NameNode:</strong> It is the master server that manages the metadata and namespace of the file system. It keeps track of the structure of the file system and the location of data blocks.</li>
+            <li><strong>DataNode:</strong> These are worker nodes that store the actual data blocks. They report to the NameNode about the health and availability of blocks they store.</li>
+        </ul>
+    </ul>
+    <h3>Hadoop Cluster Components</h3>
+    <p>Now, let's dive deeper into the Hadoop cluster components:</p>
+    <ol>
+        <li><strong>NameNode:</strong>
+            <ul>
+                <li>The NameNode is the master server responsible for managing the metadata and namespace of the HDFS.</li>
+                <li>It keeps track of the structure of the file system, directory hierarchy, and the location of data blocks.</li>
+                <li>It does not store the actual data but maintains metadata about the data blocks and their locations.</li>
+            </ul>
+        </li>
+        <li><strong>DataNode:</strong>
+            <ul>
+                <li>DataNodes are worker nodes responsible for storing and managing the actual data blocks.</li>
+                <li>They periodically send heartbeat signals to the NameNode to report their health and availability.</li>
+                <li>If a DataNode becomes unavailable or a block becomes corrupted, the NameNode can replicate the data to maintain fault tolerance.</li>
+            </ul>
+        </li>
+        <li><strong>ResourceManager:</strong>
+            <ul>
+                <li>The ResourceManager is the central authority for resource management in a Hadoop cluster.</li>
+                <li>It receives resource requests from applications and allocates resources to them.</li>
+                <li>It consists of two main components: the Scheduler and the ApplicationManager.</li>
+            </ul>
+        </li>
+        <li><strong>NodeManager:</strong>
+            <ul>
+                <li>NodeManagers are responsible for monitoring resource usage on individual cluster nodes.</li>
+                <li>They report resource utilization to the ResourceManager and manage the execution of containerized tasks.</li>
+            </ul>
+        </li>
+    </ol>
+    <p>These components work together to enable the distributed storage and processing capabilities of Hadoop, making it suitable for handling Big Data workloads.</p>
+</body>
+</html>

@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Python Sets</h1>
+    <p>Sets in Python are a versatile way to store collections of data. They are one of the four built-in data types in Python, with the other three being List, Tuple, and Dictionary. Sets have unique characteristics that make them suitable for specific use cases.</p>
+    <h2>Characteristics of Sets:</h2>
+    <ol>
+        <li><strong>Unordered:</strong> Sets do not have a defined order for their elements. This means that the items in a set can appear in a different order each time you use them. Unlike lists or tuples, you cannot access set items by index.</li>
+        <li><strong>Unchangeable (Immutable):</strong> Once a set is created, you cannot change its items individually. However, you can add new items and remove existing ones.</li>
+        <li><strong>No Duplicate Values:</strong> Sets do not allow duplicate values. If you attempt to add an element that already exists in the set, it will be ignored.</li>
+    </ol>
+    <h2>Creating a Set:</h2>
+    <p>Sets are written with curly braces <code>{}</code>. You can create a set by listing its elements within the braces.</p>
+    <code>myset = {"apple", "banana", "cherry"}<br>print(myset)</code>
+    <p>Output:</p>
+    <pre>{'banana', 'apple', 'cherry'}</pre>
+    <p>As sets are unordered, the order of elements in the set may vary.</p>
+    <h2>Adding and Removing Items:</h2>
+    <p>You can add items to a set using the <code>add()</code> method and remove items using the <code>remove()</code> method. Here's an example:</p>
+    <code>fruits = {"apple", "banana", "cherry"}<br>fruits.add("orange")<br>fruits.remove("banana")<br>print(fruits)</code>
+    <p>Output:</p>
+    <pre>{'apple', 'orange', 'cherry'}</pre>
+    <h2>Checking Set Length:</h2>
+    <p>To find out how many items are in a set, you can use the <code>len()</code> function:</p>
+    <code>myset = {"apple", "banana", "cherry"}<br>print(len(myset))</code>
+    <p>Output:</p>
+    <pre>3</pre>
+    <h2>Data Types in Sets:</h2>
+    <p>Sets can contain items of any data type, including strings, integers, and booleans:</p>
+    <code>set1 = {"apple", "banana", "cherry"}<br>set2 = {1, 5, 7, 9, 3}<br>set3 = {True, False, False}</code>
+    <p>Sets can even contain different data types within the same set:</p>
+    <code>mixed_set = {"abc", 34, True, 40, "male"}</code>
+    <h2>Using the <code>set()</code> Constructor:</h2>
+    <p>You can also create a set using the <code>set()</code> constructor:</p>
+    <code>thisset = set(("apple", "banana", "cherry")) # note the double round-brackets<br>print(thisset)</code>
+    <p>Output:</p>
+    <pre>{'banana', 'apple', 'cherry'}</pre>
+    <h2>Python Collections (Arrays):</h2>
+    <p>Python offers several collection data types to cater to various requirements:</p>
+    <ul>
+        <li><strong>List:</strong> Lists are ordered, changeable, and allow duplicate members.</li>
+        <li><strong>Tuple:</strong> Tuples are ordered, unchangeable, and allow duplicate members.</li>
+        <li><strong>Set:</strong> Sets are unordered, unchangeable, and do not allow duplicate members.</li>
+        <li><strong>Dictionary:</strong> Dictionaries are ordered (in Python 3.7+), changeable, and do not allow duplicate keys.</li>
+    </ul>
+    <p>The choice of collection type depends on the specific use case and requirements, such as whether order or duplication matters.</p>
+    <p>Here's an example illustrating the characteristics and operations of sets:</p>
+    <code>fruits = {"apple", "banana", "cherry"}<br>fruits.add("orange")<br>fruits.remove("banana")<br>print(len(fruits))<br>print(fruits)</code>
+    <p>Output:</p>
+    <pre>
+        2
+        {'apple', 'orange', 'cherry'}
+    </pre>
+    <p>This example demonstrates the creation, addition, removal, and length calculation of a set in Python.</p>
+<br><br>
+    <h1>Access Set Items in Python</h1>
+    <p>In Python, sets are unordered collections of unique elements. You cannot access items in a set by referring to an index or a key like you would with a list or dictionary. However, you can loop through set items using a <code>for</code> loop or check if a specified value is present in a set using the <code>in</code> keyword.</p>
+    <h2>1. Looping Through a Set:</h2>
+    <p>You can use a <code>for</code> loop to iterate through the items in a set and print their values:</p>
+    <pre>
+thisset = {"apple", "banana", "cherry"}
+for x in thisset:
+    print(x)
+    </pre>
+    <p>In this code, the <code>for</code> loop iterates through the <code>thisset</code> and prints each item in the set. The result will be:</p>
+    <pre>
+cherry
+banana
+apple
+    </pre>
+    <p>Notice that the order of the items in the set may not be the same as the order in which they were added because sets are unordered.</p>
+    <h2>2. Checking for a Specific Value:</h2>
+    <p>You can check if a specific value is present in a set using the <code>in</code> keyword:</p>
+    <pre>
+thisset = {"apple", "banana", "cherry"}
+print("banana" in thisset)
+    </pre>
+    <p>In this code, we check if the value <code>"banana"</code> is present in the <code>thisset</code>. The result will be:</p>
+    <pre>
+True
+    </pre>
+    <p>The <code>in</code> keyword returns <code>True</code> if the specified value is found in the set; otherwise, it returns <code>False</code>.</p>
+    <h2>Change Items:</h2>
+    <p>Once a set is created, you cannot change its items (sets are mutable), but you can add new items or remove existing ones. The next section covers adding items to sets.</p>
+    <h2>Add Items to a Set:</h2>
+    <p>To add one item to a set, you can use the <code>add()</code> method:</p>
+    <pre>
+thisset = {"apple", "banana", "cherry"}
+thisset.add("orange")
+print(thisset)
+    </pre>
+    <p>In this code, we use the <code>add()</code> method to add the item <code>"orange"</code> to the <code>thisset</code>. The result will include <code>"orange"</code> as part of the set:</p>
+    <pre>
+{'orange', 'banana', 'cherry', 'apple'}
+    </pre>
+    <p>The <code>add()</code> method adds the item to the set if it's not already present. If the item is already in the set, it will not be added again.</p>
+    <h2>Add Sets:</h2>
+    <p>To add items from another set into the current set, you can use the <code>update()</code> method:</p>
+    <pre>
+thisset = {"apple", "banana", "cherry"}
+tropical = {"pineapple", "mango", "papaya"}
+thisset.update(tropical)
+print(thisset)
+    </pre>
+    <p>In this code, we use the <code>update()</code> method to add elements from the <code>tropical</code> set into the <code>thisset</code>. The result will be a set containing all the items from both sets:</p>
+    <pre>
+{'apple', 'papaya', 'mango', 'banana', 'pineapple', 'cherry'}
+    </pre>
+    <p>You can add elements from any iterable object (e.g., tuples, lists, dictionaries) using the <code>update()</code> method.</p>
+    <p>These methods are useful for working with sets and adding or checking for items within them.</p>
+<br><br>
+    <h1>Remove Set Items</h1>
+    <p>In Python, you can remove items from a set using various methods, such as <code>remove()</code>, <code>discard()</code>, or <code>pop()</code>. Here's an explanation of these methods:</p>
+    <h2>1. <code>remove()</code> Method:</h2>
+    <p>The <code>remove()</code> method is used to remove a specified item from the set. If the item to remove does not exist, it will raise an error.</p>
+    <pre>
+thisset = {"apple", "banana", "cherry"}
+thisset.remove("banana")
+print(thisset)
+    </pre>
+    <p>In this code, <code>"banana"</code> is removed from the set, and the updated set is printed:</p>
+    <pre>
+{'apple', 'cherry'}
+    </pre>
+    <h2>2. <code>discard()</code> Method:</h2>
+    <p>The <code>discard()</code> method is also used to remove a specified item from the set. However, if the item does not exist, <code>discard()</code> will not raise an error.</p>
+    <pre>
+thisset = {"apple", "banana", "cherry"}
+thisset.discard("banana")
+print(thisset)
+    </pre>
+    <p>The result will be the same as with the <code>remove()</code> method:</p>
+    <pre>
+{'apple', 'cherry'}
+    </pre>
+    <h2>3. <code>pop()</code> Method:</h2>
+    <p>The <code>pop()</code> method removes and returns a random item from the set. Since sets are unordered collections, you cannot predict which item will be removed. The removed item is returned as the result of the <code>pop()</code> method.</p>
+    <pre>
+thisset = {"apple", "banana", "cherry"}
+x = thisset.pop()
+print("Removed item:", x)
+print("Updated set:", thisset)
+    </pre>
+    <p>The result will vary each time you run the code, but it may look like this:</p>
+    <pre>
+Removed item: cherry
+Updated set: {'banana', 'apple'}
+    </pre>
+    <h2>4. <code>clear()</code> Method:</h2>
+    <p>The <code>clear()</code> method empties the entire set, making it an empty set:</p>
+    <pre>
+thisset = {"apple", "banana", "cherry"}
+thisset.clear()
+print(thisset)
+    </pre>
+    <p>The result will be an empty set:</p>
+    <pre>
+set()
+    </pre>
+    <h2>5. Using <code>del</code> Keyword:</h2>
+    <p>You can also use the <code>del</code> keyword to delete the entire set:</p>
+    <pre>
+thisset = {"apple", "banana", "cherry"}
+del thisset
+    </pre>
+    <p>After using <code>del</code>, the set no longer exists.</p>
+    <h1>Loop Through Set Items</h1>
+    <p>You can loop through the items in a set using a <code>for</code> loop, just like you would with lists or tuples:</p>
+    <pre>
+thisset = {"apple", "banana", "cherry"}
+for x in thisset:
+    print(x)
+    </pre>
+    <p>This code will iterate through the items in the set and print each item:</p>
+    <pre>
+cherry
+banana
+apple
+    </pre>
+    <p>Keep in mind that sets are unordered collections, so the order of items in the loop may not be the same as the order in which they were added to the set.</p>
+    <p>Looping through set items in Python allows you to iterate over the elements of a set and perform operations on each element.</p>
+<br><br>
+    <h1>Loop Through Set Items</h1>
+    <p>Looping through set items in Python allows you to iterate over the elements of a set and perform operations on each element. Here's an explanation of how to loop through set items along with a code example:</p>
+    <h2>Loop Through Set Items:</h2>
+    <p>You can loop through the items in a set using a <code>for</code> loop. The loop iterates through each item in the set, allowing you to perform actions on those items. Here's a code example:</p>
+    <pre>
+# Define a set of fruits
+fruits = {"apple", "banana", "cherry"}
+# Loop through the set and print each item
+for fruit in fruits:
+    print(fruit)
+    </pre>
+    <p>In this code, we define a set called <code>fruits</code> that contains three fruit names. We then use a <code>for</code> loop to iterate through the set, and for each iteration, we print the value of the current item. The output will be:</p>
+    <pre>
+banana
+apple
+cherry
+    </pre>
+    <p>The order of items in the output may not necessarily match the order in which they were added to the set because sets are unordered collections.</p>
+    <p>You can use this looping mechanism to perform various operations on each item in the set, such as checking conditions, modifying values, or performing calculations.</p>
+<br><br>
+    <h1>Joining Sets</h1>
+    <p>Joining sets in Python allows you to combine the elements from multiple sets into a single set. Here's an explanation of how to join sets along with code examples:</p>
+    <h2>Join Two Sets:</h2>
+    <p>There are two common methods to join two sets:</p>
+    <h3>1. union() Method:</h3>
+    <p>The <code>union()</code> method returns a new set containing all items from both sets. It creates a new set without modifying the original sets.</p>
+    <pre>
+# Define two sets
+set1 = {"a", "b", "c"}
+set2 = {1, 2, 3}
+# Use the union() method to combine sets
+set3 = set1.union(set2)
+print(set3)
+    </pre>
+    <p>Output:</p>
+    <pre>
+{1, 2, 3, 'a', 'b', 'c'}
+    </pre>
+    <p>In this example, <code>set3</code> contains all items from both <code>set1</code> and <code>set2</code>, creating a new set.</p>
+    <h3>2. update() Method:</h3>
+    <p>The <code>update()</code> method inserts all the items from one set into another, effectively modifying the first set. It adds elements from the second set to the first set.</p>
+    <pre>
+# Define two sets
+set1 = {"a", "b", "c"}
+set2 = {1, 2, 3}
+# Use the update() method to insert set2 into set1
+set1.update(set2)
+print(set1)
+    </pre>
+    <p>Output:</p>
+    <pre>
+{1, 2, 3, 'a', 'b', 'c'}
+    </pre>
+    <p>In this example, <code>set1</code> is modified to include all items from <code>set2</code>.</p>
+    <p>Both methods result in a new set containing all unique items from both original sets. You can choose the method that best fits your use case, depending on whether you want to create a new set or modify an existing one.</p>
+<br><br>
+    <h1>Set Methods in Python</h1>
+    <p>Here are explanations and code examples for various set methods in Python:</p>
+    <h2>1. add():</h2>
+    <p>Adds an element to the set.</p>
+    <pre>
+my_set = {1, 2, 3}
+my_set.add(4)
+print(my_set)
+    </pre>
+    <p>Output:</p>
+    <pre>
+{1, 2, 3, 4}
+    </pre>
+    <h2>2. clear():</h2>
+    <p>Removes all the elements from the set.</p>
+    <pre>
+my_set = {1, 2, 3}
+my_set.clear()
+print(my_set)
+    </pre>
+    <p>Output:</p>
+    <pre>
+set()
+    </pre>
+    <h2>3. copy():</h2>
+    <p>Returns a copy of the set.</p>
+    <pre>
+my_set = {1, 2, 3}
+new_set = my_set.copy()
+print(new_set)
+    </pre>
+    <h2>4. difference():</h2>
+    <p>Returns a set containing the difference between two or more sets.</p>
+    <pre>
+set1 = {1, 2, 3}
+set2 = {3, 4, 5}
+diff_set = set1.difference(set2)
+print(diff_set)
+    </pre>
+    <p>Output:</p>
+    <pre>
+{1, 2}
+    </pre>
+    <h2>5. difference_update():</h2>
+    <p>Removes the items in this set that are also included in another specified set.</p>
+    <pre>
+set1 = {1, 2, 3}
+set2 = {3, 4, 5}
+set1.difference_update(set2)
+print(set1)
+    </pre>
+    <p>Output:</p>
+    <pre>
+{1, 2}
+    </pre>
+    <h2>6. discard():</h2>
+    <p>Remove the specified item.</p>
+    <pre>
+my_set = {1, 2, 3}
+my_set.discard(2)
+print(my_set)
+    </pre>
+    <p>Output:</p>
+    <pre>
+{1, 3}
+    </pre>
+    <h2>7. intersection():</h2>
+    <p>Returns a set that is the intersection of two other sets.</p>
+    <pre>
+set1 = {1, 2, 3}
+set2 = {3, 4, 5}
+intersection_set = set1.intersection(set2)
+print(intersection_set)
+    </pre>
+    <p>Output:</p>
+    <pre>
+{3}
+    </pre>
+    <h2>8. intersection_update():</h2>
+    <p>Removes the items in this set that are not present in other specified sets.</p>
+    <pre>
+set1 = {1, 2, 3}
+set2 = {3, 4, 5}
+set1.intersection_update(set2)
+print(set1)
+    </pre>
+    <p>Output:</p>
+    <pre>
+{3}
+    </pre>
+    <h2>9. isdisjoint():</h2>
+    <p>Returns whether two sets have an intersection or not.</p>
+    <pre>
+set1 = {1, 2, 3}
+set2 = {4, 5, 6}
+is_disjoint = set1.isdisjoint(set2)
+print(is_disjoint)
+    </pre>
+    <p>Output:</p>
+    <pre>
+True
+    </pre>
+    <h2>10. issubset():</h2>
+    <p>Returns whether another set contains this set or not.</p>
+    <pre>
+set1 = {1, 2}
+set2 = {1, 2, 3, 4}
+is_subset = set1.issubset(set2)
+print(is_subset)
+    </pre>
+    <p>Output:</p>
+    <pre>
+True
+    </pre>
+    <p>These are some of the essential set methods in Python. You can use these methods to manipulate and work with sets effectively.</p>
+<br><br>
+    <h1>Dictionary in Python</h1>
+    <p>Dictionaries are used to store data values in key:value pairs. They are a collection that is ordered (as of Python 3.7), changeable, and does not allow duplicates.</p>
+    <h2>Creating a Dictionary:</h2>
+    <p>Dictionaries are defined using curly braces <code>{}</code> and contain key-value pairs separated by colons <code>:</code>.</p>
+    <pre>
+thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+    </pre>
+    <h2>Accessing Dictionary Items:</h2>
+    <p>You can access the values in a dictionary by referring to its key.</p>
+    <pre>
+print(thisdict["brand"])
+    </pre>
+    <h2>Ordered vs. Unordered:</h2>
+    <p>In Python 3.7 and later, dictionaries are ordered, meaning that the items have a defined order, and that order will not change. In earlier Python versions (3.6 and earlier), dictionaries are unordered.</p>
+    <h2>Changeable:</h2>
+    <p>Dictionaries are changeable, so you can modify, add, or remove items after creating the dictionary.</p>
+    <h2>Duplicates Not Allowed:</h2>
+    <p>Dictionaries cannot have two items with the same key. If you specify the same key multiple times, the duplicate values will overwrite existing ones.</p>
+    <pre>
+thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964,
+  "year": 2020
+}
+print(thisdict)  <!-- Output: {'brand': 'Ford', 'model': 'Mustang', 'year': 2020} -->
+    </pre>
+    <h2>Dictionary Length:</h2>
+    <p>To find the number of items in a dictionary, you can use the <code>len()</code> function.</p>
+    <pre>
+print(len(thisdict))
+    </pre>
+    <h2>Dictionary Items - Data Types:</h2>
+    <p>The values in dictionary items can be of any data type, including strings, integers, booleans, and even lists.</p>
+    <pre>
+thisdict = {
+  "brand": "Ford",
+  "electric": False,
+  "year": 1964,
+  "colors": ["red", "white", "blue"]
+}
+    </pre>
+    <p>You can use dictionaries to store and organize data efficiently, making it easy to access values using keys.</p>
+<br><br>
+    <h1>Type of a Dictionary</h1>
+    <p>In Python, you can use the <code>type()</code> function to check the data type of an object. When you use <code>type()</code> on a dictionary, it returns <code>dict</code>.</p>
+    <pre>
+thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+print(type(thisdict))  <!-- Output: &lt;class 'dict'&gt; -->
+    </pre>
+    <h1>Creating a Dictionary Using the <code>dict()</code> Constructor</h1>
+    <p>You can create a dictionary using the <code>dict()</code> constructor by providing key-value pairs or keyword arguments.</p>
+    <pre>
+thisdict = dict(name="John", age=36, country="Norway")
+print(thisdict)  <!-- Output: {'name': 'John', 'age': 36, 'country': 'Norway'} -->
+    </pre>
+    <h1>Collections in Python</h1>
+    <p>Python has several collection data types to store and manipulate data efficiently. Here's a brief summary:</p>
+    <ul>
+        <li><strong>List:</strong> A collection that is ordered and changeable, allowing duplicate members.</li>
+        <pre>
+mylist = [1, 2, 3, 2, 4]
+        </pre>
+        <li><strong>Tuple:</strong> A collection that is ordered and unchangeable, allowing duplicate members.</li>
+        <pre>
+mytuple = ("apple", "banana", "apple")
+        </pre>
+        <li><strong>Set:</strong> A collection that is unordered, unchangeable, and does not allow duplicates.</li>
+        <pre>
+myset = {"apple", "banana", "cherry"}
+        </pre>
+        <li><strong>Dictionary:</strong> A collection that is ordered (Python 3.7+), changeable, and does not allow duplicate keys.</li>
+        <pre>
+mydict = {"brand": "Ford", "model": "Mustang", "year": 1964}
+        </pre>
+    </ul>
+    <h1>Choosing the Right Collection Type</h1>
+    <p>When selecting a collection type, consider the properties of each type:</p>
+    <ul>
+        <li><em>Lists</em> are suitable when you need an ordered collection that allows duplicates and can change.</li>
+        <li><em>Tuples</em> are suitable when you need an ordered collection that does not change and allows duplicates.</li>
+        <li><em>Sets</em> are suitable when you need an unordered collection without duplicates.</li>
+        <li><em>Dictionaries</em> are suitable for storing key-value pairs, and in Python 3.7+, they maintain the order of insertion.</li>
+    </ul>
+    <p>Choosing the right collection type is essential for efficiency and clarity in your code.</p>
+<br><br>
+    <h1>Accessing Dictionary Items</h1>
+    <p>You can access dictionary items by referring to their key name inside square brackets. For example:</p>
+    <pre>
+thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+x = thisdict["model"]
+print(x)  <!-- Output: Mustang -->
+    </pre>
+    <p>Alternatively, you can use the <code>get()</code> method to achieve the same result:</p>
+    <pre>
+x = thisdict.get("model")
+print(x)  <!-- Output: Mustang -->
+    </pre>
+    <p>The <code>get()</code> method is useful when you want to avoid raising an error if the key does not exist in the dictionary.</p>
+    <h1>Get Keys</h1>
+    <p>The <code>keys()</code> method returns a list of all the keys in the dictionary:</p>
+    <pre>
+x = thisdict.keys()
+print(x)  <!-- Output: dict_keys(['brand', 'model', 'year']) -->
+    </pre>
+    <p>The keys list is a dynamic view of the dictionary, meaning any changes made to the dictionary will be reflected in the keys list:</p>
+    <pre>
+car = {
+    "brand": "Ford",
+    "model": "Mustang",
+    "year": 1964
+}
+x = car.keys()
+print(x)  <!-- Output: dict_keys(['brand', 'model', 'year']) (before the change) -->
+car["color"] = "white"
+print(x)  <!-- Output: dict_keys(['brand', 'model', 'year', 'color']) (after the change) -->
+    </pre>
+    <h1>Get Values</h1>
+    <p>The <code>values()</code> method returns a list of all the values in the dictionary:</p>
+    <pre>
+x = thisdict.values()
+print(x)  <!-- Output: dict_values(['Ford', 'Mustang', 1964]) -->
+    </pre>
+    <p>Similar to keys, the values list is a dynamic view of the dictionary:</p>
+    <pre>
+car = {
+    "brand": "Ford",
+    "model": "Mustang",
+    "year": 1964
+}
+x = car.values()
+print(x)  <!-- Output: dict_values(['Ford', 'Mustang', 1964]) (before the change) -->
+car["year"] = 2020
+print(x)  <!-- Output: dict_values(['Ford', 'Mustang', 2020]) (after the change) -->
+    </pre>
+    <p>These methods make it easy to work with dictionaries, allowing you to access keys, values, and modify the dictionary contents as needed.</p>
+<br><br>
+    <h1>Get Items</h1>
+    <p>The <code>items()</code> method returns each item in a dictionary as tuples in a list:</p>
+    <pre>
+x = thisdict.items()
+print(x)
+<!-- Output: dict_items([('brand', 'Ford'), ('model', 'Mustang'), ('year', 1964)]) -->
+    </pre>
+    <p>The returned list is a dynamic view of the dictionary items, meaning any changes to the dictionary will be reflected in the items list:</p>
+    <pre>
+car = {
+    "brand": "Ford",
+    "model": "Mustang",
+    "year": 1964
+}
+x = car.items()
+print(x)  <!-- Output: dict_items([('brand', 'Ford'), ('model', 'Mustang'), ('year', 1964)]) (before the change) -->
+car["year"] = 2020
+print(x)  <!-- Output: dict_items([('brand', 'Ford'), ('model', 'Mustang'), ('year', 2020)]) (after the change) -->
+    </pre>
+    <h1>Check if Key Exists</h1>
+    <p>You can determine if a specified key is present in a dictionary using the <code>in</code> keyword:</p>
+    <pre>
+thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+if "model" in thisdict:
+  print("Yes, 'model' is one of the keys in the thisdict dictionary")
+    </pre>
+    <h1>Change Dictionary Items</h1>
+    <p>You can change the value of a specific item by referring to its key name:</p>
+    <pre>
+thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+thisdict["year"] = 2018
+    </pre>
+    <h1>Add Dictionary Items</h1>
+    <p>Adding an item to the dictionary is done by using a new index key and assigning a value to it:</p>
+    <pre>
+thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+thisdict["color"] = "red"
+    </pre>
+    <p>You can also use the <code>update()</code> method to add or update items in the dictionary:</p>
+    <pre>
+thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+thisdict.update({"color": "red"})
+    </pre>
+    <p>These methods make it easy to work with dictionary items, check for key existence, and modify dictionary contents as needed.</p>
+<br><br>
+    <h1>Removing Items from a Dictionary</h1>
+    <p>There are several methods to remove items from a dictionary:</p>
+    <ul>
+        <li>The <code>pop()</code> method removes the item with the specified key name:</li>
+        <pre>
+thisdict = {
+    "brand": "Ford",
+    "model": "Mustang",
+    "year": 1964
+}
+thisdict.pop("model")
+        </pre>
+        <li>The <code>popitem()</code> method removes the last inserted item. In versions before Python 3.7, a random item is removed instead:</li>
+        <pre>
+thisdict = {
+    "brand": "Ford",
+    "model": "Mustang",
+    "year": 1964
+}
+thisdict.popitem()
+        </pre>
+        <li>The <code>del</code> keyword can remove the item with the specified key name:</li>
+        <pre>
+thisdict = {
+    "brand": "Ford",
+    "model": "Mustang",
+    "year": 1964
+}
+del thisdict["model"]
+        </pre>
+        <li>The <code>del</code> keyword can also delete the entire dictionary:</li>
+        <pre>
+thisdict = {
+    "brand": "Ford",
+    "model": "Mustang",
+    "year": 1964
+}
+del thisdict
+<!-- This will cause an error because "thisdict" no longer exists. -->
+        </pre>
+        <li>The <code>clear()</code> method empties the dictionary:</li>
+        <pre>
+thisdict = {
+    "brand": "Ford",
+    "model": "Mustang",
+    "year": 1964
+}
+thisdict.clear()
+        </pre>
+    </ul>
+    <h1>Looping Through a Dictionary</h1>
+    <p>You can loop through a dictionary using a for loop. Here are examples of different ways to loop through a dictionary:</p>
+    <ul>
+        <li>Print all key names in the dictionary one by one:</li>
+        <pre>
+for x in thisdict:
+    print(x)
+        </pre>
+        <li>Print all values in the dictionary one by one:</li>
+        <pre>
+for x in thisdict:
+    print(thisdict[x])
+        </pre>
+        <li>Use the <code>values()</code> method to return values from the dictionary:</li>
+        <pre>
+for x in thisdict.values():
+    print(x)
+        </pre>
+        <li>Use the <code>keys()</code> method to return the keys of the dictionary:</li>
+        <pre>
+for x in thisdict.keys():
+    print(x)
+        </pre>
+        <li>Loop through both keys and values using the <code>items()</code> method:</li>
+        <pre>
+for x, y in thisdict.items():
+    print(x, y)
+        </pre>
+    </ul>
+    <p>These methods make it convenient to manipulate and iterate through dictionary items.</p>
+<br><br>
+    <h1>Copying a Dictionary</h1>
+    <p>When copying dictionaries, it's important to understand that simply using <code>dict2 = dict1</code> will create a reference to the original dictionary, so changes in <code>dict1</code> will affect <code>dict2</code>. To make an independent copy, you can use the <code>copy()</code> method or the <code>dict()</code> function.</p>
+    <h2>Using the <code>copy()</code> method:</h2>
+    <pre>
+thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+mydict = thisdict.copy()
+    </pre>
+    <h2>Using the <code>dict()</code> function:</h2>
+    <pre>
+thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+mydict = dict(thisdict)
+    </pre>
+    <p>Both of these methods create a new dictionary <code>mydict</code> that is a separate copy of <code>thisdict</code>.</p>
+    <h1>Nested Dictionaries</h1>
+    <p>In Python, dictionaries can contain other dictionaries, forming nested dictionaries. Here's how you can create and work with nested dictionaries:</p>
+    <h2>Creating a dictionary that contains three dictionaries:</h2>
+    <pre>
+myfamily = {
+  "child1": {
+    "name": "Emil",
+    "year": 2004
+  },
+  "child2": {
+    "name": "Tobias",
+    "year": 2007
+  },
+  "child3": {
+    "name": "Linus",
+    "year": 2011
+  }
+}
+    </pre>
+    <p>Alternatively, you can create individual dictionaries and then combine them into a new dictionary:</p>
+    <h2>Creating individual dictionaries and combining them:</h2>
+    <pre>
+child1 = {
+  "name": "Emil",
+  "year": 2004
+}
+child2 = {
+  "name": "Tobias",
+  "year": 2007
+}
+child3 = {
+  "name": "Linus",
+  "year": 2011
+}
+myfamily = {
+  "child1": child1,
+  "child2": child2,
+  "child3": child3
+}
+    </pre>
+    <h2>Accessing Items in Nested Dictionaries:</h2>
+    <p>To access items in nested dictionaries, you specify the key names of both the outer and inner dictionaries, starting from the outermost dictionary:</p>
+    <pre>
+print(myfamily["child2"]["name"])  # Accessing the name of child 2
+    </pre>
+    <p>This code will print the name of "Tobias," which is stored within the nested dictionary under the key "child2."</p>
+    <p>Working with nested dictionaries allows you to organize and manage structured data effectively, making it easier to represent complex relationships and hierarchies in your programs.</p>
+<br><br>
+    <h1>Common Dictionary Methods in Python</h1>
+    <h2>1. clear()</h2>
+    <p>Removes all elements from the dictionary.</p>
+    <pre>
+mydict = {"brand": "Ford", "model": "Mustang", "year": 1964}
+mydict.clear()
+    </pre>
+    <h2>2. copy()</h2>
+    <p>Returns a copy of the dictionary.</p>
+    <pre>
+original_dict = {"brand": "Ford", "model": "Mustang", "year": 1964}
+copy_dict = original_dict.copy()
+    </pre>
+    <h2>3. fromkeys()</h2>
+    <p>Returns a dictionary with the specified keys and a default value.</p>
+    <pre>
+keys = ["brand", "model", "year"]
+default_value = "N/A"
+new_dict = dict.fromkeys(keys, default_value)
+    </pre>
+    <h2>4. get()</h2>
+    <p>Returns the value of the specified key.</p>
+    <pre>
+mydict = {"brand": "Ford", "model": "Mustang", "year": 1964}
+model = mydict.get("model")
+    </pre>
+    <h2>5. items()</h2>
+    <p>Returns a list containing a tuple for each key-value pair.</p>
+    <pre>
+mydict = {"brand": "Ford", "model": "Mustang", "year": 1964}
+item_list = mydict.items()
+    </pre>
+    <h2>6. keys()</h2>
+    <p>Returns a list containing the dictionary's keys.</p>
+    <pre>
+mydict = {"brand": "Ford", "model": "Mustang", "year": 1964}
+key_list = mydict.keys()
+    </pre>
+    <h2>7. pop()</h2>
+    <p>Removes the element with the specified key.</p>
+    <pre>
+mydict = {"brand": "Ford", "model": "Mustang", "year": 1964}
+mydict.pop("model")
+    </pre>
+    <h2>8. popitem()</h2>
+    <p>Removes the last inserted key-value pair.</p>
+    <pre>
+mydict = {"brand": "Ford", "model": "Mustang", "year": 1964}
+mydict.popitem()
+    </pre>
+    <h2>9. setdefault()</h2>
+    <p>Returns the value of the specified key. If the key doesn't exist, it inserts the key with the specified value.</p>
+    <pre>
+mydict = {"brand": "Ford", "model": "Mustang", "year": 1964}
+value = mydict.setdefault("color", "red")
+    </pre>
+    <h2>10. update()</h2>
+    <p>Updates the dictionary with the specified key-value pairs.</p>
+    <pre>
+mydict = {"brand": "Ford", "model": "Mustang", "year": 1964}
+mydict.update({"color": "red", "price": 25000})
+    </pre>
+    <h2>11. values()</h2>
+    <p>Returns a list of all the values in the dictionary.</p>
+    <pre>
+mydict = {"brand": "Ford", "model": "Mustang", "year": 1964}
+value_list = mydict.values()
+    </pre>
+    <p>These methods are useful for manipulating dictionaries in various ways, such as adding, removing, or updating key-value pairs, or extracting keys and values for further processing.</p>
+</body>
+</html>

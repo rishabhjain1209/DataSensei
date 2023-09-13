@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Week 6: Customizing Matplotlib</h1>
+    <h2>Lesson 13: Customizing Styles and Themes</h2>
+    <h3>Changing global plot styles:</h3>
+    <p>Matplotlib provides several built-in style options that allow you to change the overall appearance of your plots. You can use the <code>plt.style.use()</code> function to set the style for your entire session. Here's an example:</p>
+    <pre><code>import matplotlib.pyplot as plt
+# Use the 'ggplot' style
+plt.style.use('ggplot')
+# Sample data and plot
+x = [1, 2, 3, 4, 5]
+y = [10, 12, 5, 8, 9]
+plt.plot(x, y)
+# Show the plot
+plt.show()</code></pre>
+    <p>You can choose from a variety of built-in styles, such as 'ggplot,' 'seaborn,' 'fivethirtyeight,' and more to match the style of your plots to your preferences or the publication you are targeting.</p>
+    <h3>Using custom stylesheets:</h3>
+    <p>In addition to built-in styles, you can create and use custom style sheets to define your own plot styles. Style sheets are written in JSON format and can be loaded using <code>plt.style.use()</code>. Here's a basic example:</p>
+    <pre><code>import matplotlib.pyplot as plt
+# Use a custom style sheet
+plt.style.use('my_custom_style.mplstyle')
+# Sample data and plot
+x = [1, 2, 3, 4, 5]
+y = [10, 12, 5, 8, 9]
+plt.plot(x, y)
+# Show the plot
+plt.show()</code></pre>
+    <p>You can create your custom style sheets by defining various plot parameters, such as colors, fonts, and sizes, in a separate .mplstyle file.</p>
+    <h2>Lesson 14: Saving and Exporting Plots</h2>
+    <h3>Saving plots as image files (PNG, JPG, etc.):</h3>
+    <p>Matplotlib allows you to save your plots as image files in various formats, such as PNG, JPG, BMP, and more. You can use the <code>plt.savefig()</code> function to save the current figure to a file. Here's an example:</p>
+    <pre><code>import matplotlib.pyplot as plt
+# Sample data and plot
+x = [1, 2, 3, 4, 5]
+y = [10, 12, 5, 8, 9]
+plt.plot(x, y)
+# Save the plot as a PNG image
+plt.savefig('my_plot.png')
+# Save the plot as a JPG image with custom DPI
+plt.savefig('my_plot.jpg', dpi=300)
+# Save the plot as a BMP image with transparent background
+plt.savefig('my_plot.bmp', transparent=True)
+# Save the plot as a PDF vector image
+plt.savefig('my_plot.pdf', format='pdf')
+# Show the plot
+plt.show()</code></pre>
+    <p>You can specify the file format by providing the file extension in the filename argument of <code>plt.savefig()</code>. You can also adjust the DPI (dots per inch) and other settings for image quality and transparency.</p>
+    <h3>Exporting plots to vector formats (SVG, PDF):</h3>
+    <p>Matplotlib allows you to export your plots as vector graphics in formats like SVG (Scalable Vector Graphics) and PDF (Portable Document Format). Vector formats are resolution-independent and are suitable for high-quality printing and scaling. Here's an example of exporting a plot to SVG and PDF:</p>
+    <pre><code>import matplotlib.pyplot as plt
+# Sample data and plot
+x = [1, 2, 3, 4, 5]
+y = [10, 12, 5, 8, 9]
+plt.plot(x, y)
+# Export the plot as an SVG vector file
+plt.savefig('my_plot.svg', format='svg')
+# Export the plot as a PDF vector file
+plt.savefig('my_plot.pdf', format='pdf')
+# Show the plot
+plt.show()</code></pre>
+    <p>These examples demonstrate how to customize Matplotlib's global plot styles using built-in styles and custom style sheets and how to save and export your plots in various image and vector formats. Customizing styles and exporting plots is essential for producing publication-quality visualizations.</p>
+</body>
+</html>

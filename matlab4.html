@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Module 4: Data Visualization</title>
+</head>
+<body>
+<h1>Module 4: Data Visualization</h1>
+<h2>Creating 2D and 3D Plots:</h2>
+<p>MATLAB offers a wide range of functions and tools for creating both 2D and 3D plots to visualize data. Some commonly used plotting functions include:</p>
+<ol>
+    <li>
+        <strong><code>plot</code>:</strong> Creates line plots to display data points connected by lines.
+    </li>    
+    <li>
+        <strong><code>scatter</code>:</strong> Generates scatter plots to visualize individual data points.
+    </li>    
+    <li>
+        <strong><code>bar</code> and <code>barh</code>:</strong> Create vertical and horizontal bar charts.
+    </li>    
+    <li>
+        <strong><code>hist</code>:</strong> Produces histograms to display the distribution of data.
+    </li>    
+    <li>
+        <strong><code>pie</code>:</strong> Creates pie charts to represent data as slices of a circle.
+    </li>
+</ol>
+<p><strong>3D Plots:</strong></p>
+<ul>
+    <li>
+        <strong><code>plot3</code>:</strong> Generates 3D line plots.
+    </li>    
+    <li>
+        <strong><code>scatter3</code>:</strong> Creates 3D scatter plots.
+    </li>    
+    <li>
+        <strong><code>surf</code>:</strong> Generates 3D surface plots.
+    </li>    
+    <li>
+        <strong><code>contour</code>:</strong> Produces 2D contour plots of 3D data.
+    </li>    
+    <li>
+        <strong><code>slice</code>:</strong> Creates 3D slice plots to visualize data in planes.
+    </li>
+</ul>
+<h2>Customizing Plot Appearance:</h2>
+<p>MATLAB provides extensive options for customizing the appearance of your plots. You can modify properties like line styles, colors, markers, labels, axes, and more. Common customization tasks include:</p>
+<ul>
+    <li>
+        <strong>Setting Line Styles and Colors:</strong>
+        - Use <code>'-'</code>, <code>'--'</code>, <code>':'</code>, and <code>'-.'</code> to specify line styles.
+        - Use RGB values or predefined color names (e.g., <code>'r'</code> for red) to set line colors.
+    </li>    
+    <li>
+        <strong>Adding Markers:</strong>
+        - Specify markers (e.g., <code>'o'</code>, <code>'s'</code>, <code>'x'</code>) to highlight data points.
+    </li>    
+    <li>
+        <strong>Adjusting Axes:</strong>
+        - Customize axis labels and limits using <code>xlabel</code>, <code>ylabel</code>, <code>zlabel</code>, <code>xlim</code>, <code>ylim</code>, and <code>zlim</code>.
+    </li>    
+    <li>
+        <strong>Adding Legends:</strong>
+        - Use <code>legend</code> to add legends that describe data series.
+    </li>    
+    <li>
+        <strong>Title and Labels:</strong>
+        - Add titles and labels to your plots using <code>title</code>, <code>xlabel</code>, and <code>ylabel</code>.
+    </li>    
+    <li>
+        <strong>Grids and Ticks:</strong>
+        - Control grid lines and tick marks with <code>grid</code>, <code>xticks</code>, <code>yticks</code>, and <code>zticks</code>.
+    </li>    
+    <li>
+        <strong>Annotations and Text:</strong>
+        - Add text annotations to your plots using <code>text</code> or <code>annotation</code>.
+    </li>
+</ul>
+<h2>Annotating Plots with Labels and Titles:</h2>
+<p>You can annotate your plots with labels, titles, and other text using MATLAB's text and annotation functions. For example:</p>
+<pre><code>x = 1:10;
+y = rand(1, 10);
+plot(x, y, 'o-'); % Plot data
+xlabel('X-axis'); % Label the X-axis
+ylabel('Y-axis'); % Label the Y-axis
+title('Scatter Plot Example'); % Add a title
+text(3, 0.7, 'Data Point 3'); % Add text annotation at a specific location
+legend('Data Series'); % Add a legend
+</code></pre>
+<h2>Generating Statistical Charts and Graphs:</h2>
+<p>MATLAB provides functions for generating various statistical charts and graphs to analyze data distributions, relationships, and trends. Some common statistical charts include:</p>
+<ol>
+    <li>
+        <strong>Histograms:</strong> You can use the <code>hist</code> function to create histograms to visualize data distribution.
+    </li>   
+    <li>
+        <strong>Box Plots:</strong> The <code>boxplot</code> function generates box plots to display the median, quartiles, and potential outliers in data.
+    </li>    
+    <li>
+        <strong>Scatter Plots with Regression Lines:</strong> You can create scatter plots with regression lines using <code>scatter</code> and <code>lsline</code> functions to visualize linear relationships.
+    </li>    
+    <li>
+        <strong>QQ Plots:</strong> The <code>qqplot</code> function generates quantile-quantile (QQ) plots to assess data normality.
+    </li>    
+    <li>
+        <strong>Heatmaps:</strong> MATLAB's <code>heatmap</code> function can be used to create heatmaps for visualizing data with color intensity.
+    </li>   
+    <li>
+        <strong>Error Bars:</strong> Use <code>errorbar</code> to display error bars on plots, which are common in scientific data representation.
+    </li>
+</ol>
+<p>Here's an example of creating a histogram and a box plot in MATLAB:</p>
+<pre><code>data = randn(1, 100); % Generate random data
+% Create a histogram
+histogram(data, 'BinWidth', 0.5);
+xlabel('Value');
+ylabel('Frequency');
+title('Histogram of Random Data');
+% Create a box plot
+boxplot(data);
+xlabel('Data');
+ylabel('Value');
+title('Box Plot of Random Data');
+</code></pre>
+<p>MATLAB's data visualization capabilities make it a powerful tool for exploring and presenting data in various formats and styles to aid in data analysis and interpretation.</p>
+</body>
+</html>

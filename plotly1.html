@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Week 1: Introduction to Data Visualization and Plotly</title>
+</head>
+<body>
+    <h2>1. What is Data Visualization?</h2>
+    <p>Data visualization is the graphical representation of data to help people understand and interpret complex
+        information. It involves using charts, graphs, and other visual elements to convey patterns, trends, and insights
+        hidden within datasets. Data visualization is a crucial tool for data analysis, as it allows users to see data in
+        a way that makes it easier to comprehend and draw meaningful conclusions.</p>
+    <h2>2. Introduction to Plotly</h2>
+    <p>Plotly is a powerful open-source library for creating interactive data visualizations in Python. It supports a wide
+        range of chart types, from basic line and scatter plots to 3D surface plots and geographic maps. Plotly's
+        interactive capabilities make it an excellent choice for creating dashboards and web-based data visualizations
+        that allow users to explore data dynamically.</p>
+    <h2>3. Setting up your development environment</h2>
+    <p>Before you can start using Plotly, you need to set up your development environment. Here's a step-by-step guide:</p>
+    <h3>Step 1: Install Python</h3>
+    <p>If you haven't already, download and install Python from the <a
+            href="https://www.python.org/downloads/">official Python website</a>. Make sure to add Python to your
+        system's PATH during installation.</p>
+    <h3>Step 2: Install Plotly</h3>
+    <p>You can install Plotly using pip, the Python package manager. Open your terminal or command prompt and run the
+        following command:</p>
+    <code>pip install plotly</code>
+    <h3>Step 3: Install Jupyter Notebook (Optional)</h3>
+    <p>Jupyter Notebook is an excellent tool for interactive data analysis and visualization. You can install it using
+        pip as well:</p>
+    <code>pip install jupyter</code>
+    <h3>Step 4: Create a Jupyter Notebook (Optional)</h3>
+    <p>If you installed Jupyter Notebook, you can create a new notebook by running:</p>
+    <code>jupyter notebook</code>
+    <p>This will open a web-based interface where you can create and run Python code cells.</p>
+    <h3>Step 5: Import Plotly</h3>
+    <p>In your Jupyter Notebook or Python script, import Plotly as follows:</p>
+    <code>import plotly.graph_objects as go</code>
+    <p>Now you're ready to start creating interactive visualizations with Plotly.</p>
+    <h2>4. Code Example</h2>
+    <p>Here's a simple example of creating a scatter plot using Plotly:</p>
+    <pre><code>import plotly.graph_objects as go
+# Sample data
+x = [1, 2, 3, 4, 5]
+y = [10, 11, 12, 13, 14]
+# Create a scatter plot
+fig = go.Figure(data=go.Scatter(x=x, y=y, mode='markers'))
+# Customize the plot
+fig.update_layout(
+    title='Simple Scatter Plot',
+    xaxis=dict(title='X-axis Label'),
+    yaxis=dict(title='Y-axis Label')
+)
+# Show the plot
+fig.show()
+</code></pre>
+    <p>This code imports Plotly, creates a scatter plot with sample data, and customizes the plot's title and axis labels.
+        Finally, it displays the plot using the <code>fig.show()</code> method. You can run this code in a Jupyter
+        Notebook or a Python script to visualize your data.</p>
+    <p>This sets the stage for your introduction to data visualization and Plotly. In the coming weeks, you'll delve deeper
+        into different types of visualizations and advanced Plotly features.</p>
+</body>
+</html>

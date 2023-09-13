@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Linux File System</title>
+</head>
+<body>
+<h1>Module 2: The Linux File System</h1>
+<h2>Lesson 1: File System Hierarchy</h2>
+<p>In this lesson, we'll explore the Linux file system hierarchy, which is the structure that organizes files and directories on a Linux system. Understanding this hierarchy is crucial for effective file management and navigation.</p>
+<p><strong>File System Hierarchy:</strong></p>
+<ul>
+    <li>In Linux, the root directory is denoted by <code>/</code>, and all other directories and files are organized beneath it.</li>
+    <li>Key directories include <code>/bin</code> (binary executables), <code>/etc</code> (system configuration files), <code>/home</code> (user home directories), <code>/var</code> (variable data), <code>/tmp</code> (temporary files), and <code>/usr</code> (user programs).</li>
+    <li>The <code>/mnt</code> directory is often used for mounting external devices like USB drives.</li>
+    <li>Use the <code>ls</code> command to list the contents of a directory and <code>cd</code> to change your current directory.</li>
+</ul>
+<p><strong>Code Example (List Contents of /etc Directory):</strong></p>
+<pre><code>ls /etc
+</code></pre>
+<p>This command lists the contents of the <code>/etc</code> directory, which contains system configuration files.</p>
+<h2>Lesson 2: File and Directory Permissions</h2>
+<p>In this lesson, we'll cover file and directory permissions in Linux. Understanding permissions is vital for ensuring the security and privacy of your files and directories.</p>
+<p><strong>File and Directory Permissions:</strong></p>
+<ul>
+    <li>Linux uses a permission system based on three levels: owner, group, and others.</li>
+    <li>Permissions are represented as read (r), write (w), and execute (x) for each level.</li>
+    <li>Use the <code>chmod</code> command to change permissions and <code>chown</code> to change the file owner or group.</li>
+</ul>
+<p><strong>Code Example (Change File Permissions):</strong></p>
+<pre><code>chmod 644 myfile.txt
+</code></pre>
+<p>This command changes the permissions of <code>myfile.txt</code> to read-only for the owner and read-only for others.</p>
+<h2>Lesson 3: File Manipulation Commands</h2>
+<p>In this lesson, we'll explore essential file manipulation commands in Linux, allowing you to create, move, copy, and delete files and directories.</p>
+<p><strong>File Manipulation Commands:</strong></p>
+<ul>
+    <li><code>touch</code>: Create an empty file or update the access timestamp of an existing file.</li>
+    <li><code>mkdir</code>: Create a new directory.</li>
+    <li><code>cp</code>: Copy files or directories from one location to another.</li>
+    <li><code>mv</code>: Move or rename files and directories.</li>
+    <li><code>rm</code>: Remove files and directories.</li>
+</ul>
+<p><strong>Code Example (Create a New Directory and File):</strong></p>
+<pre><code>mkdir myfolder
+touch myfolder/myfile.txt
+</code></pre>
+<p>These commands create a new directory called <code>myfolder</code> and an empty file called <code>myfile.txt</code> within it.</p>
+<p><strong>Code Example (Copy and Rename a File):</strong></p>
+<pre><code>cp myfile.txt myfolder/
+mv myfile.txt myfolder/newfile.txt
+</code></pre>
+<p>These commands copy <code>myfile.txt</code> to the <code>myfolder</code> directory and then rename it to <code>newfile.txt</code> within the same directory.</p>
+<p><strong>Code Example (Remove a File and Directory):</strong></p>
+<pre><code>rm myfolder/newfile.txt
+rmdir myfolder
+</code></pre>
+<p>These commands remove the file <code>newfile.txt</code> and then remove the <code>myfolder</code> directory. Be cautious when using <code>rm</code> as it deletes files without confirmation.</p>
+<p>By mastering these file manipulation commands and understanding file system permissions, you'll be well-equipped to manage and navigate the Linux file system effectively. Practice and experimentation are essential to becoming proficient in these areas.</p>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Module 7: Advanced Topics in Pandas</title>
+</head>
+<body>
+    <h2>Module 7: Advanced Topics in Pandas</h2>
+    <h3>7.1 Merging and Joining DataFrames</h3>
+    <p>Combining data from multiple DataFrames is a common task in data analysis. Pandas provides various methods for merging and joining DataFrames.</p>
+    <h4>Code Example: Merging DataFrames using <code>pd.merge()</code>.</h4>
+    <pre><code class="python">
+import pandas as pd
+# Creating two sample DataFrames
+df1 = pd.DataFrame({'ID': [1, 2, 3], 'Name': ['Alice', 'Bob', 'Charlie']})
+df2 = pd.DataFrame({'ID': [2, 3, 4], 'Age': [25, 30, 35]})
+# Merging DataFrames based on a common column ('ID')
+merged_df = pd.merge(df1, df2, on='ID')
+print(merged_df)
+    </code></pre>
+    <h3>7.2 Combining DataFrames (Concatenation)</h3>
+    <p>Concatenating DataFrames is useful when you want to stack or combine DataFrames along a particular axis (rows or columns).</p>
+    <h4>Code Example: Concatenating DataFrames using <code>pd.concat()</code>.</h4>
+    <pre><code class="python">
+# Creating two sample DataFrames
+df1 = pd.DataFrame({'A': [1, 2], 'B': [3, 4]})
+df2 = pd.DataFrame({'A': [5, 6], 'B': [7, 8]})
+# Concatenating DataFrames along rows (axis=0)
+concatenated_df = pd.concat([df1, df2], axis=0)
+print(concatenated_df)
+    </code></pre>
+    <h3>7.3 Handling Categorical Data</h3>
+    <p>Categorical data is a common data type, and Pandas provides tools for working with it efficiently.</p>
+    <h4>Code Example: Encoding and decoding categorical data.</h4>
+    <pre><code class="python">
+# Creating a sample DataFrame with categorical data
+data = {'Category': ['A', 'B', 'A', 'C', 'B']}
+df = pd.DataFrame(data)
+# Encoding categorical data to numerical values
+df['Category'] = df['Category'].astype('category')
+df['Category_encoded'] = df['Category'].cat.codes
+# Decoding back to categorical values
+df['Category_decoded'] = df['Category_encoded'].astype('category')
+print(df)
+    </code></pre>
+    <h3>7.4 Introduction to Pandas' Built-in Statistics</h3>
+    <p>Pandas offers a range of built-in statistical functions for summarizing and analyzing data.</p>
+    <h4>Code Example: Calculating basic statistics on a DataFrame.</h4>
+    <pre><code class="python">
+# Creating a sample DataFrame
+data = {'Value': [10, 15, 20, 25, 30]}
+df = pd.DataFrame(data)
+# Basic statistics
+mean_value = df['Value'].mean()
+median_value = df['Value'].median()
+std_deviation = df['Value'].std()
+print(f"Mean: {mean_value}, Median: {median_value}, Standard Deviation: {std_deviation}")
+    </code></pre>
+    <p>These examples cover advanced topics in Pandas, including merging and joining DataFrames, concatenating DataFrames, handling categorical data, and using built-in statistical functions. These skills are essential for handling more complex data analysis tasks and combining data from various sources effectively.</p>
+</body>
+</html>

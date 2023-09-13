@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Week 3: Querying Data</title>
+</head>
+<body>
+<h2>SELECT Statement In-Depth</h2>
+<p>The <code>SELECT</code> statement is the most fundamental SQL command for retrieving data from a database. It allows you to specify the columns you want to retrieve and the table(s) from which to fetch data.</p>
+<p><strong>Example: Retrieving all columns from a table</strong></p>
+<pre>
+SELECT * FROM employees;
+</pre>
+<h2>Filtering and Sorting Data</h2>
+<p>You can filter and sort the data retrieved using the <code>WHERE</code> clause for filtering and <code>ORDER BY</code> clause for sorting.</p>
+<p><strong>Example: Filtering data based on a condition</strong></p>
+<pre>
+SELECT * FROM products WHERE price > 50;
+</pre>
+<p><strong>Example: Sorting data in ascending order</strong></p>
+<pre>
+SELECT * FROM customers ORDER BY last_name ASC;
+</pre>
+<h2>Using SQL Functions (e.g., COUNT, SUM, AVG)</h2>
+<p>SQL functions are powerful tools for performing calculations and aggregations on data.</p>
+<p><strong>Example: Calculating the total number of employees</strong></p>
+<pre>
+SELECT COUNT(*) FROM employees;
+</pre>
+<p><strong>Example: Calculating the total sales amount</strong></p>
+<pre>
+SELECT SUM(total_amount) FROM sales;
+</pre>
+<p><strong>Example: Calculating the average product rating</strong></p>
+<pre>
+SELECT AVG(rating) FROM product_reviews;
+</pre>
+<h2>Working with Multiple Tables (JOIN Operations)</h2>
+<p>Relational databases often require joining multiple tables to retrieve meaningful data. Common join types include <code>INNER JOIN</code>, <code>LEFT JOIN</code>, <code>RIGHT JOIN</code>, and <code>FULL JOIN</code>.</p>
+<p><strong>Example: INNER JOIN to retrieve customer orders with customer information</strong></p>
+<pre>
+SELECT orders.order_id, customers.first_name, customers.last_name
+FROM orders
+INNER JOIN customers ON orders.customer_id = customers.customer_id;
+</pre>
+<h2>Subqueries and Derived Tables</h2>
+<p>Subqueries are SQL queries nested within other queries. They are used to retrieve data for filtering, sorting, or aggregating purposes.</p>
+<p><strong>Example: Using a subquery to filter data</strong></p>
+<pre>
+SELECT * FROM employees
+WHERE department_id IN (SELECT department_id FROM departments WHERE department_name = 'HR');
+</pre>
+<p>Derived tables are subqueries that are treated as temporary tables.</p>
+<p><strong>Example: Using a derived table to calculate department-wise average salary</strong></p>
+<pre>
+SELECT department_name, AVG(salary) AS avg_salary
+FROM (
+    SELECT e.employee_id, e.salary, d.department_name
+    FROM employees e
+    JOIN departments d ON e.department_id = d.department_id
+) AS temp_table
+GROUP BY department_name;
+</pre>
+<p>In this week, you've delved into the intricacies of querying data in MySQL. You've learned how to use the <code>SELECT</code> statement, filter and sort data, employ SQL functions for calculations, perform join operations to combine data from multiple tables, and utilize subqueries and derived tables for more complex queries. These skills are essential for extracting valuable insights from your database.</p>
+</body>
+</html>

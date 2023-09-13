@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Hadoop HBase: NoSQL Database on Hadoop</h2>
+    <p>Hadoop HBase is a distributed, scalable, and column-oriented NoSQL database that runs on top of the Hadoop Distributed File System (HDFS). It is designed for real-time read/write access to large datasets. HBase is suitable for use cases that require random, low-latency access to data, such as storing and querying sensor data or social media interactions.</p>
+    <h3>Practical Exercise with HBase:</h3>
+    <p>In this exercise, we'll create an HBase table to store employee data and perform basic operations like inserting, retrieving, and updating records.</p>
+    <h4>Step 1: Create an HBase Table</h4>
+    <pre>
+        <code class="shell">
+            hbase shell
+            # Create an HBase table named 'employee' with a column family 'info'
+            create 'employee', 'info'
+        </code>
+    </pre>
+    <h4>Step 2: Insert Data</h4>
+    <pre>
+        <code class="shell">
+            # Insert a record for an employee
+            put 'employee', '1', 'info:name', 'John Doe'
+            put 'employee', '1', 'info:age', '30'
+            put 'employee', '1', 'info:department', 'HR'
+            # Insert another record
+            put 'employee', '2', 'info:name', 'Jane Smith'
+            put 'employee', '2', 'info:age', '25'
+            put 'employee', '2', 'info:department', 'Engineering'
+        </code>
+    </pre>
+    <h4>Step 3: Retrieve Data</h4>
+    <pre>
+        <code class="shell">
+            # Retrieve data for employee with row key '1'
+            get 'employee', '1'
+        </code>
+    </pre>
+    <h4>Step 4: Update Data</h4>
+    <pre>
+        <code class="shell">
+            # Update the age of employee with row key '1'
+            put 'employee', '1', 'info:age', '31'
+        </code>
+    </pre>
+    <h2>Hadoop Spark: In-Memory Data Processing</h2>
+    <p>Apache Spark is a powerful, open-source, and distributed data processing framework that provides in-memory data processing capabilities. It can be used for various data processing tasks, including batch processing, real-time streaming, machine learning, and graph processing. Spark offers high-level APIs in Scala, Java, Python, and R.</p>
+    <h3>Practical Exercise with Spark:</h3>
+    <p>In this exercise, we'll write a simple Spark program in Python to count the number of words in a text file.</p>
+    <pre>
+        <code class="python">
+            from pyspark import SparkContext
+            # Create a SparkContext
+            sc = SparkContext("local", "WordCount")
+            # Load a text file
+            text_file = sc.textFile("input.txt")
+            # Split lines into words and count the occurrences of each word
+            word_counts = text_file.flatMap(lambda line: line.split(" ")) \
+                                .map(lambda word: (word, 1)) \
+                                .reduceByKey(lambda a, b: a + b)
+            # Print the word counts
+            for word, count in word_counts.collect():
+                print(f"{word}: {count}")
+            # Stop the SparkContext
+            sc.stop()
+        </code>
+    </pre>
+    <h4>Steps:</h4>
+    <ol>
+        <li>Create a <code>SparkContext</code> to set up Spark.</li>
+        <li>Load a text file named 'input.txt.'</li>
+        <li>Use transformations to split lines into words, map each word to a key-value pair with a count of 1, and then reduce by key to sum the counts.</li>
+        <li>Collect the results and print the word counts.</li>
+        <li>Stop the <code>SparkContext</code> to release resources.</li>
+    </ol>
+    <p>In this exercise, we use Spark's high-level API to perform distributed data processing. Spark automatically parallelizes the processing across a cluster of machines, making it suitable for handling large datasets efficiently.</p>
+</body>
+</html>

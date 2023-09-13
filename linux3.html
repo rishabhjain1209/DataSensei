@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Basic Command-Line Usage</title>
+</head>
+<body>
+<h1>Module 3: Basic Command-Line Usage</h1>
+<h2>Lesson 1: The Terminal Emulator</h2>
+<p>In this lesson, we'll introduce the terminal emulator, which provides a text-based interface to interact with a Linux system. It's a powerful tool for performing tasks efficiently and gaining more control over your system.</p>
+<p><strong>Terminal Emulator:</strong></p>
+<ul>
+    <li>A terminal emulator is a program that allows you to run a shell, such as Bash or Zsh, to execute commands.</li>
+    <li>Common terminal emulators include GNOME Terminal, Konsole, iTerm (for macOS), and Windows Terminal (for Windows).</li>
+    <li>You can open a terminal emulator by searching for it in your system's applications or using keyboard shortcuts like <code>Ctrl+Alt+T</code>.</li>
+</ul>
+<p>No specific code example is needed for this lesson since it's an introduction to the terminal emulator.</p>
+<h2>Lesson 2: Basic Commands (ls, cd, pwd, mkdir, rmdir)</h2>
+<p>In this lesson, we'll cover fundamental commands for navigating and managing directories and files in the command line.</p>
+<p><strong>Basic Commands:</strong></p>
+<ul>
+    <li><code>ls</code>: List the contents of a directory.</li>
+    <li><code>cd</code>: Change the current directory.</li>
+    <li><code>pwd</code>: Print the current working directory.</li>
+    <li><code>mkdir</code>: Create a new directory.</li>
+    <li><code>rmdir</code>: Remove an empty directory.</li>
+</ul>
+<p><strong>Code Example (Listing Contents of a Directory and Changing Directory):</strong></p>
+<pre><code>ls
+cd myfolder
+</code></pre>
+<p>These commands list the contents of the current directory and then change to the <code>myfolder</code> directory.</p>
+<h2>Lesson 3: File and Directory Operations (cp, mv, rm)</h2>
+<p>In this lesson, we'll explore essential commands for copying, moving, and deleting files and directories in the command line.</p>
+<p><strong>File and Directory Operations:</strong></p>
+<ul>
+    <li><code>cp</code>: Copy files or directories from one location to another.</li>
+    <li><code>mv</code>: Move or rename files and directories.</li>
+    <li><code>rm</code>: Remove files and directories.</li>
+</ul>
+<p><strong>Code Example (Copying and Moving Files):</strong></p>
+<pre><code>cp file.txt backup/
+mv oldname.txt newname.txt
+</code></pre>
+<p>These commands copy <code>file.txt</code> to the <code>backup</code> directory and then rename <code>oldname.txt</code> to <code>newname.txt</code>.</p>
+<p><strong>Code Example (Removing Files and Directories):</strong></p>
+<pre><code>rm unwanted.txt
+rm -r myfolder
+</code></pre>
+<p>The first command removes the file <code>unwanted.txt</code>, and the second command removes the <code>myfolder</code> directory and its contents. Be cautious when using <code>rm -r</code> as it deletes directories and their contents recursively.</p>
+<h2>Lesson 4: File Viewing and Editing (cat, less, nano, vim)</h2>
+<p>In this lesson, we'll explore commands for viewing and editing text files in the command line, allowing you to read and modify their contents.</p>
+<p><strong>File Viewing and Editing Commands:</strong></p>
+<ul>
+    <li><code>cat</code>: Display the entire content of a file.</li>
+    <li><code>less</code>: View and navigate through large text files.</li>
+    <li><code>nano</code>: A simple text editor for editing files in the terminal.</li>
+    <li><code>vim</code>: A powerful text editor with advanced features.</li>
+</ul>
+<p><strong>Code Example (Viewing a File with cat and less):</strong></p>
+<pre><code>cat myfile.txt
+less largefile.log
+</code></pre>
+<p>The first command displays the entire content of <code>myfile.txt</code>, while the second command opens <code>largefile.log</code> in a pager that allows you to navigate through it.</p>
+<p><strong>Code Example (Editing a File with nano and vim):</strong></p>
+<pre><code>nano newfile.txt
+vim important.txt
+</code></pre>
+<p>These commands open <code>newfile.txt</code> in the <code>nano</code> text editor and <code>important.txt</code> in the <code>vim</code> text editor, enabling you to edit their contents.</p>
+<p>By mastering these basic command-line operations and text file handling, you'll become more proficient in using the terminal for various tasks. Practice and experimentation are key to building your command-line skills.</p>
+</body>
+</html>

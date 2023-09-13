@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Data Types and Operations in R:</h1>
+    <h2>Numeric Data Type:</h2>
+    <p>Numeric data types in R are used to represent numbers, both integers and floating-point numbers.</p>
+    <pre><code>
+# Numeric Example
+x &lt;- 5         # Assigning an integer value to x
+y &lt;- 3.14      # Assigning a floating-point value to y
+# Basic Arithmetic Operations
+sum_result &lt;- x + y   # Addition
+diff_result &lt;- x - y  # Subtraction
+prod_result &lt;- x * y  # Multiplication
+div_result &lt;- x / y   # Division
+# Printing Results
+print(sum_result)
+print(diff_result)
+print(prod_result)
+print(div_result)
+    </code></pre>
+    <h2>Character Data Type:</h2>
+    <p>Character data types in R are used to store text and are enclosed in single or double quotes.</p>
+    <pre><code>
+# Character Example
+name &lt;- "Alice"   # Assigning a character value to name
+greeting &lt;- 'Hello, World!'  # Assigning a character value to greeting
+# Concatenation
+full_greeting &lt;- paste(greeting, name)
+# Printing Results
+print(name)
+print(greeting)
+print(full_greeting)
+    </code></pre>
+    <h2>Logical Data Type:</h2>
+    <p>Logical data types in R are used to represent binary values - either <code>TRUE</code> or <code>FALSE</code>. They are often used in conditional statements and logical operations.</p>
+    <pre><code>
+# Logical Example
+is_raining &lt;- TRUE  # Assigning a logical value to is_raining
+is_sunny &lt;- FALSE   # Assigning a logical value to is_sunny
+# Logical Operations
+both_true &lt;- is_raining &amp; is_sunny   # Logical AND
+either_true &lt;- is_raining | is_sunny  # Logical OR
+not_true &lt;- !is_raining              # Logical NOT
+# Printing Results
+print(is_raining)
+print(is_sunny)
+print(both_true)
+print(either_true)
+print(not_true)
+    </code></pre>
+    <h2>Arithmetic and Logical Operations:</h2>
+    <h3>Arithmetic Operations:</h3>
+    <pre><code>
+# Arithmetic Operations Example
+x &lt;- 10
+y &lt;- 3
+# Addition
+addition_result &lt;- x + y  # 10 + 3 = 13
+# Subtraction
+subtraction_result &lt;- x - y  # 10 - 3 = 7
+# Multiplication
+multiplication_result &lt;- x * y  # 10 * 3 = 30
+# Division
+division_result &lt;- x / y  # 10 / 3 = 3.333...
+# Exponentiation
+exponentiation_result &lt;- x^y  # 10^3 = 1000
+# Modulus (Remainder)
+modulus_result &lt;- x %% y  # 10 %% 3 = 1
+# Printing Results
+print(addition_result)
+print(subtraction_result)
+print(multiplication_result)
+print(division_result)
+print(exponentiation_result)
+print(modulus_result)
+    </code></pre>
+    <h3>Logical Operations:</h3>
+    <pre><code>
+# Logical Operations Example
+a &lt;- TRUE
+b &lt;- FALSE
+# Logical AND
+and_result &lt;- a &amp; b  # TRUE if both a and b are TRUE, otherwise FALSE
+# Logical OR
+or_result &lt;- a | b   # TRUE if either a or b is TRUE, otherwise FALSE
+# Logical NOT
+not_a_result &lt;- !a   # Negation of a (i.e., NOT a)
+# Logical XOR (Exclusive OR)
+xor_result &lt;- xor(a, b)  # TRUE if one of a or b is TRUE, but not both
+# Printing Results
+print(and_result)
+print(or_result)
+print(not_a_result)
+print(xor_result)
+    </code></pre>
+    <p>Understanding and using these data types and operations are fundamental when working with data in R. They play a crucial role in data manipulation, conditional statements, and more advanced data analysis tasks.</p>
+</body>
+</html>

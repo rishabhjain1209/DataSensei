@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Week 4: Indexing and Performance Optimization</title>
+</head>
+<body>
+    <h1>Lesson 13: Indexing Basics</h1>
+    <p>Indexes are essential for improving query performance in MongoDB. They allow the database to quickly locate and
+        retrieve documents based on specific fields. Here are the indexing basics:</p>
+    <pre><code>// Create a single-field index on the 'email' field of the 'users' collection
+db.collection('users').createIndex({ email: 1 }, (err, result) => {
+  if (err) throw err;
+  console.log("Index created:", result);
+});</code></pre>
+    <h1>Lesson 14: Index Types and Strategies</h1>
+    <p>MongoDB offers various index types and strategies to optimize query performance, including single-field indexes,
+        compound indexes, and geospatial indexes. Here's an example of creating a compound index:</p>
+    <pre><code>// Create a compound index on 'name' and 'age' fields of the 'users' collection
+db.collection('users').createIndex({ name: 1, age: 1 }, (err, result) => {
+  if (err) throw err;
+  console.log("Compound index created:", result);
+});</code></pre>
+    <h1>Lesson 15: Query Performance Optimization</h1>
+    <p>To optimize query performance, use the explain method to understand how queries are executed and identify
+        potential bottlenecks.</p>
+    <pre><code>// Explain the execution plan for a query
+db.collection('users').find({ age: { $gt: 30 } }).explain("executionStats", (err, result) => {
+  if (err) throw err;
+  console.log("Query execution plan:", JSON.stringify(result, null, 2));
+});</code></pre>
+    <p>Analyze the output to see if indexes are being used and if any stages indicate slow performance.</p>
+    <h1>Lesson 16: Profiling and Performance Tuning</h1>
+    <p>MongoDB provides a profiling feature to capture and analyze slow queries. You can enable profiling to identify
+        and optimize slow queries in your application.</p>
+    <pre><code>// Enable profiling at the slow operation threshold (e.g., 100 milliseconds)
+db.setProfilingLevel(1, 100);
+// Query the system profile collection to view slow queries
+db.system.profile.find().limit(5).sort({ ts: -1 }).toArray((err, profiledQueries) => {
+  if (err) throw err;
+  console.log("Slow queries:", profiledQueries);
+});</code></pre>
+    <p>By analyzing the captured slow queries, you can fine-tune your database schema, indexing, and query patterns to
+        improve performance.</p>
+    <p>In MongoDB, indexing and performance optimization are critical for ensuring that your database can handle the
+        load of your application efficiently. Understanding different types of indexes, utilizing query planning, and
+        profiling slow queries are essential skills for database administrators and developers working with MongoDB.</p>
+</body>
+</html>

@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Comments in Python</h2>
+<p>In Python, comments are used for various purposes, such as documenting code, making it more readable, and temporarily disabling code during testing. Comments start with a <code>#</code> symbol, and Python treats everything after <code>#</code> on the same line as a comment. Here's a closer look at how comments are used in Python:</p>
+<h3>Purpose of Comments</h3>
+<ol>
+    <li><strong>Explain Code:</strong> Comments are used to explain and provide documentation for your Python code. They help other developers (and your future self) understand the purpose and functionality of different parts of your code.</li>
+    <li><strong>Readability:</strong> Well-placed comments can enhance the readability of your code by providing context and explanations for complex logic or algorithms.</li>    
+    <li><strong>Testing and Debugging:</strong> Comments can be used to temporarily disable a block of code during testing or debugging, allowing you to isolate issues without deleting code.</li>
+</ol>
+<h3>Creating a Comment</h3>
+<p>Comments in Python start with a <code>#</code> symbol, and Python ignores everything on the same line after the <code>#</code>. Here's how to create comments:</p>
+<h4>Example 1: Inline Comment</h4>
+<pre><code># This is a comment.
+print("Hello, World!")
+</code></pre>
+<p>In this example, the <code># This is a comment.</code> is an inline comment explaining the purpose of the following code.</p>
+<h4>Example 2: Comment at the End of a Line</h4>
+<p>You can also place comments at the end of a line of code. Python will ignore everything after the <code>#</code> on that line.</p>
+<pre><code>print("Hello, World!")  # This is a comment
+</code></pre>
+<p>The comment <code># This is a comment</code> provides additional information about the <code>print</code> statement.</p>
+<h4>Example 3: Disabling Code</h4>
+<p>You can use comments to temporarily disable code for testing or debugging purposes:</p>
+<pre><code># This line is commented out, so it won't execute.
+# print("Hello, World!")
+# This line will execute.
+print("Cheers, Mate!")
+</code></pre>
+<p>In this example, the first <code>print</code> statement is commented out, so it won't run, while the second <code>print</code> statement executes.</p>
+<h3>Multiline Comments</h3>
+<p>Python does not have a dedicated syntax for multiline comments like some other programming languages. However, you can achieve multiline comments using two methods:</p>
+<h4>Method 1: Insert <code>#</code> for Each Line</h4>
+<p>You can insert a <code>#</code> symbol at the beginning of each line to create a multiline effect:</p>
+<pre><code># This is a comment
+# written in
+# more than just one line
+print("Hello, World!")
+</code></pre>
+<p>This method works, but it can be cumbersome for long comments.</p>
+<h4>Method 2: Multiline String (Docstring)</h4>
+<p>A more common approach to multiline comments in Python is to use a multiline string (often referred to as a docstring). Python will ignore string literals that are not assigned to a variable. So, you can place your comment inside triple-quotes (<code>'''</code> or <code>"""</code>) as follows:</p>
+<pre><code>"""
+This is a comment
+written in
+more than just one line
+"""
+print("Hello, World!")
+</code></pre>
+<p>This approach is cleaner and more readable for multiline comments.</p>
+<p>Remember that, while the second method is commonly used for documentation and multiline comments, it does create a string object, which might have implications for memory usage if used excessively.</p>
+<br><br>
+<h2>Python Variables</h2>
+<p>Variables in Python are containers used to store data values. Here's a more detailed explanation of variables in Python:</p>
+<h3>Creating Variables</h3>
+<p>Python does not require explicit variable declaration. A variable is created automatically the moment you assign a value to it. You can create variables with meaningful names to store data. For example:</p>
+<pre><code>x = 5
+y = "John"
+print(x)
+print(y)
+</code></pre>
+<p>In this example, <code>x</code> is assigned the integer value <code>5</code>, and <code>y</code> is assigned the string value <code>"John"</code>. Notice that you don't need to specify data types explicitly; Python infers the data type based on the assigned value.</p>
+<h3>Casting</h3>
+<p>If you want to specify the data type of a variable, you can use casting. Casting allows you to convert one data type to another. Here are some casting examples:</p>
+<pre><code>x = str(3)    # x will be a string '3'
+y = int(3)    # y will be an integer 3
+z = float(3)  # z will be a float 3.0
+</code></pre>
+<h3>Getting the Data Type</h3>
+<p>You can determine the data type of a variable using the <code>type()</code> function:</p>
+<pre><code>x = 5
+y = "John"
+print(type(x))
+print(type(y))
+</code></pre>
+<p>This code will print the data types of <code>x</code> and <code>y</code>.</p>
+<h3>Single or Double Quotes for Strings</h3>
+<p>String variables can be declared using either single (<code>'</code>) or double (<code>"</code>) quotes. Both are valid:</p>
+<pre><code>x = "John"
+# is the same as
+x = 'John'
+</code></pre>
+<h3>Case-Sensitivity</h3>
+<p>Variable names in Python are case-sensitive. This means that variables with different letter casing (e.g., <code>myVar</code>, <code>myvar</code>, and <code>MYVAR</code>) are considered distinct variables.</p>
+<pre><code>a = 4
+A = "Sally"
+# A will not overwrite a
+</code></pre>
+<h3>Variable Names</h3>
+<p>Python variable names must adhere to certain rules:</p>
+<ul>
+    <li>A variable name must start with a letter (a-z, A-Z) or an underscore <code>_</code>.</li>
+    <li>A variable name cannot start with a number (0-9).</li>
+    <li>A variable name can contain letters, numbers, and underscores (a-z, A-Z, 0-9, <code>_</code>).</li>
+    <li>Variable names are case-sensitive (e.g., <code>myVar</code> and <code>myvar</code> are two different variables).</li>
+    <li>Variable names cannot be any of Python's reserved keywords.</li>
+</ul>
+<h4>Legal Variable Names:</h4>
+<pre><code>myvar = "John"
+my_var = "John"
+_my_var = "John"
+myVar = "John"
+MYVAR = "John"
+myvar2 = "John"
+</code></pre>
+<h4>Illegal Variable Names:</h4>
+<pre><code>2myvar = "John"
+my-var = "John"
+my var = "John"
+</code></pre>
+<h3>Multi-Word Variable Names</h3>
+<p>When creating variable names with multiple words, it's a good practice to make them more readable. There are various conventions for this:</p>
+<ul>
+    <li><strong>Camel Case</strong>: Each word, except the first, starts with a capital letter (e.g., <code>myVariableName</code>).</li>
+    <li><strong>Pascal Case</strong>: Each word starts with a capital letter (e.g., <code>MyVariableName</code>).</li>
+    <li><strong>Snake Case</strong>: Each word is separated by an underscore character (e.g., <code>my_variable_name</code>).</li>
+</ul>
+<h3>Assigning Multiple Values</h3>
+<p>Python allows you to assign values to multiple variables in a single line:</p>
+<h4>Multiple Values to Multiple Variables:</h4>
+<pre><code>x, y, z = "Orange", "Banana", "Cherry"
+print(x)
+print(y)
+print(z)
+</code></pre>
+<h4>One Value to Multiple Variables:</h4>
+<p>You can also assign the same value to multiple variables in one line:</p>
+<pre><code>x = y = z = "Orange"
+print(x)
+print(y)
+print(z)
+</code></pre>
+<h3>Outputting Variables</h3>
+<p>To display variables in Python, you often use the <code>print()</code> function:</p>
+<pre><code>x = "Python is awesome"
+print(x)
+</code></pre>
+<p>You can output multiple variables in a single <code>print()</code> statement, separated by commas:</p>
+<pre><code>x = "Python"
+y = "is"
+z = "awesome"
+print(x, y, z)
+</code></pre>
+<p>Alternatively, you can concatenate variables using the <code>+</code> operator:</p>
+<pre><code>x = "Python "
+y = "is "
+z = "awesome"
+print(x + y + z)
+</code></pre>
+<p>However, when combining strings and numbers using <code>+</code>, ensure that the types are compatible; otherwise, Python will raise an error.</p>
+<h3>Global Variables</h3>
+<p>Variables created outside of any function, at the top-level of your script, are considered global variables. Global variables can be accessed and modified both inside and outside of functions.</p>
+<h4>Example: Global Variable Used Inside a Function</h4>
+<pre><code>x = "awesome"
+def myfunc():
+  print("Python is " + x)
+myfunc()
+</code></pre>
+<p>In this example, the <code>x</code> variable is a global variable and can be accessed inside the <code>myfunc</code> function.</p>
+<h4>Example: Local Variable with the Same Name Inside a Function</h4>
+<pre><code>x = "awesome"
+def myfunc():
+  x = "fantastic"
+  print("Python is " + x)
+myfunc()
+print("Python is " + x)
+</code></pre>
+<p>In this example, there are two variables named <code>x</code>: a global one and a local one inside the <code>myfunc</code> function. The local <code>x</code> only exists within the function and doesn't affect the global <code>x</code>.</p>
+<h4>Using the <code>global</code> Keyword</h4>
+<p>To create a global variable inside a function or modify a global variable from within a function, you can use the <code>global</code> keyword. Here's an example:</p>
+<pre><code>x = "awesome"
+def myfunc():
+  global x
+  x = "fantastic"
+myfunc()
+print("Python is " + x)
+</code></pre>
+<p>In this example, the <code>global</code> keyword is used inside the <code>myfunc</code> function to indicate that <code>x</code> refers to the global variable. Consequently, the global <code>x</code> is modified by the function.</p>
+<p>Remember that modifying global variables within functions can lead to unexpected behavior, so it should be done with caution.</p>
+<br><br>
+<h2>Python Data Types</h2>
+<p>In programming, data types are essential because they define what kind of data a variable can hold and what operations can be performed on that data. Python has several built-in data types, each serving a specific purpose. Here's a detailed explanation of Python's data types:</p>
+<h3>Built-in Data Types</h3>
+<p>Python has the following data types built-in by default, categorized as follows:</p>
+<h4>Text Type:</h4>
+<ul>
+    <li><code>str</code> (String): Represents text and is enclosed in single or double quotes, e.g., "Hello, World!".</li>
+</ul>
+<h4>Numeric Types:</h4>
+<ul>
+    <li><code>int</code> (Integer): Represents whole numbers, e.g., 42.</li>
+    <li><code>float</code> (Float): Represents floating-point numbers (decimals), e.g., 3.14.</li>
+    <li><code>complex</code> (Complex): Represents complex numbers, e.g., 1j for √(-1).</li>
+</ul>
+<h4>Sequence Types:</h4>
+<ul>
+    <li><code>list</code> (List): Represents ordered, mutable (changeable) collections, e.g., [1, 2, 3].</li>
+    <li><code>tuple</code> (Tuple): Represents ordered, immutable (unchangeable) collections, e.g., (1, 2, 3).</li>
+    <li><code>range</code> (Range): Represents a sequence of numbers, commonly used for looping.</li>
+</ul>
+<h4>Mapping Type:</h4>
+<ul>
+    <li><code>dict</code> (Dictionary): Represents a collection of key-value pairs, e.g., {"name": "John", "age": 30}.</li>
+</ul>
+<h4>Set Types:</h4>
+<ul>
+    <li><code>set</code> (Set): Represents an unordered collection of unique elements, e.g., {"apple", "banana", "cherry"}.</li>
+    <li><code>frozenset</code> (Frozen Set): Similar to a set but immutable.</li>
+</ul>
+<h4>Boolean Type:</h4>
+<ul>
+    <li><code>bool</code> (Boolean): Represents a binary value, either <code>True</code> or <code>False</code>.</li>
+</ul>
+<h4>Binary Types:</h4>
+<ul>
+    <li><code>bytes</code>: Represents a sequence of bytes, e.g., <code>b"Hello"</code>.</li>
+    <li><code>bytearray</code>: Mutable version of <code>bytes</code>.</li>
+    <li><code>memoryview</code>: Represents a memory view of a byte array.</li>
+</ul>
+<h4>None Type:</h4>
+<ul>
+    <li><code>NoneType</code>: Represents the absence of a value or a null value.</li>
+</ul>
+<h3>Getting the Data Type</h3>
+<p>You can use the <code>type()</code> function to determine the data type of a variable or an object. For example:</p>
+<pre><code>x = 5
+print(type(x))
+</code></pre>
+<p>This code will output the data type of <code>x</code>, which is <code>&lt;class 'int'&gt;</code>.</p>
+<h3>Setting the Data Type</h3>
+<p>In Python, the data type is automatically determined when you assign a value to a variable. Here are examples of how data types are set when assigning values:</p>
+<pre><code>x = "Hello World"     # str
+x = 20                # int
+x = 20.5              # float
+x = 1j                # complex
+x = ["apple", "banana", "cherry"]   # list
+x = ("apple", "banana", "cherry")   # tuple
+x = range(6)          # range
+x = {"name": "John", "age": 36}     # dict
+x = {"apple", "banana", "cherry"}   # set
+x = frozenset({"apple", "banana", "cherry"})   # frozenset
+x = True              # bool
+x = b"Hello"          # bytes
+x = bytearray(5)      # bytearray
+x = memoryview(bytes(5))   # memoryview
+x = None              # NoneType
+</code></pre>
+<h3>Setting the Specific Data Type</h3>
+<p>If you want to specify the data type explicitly, you can use constructor functions, which allow you to create variables of a specific data type. Here are examples:</p>
+<pre><code>x = str("Hello World")   # str
+x = int(20)              # int
+x = float(20.5)          # float
+x = complex(1j)          # complex
+x = list(("apple", "banana", "cherry"))   # list
+x = tuple(("apple", "banana", "cherry"))  # tuple
+x = range(6)             # range
+x = dict(name="John", age=36)            # dict
+x = set(("apple", "banana", "cherry"))   # set
+x = frozenset(("apple", "banana", "cherry"))  # frozenset
+x = bool(5)              # bool
+x = bytes(5)             # bytes
+x = bytearray(5)         # bytearray
+x = memoryview(bytes(5)) # memoryview
+</code></pre>
+<p>In these examples, the constructor functions explicitly set the data type for the variable <code>x</code>.</p>
+<br><br>
+<h2>Python Numbers</h2>
+<p>In Python, there are three primary numeric types:</p>
+<h3>1. <code>int</code> (Integer)</h3>
+<p>An integer is a whole number, positive or negative, without any decimal part. It can be of unlimited length. Examples:</p>
+<pre><code>x = 1
+y = 35656222554887711
+z = -3255522
+</code></pre>
+<h3>2. <code>float</code> (Floating-Point Number)</h3>
+<p>A floating-point number, or simply a float, can have one or more decimals. Examples:</p>
+<pre><code>x = 1.10
+y = 1.0
+z = -35.59
+</code></pre>
+<p>Floats can also be written in scientific notation with an "e" to indicate the power of 10:</p>
+<pre><code>x = 35e3  # 35 * 10^3
+y = 12E4  # 12 * 10^4
+z = -87.7e100  # -87.7 * 10^100
+</code></pre>
+<h3>3. <code>complex</code> (Complex Number)</h3>
+<p>A complex number is written with a "j" as the imaginary part. It consists of a real and an imaginary part. Examples:</p>
+<pre><code>x = 3 + 5j
+y = 5j
+z = -5j
+</code></pre>
+<h3>Verifying Data Types</h3>
+<p>To determine the data type of any object in Python, you can use the <code>type()</code> function. For example:</p>
+<pre><code>x = 1
+y = 2.8
+z = 1j
+print(type(x))  # &lt;class 'int'&gt;
+print(type(y))  # &lt;class 'float'&gt;
+print(type(z))  # &lt;class 'complex'&gt;
+</code></pre>
+<h3>Type Conversion</h3>
+<p>Python allows you to convert between numeric types using specific conversion methods:</p>
+<ul>
+    <li><code>int()</code>: Converts to an integer.</li>
+    <li><code>float()</code>: Converts to a floating-point number.</li>
+    <li><code>complex()</code>: Converts to a complex number.</li>
+</ul>
+<p>Example:</p>
+<pre><code>x = 1    # int
+y = 2.8  # float
+z = 1j   # complex
+# Convert from int to float
+a = float(x)
+# Convert from float to int
+b = int(y)
+# Convert from int to complex
+c = complex(x)
+print(a)  # 1.0
+print(b)  # 2
+print(c)  # (1+0j)
+print(type(a))  # &lt;class 'float'&gt;
+print(type(b))  # &lt;class 'int'&gt;
+print(type(c))  # &lt;class 'complex'&gt;
+</code></pre>
+<p><strong>Note:</strong> You cannot directly convert complex numbers into another numeric type.</p>
+<h3>Generating Random Numbers</h3>
+<p>To generate random numbers in Python, you can use the <code>random</code> module. While Python doesn't have a <code>random()</code> function, you can use <code>random.randrange()</code> to generate random integers within a specified range:</p>
+<pre><code>import random
+print(random.randrange(1, 10))  # Generates a random integer between 1 and 9 (inclusive)
+</code></pre>
+<p>This code imports the <code>random</code> module and then uses <code>random.randrange()</code> to print a random integer between 1 and 9.</p>
+<br><br>
+<h2>Python Casting</h2>
+<p>In Python, casting is the process of converting one data type into another. Python is an object-oriented language, and it uses constructor functions to cast data from one type to another. Here are some common casting methods:</p>
+<h3>1. <code>int()</code></h3>
+<p>The <code>int()</code> constructor function is used to construct an integer from various sources, including integer literals, float literals (by removing all decimals), or string literals (if the string represents a whole number).</p>
+<pre><code>x = int(1)    # x will be 1
+y = int(2.8)  # y will be 2
+z = int("3")  # z will be 3
+</code></pre>
+<h3>2. <code>float()</code></h3>
+<p>The <code>float()</code> constructor function constructs a floating-point number from various sources, including integer literals, float literals, or string literals (if the string represents a float or an integer).</p>
+<pre><code>x = float(1)      # x will be 1.0
+y = float(2.8)    # y will be 2.8
+z = float("3")    # z will be 3.0
+w = float("4.2")  # w will be 4.2
+</code></pre>
+<h3>3. <code>str()</code></h3>
+<p>The <code>str()</code> constructor function constructs a string from a wide variety of data types, including strings, integer literals, and float literals.</p>
+<pre><code>x = str("s1")  # x will be 's1'
+y = str(2)     # y will be '2'
+z = str(3.0)   # z will be '3.0'
+</code></pre>
+<p>Casting allows you to change the data type of a variable, which can be useful when you need to perform operations or comparisons between different types of data.</p>
+<br><br>
+<h2>Python Strings</h2>
+    <p>Strings are one of the fundamental data types in Python, used to store and manipulate text. In Python, strings can be enclosed in either single quotation marks (<code>'</code>) or double quotation marks (<code>"</code>), and both forms are equivalent.</p>
+    <h3>Example:</h3>
+    <pre><code>print("Hello")
+print('Hello')</code></pre>
+    <h4>Assigning a String to a Variable</h4>
+    <p>To store a string in a variable, you can simply assign the variable a name followed by an equal sign and the string value.</p>
+    <h3>Example:</h3>
+    <pre><code>a = "Hello"
+print(a)</code></pre>
+    <h4>Multiline Strings</h4>
+    <p>Python allows you to create multiline strings using triple quotes (<code>'''</code> or <code>"""</code>). This feature is handy when you need to define strings that span multiple lines.</p>
+    <h3>Example:</h3>
+    <pre><code>a = """Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt
+ut labore et dolore magna aliqua."""
+print(a)</code></pre>
+    <p>You can also use triple single quotes for the same purpose:</p>
+    <h3>Example:</h3>
+    <pre><code>a = '''Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt
+ut labore et dolore magna aliqua.'''
+print(a)</code></pre>
+    <p>The line breaks in the multiline string are preserved in the result.</p>
+    <h4>Strings are Arrays</h4>
+    <p>Strings in Python are essentially arrays of bytes representing Unicode characters. Unlike some other programming languages, Python doesn't have a dedicated character data type; instead, a single character is treated as a string with a length of 1. You can access individual characters or slices of a string using square brackets <code>[]</code>.</p>
+    <h3>Example:</h3>
+    <pre><code>a = "Hello, World!"
+print(a[1])  # This will print 'e' (character at position 1)</code></pre>
+    <h4>Looping Through a String</h4>
+    <p>Since strings are essentially arrays of characters, you can loop through the characters in a string using a <code>for</code> loop.</p>
+    <h3>Example:</h3>
+    <pre><code>for x in "banana":
+    print(x)</code></pre>
+    <p>This loop will print each character of the word "banana" on a separate line.</p>
+    <h4>String Length</h4>
+    <p>To find the length (the number of characters) of a string, you can use the <code>len()</code> function.</p>
+    <h3>Example:</h3>
+    <pre><code>a = "Hello, World!"
+print(len(a))  # This will print 13 (length of the string)</code></pre>
+    <h4>Checking for Substrings</h4>
+    <p>You can check if a specific substring exists within a string using the <code>in</code> keyword. To check for the absence of a substring, you can use the <code>not in</code> keyword.</p>
+    <h3>Example:</h3>
+    <pre><code>txt = "The best things in life are free!"
+print("free" in txt)         # This will print True
+print("expensive" not in txt)  # This will print True</code></pre>
+    <p>These operations cover some of the fundamental concepts of working with strings in Python, including creating, accessing, looping through, and checking strings. Strings are an essential data type for handling text and are used extensively in Python programming.</p>
+    <h2>Python - Modify Strings</h2>
+    <p>In Python, strings are immutable, meaning they cannot be changed after they are created. However, Python provides various built-in methods that allow you to create modified versions of strings without altering the original string. These methods return new string objects.</p>
+    <h3>Upper Case and Lower Case</h3>
+    <ul>
+        <li>The <code>upper()</code> method returns a new string with all characters in uppercase.</li>
+        <li>The <code>lower()</code> method returns a new string with all characters in lowercase.</li>
+    </ul>
+    <h3>Examples:</h3>
+    <pre><code>a = "Hello, World!"
+print(a.upper())  # Output: "HELLO, WORLD!"
+print(a.lower())  # Output: "hello, world!"</code></pre>
+    <h3>Removing Whitespace</h3>
+    <p>Whitespace refers to spaces, tabs, and newline characters that may appear at the beginning or end of a string. Python provides the <code>strip()</code> method to remove these leading and trailing whitespaces.</p>
+    <h3>Example:</h3>
+    <pre><code>a = " Hello, World! "
+print(a.strip())  # Output: "Hello, World!"</code></pre>
+    <h3>Replacing Substrings</h3>
+    <p>The <code>replace()</code> method allows you to create a new string by replacing all occurrences of a specified substring with another substring.</p>
+    <h3>Example:</h3>
+    <pre><code>a = "Hello, World!"
+print(a.replace("H", "J"))  # Output: "Jello, World!"</code></pre>
+    <h3>Splitting Strings</h3>
+    <p>You can split a string into a list of substrings using the <code>split()</code> method. It takes an optional argument, the separator, and splits the string wherever the separator is found. By default, it splits on whitespace.</p>
+    <h3>Example:</h3>
+    <pre><code>a = "Hello, World!"
+print(a.split(","))  # Output: ['Hello', ' World!']</code></pre>
+    <h3>String Concatenation</h3>
+    <p>String concatenation is the process of combining two or more strings to create a new one. In Python, you can use the <code>+</code> operator to concatenate strings together.</p>
+    <h3>Examples:</h3>
+    <pre><code>a = "Hello"
+b = "World"
+c = a + b  # Concatenation without space
+print(c)   # Output: "HelloWorld"
+c = a + " " + b  # Concatenation with a space
+print(c)        # Output: "Hello World"</code></pre>
+    <h3>String Formatting</h3>
+    <p>String formatting allows you to create a new string by inserting variables or values into a string template. Python provides the <code>format()</code> method for this purpose.</p>
+    <h3>Example:</h3>
+    <pre><code>age = 36
+txt = "My name is John, and I am {} years old."
+formatted_txt = txt.format(age)
+print(formatted_txt)
+# Output: "My name is John, and I am 36 years old."</code></pre>
+    <p>You can use curly braces <code>{}</code> as placeholders in the string template, and then use the <code>format()</code> method to fill in those placeholders with values.</p>
+    <p>These string manipulation methods are essential when working with text data in Python. They allow you to create modified versions of strings while keeping the original strings intact.</p>
+</body>
+</html>
+<br><br>
+    <h2>Python - Escape Characters</h2>
+    <p>In Python, escape characters are used to insert special or "illegal" characters into strings. These characters are called "illegal" because they have a special meaning in Python, and using them directly in a string can cause syntax errors or unexpected behavior. To insert these characters, you use a backslash (\) followed by the character you want to insert. Here are some common escape characters used in Python:</p>
+    <ol>
+        <li><code>\'</code>: Inserts a single quote character within a string.</li>
+        <li><code>\"</code>: Inserts a double quote character within a string.</li>
+        <li><code>\\</code>: Inserts a backslash character within a string.</li>
+        <li><code>\n</code>: Inserts a new line character.</li>
+        <li><code>\r</code>: Inserts a carriage return character.</li>
+        <li><code>\t</code>: Inserts a tab character.</li>
+        <li><code>\b</code>: Inserts a backspace character.</li>
+        <li><code>\f</code>: Inserts a form feed character.</li>
+        <li><code>\ooo</code>: Inserts a character with the octal value <em>ooo</em>.</li>
+        <li><code>\xhh</code>: Inserts a character with the hexadecimal value <em>hh</em>.</li>
+    </ol>
+    <h3>Example 1: Inserting Single Quote and Double Quote</h3>
+    <pre><code>
+# Using escape characters to insert single and double quotes
+single_quote = 'She said, \'Hello!\''
+double_quote = "He replied, \"Hi!\""
+print(single_quote)  # Output: She said, 'Hello!'
+print(double_quote)  # Output: He replied, "Hi!"
+    </code></pre>
+    <h3>Example 2: Inserting New Line and Tab</h3>
+    <pre><code>
+# Using escape characters to insert new line and tab
+new_line = "Line 1\nLine 2"
+tabbed = "First\tSecond"
+print(new_line)
+# Output:
+# Line 1
+# Line 2
+print(tabbed)  # Output: First    Second
+    </code></pre>
+    <h3>Example 3: Inserting Backslash, Carriage Return, and Octal Value</h3>
+    <pre><code>
+# Using escape characters to insert backslash, carriage return, and octal value
+backslash = "This is a backslash: \\"
+carriage_return = "Line 1\rLine 2"
+octal_value = "\110\145\154\154\157"  # Octal for 'Hello'
+print(backslash)        # Output: This is a backslash: \
+print(carriage_return)  # Output: Line 2Line 2
+print(octal_value)      # Output: Hello
+    </code></pre>
+    <p>These escape characters allow you to include special characters within strings without causing syntax errors.</p>
+<br><br>
+  <h1>Python String Methods</h1>
+  <p>Python provides a wide range of built-in methods that you can use to manipulate strings. These methods allow you to perform various operations on strings, such as changing their case, searching for substrings, splitting and joining them, and much more. It's important to note that all string methods return new values and do not modify the original string. Here's an overview of some commonly used string methods:</p>
+  <ol>
+    <li>
+      <h2><code>capitalize()</code></h2>
+      <p><strong>Description:</strong> Converts the first character of the string to uppercase, and the rest to lowercase.</p>
+      <h3>Example:</h3>
+      <pre>
+        <code>text = "hello world"
+result = text.capitalize()
+print(result)  # Output: "Hello world"</code>
+      </pre>
+    </li>
+    <li>
+      <h2><code>casefold()</code></h2>
+      <p><strong>Description:</strong> Converts the entire string to lowercase, even for characters that might not have a direct lowercase equivalent.</p>
+      <h3>Example:</h3>
+      <pre>
+        <code>text = "İstanbul"
+result = text.casefold()
+print(result)  # Output: "istanbul"</code>
+      </pre>
+    </li>
+    <li>
+      <h2><code>center(width, fillchar)</code></h2>
+      <p><strong>Description:</strong> Returns a centered version of the string within a specified width. You can also provide a fill character to pad the empty spaces.</p>
+      <h3>Example:</h3>
+      <pre>
+        <code>text = "Python"
+result = text.center(10, "*")
+print(result)  # Output: "**Python**"</code>
+      </pre>
+    </li>
+    <li>
+      <h2><code>count(substring)</code></h2>
+      <p><strong>Description:</strong> Returns the number of times a specified substring occurs in the string.</p>
+      <h3>Example:</h3>
+      <pre>
+        <code>text = "hello world, hello universe"
+count = text.count("hello")
+print(count)  # Output: 2</code>
+      </pre>
+    </li>
+    <li>
+      <h2><code>encode(encoding)</code></h2>
+      <p><strong>Description:</strong> Returns an encoded version of the string using the specified encoding.</p>
+      <h3>Example:</h3>
+      <pre>
+        <code>text = "hello"
+encoded = text.encode("utf-8")
+print(encoded)  # Output: b'hello' (encoded as bytes)</code>
+      </pre>
+    </li>
+    <li>
+      <h2><code>endswith(suffix)</code></h2>
+      <p><strong>Description:</strong> Checks if the string ends with a specified suffix and returns <code>True</code> or <code>False</code>.</p>
+      <h3>Example:</h3>
+      <pre>
+        <code>text = "Hello, world!"
+result = text.endswith("world!")
+print(result)  # Output: True</code>
+      </pre>
+    </li>
+    <li>
+      <h2><code>expandtabs(tabsize)</code></h2>
+      <p><strong>Description:</strong> Sets the tab size of the string. It replaces tab characters with spaces.</p>
+      <h3>Example:</h3>
+      <pre>
+        <code>text = "hello\tworld"
+result = text.expandtabs(4)
+print(result)  # Output: "hello   world"</code>
+      </pre>
+    </li>
+    <li>
+      <h2><code>find(substring)</code></h2>
+      <p><strong>Description:</strong> Searches the string for a specified substring and returns the position of the first occurrence (or -1 if not found).</p>
+      <h3>Example:</h3>
+      <pre>
+        <code>text = "Python is awesome"
+position = text.find("is")
+print(position)  # Output: 7</code>
+      </pre>
+    </li>
+    <li>
+      <h2><code>format(*args, **kwargs)</code></h2>
+      <p><strong>Description:</strong> Formats the string by replacing placeholders <code>{}</code> with values from <code>args</code> or <code>kwargs</code>.</p>
+      <h3>Example:</h3>
+      <pre>
+        <code>name = "Alice"
+age = 30
+result = "My name is {}, and I am {} years old.".format(name, age)
+print(result)  # Output: "My name is Alice, and I am 30 years old."</code>
+      </pre>
+    </li>
+    <li>
+      <h2><code>format_map(mapping)</code></h2>
+      <p><strong>Description:</strong> Similar to <code>format()</code>, but takes a mapping (dictionary) as an argument to replace placeholders.</p>
+      <h3>Example:</h3>
+      <pre>
+        <code>data = {'name': 'Bob', 'age': 25}
+result = "My name is {name}, and I am {age} years old.".format_map(data)
+print(result)  # Output: "My name is Bob, and I am 25 years old."</code>
+      </pre>
+    </li>
+    <li>
+      <h2><code>index(substring)</code></h2>
+      <p><strong>Description:</strong> Searches the string for a specified substring and returns the position of the first occurrence. Raises a <code>ValueError</code> if not found.</p>
+      <h3>Example:</h3>
+      <pre>
+        <code>text = "Python is fun"
+position = text.index("is")
+print(position)  # Output: 7</code>
+      </pre>
+    </li>
+    <li>
+      <h2><code>isalnum()</code></h2>
+      <p><strong>Description:</strong> Returns <code>True</code> if all characters in the string are alphanumeric (letters or digits), <code>False</code> otherwise.</p>
+      <h3>Example:</h3>
+      <pre>
+        <code>text = "Python123"
+result = text.isalnum()
+print(result)  # Output: True</code>
+      </pre>
+    </li>
+    <li>
+      <h2><code>isalpha()</code></h2>
+      <p><strong>Description:</strong> Returns <code>True</code> if all characters in the string are alphabetic (letters), <code>False</code> otherwise.</p>
+      <h3>Example:</h3>
+      <pre>
+        <code>text = "Python"
+result = text.isalpha()
+print(result)  # Output: True</code>
+      </pre>
+    </li>
+    <li>
+      <h2><code>isascii()</code></h2>
+      <p><strong>Description:</strong> Returns <code>True</code> if all characters in the string are ASCII characters, <code>False</code> otherwise.</p>
+      <h3>Example:</h3>
+      <pre>
+        <code>text = "Hello"
+result = text.isascii()
+print(result)  # Output: True</code>
+      </pre>
+    </li>
+    <li>
+      <h2><code>isdecimal()</code></h2>
+      <p><strong>Description:</strong> Returns <code>True</code> if all characters in the string are decimal (base-10) digits, <code>False</code> otherwise.</p>
+      <h3>Example:</h3>
+      <pre>
+        <code>text = "12345"
+result = text.isdecimal()
+print(result)  # Output: True</code>
+      </pre>
+    </li>
+    <li>
+      <h2><code>isdigit()</code></h2>
+      <p><strong>Description:</strong> Returns <code>True</code> if all characters in the string are digits, <code>False</code> otherwise.</p>
+      <h3>Example:</h3>
+      <pre>
+        <code>text = "12345"
+result = text.isdigit()
+print(result)  # Output: True</code>
+      </pre>
+    </li>
+    <li>
+      <h2><code>isidentifier()</code></h2>
+      <p><strong>Description:</strong> Returns <code>True</code> if the string is a valid Python identifier (variable name), <code>False</code> otherwise.</p>
+      <h3>Example:</h3>
+      <pre>
+        <code>text = "my_var"
+result = text.isidentifier()
+print(result)  # Output: True</code>
+      </pre>
+    </li>
+    <li>
+      <h2><code>islower()</code></h2>
+      <p><strong>Description:</strong> Returns <code>True</code> if all characters in the string are lowercase letters, <code>False</code> otherwise.</p>
+      <h3>Example:</h3>
+      <pre>
+        <code>text = "hello"
+result = text.islower()
+print(result)  # Output: True</code>
+      </pre>
+    </li>
+    <li>
+      <h2><code>isnumeric()</code></h2>
+      <p><strong>Description:</strong> Returns <code>True</code> if all characters in the string are numeric characters (digits), <code>False</code> otherwise.</p>
+      <h3>Example:</h3>
+      <pre>
+        <code>text = "12345"
+result = text.isnumeric()
+print(result)  # Output: True</code>
+      </pre>
+    </li>
+    <li>
+      <h2><code>isprintable()</code></h2>
+      <p><strong>Description:</strong> Returns <code>True</code> if all characters in the string are printable (displayable), <code>False</code> otherwise. Useful for checking if a string can be printed.</p>
+      <h3>Example:</h3>
+      <pre>
+        <code>text = "Hello\nWorld"
+result = text.isprintable()
+print(result)  # Output: False</code>
+      </pre>
+    </li>
+    <li>
+      <h2><code>isspace()</code></h2>
+      <p><strong>Description:</strong> Returns <code>True</code> if all characters in the string are whitespace characters (spaces, tabs, line breaks), <code>False</code> otherwise.</p>
+      <h3>Example:</h3>
+      <pre>
+        <code>text = "   "
+result = text.isspace()
+print(result)  # Output: True</code>
+      </pre>
+    </li>
+    <li>
+      <h2><code>istitle()</code></h2>
+      <p><strong>Description:</strong> Returns <code>True</code> if the string follows the rules of title case (first character of each word is capitalized), <code>False</code> otherwise.</p>
+      <h3>Example:</h3>
+      <pre>
+        <code>text = "This Is a Title"
+result = text.istitle()
+print(result)  # Output: True</code>
+      </pre>
+    </li>
+    <li>
+      <h2><code>isupper()</code></h2>
+      <p><strong>Description:</strong> Returns <code>True</code> if all characters in the string are uppercase letters, <code>False</code> otherwise.</p>
+      <h3>Example:</h3>
+      <pre>
+        <code>text = "HELLO"
+result = text.isupper()
+print(result)  # Output: True</code>
+      </pre>
+    </li>
+    <li>
+      <h2><code>join(iterable)</code></h2>
+      <p><strong>Description:</strong> Joins the elements of an iterable (e.g., a list) into a single string, using the string as a separator.</p>
+      <h3>Example:</h3>
+      <pre>
+        <code>words = ["Hello", "World"]
+result = " ".join(words)
+print(result)  # Output: "Hello World"</code>
+      </pre>
+    </li>
+    <li>
+      <h2><code>ljust(width, fillchar)</code></h2>
+      <p><strong>Description:</strong> Returns a left-justified version of the string within a specified width. You can provide a fill character to pad the empty spaces.</p>
+      <h3>Example:</h3>
+      <pre>
+        <code>text = "Python"
+result = text.ljust(10, "*")
+print(result)  # Output: "Python****"</code>
+      </pre>
+    </li>
+    <li>
+      <h2><code>lower()</code></h2>
+      <p><strong>Description:</strong> Converts all characters in the string to lowercase.</p>
+      <h3>Example:</h3>
+      <pre>
+        <code>text = "Hello World"
+result = text.lower()
+print(result)  # Output: "hello world"</code>
+      </pre>
+    </li>
+    <li>
+      <h2><code>lstrip([chars])</code></h2>
+      <p><strong>Description:</strong> Removes leading whitespace characters (or characters specified in <code>chars</code>) from the left side of the string.</p>
+      <h3>Example:</h3>
+      <pre>
+        <code>text = "   Python   "
+result = text.lstrip()
+print(result)  # Output: "Python   "</code>
+      </pre>
+    </li>
+    <li>
+      <h2><code>maketrans(x[, y[, z]])</code></h2>
+      <p><strong>Description:</strong> Returns a translation table to be used with the <code>translate()</code> method. <code>x</code> should be a string containing the characters to replace, <code>y</code> should be a string with the replacement characters, and <code>z</code> should be a string specifying characters to delete.</p>
+      <h3>Example:</h3>
+      <pre>
+        <code>chars_to_replace = "aeiou"
+replacement_chars = "12345"
+translation_table = str.maketrans(chars_to_replace, replacement_chars)
+text = "hello world"
+result = text.translate(translation_table)
+print(result)  # Output: "h2ll3 w4rld"</code>
+      </pre>
+    </li>
+    <li>
+      <h2><code>partition(separator)</code></h2>
+      <p><strong>Description:</strong> Returns a tuple containing three parts of the string: the part before the first occurrence of <code>separator</code>, the separator itself, and the part after the separator.</p>
+      <h3>Example:</h3>
+      <pre>
+        <code>text = "Hello, World"
+parts = text.partition(",")
+print(parts)  # Output: ('Hello', ',', ' World')</code>
+      </pre>
+    </li>
+    <li>
+      <h2><code>replace(old, new[, count])</code></h2>
+      <p><strong>Description:</strong> Returns a string where all occurrences of <code>old</code> are replaced with <code>new</code>. You can specify <code>count</code> to limit the number of replacements.</p>
+      <h3>Example:</h3>
+      <pre>
+        <code>text = "Hello, World"
+result = text.replace("World", "Python")
+print(result)  # Output: "Hello, Python"</code>
+      </pre>
+    </li>
+    <li>
+      <h2><code>rfind(substring)</code></h2>
+      <p><strong>Description:</strong> Searches the string for a specified substring and returns the highest position (index) where it was found. Returns -1 if not found.</p>
+      <h3>Example:</h3>
+      <pre>
+        <code>text = "Python is awesome, and Python is easy"
+position = text.rfind("Python")
+print(position)  # Output: 21</code>
+      </pre>
+    </li>
+    <li>
+      <h2><code>rindex(substring)</code></h2>
+      <p><strong>Description:</strong> Searches the string for a specified substring and returns the highest position (index) where it was found. Raises a <code>ValueError</code> if not found.</p>
+      <h3>Example:</h3>
+      <pre>
+        <code>text = "Python is awesome, and Python is easy"
+position = text.rindex("Python")
+print(position)  # Output: 21</code>
+      </pre>
+    </li>
+    <li>
+      <h2><code>rjust(width, fillchar)</code></h2>
+      <p><strong>Description:</strong> Returns a right-justified version of the string within a specified width. You can provide a fill character to pad the empty spaces.</p>
+      <h3>Example:</h3>
+      <pre>
+        <code>text = "Python"
+result = text.rjust(10, "*")
+print(result)  # Output: "****Python"</code>
+      </pre>
+    </li>
+    <li>
+      <h2><code>rpartition(separator)</code></h2>
+      <p><strong>Description:</strong> Returns a tuple containing three parts of the string: the part before the last occurrence of <code>separator</code>, the separator itself, and the part after the separator.</p>
+      <h3>Example:</h3>
+      <pre>
+        <code>text = "Hello, World, Python"
+parts = text.rpartition(",")
+print(parts)  # Output: ('Hello, World', ',', ' Python')</code>
+      </pre>
+    </li>
+    <li>
+      <h2><code>rsplit([separator[, maxsplit]])</code></h2>
+      <p><strong>Description:</strong> Splits the string at the specified <code>separator</code> from the right end and returns a list of substrings. You can also specify <code>maxsplit</code> to limit the number of splits.</p>
+      <h3>Example:</h3>
+      <pre>
+        <code>text = "apple,banana,cherry,kiwi"
+fruits = text.rsplit(",", 2)
+print(fruits)  # Output: ['apple,banana', 'cherry', 'kiwi']</code>
+      </pre>
+    </li>
+    <li>
+      <h2><code>rstrip([chars])</code></h2>
+      <p><strong>Description:</strong> Removes trailing whitespace characters (or characters specified in <code>chars</code>) from the right side of the string.</p>
+      <h3>Example:</h3>
+      <pre>
+        <code>text = "   Python   "
+result = text.rstrip()
+print(result)  # Output: "   Python"</code>
+      </pre>
+    </li>
+    <li>
+      <h2><code>split([separator[, maxsplit]])</code></h2>
+      <p><strong>Description:</strong> Splits the string at the specified <code>separator</code> and returns a list of substrings. You can also specify <code>maxsplit</code> to limit the number of splits.</p>
+      <h3>Example:</h3>
+      <pre>
+        <code>text = "apple,banana,cherry,kiwi"
+fruits = text.split(",")
+print(fruits)  # Output: ['apple', 'banana', 'cherry', 'kiwi']</code>
+      </pre>
+    </li>
+    <li>
+      <h2><code>splitlines([keepends])</code></h2>
+      <p><strong>Description:</strong> Splits the string at line breaks and returns a list of lines. You can specify <code>keepends=True</code> to include line break characters in the result.</p>
+      <h3>Example:</h3>
+      <pre>
+        <code>text = "Hello\nWorld\nPython"
+lines = text.splitlines()
+print(lines)  # Output: ['Hello', 'World', 'Python']</code>
+      </pre>
+    </li>
+    <li>
+      <h2><code>startswith(prefix)</code></h2>
+      <p><strong>Description:</strong> Checks if the string starts with a specified <code>prefix</code> and returns <code>True</code> or <code>False</code>.</p>
+      <h3>Example:</h3>
+      <pre>
+        <code>text = "Hello, World"
+result = text.startswith("Hello")
+print(result)  # Output: True</code>
+      </pre>
+    </li>
+    <li>
+      <h2><code>strip([chars])</code></h2>
+      <p><strong>Description:</strong> Removes leading and trailing whitespace characters (or characters specified in <code>chars</code>) from the string.</p>
+      <h3>Example:</h3>
+      <pre>
+        <code>text = "   Python   "
+result = text.strip()
+print(result)  # Output: "Python"</code>
+      </pre>
+    </li>
+    <li>
+      <h2><code>swapcase()</code></h2>
+      <p><strong>Description:</strong> Swaps the case of all characters in the string (uppercase becomes lowercase, and vice versa).</p>
+      <h3>Example:</h3>
+      <pre>
+        <code>text = "Hello World"
+result = text.swapcase()
+print(result)  # Output: "hELLO wORLD"</code>
+      </pre>
+    </li>
+    <li>
+      <h2><code>title()</code></h2>
+      <p><strong>Description:</strong> Converts the string to title case, where the first character of each word is capitalized.</p>
+      <h3>Example:</h3>
+      <pre>
+        <code>text = "python is fun"
+result = text.title()
+print(result)  # Output: "Python Is Fun"</code>
+      </pre>
+    </li>
+    <li>
+      <h2><code>upper()</code></h2>
+      <p><strong>Description:</strong> Converts all characters in the string to uppercase.</p>
+      <h3>Example:</h3>
+      <pre>
+        <code>text = "Hello World"
+result = text.upper()
+print(result)  # Output: "HELLO WORLD"</code>
+      </pre>
+    </li>
+    <li>
+      <h2><code>zfill(width)</code></h2>
+      <p><strong>Description:</strong> Pads the string with zeros on the left until it reaches the specified <code>width</code>.</p>
+      <h3>Example:</h3>
+      <pre>
+        <code>text = "42"
+result = text.zfill(5)
+print(result)  # Output: "00042"</code>
+      </pre>
+    </li>
+  </ol>
+<br><br>
+  <h1>Python Booleans:</h1>
+  <p>Boolean values represent one of two states: <code>True</code> or <code>False</code>. They are fundamental in programming
+    and are used for making decisions and controlling the flow of a program.</p>
+  <h2>Boolean Values:</h2>
+  <p>In Python, you can evaluate expressions to determine whether they are <code>True</code> or <code>False</code>. When you compare
+    two values using operators like <code>&lt;</code>, <code>&gt;</code>, <code>==</code>, etc., Python evaluates the expression
+    and returns a Boolean result:</p>
+  <pre><code>
+print(10 &gt; 9)   # Output: True
+print(10 == 9)  # Output: False
+print(10 &lt; 9)   # Output: False
+</code></pre>
+  <p>You can use these Boolean results to make decisions in your code, such as in an <code>if</code> statement:</p>
+  <pre><code>
+a = 200
+b = 33
+if b &gt; a:
+  print("b is greater than a")
+else:
+  print("b is not greater than a")
+</code></pre>
+  <p>In this example, the condition <code>b &gt; a</code> is evaluated, and since it's <code>False</code>, the code in the <code>else</code>
+    block is executed.</p>
+  <h2>Evaluate Values and Variables:</h2>
+  <p>You can use the <code>bool()</code> function to explicitly evaluate any value or variable and get either <code>True</code> or <code>False</code>
+    as the result:</p>
+  <pre><code>
+print(bool("Hello"))  # Output: True
+print(bool(15))       # Output: True
+x = "Hello"
+y = 15
+print(bool(x))  # Output: True
+print(bool(y))  # Output: True
+</code></pre>
+  <h2>Most Values are True:</h2>
+  <p>In Python, almost any value is evaluated as <code>True</code> if it has some content. For example:</p>
+  <ul>
+    <li>Any non-empty string is <code>True</code>.</li>
+    <li>Any number that is not 0 is <code>True</code>.</li>
+    <li>Any non-empty list, tuple, set, or dictionary is <code>True</code>.</li>
+  </ul>
+  <pre><code>
+print(bool("abc"))                  # Output: True
+print(bool(123))                    # Output: True
+print(bool(["apple", "cherry"]))    # Output: True
+</code></pre>
+  <h2>Some Values are False:</h2>
+  <p>There are very few values that evaluate to <code>False</code>, including empty values like <code>()</code>, <code>[]</code>,
+    <code>{}</code>, <code>""</code>, <code>0</code>, and <code>None</code>. Additionally, the value <code>False</code> itself is <code>False</code>.</p>
+  <pre><code>
+print(bool(False))  # Output: False
+print(bool(None))   # Output: False
+print(bool(0))      # Output: False
+print(bool(""))     # Output: False
+print(bool(()))     # Output: False
+print(bool([]))     # Output: False
+print(bool({}))     # Output: False
+</code></pre>
+  <p>In some cases, objects of custom classes can also evaluate to <code>False</code> if the class defines a <code>__len__</code>
+    function that returns 0 or <code>False</code>.</p>
+  <pre><code>
+class myclass():
+  def __len__(self):
+    return 0
+myobj = myclass()
+print(bool(myobj))  # Output: False
+</code></pre>
+  <h2>Functions can Return a Boolean:</h2>
+  <p>You can create functions that return Boolean values. For example:</p>
+  <pre><code>
+def myFunction():
+  return True
+print(myFunction())  # Output: True
+</code></pre>
+  <p>These functions can be used to perform specific tasks based on the Boolean result:</p>
+  <pre><code>
+def myFunction():
+  return True
+if myFunction():
+  print("YES!")
+else:
+  print("NO!")
+</code></pre>
+  <p>In this case, the function <code>myFunction</code> returns <code>True</code>, so "YES!" is printed.</p>
+  <h2>Built-in Functions Return Booleans:</h2>
+  <p>Python includes many built-in functions that return Boolean values. For example, the <code>isinstance()</code> function can
+    be used to check if an object is of a certain data type and returns <code>True</code> or <code>False</code> accordingly:</p>
+  <pre><code>
+x = 200
+print(isinstance(x, int))  # Output: True
+</code></pre>
+  <p>This code checks if <code>x</code> is an integer and returns <code>True</code>.</p>
+<br><br>
+  <h1>Python Operators</h1>
+  <p>Operators are used to perform operations on variables and values.</p>
+  <h2>Arithmetic Operators</h2>
+  <p>Arithmetic operators are used with numeric values to perform common mathematical operations:</p>
+  <table>
+    <tr>
+      <th>Operator</th>
+      <th>Name</th>
+      <th>Example</th>
+    </tr>
+    <tr>
+      <td>+</td>
+      <td>Addition</td>
+      <td>x + y</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>Subtraction</td>
+      <td>x - y</td>
+    </tr>
+    <tr>
+      <td>*</td>
+      <td>Multiplication</td>
+      <td>x * y</td>
+    </tr>
+    <tr>
+      <td>/</td>
+      <td>Division</td>
+      <td>x / y</td>
+    </tr>
+    <tr>
+      <td>%</td>
+      <td>Modulus</td>
+      <td>x % y</td>
+    </tr>
+    <tr>
+      <td>**</td>
+      <td>Exponentiation</td>
+      <td>x ** y</td>
+    </tr>
+    <tr>
+      <td>//</td>
+      <td>Floor division</td>
+      <td>x // y</td>
+    </tr>
+  </table>
+  <h2>Assignment Operators</h2>
+  <p>Assignment operators are used to assign values to variables:</p>
+  <table>
+    <tr>
+      <th>Operator</th>
+      <th>Example</th>
+      <th>Same As</th>
+    </tr>
+    <tr>
+      <td>=</td>
+      <td>x = 5</td>
+      <td>x = 5</td>
+    </tr>
+    <tr>
+      <td>+=</td>
+      <td>x += 3</td>
+      <td>x = x + 3</td>
+    </tr>
+    <tr>
+      <td>-=</td>
+      <td>x -= 3</td>
+      <td>x = x - 3</td>
+    </tr>
+    <tr>
+      <td>*</td>
+      <td>x *= 3</td>
+      <td>x = x * 3</td>
+    </tr>
+    <tr>
+      <td>/=</td>
+      <td>x /= 3</td>
+      <td>x = x / 3</td>
+    </tr>
+    <tr>
+      <td>%=</td>
+      <td>x %= 3</td>
+      <td>x = x % 3</td>
+    </tr>
+    <tr>
+      <td>//=</td>
+      <td>x //= 3</td>
+      <td>x = x // 3</td>
+    </tr>
+    <tr>
+      <td>**=</td>
+      <td>x **= 3</td>
+      <td>x = x ** 3</td>
+    </tr>
+    <tr>
+      <td>&=</td>
+      <td>x &= 3</td>
+      <td>x = x & 3</td>
+    </tr>
+    <tr>
+      <td>|=</td>
+      <td>x |= 3</td>
+      <td>x = x | 3</td>
+    </tr>
+    <tr>
+      <td>^=</td>
+      <td>x ^= 3</td>
+      <td>x = x ^ 3</td>
+    </tr>
+    <tr>
+      <td>>>=</td>
+      <td>x >>= 3</td>
+      <td>x = x >> 3</td>
+    </tr>
+    <tr>
+      <td><<=</td>
+      <td>x <<= 3</td>
+      <td>x = x << 3</td>
+    </tr>
+  </table>
+  <h2>Comparison Operators</h2>
+  <p>Comparison operators are used to compare two values:</p>
+  <table>
+    <tr>
+      <th>Operator</th>
+      <th>Name</th>
+      <th>Example</th>
+    </tr>
+    <tr>
+      <td>==</td>
+      <td>Equal</td>
+      <td>x == y</td>
+    </tr>
+    <tr>
+      <td>!=</td>
+      <td>Not equal</td>
+      <td>x != y</td>
+    </tr>
+    <tr>
+      <td>&gt;</td>
+      <td>Greater than</td>
+      <td>x > y</td>
+    </tr>
+    <tr>
+      <td>&lt;</td>
+      <td>Less than</td>
+      <td>x < y</td>
+    </tr>
+    <tr>
+      <td>&gt;=</td>
+      <td>Greater than or equal to</td>
+      <td>x &gt;= y</td>
+    </tr>
+    <tr>
+      <td>&lt;=</td>
+      <td>Less than or equal to</td>
+      <td>x &lt;= y</td>
+    </tr>
+  </table>
+  <h2>Logical Operators</h2>
+  <p>Logical operators are used to combine conditional statements:</p>
+  <table>
+    <tr>
+      <th>Operator</th>
+      <th>Description</th>
+      <th>Example</th>
+    </tr>
+    <tr>
+      <td>and</td>
+      <td>Returns True if both statements are true</td>
+      <td>x &lt; 5 and x &lt; 10</td>
+    </tr>
+    <tr>
+      <td>or</td>
+      <td>Returns True if one of the statements is true</td>
+      <td>x &lt; 5 or x &lt; 4</td>
+    </tr>
+    <tr>
+      <td>not</td>
+      <td>Reverse the result, returns False if the result is true</td>
+      <td>not(x &lt; 5 and x &lt; 10)</td>
+    </tr>
+  </table>
+  <h2>Identity Operators</h2>
+  <p>Identity operators are used to compare the objects, not if they are equal, but if they are actually the same object, with the same memory location:</p>
+  <table>
+    <tr>
+      <th>Operator</th>
+      <th>Description</th>
+      <th>Example</th>
+    </tr>
+    <tr>
+      <td>is</td>
+      <td>Returns True if both variables are the same object</td>
+      <td>x is y</td>
+    </tr>
+    <tr>
+      <td>is not</td>
+      <td>Returns True if both variables are not the same object</td>
+      <td>x is not y</td>
+    </tr>
+  </table>
+  <h2>Membership Operators</h2>
+  <p>Membership operators are used to test if a sequence is presented in an object:</p>
+  <table>
+    <tr>
+      <th>Operator</th>
+      <th>Description</th>
+      <th>Example</th>
+    </tr>
+    <tr>
+      <td>in</td>
+      <td>Returns True if a sequence with the specified value is present in the object</td>
+      <td>x in y</td>
+    </tr>
+    <tr>
+      <td>not in</td>
+      <td>Returns True if a sequence with the specified value is not present in the object</td>
+      <td>x not in y</td>
+    </tr>
+  </table>
+  <h2>Bitwise Operators</h2>
+  <p>Bitwise operators are used to compare (binary) numbers:</p>
+  <table>
+    <tr>
+      <th>Operator</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Example</th>
+    </tr>
+    <tr>
+      <td>&</td>
+      <td>AND</td>
+      <td>Sets each bit to 1 if both bits are 1</td>
+      <td>x & y</td>
+    </tr>
+    <tr>
+      <td>|</td>
+      <td>OR</td>
+      <td>Sets each bit to 1 if one of two bits is 1</td>
+      <td>x | y</td>
+    </tr>
+    <tr>
+      <td>^</td>
+      <td>XOR</td>
+      <td>Sets each bit to 1 if only one of two bits is 1</td>
+      <td>x ^ y</td>
+    </tr>
+    <tr>
+      <td>~</td>
+      <td>NOT</td>
+      <td>Inverts all the bits</td>
+      <td>~x</td>
+    </tr>
+    <tr>
+      <td>&lt;&lt;</td>
+      <td>Zero fill left shift</td>
+      <td>Shift left by pushing zeros in from the right and let the leftmost bits fall off</td>
+      <td>x &lt;&lt; 2</td>
+    </tr>
+    <tr>
+      <td>&gt;&gt;</td>
+      <td>Signed right shift</td>
+      <td>Shift right by pushing copies of the leftmost bit in from the left, and let the rightmost bits fall off</td>
+      <td>x &gt;&gt; 2</td>
+    </tr>
+  </table>
+  <h2>Operator Precedence</h2>
+  <p>Operator precedence describes the order in which operations are performed.</p>
+  <p>For example, parentheses have the highest precedence, meaning that expressions inside parentheses must be evaluated first:</p>
+  <pre><code>
+print((6 + 3) - (6 + 3))
+  </code></pre>
+  <p>Multiplication (*) has higher precedence than addition (+), and therefore multiplications are evaluated before additions:</p>
+  <pre><code>
+print(100 + 5 * 3)
+  </code></pre>
+  <p>The precedence order is described in the table below:</p>
+  <table>
+    <tr>
+      <th>Operator</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>()</td>
+      <td>Parentheses</td>
+    </tr>
+    <tr>
+      <td>**</td>
+      <td>Exponentiation</td>
+    </tr>
+    <tr>
+      <td>+x, -x, ~x</td>
+      <td>Unary plus, unary minus, and bitwise NOT</td>
+    </tr>
+    <tr>
+      <td>* / // %</td>
+      <td>Multiplication, division, floor division, and modulus</td>
+    </tr>
+    <tr>
+      <td>+ -</td>
+      <td>Addition and subtraction</td>
+    </tr>
+    <tr>
+      <td>&lt;&lt; &gt;&gt;</td>
+      <td>Bitwise left and right shifts</td>
+    </tr>
+    <tr>
+      <td>&amp;</td>
+      <td>Bitwise AND</td>
+    </tr>
+    <tr>
+      <td>^</td>
+      <td>Bitwise XOR</td>
+    </tr>
+    <tr>
+      <td>|</td>
+      <td>Bitwise OR</td>
+    </tr>
+    <tr>
+      <td>== != &gt; &gt;= &lt; &lt;= is is not in not in</td>
+      <td>Comparisons, identity, and membership operators</td>
+    </tr>
+    <tr>
+      <td>not</td>
+      <td>Logical NOT</td>
+    </tr>
+    <tr>
+      <td>and</td>
+      <td>Logical AND</td>
+    </tr>
+    <tr>
+      <td>or</td>
+      <td>Logical OR</td>
+    </tr>
+  </table>
+  <p>If two operators have the same precedence, the expression is evaluated from left to right.</p>
+  <p>For example, addition (+) and subtraction (-) have the same precedence:</p>
+  <pre><code>
+print(5 + 4 - 7 + 3)
+  </code></pre>
+</body>
+</html>

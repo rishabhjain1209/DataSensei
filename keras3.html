@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Module 3: Convolutional Neural Networks (CNNs) with Keras</title>
+</head>
+<body>
+    <h1>Lesson 1: Understanding image data and CNNs.</h1>
+    <p>In Lesson 1, we will explore the fundamentals of image data and Convolutional Neural Networks (CNNs). Topics covered include:</p>
+    <ul>
+        <li>Introduction to image data and its characteristics.</li>
+        <li>The need for specialized models like CNNs for image-related tasks.</li>
+        <li>Basic building blocks of CNNs: convolutional layers, pooling layers, and fully connected layers.</li>
+    </ul>
+    <h2>Code Example:</h2>
+    <pre><code># No specific code example for this lesson, as it's primarily theoretical.</code></pre>
+    <h1>Lesson 2: Building a CNN for image classification.</h1>
+    <p>In Lesson 2, we'll guide you through building a CNN from scratch for image classification using Keras. Topics covered include:</p>
+    <ul>
+        <li>Defining the architecture of a CNN model.</li>
+        <li>Configuring convolutional layers with different filter sizes and strides.</li>
+        <li>Adding pooling layers for down-sampling.</li>
+        <li>Implementing fully connected layers for classification.</li>
+    </ul>
+    <h2>Code Example:</h2>
+    <pre><code>import tensorflow as tf
+# Define a simple CNN model for image classification
+model = tf.keras.Sequential([
+    tf.keras.layers.Conv2D(32, (3, 3), activation='relu', input_shape=(64, 64, 3)),
+    tf.keras.layers.MaxPooling2D((2, 2)),
+    tf.keras.layers.Conv2D(64, (3, 3), activation='relu'),
+    tf.keras.layers.MaxPooling2D((2, 2)),
+    tf.keras.layers.Flatten(),
+    tf.keras.layers.Dense(128, activation='relu'),
+    tf.keras.layers.Dense(10, activation='softmax')
+])</code></pre>
+    <h1>Lesson 3: Transfer learning and pre-trained models.</h1>
+    <p>In Lesson 3, we'll cover the concept of transfer learning and using pre-trained models to solve complex tasks. Topics covered include:</p>
+    <ul>
+        <li>Understanding transfer learning and its advantages.</li>
+        <li>Using pre-trained models (e.g., VGG, ResNet, Inception) as feature extractors.</li>
+        <li>Fine-tuning pre-trained models for specific tasks.</li>
+    </ul>
+    <h2>Code Example:</h2>
+    <pre><code>import tensorflow as tf
+from tensorflow.keras.applications import VGG16
+# Load a pre-trained VGG16 model (excluding the top classification layer)
+base_model = VGG16(weights='imagenet', include_top=False, input_shape=(224, 224, 3))
+# Freeze the convolutional layers
+for layer in base_model.layers:
+    layer.trainable = False
+# Add custom classification layers on top
+model = tf.keras.Sequential([
+    base_model,
+    tf.keras.layers.GlobalAveragePooling2D(),
+    tf.keras.layers.Dense(128, activation='relu'),
+    tf.keras.layers.Dense(10, activation='softmax')
+])</code></pre>
+    <p>By the end of Module 3, you'll have a comprehensive understanding of Convolutional Neural Networks (CNNs), their application in image classification, and how to leverage transfer learning and pre-trained models to improve your performance on image-related tasks.</p>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NumPy Array Operations</title>
+</head>
+<body>
+    <h1>Module 2: NumPy Array Operations</h1>
+    <h2>2.1 Element-Wise Operations and Vectorization</h2>
+    <ul>
+        <li>NumPy allows you to perform element-wise operations on arrays, which means operations are applied to each element individually, making it efficient.</li>
+        <li>Code Example: Performing element-wise addition and multiplication.</li>
+    </ul>
+    <pre><code>import numpy as np
+# Creating two NumPy arrays
+arr1 = np.array([1, 2, 3, 4, 5])
+arr2 = np.array([10, 20, 30, 40, 50])
+# Element-wise addition
+result_add = arr1 + arr2
+# Element-wise multiplication
+result_multiply = arr1 * arr2</code></pre>
+    <h2>2.2 Broadcasting: How NumPy Handles Arrays with Different Shapes</h2>
+    <ul>
+        <li>Broadcasting is a powerful feature in NumPy that allows you to perform operations on arrays with different shapes, as long as they are compatible.</li>
+        <li>Code Example: Broadcasting a scalar to a NumPy array.</li>
+    </ul>
+    <pre><code># Broadcasting a scalar to a NumPy array
+scalar = 10
+arr = np.array([1, 2, 3, 4, 5])
+# Scalar addition
+result = scalar + arr</code></pre>
+    <h2>2.3 Universal Functions (ufuncs) in NumPy</h2>
+    <ul>
+        <li>Universal functions (ufuncs) are functions that operate element-wise on NumPy arrays.</li>
+        <li>Ufuncs are optimized for speed and efficiency.</li>
+        <li>Code Example: Using a NumPy ufunc to calculate the square root of an array.</li>
+    </ul>
+    <pre><code># Using a NumPy ufunc to calculate the square root
+arr = np.array([1, 4, 9, 16, 25])
+sqrt_arr = np.sqrt(arr)</code></pre>
+    <h2>2.4 Array Reshaping and Manipulation</h2>
+    <ul>
+        <li>NumPy provides functions to reshape and manipulate arrays, such as changing dimensions, stacking, and splitting.</li>
+        <li>Code Example: Reshaping a 1D array to a 2D array.</li>
+    </ul>
+    <pre><code># Reshaping a 1D array to a 2D array
+arr = np.array([1, 2, 3, 4, 5, 6])
+reshaped_arr = arr.reshape(2, 3)</code></pre>
+    <p>These examples cover fundamental NumPy array operations, including element-wise operations, broadcasting, using ufuncs, and array reshaping and manipulation. These operations are crucial for performing efficient numerical computations and data transformations in scientific computing and data analysis.</p>
+</body>
+</html>

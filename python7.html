@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Python Classes and Objects</h1>
+    <p>Python is an object-oriented programming language, which means that it revolves around the concept of objects. Everything in Python is an object, and each object has properties (attributes) and methods (functions) associated with it. Classes are used to define the blueprint for creating objects.</p>
+    <h2>1. Create a Class</h2>
+    <p>To create a class, use the <code>class</code> keyword. Classes are like blueprints for creating objects, defining their attributes and behaviors.</p>
+    <pre>
+class MyClass:
+    x = 5
+    </pre>
+    <h2>2. Create an Object</h2>
+    <p>Once a class is defined, you can create objects (instances) of that class. Objects are instances of a class.</p>
+    <pre>
+p1 = MyClass()
+print(p1.x)
+    </pre>
+    <h2>3. The <code>__init__()</code> Function</h2>
+    <p>The <code>__init__()</code> function is a special method that gets called when an object is created from a class. It is used to initialize object properties or perform other setup operations.</p>
+    <pre>
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+p1 = Person("John", 36)
+print(p1.name)
+print(p1.age)
+    </pre>
+    <h2>4. The <code>__str__()</code> Function</h2>
+    <p>The <code>__str__()</code> function is used to control what should be returned when the object is represented as a string. It's a built-in method that you can define for custom string representation of objects.</p>
+    <pre>
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+    def __str__(self):
+        return f"{self.name} ({self.age})"
+p1 = Person("John", 36)
+print(p1)
+    </pre>
+    <h2>5. Object Methods</h2>
+    <p>Objects can contain methods, which are functions that belong to the object and can access its properties.</p>
+    <pre>
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+    def myfunc(self):
+        print("Hello, my name is " + self.name)
+p1 = Person("John", 36)
+p1.myfunc()
+    </pre>
+    <p>These are the fundamental concepts of Python classes and objects. Classes define the structure of objects, and objects are instances of classes with properties and methods.</p>
+<br><br>
+    <h1>Python Classes and Objects - Advanced Topics</h1>
+    <h2>1. The <code>self</code> Parameter</h2>
+    <p>In Python, the <code>self</code> parameter is used as a reference to the current instance of the class. It is the first parameter of any function (method) defined within the class, and it is automatically passed when you call the method on an object. Although <code>self</code> is the convention, you can use any name you like for this parameter.</p>
+    <pre>
+class Person:
+    def __init__(mysillyobject, name, age):
+        mysillyobject.name = name
+        mysillyobject.age = age
+    def myfunc(abc):
+        print("Hello, my name is " + abc.name)
+p1 = Person("John", 36)
+p1.myfunc()
+    </pre>
+    <h2>2. Modify Object Properties</h2>
+    <p>You can modify object properties (attributes) by directly accessing and assigning new values to them.</p>
+    <pre>
+p1.age = 40
+    </pre>
+    <h2>3. Delete Object Properties</h2>
+    <p>You can delete object properties (attributes) using the <code>del</code> keyword followed by the object and the property you want to delete.</p>
+    <pre>
+del p1.age
+    </pre>
+    <h2>4. Delete Objects</h2>
+    <p>You can delete objects by using the <code>del</code> keyword followed by the object's name.</p>
+    <pre>
+del p1
+    </pre>
+    <h2>5. The <code>pass</code> Statement</h2>
+    <p>Class definitions cannot be empty, but if you need to create a class with no content temporarily, you can use the <code>pass</code> statement to avoid getting an error.</p>
+    <pre>
+class Person:
+    pass
+    </pre>
+    <p>These advanced topics provide a deeper understanding of working with Python classes and objects, including the use of the <code>self</code> parameter, modifying properties, deleting properties and objects, and the <code>pass</code> statement.</p>
+<br><br>
+    <h1>Python Inheritance - Object-Oriented Programming (OOP)</h1>
+    <h2>1. Create a Parent Class</h2>
+    <p>In Python, you can create a parent class like this:</p>
+    <pre>
+class Person:
+    def __init__(self, fname, lname):
+        self.firstname = fname
+        self.lastname = lname
+    def printname(self):
+        print(self.firstname, self.lastname)
+    </pre>
+    <h2>2. Create a Child Class</h2>
+    <p>To create a child class that inherits from the <code>Person</code> class, you can do this:</p>
+    <pre>
+class Student(Person):
+    pass
+    </pre>
+    <h2>3. Add the <code>__init__()</code> Function to Child Class</h2>
+    <p>To customize the child class, you can add an <code>__init__()</code> function to it. This function is automatically called when you create an object of the child class. Here's how you add it:</p>
+    <pre>
+class Student(Person):
+    def __init__(self, fname, lname):
+        Person.__init__(self, fname, lname)
+    </pre>
+    <h2>4. Use the <code>super()</code> Function</h2>
+    <p>Python also provides the <code>super()</code> function to make it more concise:</p>
+    <pre>
+class Student(Person):
+    def __init__(self, fname, lname):
+        super().__init__(fname, lname)
+    </pre>
+    <h2>5. Add Properties</h2>
+    <p>You can add properties to the child class like this:</p>
+    <pre>
+class Student(Person):
+    def __init__(self, fname, lname, year):
+        super().__init__(fname, lname)
+        self.graduationyear = year
+    </pre>
+    <h2>6. Add Methods</h2>
+    <p>To add methods to the child class, define them within the class like this:</p>
+    <pre>
+class Student(Person):
+    def __init__(self, fname, lname, year):
+        super().__init__(fname, lname)
+        self.graduationyear = year
+    def welcome(self):
+        print("Welcome", self.firstname, self.lastname, "to the class of", self.graduationyear)
+    </pre>
+    <p>Now you have a child class <code>Student</code> that inherits from the parent class <code>Person</code>, and you can customize it with additional properties and methods as needed.</p>
+<br><br>
+    <h1>Python Inheritance - Using super(), Adding Properties, and Adding Methods</h1>
+    <h2>1. Using the <code>super()</code> Function</h2>
+    <p>In Python, the <code>super()</code> function is used to call methods and access properties from the parent class within the child class. It simplifies the process of inheriting methods and properties.</p>
+    <pre>
+class Student(Person):
+    def __init__(self, fname, lname):
+        super().__init__(fname, lname)
+    </pre>
+    <h2>2. Adding Properties</h2>
+    <p>You can add properties to the child class by defining them within the class. In this example, we add a <code>graduationyear</code> property to the <code>Student</code> class:</p>
+    <pre>
+class Student(Person):
+    def __init__(self, fname, lname, year):
+        super().__init__(fname, lname)
+        self.graduationyear = year
+    </pre>
+    <h2>3. Adding Methods</h2>
+    <p>To add methods to the child class, define them within the class. In this example, we add a <code>welcome()</code> method to the <code>Student</code> class:</p>
+    <pre>
+class Student(Person):
+    def __init__(self, fname, lname, year):
+        super().__init__(fname, lname)
+        self.graduationyear = year
+    def welcome(self):
+        print("Welcome", self.firstname, self.lastname, "to the class of", self.graduationyear)
+    </pre>
+    <p>Now, when you create a <code>Student</code> object and call the <code>welcome()</code> method, it will print a welcome message including the student's name and graduation year.</p>
+    <p>Keep in mind that if you add a method in the child class with the same name as a function in the parent class, the child class's method will override the parent class's method. This allows you to customize the behavior of inherited methods in the child class while still having access to the parent class's methods and properties using <code>super()</code>.</p>
+<br><br>
+    <h1>Python Iterators</h1>
+    <h2>1. What is an Iterator?</h2>
+    <p>An iterator is an object that contains a countable number of values and allows you to traverse through all the values it holds. In Python, an iterator is an object that implements the iterator protocol, consisting of the methods <code>__iter__()</code> and <code>__next__()</code>.</p>
+    <h2>2. Iterator vs. Iterable</h2>
+    <p>Iterable objects are objects that can be looped over or iterated upon. Examples of iterable objects in Python include lists, tuples, dictionaries, and sets. To obtain an iterator from an iterable, you can use the <code>iter()</code> method.</p>
+    <pre>
+mytuple = ("apple", "banana", "cherry")
+myit = iter(mytuple)
+print(next(myit))
+print(next(myit))
+print(next(myit))
+    </pre>
+    <p>This code creates an iterator <code>myit</code> from a tuple and uses the <code>next()</code> function to retrieve each value.</p>
+    <h2>3. Iterating Through an Iterator</h2>
+    <p>You can use a <code>for</code> loop to iterate through an iterable object, which internally creates an iterator object and uses the <code>next()</code> method for iteration.</p>
+    <pre>
+mytuple = ("apple", "banana", "cherry")
+for x in mytuple:
+  print(x)
+    </pre>
+    <p>In this example, we use a <code>for</code> loop to iterate through the values of the tuple <code>mytuple</code> without explicitly creating an iterator.</p>
+    <p>Additionally, here's an example of iterating through characters in a string:</p>
+    <pre>
+mystr = "banana"
+for x in mystr:
+  print(x)
+    </pre>
+    <p>This loop iterates through each character in the string <code>mystr</code>.</p>
+<br><br>
+    <h1>Polymorphism in Python</h1>
+    <h2>1. Function Polymorphism:</h2>
+    <p>In Python, you can achieve function polymorphism with built-in functions that can be used on different types of objects. One example is the <code>len()</code> function, which behaves differently depending on the type of object it's applied to.</p>
+    <pre>
+x = "Hello World!"
+print(len(x))  # Outputs: 12
+mytuple = ("apple", "banana", "cherry")
+print(len(mytuple))  # Outputs: 3
+thisdict = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+print(len(thisdict))  # Outputs: 3
+    </pre>
+    <h2>2. Class Polymorphism:</h2>
+    <p>Polymorphism is often used in class methods where multiple classes share the same method name but provide their own implementation. For example, you can have different classes (Car, Boat, Plane) with a common method <code>move()</code>.</p>
+    <pre>
+class Car:
+  def move(self):
+    print("Drive!")
+class Boat:
+  def move(self):
+    print("Sail!")
+class Plane:
+  def move(self):
+    print("Fly!")
+car1 = Car()
+boat1 = Boat()
+plane1 = Plane()
+for vehicle in (car1, boat1, plane1):
+    vehicle.move()
+    </pre>
+    <h2>3. Inheritance and Class Polymorphism:</h2>
+    <p>You can also achieve polymorphism in classes through inheritance. Child classes can inherit methods from a parent class and provide their own implementation if needed.</p>
+    <pre>
+class Vehicle:
+  def move(self):
+    print("Move!")
+class Car(Vehicle):
+  pass
+class Boat(Vehicle):
+  def move(self):
+    print("Sail!")
+class Plane(Vehicle):
+  def move(self):
+    print("Fly!")
+car1 = Car()
+boat1 = Boat()
+plane1 = Plane()
+for vehicle in (car1, boat1, plane1):
+    vehicle.move()
+    </pre>
+<br><br>
+    <h1>Python Scope</h1>
+    <h2>1. Local Scope:</h2>
+    <p>A variable created inside a function belongs to the local scope of that function, and it can only be accessed within that function. It is not visible outside the function.</p>
+    <pre>
+def myfunc():
+  x = 300
+  print(x)
+myfunc()
+# Outputs: 300
+    </pre>
+    <h2>2. Function Inside Function:</h2>
+    <p>Variables defined in an outer function are also accessible within inner functions. This is known as nested scope.</p>
+    <pre>
+def myfunc():
+  x = 300
+  def myinnerfunc():
+    print(x)
+  myinnerfunc()
+myfunc()
+# Outputs: 300
+    </pre>
+    <h2>3. Global Scope:</h2>
+    <p>A variable created in the main body of Python code (outside of any function) is a global variable. It belongs to the global scope, which means it can be accessed from any part of the code.</p>
+    <pre>
+x = 300
+def myfunc():
+  print(x)
+myfunc()
+# Outputs: 300
+print(x)
+# Outputs: 300
+    </pre>
+    <h2>4. Naming Variables:</h2>
+    <p>If you use the same variable name both inside and outside a function, Python treats them as two separate variables. One is in the global scope, and the other is in the local scope of the function.</p>
+    <pre>
+x = 300
+def myfunc():
+  x = 200
+  print(x)
+myfunc()
+# Outputs: 200
+print(x)
+# Outputs: 300
+    </pre>
+    <h2>5. Global Keyword:</h2>
+    <p>To create or modify a global variable from within a function, you can use the <code>global</code> keyword.</p>
+    <pre>
+def myfunc():
+  global x
+  x = 300
+myfunc()
+print(x)
+# Outputs: 300
+    </pre>
+    <pre>
+x = 300
+def myfunc():
+  global x
+  x = 200
+myfunc()
+print(x)
+# Outputs: 200
+    </pre>
+<br><br>
+    <h1>Python Modules</h1>
+    <h2>1. Create a Module:</h2>
+    <p>To create a module, save your code in a file with the <code>.py</code> file extension. This file can contain functions, variables, classes, or any Python code.</p>
+    <pre>
+        <code>Example: <strong>mymodule.py</strong></code>
+        <code>```python
+def greeting(name):
+    print("Hello, " + name)
+person1 = {
+    "name": "John",
+    "age": 36,
+    "country": "Norway"
+}
+        </code>        
+    </pre>
+    <h2>2. Use a Module:</h2>
+    <p>You can use a module in your code by using the <code>import</code> statement. To access functions, variables, or other elements in the module, use the syntax: <code>module_name.element_name</code>.</p>
+    <pre>
+        <code>Example: Using the <strong>mymodule</strong> Module</code>
+        <code>```python
+import mymodule
+mymodule.greeting("Jonathan")
+a = mymodule.person1["age"]
+print(a)
+        </code>
+    </pre>
+    <h2>3. Variables in a Module:</h2>
+    <p>Modules can contain variables of all types, including dictionaries, lists, and objects. These variables can be accessed after importing the module.</p>
+    <pre>
+        <code>Example: Accessing a Dictionary in <strong>mymodule</strong></code>
+        <code>```python
+import mymodule
+a = mymodule.person1["age"]
+print(a)
+        </code>
+    </pre>
+    <h2>4. Naming a Module:</h2>
+    <p>You can name the module file whatever you like, but it must have the <code>.py</code> file extension.</p>
+    <h2>5. Re-naming a Module:</h2>
+    <p>You can create an alias for a module when importing it using the <code>as</code> keyword. This allows you to use a shorter name for the module in your code.</p>
+    <pre>
+        <code>Example: Creating an Alias for <strong>mymodule</strong></code>
+        <code>```python
+import mymodule as mx
+a = mx.person1["age"]
+print(a)
+        </code>
+    </pre>
+    <h2>6. Built-in Modules:</h2>
+    <p>Python comes with several built-in modules that you can import and use in your programs. These modules provide various functionalities, such as working with files, handling dates and times, and more.</p>
+    <pre>
+        <code>Example: Using the <strong>platform</strong> Module</code>
+        <code>```python
+import platform
+x = platform.system()
+print(x)
+        </code>
+    </pre>
+    <h2>7. Using the <code>dir()</code> Function:</h2>
+    <p>The <code>dir()</code> function allows you to list all the defined names (functions, variables, classes, etc.) in a module. This is helpful for exploring the contents of a module.</p>
+    <pre>
+        <code>Example: Listing Names in the <strong>platform</strong> Module</code>
+        <code>```python
+import platform
+x = dir(platform)
+print(x)
+        </code>
+    </pre>
+    <h2>8. Importing Specific Elements from a Module:</h2>
+    <p>You can import only specific elements from a module using the <code>from</code> keyword. This way, you don't need to use the module name when referring to those elements in your code.</p>
+    <pre>
+        <code>Example: Importing <strong>person1</strong> from <strong>mymodule</strong></code>
+        <code>```python
+from mymodule import person1
+print(person1["age"])
+        </code>
+    </pre>
+<br><br>
+    <h1>Python Datetime</h1>
+    <h2>1. Importing the <code>datetime</code> Module:</h2>
+    <p>You can import the <code>datetime</code> module to work with date and time-related operations.</p>
+    <pre>
+        <code>Example: Importing <strong>datetime</strong> and Displaying the Current Date and Time</code>
+        <code>```python
+import datetime
+x = datetime.datetime.now()
+print(x)
+        </code>
+    </pre>
+    <h2>2. Date Output:</h2>
+    <p>A datetime object contains information about the year, month, day, hour, minute, second, and microsecond. You can access these components using various methods.</p>
+    <pre>
+        <code>Example: Accessing Year and Weekday Name</code>
+        <code>```python
+import datetime
+x = datetime.datetime.now()
+print(x.year)
+print(x.strftime("%A"))
+        </code>
+    </pre>
+    <h2>3. Creating Date Objects:</h2>
+    <p>You can create date objects using the <code>datetime</code> class constructor. This class requires three parameters: year, month, and day. You can also specify time-related parameters like hour, minute, second, and microsecond, but they are optional.</p>
+    <pre>
+        <code>Example: Creating a Date Object</code>
+        <code>```python
+import datetime
+x = datetime.datetime(2020, 5, 17)
+print(x)
+        </code>
+    </pre>
+    <h2>4. The <code>strftime()</code> Method:</h2>
+    <p>The <code>strftime()</code> method of the <code>datetime</code> object allows you to format date and time objects into readable strings. You pass a format string as a parameter to specify how the string should be formatted.</p>
+    <pre>
+        <code>Example: Formatting Month Name</code>
+        <code>```python
+import datetime
+x = datetime.datetime(2018, 6, 1)
+print(x.strftime("%B"))
+        </code>
+    </pre>
+    <p>Here are some commonly used format codes for <code>strftime()</code>:</p>
+    <pre>
+        <code>%d</code>: Day of the month (e.g., "31").
+        <code>%b</code>: Month name, short version (e.g., "Dec").
+        <code>%B</code>: Month name, full version (e.g., "December").
+        <code>%m</code>: Month as a number (e.g., "12").
+        <code>%y</code>: Year, short version without century (e.g., "18").
+        <code>%Y</code>: Year, full version (e.g., "2018").
+        <code>%H</code>: Hour (00-23, e.g., "17").
+        <code>%I</code>: Hour (00-12, e.g., "05").
+        <code>%M</code>: Minute (00-59, e.g., "41").
+        <code>%S</code>: Second (00-59, e.g., "08").
+        <code>%f</code>: Microsecond (e.g., "548513").
+        <code>%z</code>: UTC offset (e.g., "+0100").
+        <code>%Z</code>: Timezone (e.g., "CST").
+        <code>%j</code>: Day number of the year (001-366, e.g., "365").
+        <code>%U</code>: Week number of the year (Sunday as the first day of the week, 00-53, e.g., "52").
+        <code>%W</code>: Week number of the year (Monday as the first day of the week, 00-53, e.g., "52").
+        <code>%c</code>: Local version of date and time (e.g., "Mon Dec 31 17:41:00 2018").
+        <code>%x</code>: Local version of date (e.g., "12/31/18").
+        <code>%X</code>: Local version of time (e.g., "17:41:00").
+        <code>%%</code>: A % character.
+        <code>%G</code>: ISO 8601 year (e.g., "2018").
+        <code>%u</code>: ISO 8601 weekday (1-7, e.g., "1").
+        <code>%V</code>: ISO 8601 week number (01-53, e.g., "01").
+    </pre>
+<br><br>
+    <h1>Python Math</h1>
+    <p>Python provides built-in mathematical functions and a math module that extends the capabilities for performing various mathematical tasks on numbers.</p>
+    <h2>1. Built-in Math Functions:</h2>
+    <h3>min() and max()</h3>
+    <p>These functions help find the lowest or highest value in an iterable.</p>
+    <pre><code>x = min(5, 10, 25)
+y = max(5, 10, 25)
+print(x)  # Output: 5
+print(y)  # Output: 25</code></pre>
+    <h3>abs()</h3>
+    <p>The abs() function returns the absolute (positive) value of the specified number.</p>
+    <pre><code>x = abs(-7.25)
+print(x)  # Output: 7.25</code></pre>
+    <h3>pow(x, y)</h3>
+    <p>The pow() function returns the value of <code>x</code> to the power of <code>y</code> (xy).</p>
+    <pre><code>x = pow(4, 3)
+print(x)  # Output: 64 (4 * 4 * 4)</code></pre>
+    <h2>2. The Math Module:</h2>
+    <p>Python's math module extends the list of mathematical functions and constants available for more advanced mathematical operations.</p>
+    <h3>Importing the math Module</h3>
+    <pre><code>import math</code></pre>
+    <h3>math.sqrt(x)</h3>
+    <p>Returns the square root of a number.</p>
+    <pre><code>import math
+x = math.sqrt(64)
+print(x)  # Output: 8.0</code></pre>
+    <h3>math.ceil(x)</h3>
+    <p>Rounds a number upwards to its nearest integer.</p>
+    <h3>math.floor(x)</h3>
+    <p>Rounds a number downwards to its nearest integer.</p>
+    <pre><code>import math
+x = math.ceil(1.4)
+y = math.floor(1.4)
+print(x)  # Output: 2
+print(y)  # Output: 1</code></pre>
+    <h3>math.pi</h3>
+    <p>Returns the value of π (pi, approximately 3.14159).</p>
+    <pre><code>import math
+x = math.pi
+print(x)  # Output: 3.141592653589793</code></pre>
+    <p>These functions and constants are just a few examples of what the math module provides. You can explore more mathematical functions and constants in the math module documentation for advanced mathematical calculations.</p>
+<br><br>
+    <h1>Python JSON (JavaScript Object Notation)</h1>
+    <p>JSON is a text-based format for storing and exchanging data, widely used for data interchange between a server and a web application, or between different parts of an application. Python provides a built-in package called <code>json</code> for working with JSON data.</p>
+    <h2>1. Importing the json Module:</h2>
+    <h3>Example: Importing the json Module</h3>
+    <pre><code>import json</code></pre>
+    <h2>2. Parsing JSON (Converting from JSON to Python):</h2>
+    <h3>Example: Converting from JSON to Python</h3>
+   <pre><code>import json
+# JSON string
+x = '{ "name": "John", "age": 30, "city": "New York" }'
+# Parse x
+y = json.loads(x)
+# Result is a Python dictionary
+print(y["age"])  # Output: 30</code></pre>
+    <h2>3. Converting from Python to JSON:</h2>
+    <h3>Example: Converting from Python to JSON</h3>
+    <pre><code>import json
+# Python dictionary
+x = {
+  "name": "John",
+  "age": 30,
+  "city": "New York"
+}
+# Convert to JSON
+y = json.dumps(x)
+# Result is a JSON string
+print(y)</code></pre>
+    <h2>4. Supported Python Data Types:</h2>
+    <h3>Example: Converting Python Objects into JSON</h3>
+    <pre><code>import json
+print(json.dumps({"name": "John", "age": 30}))
+print(json.dumps(["apple", "bananas"]))
+print(json.dumps(("apple", "bananas")))
+print(json.dumps("hello"))
+print(json.dumps(42))
+print(json.dumps(31.76))
+print(json.dumps(True))
+print(json.dumps(False))
+print(json.dumps(None))</code></pre>
+    <h2>5. Complex Python Object to JSON:</h2>
+    <h3>Example: Converting a Complex Python Object</h3>
+    <pre><code>import json
+x = {
+  "name": "John",
+  "age": 30,
+  "married": True,
+  "divorced": False,
+  "children": ("Ann", "Billy"),
+  "pets": None,
+  "cars": [
+    {"model": "BMW 230", "mpg": 27.5},
+    {"model": "Ford Edge", "mpg": 24.1}
+  ]
+}
+print(json.dumps(x))</code></pre>
+    <h2>6. Formatting the Result:</h2>
+    <h3>Example: Formatting the JSON Result</h3>
+    <pre><code>import json
+x = {
+  "name": "John",
+  "age": 30,
+  "city": "New York"
+}
+# Format with indentation
+print(json.dumps(x, indent=4))
+# Format with custom separators
+print(json.dumps(x, indent=4, separators=(". ", " = ")))</code></pre>
+    <h2>7. Ordering the Result:</h2>
+    <h3>Example: Ordering the JSON Result</h3>
+    <pre><code>import json
+x = {
+  "name": "John",
+  "age": 30,
+  "city": "New York"
+}
+# Sort keys in the result
+print(json.dumps(x, indent=4, sort_keys=True))</code></pre>
+    <p>JSON is a versatile format for data storage and exchange, and the <code>json</code> module in Python makes it easy to work with JSON data in your programs.</p>
+</body>
+</html>

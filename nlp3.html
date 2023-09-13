@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 3-4: Text Classification</title>
+</head>
+<body>
+    <h1>Supervised Learning for Text Classification</h1>
+    <p><strong>Supervised learning</strong> in text classification involves training a machine learning model using labeled text data. The goal is to predict predefined categories or labels for new, unseen text data. Common supervised text classification tasks include spam detection, sentiment analysis, and topic categorization.</p>
+    <p>Here's a high-level overview of the process:</p>
+    <ol>
+        <li><strong>Data Collection:</strong> Gather a labeled dataset where each text example is associated with a category or label.</li>
+        <li><strong>Data Preprocessing:</strong> Preprocess the text data by tokenizing, removing stop words, and performing other text normalization techniques.</li>
+        <li><strong>Feature Extraction:</strong> Transform the text data into numerical features that machine learning models can understand.</li>
+        <li><strong>Model Training:</strong> Train a machine learning classifier (e.g., Naive Bayes, SVM, etc.) using the preprocessed and transformed text data.</li>
+        <li><strong>Model Evaluation:</strong> Evaluate the model's performance using appropriate evaluation metrics (e.g., accuracy, precision, recall, F1-score) on a test dataset.</li>
+        <li><strong>Prediction:</strong> Use the trained model to classify new, unseen text data.</li>
+    </ol>
+    <h2>Feature Extraction (Bag of Words, TF-IDF)</h2>
+    <p>Feature extraction is a crucial step in text classification. It involves converting text data into numerical features that machine learning models can work with. Two common techniques for feature extraction are the <strong>Bag of Words (BoW)</strong> and <strong>Term Frequency-Inverse Document Frequency (TF-IDF)</strong>.</p>
+    <h3>Bag of Words (BoW)</h3>
+    <p>BoW represents text data as a matrix, where each row corresponds to a document or text sample, and each column represents a unique word (or token) in the entire dataset. The values in the matrix typically represent word frequencies or binary presence/absence. Here's an example:</p>
+    <pre><code>
+from sklearn.feature_extraction.text import CountVectorizer
+# Sample text data
+corpus = ["This is the first document.", "This document is the second document.", "And this is the third one."]
+# Create a BoW representation
+vectorizer = CountVectorizer()
+X = vectorizer.fit_transform(corpus)
+# Get the feature names (unique words)
+feature_names = vectorizer.get_feature_names_out()
+print(feature_names)
+    </code></pre>
+    <h3>Term Frequency-Inverse Document Frequency (TF-IDF)</h3>
+    <p>TF-IDF is a numerical statistic that reflects the importance of a word in a document relative to a collection of documents (corpus). It assigns higher weights to words that are frequent in a document but rare in the corpus. Here's an example:</p>
+    <pre><code>
+from sklearn.feature_extraction.text import TfidfVectorizer
+# Sample text data
+corpus = ["This is the first document.", "This document is the second document.", "And this is the third one."]
+# Create a TF-IDF representation
+vectorizer = TfidfVectorizer()
+X = vectorizer.fit_transform(corpus)
+# Get the feature names (unique words)
+feature_names = vectorizer.get_feature_names_out()
+print(feature_names)
+    </code></pre>
+    <h2>Classification Algorithms (Naive Bayes, SVM, etc.)</h2>
+    <p>There are several classification algorithms that can be used for text classification. Some commonly used ones include:</p>
+    <ol>
+        <li><strong>Naive Bayes:</strong> Naive Bayes classifiers are based on Bayes' theorem and are particularly well-suited for text classification tasks like spam detection and sentiment analysis.</li>
+        <li><strong>Support Vector Machine (SVM):</strong> SVMs are effective for text classification due to their ability to find a hyperplane that best separates different classes.</li>
+        <li><strong>Random Forest:</strong> Random Forest is an ensemble learning method that combines multiple decision trees to make predictions.</li>
+    </ol>
+    <h2>Evaluation Metrics (Accuracy, Precision, Recall, F1-score)</h2>
+    <p>Evaluating the performance of a text classification model is essential. Common evaluation metrics include:</p>
+    <ul>
+        <li><strong>Accuracy:</strong> Measures the proportion of correctly classified instances out of all instances.</li>
+        <li><strong>Precision:</strong> Measures the proportion of true positive predictions out of all positive predictions. It focuses on the accuracy of positive predictions.</li>
+        <li><strong>Recall:</strong> Measures the proportion of true positive predictions out of all actual positives. It focuses on the coverage of actual positives.</li>
+        <li><strong>F1-score:</strong> A harmonic mean of precision and recall, which provides a balanced measure of a model's performance.</li>
+    </ul>
+    <p>Here's an example of how to calculate these metrics using scikit-learn:</p>
+    <pre><code>
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+# Calculate accuracy
+accuracy = accuracy_score(y_true, y_pred)
+# Calculate precision
+precision = precision_score(y_true, y_pred)
+# Calculate recall
+recall = recall_score(y_true, y_pred)
+# Calculate F1-score
+f1 = f1_score(y_true, y_pred)
+    </code></pre>
+    <p>These evaluation metrics help assess the quality of your text classification model and determine its suitability for the specific task. Depending on the application, you may prioritize one metric over others.</p>
+</body>
+</html>

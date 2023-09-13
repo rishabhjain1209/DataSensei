@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Processing and Analysis with NumPy</title>
+</head>
+<body>
+    <h1>Module 5: Data Processing and Analysis with NumPy</h1>
+    <h2>5.1 Reading and Writing Data with NumPy</h2>
+    <ul>
+        <li>While NumPy primarily focuses on numerical operations, it can be used to read and write data to/from files.</li>
+        <li>Code Example: Reading and writing data to/from a text file.</li>
+    </ul>
+    <pre><code>import numpy as np
+# Reading data from a text file
+data = np.genfromtxt('data.csv', delimiter=',')
+# Writing data to a text file
+np.savetxt('output.csv', data, delimiter=',')</code></pre>
+    <h2>5.2 Data Aggregation and Summary Statistics</h2>
+    <ul>
+        <li>NumPy provides functions for aggregating data and computing summary statistics, such as mean, median, and standard deviation.</li>
+        <li>Code Example: Calculating summary statistics.</li>
+    </ul>
+    <pre><code># Creating a sample NumPy array
+data = np.array([10, 15, 20, 25, 30])
+# Calculating summary statistics
+mean = np.mean(data)
+median = np.median(data)
+std_dev = np.std(data)</code></pre>
+    <h2>5.3 Filtering and Sorting Data</h2>
+    <ul>
+        <li>NumPy allows you to filter and sort data efficiently based on specific conditions or criteria.</li>
+        <li>Code Example: Filtering and sorting data.</li>
+    </ul>
+    <pre><code># Filtering data
+data = np.array([10, 15, 20, 25, 30])
+filtered_data = data[data > 20]
+# Sorting data
+sorted_data = np.sort(data)</code></pre>
+    <h2>5.4 Combining NumPy with pandas for Data Analysis</h2>
+    <ul>
+        <li>While NumPy is great for numerical operations, pandas provides powerful data structures for data analysis.</li>
+        <li>Code Example: Using NumPy with pandas for data analysis.</li>
+    </ul>
+    <pre><code>import pandas as pd
+import numpy as np
+# Creating a pandas DataFrame
+data = {'A': [1, 2, 3, 4, 5],
+        'B': [10, 20, 30, 40, 50]}
+df = pd.DataFrame(data)
+# Applying a NumPy function to a pandas DataFrame
+df['C'] = np.sqrt(df['A'] * df['B'])</code></pre>
+    <p>These examples demonstrate how to use NumPy for reading and writing data, performing data aggregation and summary statistics, filtering and sorting data efficiently, and integrating NumPy with pandas for more advanced data analysis tasks. NumPy's capabilities complement pandas, making it a powerful combination for data manipulation and analysis.</p>
+</body>
+</html>

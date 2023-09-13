@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>File Handling in Python:</h1>
+    <p>File handling is essential for working with data in Python. Python provides the <code>open()</code> function for working with files, and there are different modes to specify how you want to interact with a file.</p>
+    <h2>Modes for Opening Files:</h2>
+    <ol>
+        <li><code>"r"</code> (Read): This mode is used for reading the content of a file. It's the default mode, and it raises an error if the file doesn't exist.</li>
+        <li><code>"a"</code> (Append): This mode is used for appending data to a file. If the file doesn't exist, it creates a new one.</li>
+        <li><code>"w"</code> (Write): This mode is used for writing data to a file. If the file doesn't exist, it creates a new one. If it exists, it truncates the existing content.</li>
+        <li><code>"x"</code> (Create): This mode is used to create a new file. It returns an error if the file already exists.</li>
+    </ol>
+    <h2>Binary and Text Modes:</h2>
+    <p>You can also specify whether the file should be handled as binary or text mode:</p>
+    <ul>
+        <li><code>"t"</code> (Text): This is the default value and is used for text mode.</li>
+        <li><code>"b"</code> (Binary): This mode is used for binary files like images.</li>
+    </ul>
+    <h2>Opening a File:</h2>
+    <p>To open a file, use the <code>open()</code> function. For example, to open a file for reading:</p>
+    <pre><code>f = open("demofile.txt", "r")</code></pre>
+    <p>If the file is located in a different directory, specify the full file path:</p>
+    <pre><code>f = open("D:\\myfiles\\welcome.txt", "r")</code></pre>
+    <h2>Reading a File:</h2>
+    <pre><code># Open a file for reading
+f = open("demofile.txt", "r")
+# Read and print the content of the file
+print(f.read())
+# Close the file when you're done
+f.close()
+</code></pre>
+    <h2>Reading a Specific Number of Characters:</h2>
+    <pre><code># Open a file for reading
+f = open("demofile.txt", "r")
+# Read and print the first 5 characters of the file
+print(f.read(5))
+# Close the file when you're done
+f.close()
+</code></pre>
+    <h2>Reading Lines from a File:</h2>
+    <pre><code># Open a file for reading
+f = open("demofile.txt", "r")
+# Read and print one line from the file
+print(f.readline())
+# Close the file when you're done
+f.close()
+</code></pre>
+    <h2>Looping Through Lines of a File:</h2>
+    <pre><code># Open a file for reading
+f = open("demofile.txt", "r")
+# Loop through and print each line of the file
+for line in f:
+    print(line)
+# Close the file when you're done
+f.close()
+</code></pre>
+    <p>These examples cover the basics of file handling in Python, including opening, reading, and looping through files. Remember to close the file after you're done working with it to free up system resources.</p>
+<br><br>
+    <h1>File Operations in Python:</h1>
+    <p>Working with files is an essential part of many Python applications. Let's explore various file operations and provide code examples for each topic:</p>
+    <h2>Closing Files:</h2>
+    <p>It's essential to close files after you've finished using them to free up system resources and ensure any changes you made are saved.</p>
+    <pre><code># Open a file for reading
+f = open("demofile.txt", "r")
+# Read and print one line from the file
+print(f.readline())
+# Close the file when you're done
+f.close()
+</code></pre>
+    <h2>Writing to an Existing File:</h2>
+    <p>You can write to an existing file using modes like <code>"a"</code> (append) or <code>"w"</code> (write). Append mode appends content to the end of the file, while write mode overwrites the existing content.</p>
+    <pre><code># Append content to an existing file
+f = open("demofile2.txt", "a")
+f.write("Now the file has more content!")
+f.close()
+# Open and read the file after appending
+f = open("demofile2.txt", "r")
+print(f.read())
+</code></pre>
+    <h2>Overwriting an Existing File:</h2>
+    <p>If you want to overwrite the entire content of an existing file, use write mode <code>"w"</code>.</p>
+    <pre><code># Overwrite content of an existing file
+f = open("demofile3.txt", "w")
+f.write("Woops! I have deleted the content!")
+f.close()
+# Open and read the file after overwriting
+f = open("demofile3.txt", "r")
+print(f.read())
+</code></pre>
+    <h2>Creating a New File:</h2>
+    <p>You can create a new file using <code>"x"</code> mode, which returns an error if the file already exists, or <code>"w"</code> mode, which creates a new file if it doesn't exist.</p>
+    <pre><code># Create a new file (raises an error if it exists)
+f = open("myfile.txt", "x")
+# Create a new file (or overwrite if it exists)
+f = open("myfile.txt", "w")
+</code></pre>
+    <h2>Deleting a File:</h2>
+    <p>To delete a file in Python, you can use the <code>os.remove()</code> function from the <code>os</code> module.</p>
+    <pre><code>import os
+# Remove the file "demofile.txt"
+os.remove("demofile.txt")
+</code></pre>
+    <h2>Checking if a File Exists Before Deleting:</h2>
+    <p>It's a good practice to check if a file exists before attempting to delete it to avoid errors.</p>
+    <pre><code>import os
+# Check if file exists, then delete it
+if os.path.exists("demofile.txt"):
+    os.remove("demofile.txt")
+else:
+    print("The file does not exist")
+</code></pre>
+    <h2>Deleting a Folder:</h2>
+    <p>To delete an entire folder, use the <code>os.rmdir()</code> method from the <code>os</code> module. Note that this method can only remove empty folders.</p>
+    <pre><code>import os
+# Remove the folder "myfolder"
+os.rmdir("myfolder")
+</code></pre>
+    <p>These examples cover various file operations in Python, including opening, reading, writing, and deleting files, as well as deleting folders. Remember to close files and handle exceptions when necessary to ensure your file operations are reliable and error-free.</p>
+</body>
+</html>

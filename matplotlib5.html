@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Week 5: Working with Real Data</h1>
+    <h2>Lesson 11: Importing Data</h2>
+    <h3>Reading data from files using Pandas:</h3>
+    <p>Pandas is a powerful Python library for data manipulation and analysis. It provides various functions to read data from different file formats, such as CSV, Excel, and SQL databases. Here's an example of reading data from a CSV file using Pandas:</p>
+    <pre><code>import pandas as pd
+# Read data from a CSV file
+data = pd.read_csv('data.csv')
+# Display the first few rows of the DataFrame
+print(data.head())</code></pre>
+    <p>In this example, we use the <code>pd.read_csv()</code> function to read data from a CSV file into a Pandas DataFrame. You can similarly use <code>pd.read_excel()</code> for Excel files and other Pandas functions for different data sources.</p>
+    <h3>Preparing data for visualization:</h3>
+    <p>Once you have imported data into a Pandas DataFrame, you can prepare it for visualization by cleaning and transforming it as needed. Common data preparation tasks include handling missing values, data type conversions, and feature engineering. Here's an example:</p>
+    <pre><code>import pandas as pd
+# Read data from a CSV file
+data = pd.read_csv('data.csv')
+# Handling missing values (e.g., filling missing values with the mean)
+data['age'].fillna(data['age'].mean(), inplace=True)
+# Data type conversion (e.g., converting a column to datetime)
+data['date'] = pd.to_datetime(data['date'])
+# Feature engineering (e.g., creating a new column)
+data['age_group'] = pd.cut(data['age'], bins=[0, 18, 35, 60, 100], labels=['<18', '18-35', '36-60', '60+'])
+# Display the prepared data
+print(data.head())</code></pre>
+    <p>These are just some basic data preparation steps, and the specific tasks may vary depending on your dataset and analysis goals.</p>
+    <h2>Lesson 12: Case Study: Exploratory Data Analysis</h2>
+    <h3>Visualizing real-world datasets:</h3>
+    <p>Exploratory Data Analysis (EDA) is the process of visually and statistically summarizing, exploring, and understanding a dataset. You can use Matplotlib and Pandas to create various types of plots to visualize your data during EDA. Here's an example of creating some common plots:</p>
+    <pre><code>import pandas as pd
+import matplotlib.pyplot as plt
+# Read data from a CSV file
+data = pd.read_csv('data.csv')
+# Histogram
+plt.hist(data['age'], bins=20, color='skyblue', edgecolor='black')
+plt.xlabel('Age')
+plt.ylabel('Frequency')
+plt.title('Age Distribution')
+plt.show()
+# Scatter plot
+plt.scatter(data['income'], data['expenditure'], color='green', alpha=0.5)
+plt.xlabel('Income')
+plt.ylabel('Expenditure')
+plt.title('Income vs. Expenditure')
+plt.show()
+# Bar plot
+gender_counts = data['gender'].value_counts()
+gender_counts.plot(kind='bar', color='purple')
+plt.xlabel('Gender')
+plt.ylabel('Count')
+plt.title('Gender Distribution')
+plt.show()</code></pre>
+    <h3>Data cleaning and manipulation for visualization:</h3>
+    <p>Data cleaning and manipulation are crucial in EDA to ensure that the data is in the right format for analysis and visualization. This may involve handling missing values, removing outliers, and aggregating data. Here's an example of data cleaning and manipulation:</p>
+    <pre><code>import pandas as pd
+# Read data from a CSV file
+data = pd.read_csv('data.csv')
+# Removing rows with missing values
+data.dropna(inplace=True)
+# Removing outliers (assuming 'income' follows a normal distribution)
+mean_income = data['income'].mean()
+std_income = data['income'].std()
+data = data[(data['income'] >= mean_income - 2 * std_income) & (data['income'] <= mean_income + 2 * std_income)]
+# Aggregating data (e.g., calculating average expenditure by age group)
+avg_expenditure_by_age = data.groupby('age_group')['expenditure'].mean()
+# Display the result
+print(avg_expenditure_by_age)</code></pre>
+    <p>These examples illustrate the process of importing, preparing, visualizing, and exploring real-world datasets as part of an exploratory data analysis (EDA) workflow. EDA is a critical step in understanding your data and making informed decisions in data analysis and visualization projects.</p>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Python Regular Expressions (RegEx)</h1>
+    <p>Regular Expressions, often referred to as RegEx or regex, are sequences of characters that define a search pattern. They are commonly used for pattern matching and searching within strings in Python and many other programming languages. Python provides the <code>re</code> module for working with regular expressions.</p>
+    <h2>1. Importing the <code>re</code> Module:</h2>
+    <h3>Example: Importing the <code>re</code> Module</h3>
+    <pre><code>import re</code></pre>
+    <h2>2. Basic RegEx Pattern Matching:</h2>
+    <h3>Example: Basic RegEx Pattern Matching</h3>
+    <pre><code>import re
+txt = "The rain in Spain"
+x = re.search("^The.*Spain$", txt)
+print(x)</code></pre>
+    <h2>3. RegEx Functions:</h2
+    <p>The <code>re</code> module provides several functions for working with regular expressions:</p>
+    <ul>
+        <li><code>findall()</code>: Returns a list containing all matches.</li>
+        <li><code>search()</code>: Returns a Match object if there is a match anywhere in the string.</li>
+        <li><code>split()</code>: Splits the string at each match and returns a list.</li>
+        <li><code>sub()</code>: Replaces one or many matches with a string.</li>
+    </ul>
+    <h2>4. Metacharacters:</h2>
+    <p>Metacharacters are characters with special meanings in regular expressions. They allow you to define search patterns.</p>
+    <h3>Example: Metacharacters</h3>
+    <pre><code>import re
+txt = "The rain in Spain"
+x = re.findall("ai", txt)
+print(x)</code></pre>
+    <h2>5. Special Sequences:</h2>
+    <p>Special sequences in regular expressions are indicated by a backslash <code>\</code> followed by a character and have specific meanings.</p>
+    <h3>Example: Special Sequences</h3>
+    <pre><code>import re
+txt = "The rain in Spain"
+x = re.search(r"\bS\w+", txt)
+print(x.group())</code></pre>
+    <h2>6. Sets:</h2>
+    <p>Sets are defined using square brackets <code>[]</code> and allow you to match any one of the characters enclosed in the brackets.</p>
+    <h3>Example: Sets</h3>
+    <pre><code>import re
+txt = "The rain in Spain"
+x = re.findall("[ai]", txt)
+print(x)</code></pre>
+    <h2>7. Match Object:</h2>
+    <p>When a search is successful, it returns a Match object that contains information about the match.</p>
+    <h3>Example: Match Object</h3>
+    <pre><code>import re
+txt = "The rain in Spain"
+x = re.search("ai", txt)
+print(x.span())
+print(x.string)
+print(x.group())</code></pre>
+    <p>Regular expressions are a powerful tool for text processing and pattern matching. They are widely used in various applications, including data validation, text extraction, and more. Understanding and mastering regular expressions can greatly enhance your ability to work with textual data in Python.</p>
+<br><br>
+    <h1>Python PIP (Package Manager)</h1>
+    <h2>1. What is PIP?</h2>
+    <p>PIP is a package manager for Python that allows you to easily install and manage Python packages or modules. If you have Python version 3.4 or later, PIP is included by default.</p>
+    <h2>2. What is a Package?</h2>
+    <p>A package is a collection of files that contains Python code or modules. These packages are libraries that you can include in your Python projects to extend their functionality.</p>
+    <h2>3. Checking if PIP is Installed:</h2>
+    <p>You can check if PIP is installed by opening your command line interface and running:</p>
+    <pre><code>pip --version</code></pre>
+    <h2>4. Installing PIP:</h2>
+    <p>If you don't have PIP installed, you can download and install it from the official website: <a href="https://pypi.org/project/pip/">https://pypi.org/project/pip/</a></p>
+    <h2>5. Downloading a Package:</h2>
+    <p>To download and install a package using PIP, open your command line interface and navigate to Python's script directory. Then, use the following command to download a package. In this example, we'll download a package called "camelcase":</p>
+    <pre><code>pip install camelcase</code></pre>
+    <h2>6. Using a Package:</h2>
+    <p>Once a package is installed, you can import and use it in your Python projects. In this example, we import and use the "camelcase" package:</p>
+    <pre><code>import camelcase
+c = camelcase.CamelCase()
+txt = "hello world"
+print(c.hump(txt))</code></pre>
+    <h2>7. Finding Packages:</h2>
+    <p>You can find more Python packages to use in your projects on the Python Package Index (PyPI) website: <a href="https://pypi.org/">https://pypi.org/</a></p>
+    <h2>8. Removing a Package:</h2>
+    <p>If you want to remove a package, you can use the uninstall command. For example, to uninstall the "camelcase" package, you can run:</p>
+    <pre><code>pip uninstall camelcase</code></pre>
+    <h2>9. Listing Installed Packages:</h2>
+    <p>To list all the packages installed on your system, you can use the list command:</p>
+    <pre><code>pip list</code></pre>
+    <p>This will display a list of installed packages along with their versions.</p>
+    <p>Using PIP, you can easily manage Python packages and libraries, making it convenient to incorporate external functionality into your Python projects.</p>
+</body>
+</html>

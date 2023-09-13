@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Data Ingestion Techniques (Flume, Sqoop)</h2>
+    <p>Data ingestion is the process of importing data from various sources into a Hadoop cluster for processing. Two popular tools for data ingestion in the Hadoop ecosystem are Apache Flume and Apache Sqoop.</p>
+    <p><strong>Apache Flume</strong> is a distributed, reliable, and customizable system for collecting, aggregating, and moving large volumes of data from various sources to Hadoop. It is particularly useful for ingesting log data, event streams, and other semi-structured or unstructured data.</p>
+    <p><strong>Apache Sqoop</strong> is a tool designed for efficiently transferring structured data between Hadoop and relational databases (RDBMS). It simplifies the import and export of data between Hadoop and SQL databases like MySQL, Oracle, and PostgreSQL.</p>
+    <h3>Practical Exercises with Data Ingestion:</h3>
+    <h4>Exercise 1: Using Apache Flume for Log Ingestion</h4>
+    <p>In this exercise, we'll configure Flume to ingest log data from an application and store it in HDFS.</p>
+    <h5>Step 1: Install Apache Flume</h5>
+    <pre>
+        <code class="shell">
+            # Download and install Flume
+            wget https://archive.apache.org/dist/flume/1.9.0/apache-flume-1.9.0-bin.tar.gz
+            tar xvzf apache-flume-1.9.0-bin.tar.gz
+            cd apache-flume-1.9.0-bin
+        </code>
+    </pre>
+    <h5>Step 2: Configure Flume</h5>
+    <p>Create a Flume configuration file (<code>flume.conf</code>) with a source, channel, and sink configuration. Below is a sample configuration for ingesting logs from an application and storing them in HDFS.</p>
+    <pre>
+        <code class="properties">
+            # flume.conf
+            agent.sources = source1
+            agent.channels = channel1
+            agent.sinks = sink1
+            # Define source, channel, and sink
+            agent.sources.source1.type = exec
+            agent.sources.source1.command = tail -F /path/to/application.log
+            agent.channels.channel1.type = memory
+            agent.sinks.sink1.type = hdfs
+            agent.sinks.sink1.hdfs.path = /user/hadoop/flume_logs/
+            agent.sinks.sink1.hdfs.filePrefix = events-
+            agent.sinks.sink1.hdfs.fileSuffix = .log
+        </code>
+    </pre>
+    <h5>Step 3: Start Flume</h5>
+    <pre>
+        <code class="shell">
+            bin/flume-ng agent -n agent -c conf -f flume.conf
+        </code>
+    </pre>
+    <p>Flume will start ingesting log data from the specified file and store it in HDFS.</p>
+    <h4>Exercise 2: Using Apache Sqoop for Data Transfer</h4>
+    <p>In this exercise, we'll use Sqoop to transfer data from a MySQL database to HDFS.</p>
+    <h5>Step 1: Install Apache Sqoop</h5>
+    <pre>
+        <code class="shell">
+            # Download and install Sqoop
+            wget https://archive.apache.org/dist/sqoop/1.4.7/sqoop-1.4.7.bin__hadoop-2.6.0.tar.gz
+            tar xvzf sqoop-1.4.7.bin__hadoop-2.6.0.tar.gz
+            cd sqoop-1.4.7.bin__hadoop-2.6.0
+        </code>
+    </pre>
+    <h5>Step 2: Import Data from MySQL to HDFS</h5>
+    <p>Use Sqoop to import data from a MySQL database to HDFS. Replace <code>&lt;mysql_host&gt;</code>, <code>&lt;mysql_database&gt;</code>, <code>&lt;mysql_username&gt;</code>, <code>&lt;mysql_password&gt;</code>, <code>&lt;hdfs_output_directory&gt;</code>, and <code>&lt;table_name&gt;</code> with your own values.</p>
+    <pre>
+        <code class="shell">
+            bin/sqoop import --connect jdbc:mysql://&lt;mysql_host&gt;/&lt;mysql_database&gt; \
+              --username &lt;mysql_username&gt; --password &lt;mysql_password&gt; \
+              --table &lt;table_name&gt; --target-dir &lt;hdfs_output_directory&gt; \
+              --m 1
+        </code>
+    </pre>
+    <p>Sqoop will transfer data from MySQL to HDFS.</p>
+    <p>These exercises demonstrate how to ingest data using Apache Flume for log data and Apache Sqoop for structured data, facilitating the integration of external data sources with Hadoop.</p>
+</body>
+</html>

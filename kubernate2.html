@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Module 3: Deploying Applications</title>
+</head>
+<body>
+<h1>Module 3: Deploying Applications (2 weeks)</h1>
+<h2>Topic 1: Creating and Managing Pods</h2>
+<p><strong>Pods</strong> are the smallest deployable units in Kubernetes and can contain one or more containers. Pods are often used to group related containers that need to share the same network namespace and storage volumes.</p>
+<h3>Key Concepts:</h3>
+<ul>
+    <li><strong>Pod Manifest:</strong> A YAML or JSON file that defines a pod's configuration, including its containers and volumes.</li>
+</ul>
+<p><strong>Code Example (Creating a Pod):</strong></p>
+<pre>
+<code>
+Here's a simple pod manifest in YAML that defines a pod with a single container running an Nginx web server:
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-nginx-pod
+spec:
+  containers:
+  - name: nginx-container
+    image: nginx:latest
+</code>
+</pre>
+<p>You can create this pod using <code>kubectl apply -f pod.yaml</code>.</p>
+<h2>Topic 2: Deployments and ReplicaSets</h2>
+<p><strong>Deployments</strong> and <strong>ReplicaSets</strong> are higher-level abstractions that make it easier to manage and scale pods. Deployments ensure that a specified number of pod replicas are running at any given time, while ReplicaSets provide more basic scaling capabilities.</p>
+<h3>Key Concepts:</h3>
+<ul>
+    <li><strong>Deployment:</strong> A higher-level resource that manages ReplicaSets and allows for rolling updates and rollbacks.</li>
+</ul>
+<p><strong>Code Example (Creating a Deployment):</strong></p>
+<pre>
+<code>
+Here's a deployment manifest in YAML that defines a deployment for the Nginx pod:
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx-app
+  template:
+    metadata:
+      labels:
+        app: nginx-app
+    spec:
+      containers:
+      - name: nginx-container
+        image: nginx:latest
+</code>
+</pre>
+<p>You can create this deployment using <code>kubectl apply -f deployment.yaml</code>.</p>
+<h2>Topic 3: Services and Ingress Controllers</h2>
+<p><strong>Services</strong> and <strong>Ingress Controllers</strong> enable network communication within and external to the cluster. Services expose pods internally, while Ingress Controllers allow external traffic to reach services within the cluster.</p>
+<h3>Key Concepts:</h3>
+<ul>
+    <li><strong>Service:</strong> Provides a stable IP and DNS name for a group of pods and enables load balancing and service discovery.</li>
+    <li><strong>Ingress Controller:</strong> Manages external access to services within the cluster, typically based on rules defined in Ingress resources.</li>
+</ul>
+<p><strong>Code Example (Creating a Service):</strong></p>
+<pre>
+<code>
+We previously provided an example of creating a service. Here's a YAML definition for an Ingress resource:
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: my-ingress
+spec:
+  rules:
+    - host: myapp.example.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: my-service
+                port:
+                  number: 80
+</code>
+</pre>
+<p>This Ingress resource routes traffic for <code>myapp.example.com</code> to the <code>my-service</code> service.</p>
+<h2>Topic 4: ConfigMaps and Secrets</h2>
+<p><strong>ConfigMaps</strong> and <strong>Secrets</strong> are used to manage configuration data and sensitive information in Kubernetes.</p>
+<h3>Key Concepts:</h3>
+<ul>
+    <li><strong>ConfigMap:</strong> Stores configuration data as key-value pairs and allows you to inject this data into pods as environment variables or volumes.</li>
+    <li><strong>Secret:</strong> Similar to ConfigMaps but used for sensitive data like passwords and API tokens. Secrets are stored encrypted at rest.</li>
+</ul>
+<p><strong>Code Example (Creating a ConfigMap):</strong></p>
+<pre>
+<code>
+Here's a YAML definition for a ConfigMap:
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-config
+data:
+  app_config.properties: |
+    key1=value1
+    key2=value2
+</code>
+</pre>
+<p>You can create this ConfigMap using <code>kubectl apply -f configmap.yaml</code>.</p>
+<h2>Topic 5: Managing Storage with Persistent Volumes and Persistent Volume Claims</h2>
+<p><strong>Persistent Volumes (PVs)</strong> and <strong>Persistent Volume Claims (PVCs)</strong> allow you to manage storage resources in Kubernetes, ensuring that data is retained even if pods are deleted.</p>
+<h3>Key Concepts:</h3>
+<ul>
+    <li><strong>Persistent Volume (PV):</strong> Represents a physical storage resource in the cluster, such as a disk.</li>
+    <li><strong>Persistent Volume Claim (PVC):</strong> A request for storage by a user. PVCs bind to available PVs, and the data is stored persistently.</li>
+</ul>
+<p><strong>Code Example (Creating a PVC):</strong></p>
+<pre>
+<code>
+Here's a YAML definition for a PVC:
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: my-claim
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+</code>
+</pre>
+<p>This PVC requests 1GB of storage with ReadWriteOnce access mode.</p>
+<p>By the end of this module, students should be able to deploy, manage, and scale applications using Kubernetes concepts such as pods, deployments, services, Ingress controllers, ConfigMaps, and Secrets. Additionally, they should understand how to manage storage using Persistent Volumes and Claims.</p>
+</body>
+</html>

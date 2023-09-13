@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Week 7: User Management and Security</title>
+</head>
+<body>
+<h2>Creating and Managing User Accounts</h2>
+<p>User accounts are essential for controlling access to your MySQL database. To create and manage user accounts, you can use SQL commands or MySQL's user management functions.</p>
+<p><strong>Example: Creating a new user account</strong></p>
+<pre>
+CREATE USER 'new_user'@'localhost' IDENTIFIED BY 'password';
+</pre>
+<p><strong>Example: Granting privileges to a user</strong></p>
+<pre>
+GRANT SELECT, INSERT, UPDATE, DELETE ON database_name.* TO 'user'@'localhost';
+</pre>
+<h2>Assigning Privileges and Roles</h2>
+<p>MySQL uses a privilege-based access control system. You can grant different privileges to users or roles to control their actions within the database.</p>
+<p><strong>Example: Granting specific privileges to a user</strong></p>
+<pre>
+GRANT SELECT, INSERT ON database_name.table_name TO 'user'@'localhost';
+</pre>
+<p><strong>Example: Creating and granting privileges through a role</strong></p>
+<pre>
+CREATE ROLE 'employee';
+GRANT SELECT, INSERT, UPDATE ON database_name.* TO 'employee';
+</pre>
+<h2>Database Security Best Practices</h2>
+<p>To enhance database security, follow these best practices:</p>
+<ol>
+    <li><strong>Use Strong Passwords:</strong> Encourage users to create strong passwords and implement password policies.</li>
+    <li><strong>Limit Access:</strong> Grant the minimum necessary privileges to users and avoid using overly permissive roles.</li>
+    <li><strong>Regular Updates:</strong> Keep MySQL and its components up to date with security patches.</li>
+    <li><strong>Audit Logging:</strong> Enable MySQL's audit logging to monitor user activity.</li>
+    <li><strong>Encryption:</strong> Use encryption mechanisms like SSL/TLS for secure data transmission.</li>
+    <li><strong>Firewalls and Access Control:</strong> Implement firewalls and network access control lists to restrict access.</li>
+</ol>
+<h2>SQL Injection Prevention</h2>
+<p>SQL injection is a common attack vector where malicious SQL code is inserted into user input fields to manipulate or gain unauthorized access to the database. To prevent SQL injection:</p>
+<p><strong>Example: Using Prepared Statements in PHP (PDO)</strong></p>
+<pre>
+// Unsafe way (vulnerable to SQL injection)
+$user_input = $_POST['username'];
+$query = "SELECT * FROM users WHERE username='$user_input'";
+$result = $pdo->query($query);
+// Safe way (using prepared statements)
+$user_input = $_POST['username'];
+$stmt = $pdo->prepare("SELECT * FROM users WHERE username=?");
+$stmt->execute([$user_input]);
+$result = $stmt->fetchAll();
+</pre>
+<p><strong>Example: Using Parameterized Queries in Python (MySQL Connector)</strong></p>
+<pre>
+# Unsafe way (vulnerable to SQL injection)
+user_input = input("Enter username: ")
+query = "SELECT * FROM users WHERE username='%s'" % user_input
+cursor.execute(query)
+# Safe way (using parameterized query)
+user_input = input("Enter username: ")
+query = "SELECT * FROM users WHERE username=%s"
+cursor.execute(query, (user_input,))
+</pre>
+<p>By using prepared statements or parameterized queries, you prevent user input from being treated as SQL code, making it much harder for attackers to manipulate your database.</p>
+<p>In Week 7, you've learned about user management and security in MySQL. You've explored creating and managing user accounts, assigning privileges and roles, implementing database security best practices, and preventing SQL injection attacks. These practices are essential for protecting your database and ensuring its integrity and confidentiality.</p>
+</body>
+</html>

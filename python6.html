@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Python Functions</h1>
+    <h2>Creating a Function</h2>
+    <p>In Python, a function is defined using the <code>def</code> keyword.</p>
+    <pre>
+def greet():
+    print("Hello from a function")
+    </pre>
+    <h2>Calling a Function</h2>
+    <p>To execute a function, you use its name followed by parentheses.</p>
+    <pre>
+greet()
+    </pre>
+    <h2>Function Parameters</h2>
+    <p>Functions can accept input data known as parameters or arguments.</p>
+    <pre>
+def greet_with_name(name):
+    print("Hello, " + name)
+    </pre>
+    <h2>Function Arguments</h2>
+    <p>Arguments are the actual values you pass to a function when calling it.</p>
+    <pre>
+greet_with_name("Alice")
+    </pre>
+    <h2>Number of Arguments</h2>
+    <p>A function must be called with the correct number of arguments that match its parameter list.</p>
+    <pre>
+def add(a, b):
+    result = a + b
+    print("Sum:", result)
+add(5, 3)
+    </pre>
+    <h2>Returning Values</h2>
+    <p>Functions can return values using the <code>return</code> statement.</p>
+    <pre>
+def multiply(x, y):
+    result = x * y
+    return result
+product = multiply(4, 6)
+print("Product:", product)
+    </pre>
+    <h2>Default Values for Parameters</h2>
+    <p>You can provide default values for function parameters.</p>
+    <pre>
+def greet_with_default(name="User"):
+    print("Hello, " + name)
+greet_with_default()
+greet_with_default("Alice")
+    </pre>
+    <h2>Variable-Length Argument Lists</h2>
+    <p>Python allows functions to accept a variable number of arguments using <code>*args</code>.</p>
+    <pre>
+def sum_values(*args):
+    total = sum(args)
+    return total
+sum1 = sum_values(1, 2, 3)
+sum2 = sum_values(10, 20, 30, 40)
+    </pre>
+    <h2>Keyword Arguments</h2>
+    <p>You can pass arguments by keyword, specifying which parameter each argument corresponds to.</p>
+    <pre>
+def display_info(name, age, city):
+    print(f"Name: {name}, Age: {age}, City: {city}")
+display_info(age=25, name="Alice", city="New York")
+    </pre>
+<br><br>
+    <h1>Python Function Concepts</h1>
+    <h2>Arbitrary Arguments - *args</h2>
+    <p>When you don't know how many arguments will be passed into your function, you can use <code>*args</code> as a parameter.</p>
+    <pre>
+def my_function(*kids):
+    print("The youngest child is " + kids[2])
+my_function("Emil", "Tobias", "Linus")
+    </pre>
+    <h2>Keyword Arguments</h2>
+    <p>Python allows you to send arguments with the <code>key=value</code> syntax, which means you can pass arguments in any order.</p>
+    <pre>
+def my_function(child3, child2, child1):
+    print("The youngest child is " + child3)
+my_function(child1="Emil", child2="Tobias", child3="Linus")
+    </pre>
+    <h2>Arbitrary Keyword Arguments - **kwargs</h2>
+    <p>When you don't know how many keyword arguments will be passed, you can use <code>**kwargs</code> as a parameter.</p>
+    <pre>
+def my_function(**kid):
+    print("His last name is " + kid["lname"])
+my_function(fname="Tobias", lname="Refsnes")
+    </pre>
+    <h2>Default Parameter Value</h2>
+    <p>You can set default values for parameters in a function.</p>
+    <pre>
+def my_function(country="Norway"):
+    print("I am from " + country)
+my_function("Sweden")
+my_function("India")
+my_function()
+my_function("Brazil")
+    </pre>
+    <h2>Passing a List as an Argument</h2>
+    <p>You can send various data types as arguments to a function, including lists.</p>
+    <pre>
+def my_function(food):
+    for x in food:
+        print(x)
+fruits = ["apple", "banana", "cherry"]
+my_function(fruits)
+    </pre>
+    <h2>Return Values</h2>
+    <p>To make a function return a value, you use the <code>return</code> statement.</p>
+    <pre>
+def my_function(x):
+    return 5 * x
+result1 = my_function(3)
+result2 = my_function(5)
+result3 = my_function(9)
+print(result1)  # Output: 15
+print(result2)  # Output: 25
+print(result3)  # Output: 45
+    </pre>
+    <h2>Recursion</h2>
+    <p>Python supports function recursion, which means a function can call itself.</p>
+    <pre>
+def tri_recursion(k):
+    if k > 0:
+        result = k + tri_recursion(k - 1)
+        print(result)
+    else:
+        result = 0
+    return result
+print("\nRecursion Example Results:")
+tri_recursion(6)
+    </pre>
+    <h2>The pass Statement</h2>
+    <p>A function definition cannot be empty, but you can use the <code>pass</code> statement as a placeholder.</p>
+    <pre>
+def my_function():
+    pass
+    </pre>
+    <p>The <code>pass</code> statement indicates that the function does nothing and can be implemented later.</p>
+<br><br>
+    <h1>Python Lambda Functions</h1>
+    <h2>What is a Lambda Function?</h2>
+    <p>A lambda function is a small, anonymous function in Python. It can take any number of arguments but can only have one expression. Lambda functions are often used when you need a simple function for a short period and don't want to define a full function using <code>def</code>.</p>
+    <h2>Syntax of a Lambda Function</h2>
+    <p>The syntax of a lambda function is as follows:</p>
+    <pre>
+lambda arguments: expression
+    </pre>
+    <p>The expression is executed, and the result is returned.</p>
+    <h2>Code Examples</h2>
+    <h3>Example 1: Lambda with One Argument</h3>
+    <p>In this example, we define a lambda function <code>x</code> that takes one argument <code>a</code> and adds 10 to it. Then, we call the lambda function with an argument of 5 and print the result.</p>
+    <pre>
+x = lambda a: a + 10
+print(x(5))  # Output: 15
+    </pre>
+    <h3>Example 2: Lambda with Two Arguments</h3>
+    <p>Here, we define a lambda function <code>x</code> that takes two arguments <code>a</code> and <code>b</code> and multiplies them. We call the lambda function with arguments 5 and 6 and print the result.</p>
+    <pre>
+x = lambda a, b: a * b
+print(x(5, 6))  # Output: 30
+    </pre>
+    <h3>Example 3: Lambda with Three Arguments</h3>
+    <p>In this example, we define a lambda function <code>x</code> that takes three arguments <code>a</code>, <code>b</code>, and <code>c</code> and calculates their sum. We call the lambda function with arguments 5, 6, and 2 and print the result.</p>
+    <pre>
+x = lambda a, b, c: a + b + c
+print(x(5, 6, 2))  # Output: 13
+    </pre>
+    <h2>Why Use Lambda Functions?</h2>
+    <p>Lambda functions are especially useful when you need an anonymous function for a short period. They are often used inside other functions. Here's an example:</p>
+    <pre>
+def myfunc(n):
+    return lambda a: a * n
+mydoubler = myfunc(2)
+print(mydoubler(11))  # Output: 22
+mytripler = myfunc(3)
+print(mytripler(11))  # Output: 33
+    </pre>
+    <p>In this code, <code>myfunc</code> is a function that returns a lambda function. Depending on the argument passed to <code>myfunc</code>, you get a function that can double or triple a number. Lambda functions inside <code>myfunc</code> simplify the creation of these functions on the fly.</p>
+    <p>Lambda functions are convenient for short, simple operations, but for more complex logic, it's better to use named functions defined with <code>def</code>.</p>
+<br><br>    <h1>Using Python Lists as Arrays</h1>
+    <h2>Arrays in Python</h2>
+    <p>Python doesn't have built-in support for arrays like some other programming languages do. Instead, Python uses lists, which can serve as arrays. To work with arrays in a more specialized way, you may need to import libraries like NumPy.</p>
+    <h2>Creating an Array (List)</h2>
+    <p>You can create an array-like structure using Python lists. Lists can hold multiple values in a single variable.</p>
+    <pre>
+cars = ["Ford", "Volvo", "BMW"]
+    </pre>
+    <h2>Accessing Elements of an Array (List)</h2>
+    <p>You access elements in a list by using their index, which starts from 0.</p>
+    <pre>
+x = cars[0]  # x will be "Ford"
+    </pre>
+    <pre>
+cars[0] = "Toyota"  # Modifying the value of the first array item
+    </pre>
+    <h2>Finding the Length of an Array (List)</h2>
+    <p>You can use the <code>len()</code> method to find the number of elements in a list.</p>
+    <pre>
+x = len(cars)  # x will be 3
+    </pre>
+    <h2>Looping Through Array (List) Elements</h2>
+    <p>You can use a <code>for</code> loop to iterate through all the elements of a list.</p>
+    <pre>
+for x in cars:
+    print(x)
+    </pre>
+    <h2>Adding Elements to an Array (List)</h2>
+    <p>To add elements to the end of a list, you can use the <code>append()</code> method.</p>
+    <pre>
+cars.append("Honda")
+    </pre>
+    <h2>Removing Elements from an Array (List)</h2>
+    <p>You can remove elements from a list using methods like <code>pop()</code> and <code>remove()</code>.</p>
+    <pre>
+cars.pop(1)  # Deletes the second element in the Cars list
+    </pre>
+    <pre>
+cars.remove("Volvo")  # Deletes the element with the value "Volvo"
+    </pre>
+    <p><strong>Note:</strong> Lists in Python are versatile and can be used for various purposes, including simulating arrays. However, if you need more advanced array operations or numerical computations, you may want to explore libraries like NumPy.</p>
+<br><br>
+    <h1>Array Methods in Python</h1>
+    <p>Python provides a set of built-in methods that you can use to manipulate lists (which can serve as arrays).</p>
+    <h2>1. <code>append()</code> - Adds an Element at the End of the List</h2>
+    <p>This method appends an element to the end of the list.</p>
+    <pre>
+fruits = ["apple", "banana", "cherry"]
+fruits.append("date")
+# fruits will now be ["apple", "banana", "cherry", "date"]
+    </pre>
+    <h2>2. <code>clear()</code> - Removes All Elements from the List</h2>
+    <p>The <code>clear()</code> method removes all elements from the list, leaving it empty.</p>
+    <pre>
+fruits = ["apple", "banana", "cherry"]
+fruits.clear()
+# fruits will now be an empty list: []
+    </pre>
+    <h2>3. <code>copy()</code> - Returns a Copy of the List</h2>
+    <p>The <code>copy()</code> method returns a new list that is a copy of the original list.</p>
+    <pre>
+fruits = ["apple", "banana", "cherry"]
+fruits_copy = fruits.copy()
+# fruits_copy is a copy of fruits
+    </pre>
+    <h2>4. <code>count()</code> - Returns the Number of Elements with the Specified Value</h2>
+    <p>This method counts the number of times a specified element appears in the list.</p>
+    <pre>
+fruits = ["apple", "banana", "cherry", "apple"]
+count = fruits.count("apple")
+# count will be 2 (there are two "apple" elements in the list)
+    </pre>
+    <h2>5. <code>extend()</code> - Adds Elements of an Iterable to the End of the List</h2>
+    <p>The <code>extend()</code> method adds the elements of an iterable (e.g., another list) to the end of the current list.</p>
+    <pre>
+fruits = ["apple", "banana", "cherry"]
+more_fruits = ["date", "fig"]
+fruits.extend(more_fruits)
+# fruits will now be ["apple", "banana", "cherry", "date", "fig"]
+    </pre>
+    <h2>6. <code>index()</code> - Returns the Index of the First Element with the Specified Value</h2>
+    <p>This method returns the index of the first occurrence of a specified element in the list.</p>
+    <pre>
+fruits = ["apple", "banana", "cherry"]
+index = fruits.index("banana")
+# index will be 1 (the index of "banana" in the list)
+    </pre>
+    <h2>7. <code>insert()</code> - Adds an Element at the Specified Position</h2>
+    <p>The <code>insert()</code> method adds an element at the specified position in the list.</p>
+    <pre>
+fruits = ["apple", "banana", "cherry"]
+fruits.insert(1, "date")
+# fruits will now be ["apple", "date", "banana", "cherry"]
+    </pre>
+    <h2>8. <code>pop()</code> - Removes the Element at the Specified Position</h2>
+    <p>The <code>pop()</code> method removes and returns the element at the specified position in the list.</p>
+    <pre>
+fruits = ["apple", "banana", "cherry"]
+removed_fruit = fruits.pop(1)
+# removed_fruit will be "banana", and fruits will be ["apple", "cherry"]
+    </pre>
+    <h2>9. <code>remove()</code> - Removes the First Item with the Specified Value</h2>
+    <p>The <code>remove()</code> method removes the first occurrence of a specified element from the list.</p>
+    <pre>
+fruits = ["apple", "banana", "cherry", "apple"]
+fruits.remove("apple")
+# fruits will now be ["banana", "cherry", "apple"]
+    </pre>
+    <h2>10. <code>reverse()</code> - Reverses the Order of the List</h2>
+    <p>The <code>reverse()</code> method reverses the order of elements in the list.</p>
+    <pre>
+fruits = ["apple", "banana", "cherry"]
+fruits.reverse()
+# fruits will now be ["cherry", "banana", "apple"]
+    </pre>
+    <h2>11. <code>sort()</code> - Sorts the List</h2>
+    <p>The <code>sort()</code> method sorts the elements of the list in ascending order (for numeric values) or lexicographic order (for strings).</p>
+    <pre>
+numbers = [3, 1, 2, 5, 4]
+numbers.sort()
+# numbers will now be [1, 2, 3, 4, 5]
+    </pre>
+    <p>These array methods provide powerful ways to manipulate lists (arrays) in Python, making it easier to work with collections of data.</p>
+</body>
+</html>

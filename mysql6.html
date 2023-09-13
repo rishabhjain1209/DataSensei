@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Week 6: Database Design and Normalization</title>
+</head>
+<body>
+<h2>Database Design Best Practices</h2>
+<p>Effective database design is crucial for creating a well-structured and maintainable database system. Key best practices include:</p>
+<ol>
+    <li><strong>Define Clear Requirements:</strong> Understand the data needs of your application and define clear requirements before designing the database schema.</li>
+    <li><strong>Use Proper Naming Conventions:</strong> Adopt consistent naming conventions for tables, columns, indexes, and constraints to enhance readability.</li>
+    <li><strong>Normalization:</strong> Normalize your database to eliminate data redundancy and ensure data consistency. We'll explore this further in the next section.</li>
+    <li><strong>Consider Performance:</strong> Balance normalization with the need for performance. In some cases, denormalization may be necessary for efficient query execution.</li>
+    <li><strong>Data Integrity:</strong> Enforce data integrity constraints, such as primary keys, foreign keys, and unique constraints, to maintain data quality.</li>
+</ol>
+<h2>Normalization and Denormalization</h2>
+<p>Normalization is the process of organizing data in a relational database to minimize data redundancy and dependency issues. It involves breaking down tables into smaller, related tables and using foreign keys to establish relationships. Normalization typically follows a set of normalization forms, such as First Normal Form (1NF), Second Normal Form (2NF), and so on.</p>
+<p><strong>Example: Normalizing tables to 2NF</strong></p>
+<pre>
+-- Customers Table
+CREATE TABLE customers (
+    customer_id INT PRIMARY KEY,
+    customer_name VARCHAR(100)
+);
+-- Products Table
+CREATE TABLE products (
+    product_id INT PRIMARY KEY,
+    product_name VARCHAR(100)
+);
+-- Orders Table
+CREATE TABLE orders (
+    order_id INT PRIMARY KEY,
+    customer_id INT,
+    product_id INT,
+    order_date DATE,
+    FOREIGN KEY (customer_id) REFERENCES customers(customer_id),
+    FOREIGN KEY (product_id) REFERENCES products(product_id)
+);
+</pre>
+<p>Denormalization, on the other hand, involves intentionally introducing redundancy into the database schema for the sake of query performance. This is done to reduce the need for complex joins and improve data retrieval speed.</p>
+<h2>Entity Relationship Diagram (ERD) Modeling</h2>
+<p>An Entity-Relationship Diagram (ERD) is a visual representation of the database schema that helps in understanding the relationships between entities (tables). Key components of an ERD include:</p>
+<ul>
+    <li><strong>Entities:</strong> Represented as rectangles, they correspond to database tables.</li>
+    <li><strong>Attributes:</strong> Represented within entities, these are the columns of the tables.</li>
+    <li><strong>Relationships:</strong> Represented as lines connecting entities, they define how entities are related to each other.</li>
+</ul>
+<p><strong>Example: Simple ERD</strong></p>
+<pre>
+Customers       Orders         Products
++---------+     +---------+     +---------+
+|         |     |         |     |         |
+|         |     |         |     |         |
+|         |     |         |     |         |
+|         |     |         |     |         |
++---------+     +---------+     +---------+
+</pre>
+<p>In this ERD, you might have relationships like "Customers" placing "Orders," and "Orders" containing "Products."</p>
+<h2>Design Considerations for Real-World Applications</h2>
+<p>Real-world applications often have unique requirements and challenges. Some design considerations include:</p>
+<ol>
+    <li><strong>Scalability:</strong> Design your database to handle growth by considering scalability options such as sharding and replication.</li>
+    <li><strong>Security:</strong> Implement robust security measures to protect sensitive data, including access control, encryption, and secure authentication.</li>
+    <li><strong>Data Migration:</strong> Plan for data migration and versioning strategies to accommodate changes in your schema over time.</li>
+    <li><strong>Performance Optimization:</strong> Optimize queries, use appropriate indexes, and consider caching mechanisms to ensure fast query execution.</li>
+    <li><strong>Backup and Recovery:</strong> Implement backup and recovery strategies to safeguard data against disasters.</li>
+    <li><strong>Data Modeling Tools:</strong> Utilize data modeling tools and diagramming software to aid in designing and documenting your database schema.</li>
+</ol>
+<p>In Week 6, you've explored best practices for database design, including normalization and denormalization. You've learned about Entity-Relationship Diagram (ERD) modeling to visualize and plan your database structure. Finally, you've considered design considerations for real-world applications, emphasizing scalability, security, and performance optimization. These principles are vital for creating robust and efficient database systems.</p>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Reading and Writing Data in R:</h1>
+    <h2>1. Reading and Writing CSV Files:</h2>
+    <p>CSV (Comma-Separated Values) files are commonly used for tabular data.</p>
+    <h3>Reading from CSV:</h3>
+    <pre><code>
+# Reading CSV Example
+data &lt;- read.csv("data.csv")
+head(data)
+    </code></pre>
+    <h3>Writing to CSV:</h3>
+    <pre><code>
+# Writing to CSV Example
+sample_data &lt;- data.frame(
+  Name = c("Alice", "Bob", "Charlie"),
+  Age = c(25, 30, 22)
+)
+write.csv(sample_data, "output_data.csv", row.names = FALSE)
+    </code></pre>
+    <h2>2. Reading and Writing Excel Files:</h2>
+    <p>R can handle Excel files using packages like 'readxl' and 'writexl'.</p>
+    <h3>Reading from Excel:</h3>
+    <pre><code>
+# Reading Excel Example
+library(readxl)
+data &lt;- read_excel("data.xlsx")
+head(data)
+    </code></pre>
+    <h3>Writing to Excel:</h3>
+    <pre><code>
+# Writing to Excel Example
+library(writexl)
+sample_data &lt;- data.frame(
+  Name = c("Alice", "Bob", "Charlie"),
+  Age = c(25, 30, 22)
+)
+write_xlsx(sample_data, "output_data.xlsx")
+    </code></pre>
+    <h2>3. Reading and Writing Data from/to Databases:</h2>
+    <p>R can interact with databases using packages like 'DBI'.</p>
+    <h3>Reading from a Database:</h3>
+    <pre><code>
+# Reading from Database Example
+library(DBI)
+con &lt;- dbConnect(RSQLite::SQLite(), "my_database.db")
+query &lt;- "SELECT * FROM my_table"
+data &lt;- dbGetQuery(con, query)
+dbDisconnect(con)
+head(data)
+    </code></pre>
+    <h3>Writing to a Database:</h3>
+    <pre><code>
+# Writing to Database Example
+library(DBI)
+con &lt;- dbConnect(RSQLite::SQLite(), "my_database.db")
+sample_data &lt;- data.frame(
+  Name = c("Alice", "Bob", "Charlie"),
+  Age = c(25, 30, 22)
+)
+dbWriteTable(con, "person_info", sample_data)
+dbDisconnect(con)
+    </code></pre>
+    <p>These examples demonstrate how to read and write data from various file formats and databases in R. Properly handling data import and export is crucial for conducting data analysis and sharing results with others.</p>
+<br><br>
+    <h1>Data Manipulation in R:</h1>
+    <h2>1. Using `dplyr` for Data Manipulation:</h2>
+    <p>The `dplyr` package is essential for data manipulation on data frames.</p>
+    <h3>Example: Filtering and Summarizing Data</h3>
+    <pre><code>
+# Load the dplyr package if not already loaded
+library(dplyr)
+# Create a sample data frame
+data &lt;- data.frame(
+  Name = c("Alice", "Bob", "Charlie", "David", "Eve"),
+  Age = c(25, 30, 22, 35, 28),
+  Gender = c("Female", "Male", "Male", "Male", "Female")
+)
+# Use dplyr to filter and summarize data
+filtered_data &lt;- data %>%
+  filter(Gender == "Male", Age > 25) %>%
+  select(Name, Age)
+# Summarize data by calculating the average age
+summary_data &lt;- data %>%
+  group_by(Gender) %>%
+  summarize(AverageAge = mean(Age))
+    </code></pre>
+    <h2>2. Using `tidyr` for Data Tidying:</h2>
+    <p>The `tidyr` package is useful for reshaping and tidying data.</p>
+    <h3>Example: Tidying Data</h3>
+    <pre><code>
+# Load the tidyr package if not already loaded
+library(tidyr)
+# Create a wide-format data frame
+wide_data &lt;- data.frame(
+  Name = c("Alice", "Bob", "Charlie"),
+  Math = c(95, 87, 92),
+  Science = c(88, 76, 85),
+  English = c(92, 89, 78)
+)
+# Convert the wide data to a long format
+long_data &lt;- wide_data %>%
+  pivot_longer(cols = -Name, names_to = "Subject", values_to = "Score")
+    </code></pre>
+    <h2>3. Combining `dplyr` and `tidyr` for Data Wrangling:</h2>
+    <p>Often, both `dplyr` and `tidyr` are used together for data wrangling.</p>
+    <h3>Example: Combining `dplyr` and `tidyr`</h3>
+    <pre><code>
+# Load both dplyr and tidyr packages if not already loaded
+library(dplyr)
+library(tidyr)
+# Create a messy data frame
+messy_data &lt;- data.frame(
+  Name = c("Alice", "Bob", "Charlie"),
+  Scores = c("Math:95, Science:88, English:92", "Math:87, Science:76", "Math:92, English:78")
+)
+# Use dplyr and tidyr to clean and tidy the data
+cleaned_data &lt;- messy_data %>%
+  separate_rows(Scores, sep = ", ") %>%
+  separate(Scores, into = c("Subject", "Score"), sep = ":")
+# Summarize data by calculating the average score for each subject
+summary_data &lt;- cleaned_data %>%
+  group_by(Subject) %>%
+  summarize(AverageScore = mean(as.numeric(Score), na.rm = TRUE))
+    </code></pre>
+    <p>`dplyr` and `tidyr` are powerful tools for data manipulation and tidying, making it easier to prepare your data for analysis or visualization. These packages provide a clean and intuitive syntax for performing common data wrangling tasks in R.</p>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Module 1: Introduction to Containers and Orchestration</title>
+</head>
+<body>
+<h1>Module 1: Introduction to Containers and Orchestration (1 week)</h1>
+<h2>Topic 1: What are Containers?</h2>
+<p>Containers are a lightweight form of virtualization that package an application and its dependencies together in a consistent, isolated environment. They provide a standardized way to package, distribute, and run applications, making it easier to develop, deploy, and manage software across different environments.</p>
+<h3>Benefits of Containers:</h3>
+<ol>
+    <li><strong>Portability:</strong> Containers can run consistently across different environments, such as development, testing, and production, ensuring that what works on a developer's laptop will work in production.</li>
+    <li><strong>Isolation:</strong> Containers isolate applications and their dependencies, preventing conflicts and ensuring that changes in one container do not affect others.</li>
+    <li><strong>Resource Efficiency:</strong> Containers share the host operating system's kernel, making them lightweight and efficient in terms of resource usage.</li>
+    <li><strong>Scalability:</strong> Containers can be easily scaled up or down to handle changes in application demand, making them ideal for microservices architectures.</li>
+</ol>
+<p><strong>Code Example:</strong> Here's a basic Dockerfile, which is used to create a container image for a simple Python application:</p>
+<pre>
+<code>
+# Use an official Python runtime as a parent image
+FROM python:3.8-slim
+# Set the working directory to /app
+WORKDIR /app
+# Copy the current directory contents into the container at /app
+COPY . /app
+# Install any needed packages specified in requirements.txt
+RUN pip install -r requirements.txt
+# Make port 80 available to the world outside this container
+EXPOSE 80
+# Define environment variable
+ENV NAME World
+# Run app.py when the container launches
+CMD ["python", "app.py"]
+</code>
+</pre>
+<h2>Topic 2: Container Orchestration Overview</h2>
+<p>Container orchestration is the process of automating the deployment, scaling, management, and networking of containers. It ensures that containers are distributed across a cluster of machines, monitored for health, and automatically replaced if they fail.</p>
+<h3>Key Concepts in Container Orchestration:</h3>
+<ul>
+    <li><strong>Clusters:</strong> Groups of machines (nodes) that work together to run containers.</li>
+    <li><strong>Container Orchestration Tools:</strong> Examples include Kubernetes, Docker Swarm, and Apache Mesos.</li>
+    <li><strong>Service Discovery:</strong> Mechanisms for containers to find and communicate with each other.</li>
+    <li><strong>Load Balancing:</strong> Distributing traffic evenly among containers.</li>
+    <li><strong>Scaling:</strong> Automatically adjusting the number of containers to meet demand.</li>
+</ul>
+<h2>Topic 3: Kubernetes as a Container Orchestrator</h2>
+<p>Kubernetes (often abbreviated as K8s) is one of the most popular container orchestration platforms. It provides a rich set of features for deploying, scaling, and managing containerized applications.</p>
+<h3>Key Kubernetes Concepts:</h3>
+<ul>
+    <li><strong>Pods:</strong> The smallest deployable units in Kubernetes, which can contain one or more containers.</li>
+    <li><strong>Nodes:</strong> The individual machines that form a Kubernetes cluster.</li>
+    <li><strong>Services:</strong> A way to expose a set of pods as a network service.</li>
+    <li><strong>Replica Sets:</strong> Ensures that a specified number of pod replicas are running at any given time.</li>
+    <li><strong>Deployment:</strong> A higher-level abstraction that manages replica sets and allows for easy updates and rollbacks.</li>
+</ul>
+<h2>Topic 4: Setting up the Development Environment</h2>
+<p>Setting up the development environment for working with containers and Kubernetes involves installing the necessary tools and configuring them to interact with a Kubernetes cluster.</p>
+<h3>Steps for Setting up the Development Environment:</h3>
+<ol>
+    <li><strong>Install Docker:</strong> Docker is used to build and run containers. You can download and install it from the official Docker website.</li>
+    <li><strong>Install Kubernetes Tools:</strong> Depending on your operating system, you can use tools like Minikube (for local development clusters) or kubectl (the Kubernetes command-line tool).</li>
+    <li><strong>Set Up a Kubernetes Cluster:</strong> If you're not using Minikube, you'll need to set up a Kubernetes cluster, which can be on a local machine or a cloud provider like AWS, GCP, or Azure.</li>
+    <li><strong>Verify Installation:</strong> Run <code>docker --version</code> and <code>kubectl version</code> to ensure that Docker and Kubernetes tools are installed correctly.</li>
+</ol>
+<p><strong>Code Example (kubectl):</strong> To verify your Kubernetes setup, you can use the following command to check the cluster's status:</p>
+<pre>
+<code>
+kubectl cluster-info
+</code>
+</pre>
+<p>This will display information about your Kubernetes cluster, including the master node's URL and the Kubernetes dashboard URL if it's installed.</p>
+<p>By the end of this module, students should have a solid understanding of containers, their benefits, container orchestration concepts, and how to set up a development environment for working with Kubernetes and containers.</p>
+</body></html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Module 2: Kubernetes Architecture</title>
+</head>
+<body>
+<h1>Module 2: Kubernetes Architecture (2 weeks)</h1>
+<h2>Topic 1: Kubernetes Cluster Components</h2>
+<p>A Kubernetes cluster is composed of several key components that work together to manage and orchestrate containerized applications.</p>
+<h3>Key Cluster Components:</h3>
+<ol>
+    <li><strong>Master Node:</strong> Responsible for managing the overall cluster and making global decisions about the cluster state.</li>
+    <li><strong>Worker Nodes:</strong> Machines where containers are run. They execute the workloads assigned by the master node.</li>
+    <li><strong>etcd:</strong> A distributed key-value store that stores the configuration data and the current state of the cluster. It serves as the cluster's "source of truth."</li>
+</ol>
+<p><strong>Code Example (Cluster Component Diagram):</strong></p>
+<pre>
+<code>
+Here's a simplified diagram of a Kubernetes cluster:
+Master Node
+ / | | \
+/  | |  \
+/   | |   \
+Worker Node  Worker Node
+ /  |   \               /  |   \
+/   |    \             /   |    \
+Container   Container    Container   Container
+</code>
+</pre>
+<h2>Topic 2: Master Node and Worker Nodes</h2>
+<p><strong>Master Node:</strong> The master node is responsible for the overall control plane of the Kubernetes cluster. It manages the cluster's state, schedules workloads, and exposes the Kubernetes API.</p>
+<p><strong>Worker Nodes:</strong> These nodes, also known as worker or minion nodes, are responsible for running containers and executing the workloads. They communicate with the master node and report their status.</p>
+<p><strong>Code Example (Listing Nodes):</strong></p>
+<pre>
+<code>
+You can use <code>kubectl</code> to list the nodes in your cluster:
+kubectl get nodes
+</code>
+</pre>
+<p>This command will display a list of all worker nodes in your cluster.</p>
+<h2>Topic 3: API Server, Controller Manager, Scheduler, and etcd</h2>
+<p><strong>API Server:</strong> The API server is the front-end for the Kubernetes control plane. It exposes the Kubernetes API and acts as the gateway for all interactions with the cluster.</p>
+<p><strong>Controller Manager:</strong> The controller manager is responsible for maintaining the desired state of the cluster by monitoring and reconciling resources. It includes controllers for replication, endpoints, and service accounts, among others.</p>
+<p><strong>Scheduler:</strong> The scheduler is responsible for determining which worker node should run a particular pod based on resource requirements, constraints, and other policies.</p>
+<p><strong>etcd:</strong> As mentioned earlier, etcd is a distributed key-value store used for storing all cluster data. It is essential for maintaining the cluster's configuration and state.</p>
+<h2>Topic 4: kubelet, kube-proxy, and Container Runtime</h2>
+<p><strong>kubelet:</strong> Running on each worker node, the kubelet is responsible for ensuring that containers are running in a Pod. It communicates with the master node's API server to receive pod specifications and manages the containers' lifecycle.</p>
+<p><strong>kube-proxy:</strong> Kube-proxy is a network proxy that runs on each worker node. It maintains network rules on the host and enables network communication to and from the pods.</p>
+<p><strong>Container Runtime:</strong> The container runtime is the software responsible for running containers. Kubernetes supports various container runtimes, including Docker, containerd, and CRI-O.</p>
+<p><strong>Code Example (Checking kubelet status):</strong></p>
+<pre>
+<code>
+To check the status of the kubelet on a node, you can use the following command:
+systemctl status kubelet
+</code>
+</pre>
+<p>This command will display the status of the kubelet service on the node.</p>
+<h2>Topic 5: Networking in Kubernetes</h2>
+<p>Networking in Kubernetes plays a crucial role in enabling communication between pods, services, and external clients. Kubernetes networking is typically implemented using a container network interface (CNI) plugin, which manages pod-to-pod communication.</p>
+<h3>Common Networking Concepts:</h3>
+<ul>
+    <li><strong>Pod-to-Pod Communication:</strong> Pods can communicate with each other directly, regardless of which node they are running on, as long as they are part of the same cluster.</li>
+    <li><strong>Service Networking:</strong> Kubernetes services provide a stable IP and DNS name for a group of pods. Services enable load balancing and service discovery within the cluster.</li>
+    <li><strong>Ingress:</strong> Ingress controllers allow external traffic to reach services within the cluster. They provide features like SSL termination and routing based on hostnames or paths.</li>
+</ul>
+<p><strong>Code Example (Creating a Service):</strong></p>
+<pre>
+<code>
+Here's an example of creating a Kubernetes service to expose a set of pods:
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+spec:
+  selector:
+    app: my-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: LoadBalancer
+</code>
+</pre>
+<p>This service definition selects pods labeled with <code>app: my-app</code> and exposes them on port 80. It also requests a load balancer to distribute external traffic to these pods.</p>
+<p>By the end of this module, students should have a deep understanding of the Kubernetes cluster architecture, its components, and how networking works within a Kubernetes cluster.</p>
+</body>
+</html>

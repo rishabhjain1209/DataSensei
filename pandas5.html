@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Module 5: Data Visualization with Pandas</title>
+</head>
+<body>
+    <h1>Module 5: Data Visualization with Pandas</h1>
+    <h2>5.1 Basic Plotting with Pandas</h2>
+    <p>Pandas provides built-in methods for basic data visualization, allowing you to create simple plots.</p>
+    <h3>Code Example: Creating a basic line plot.</h3>
+    <pre><code>import pandas as pd
+import matplotlib.pyplot as plt
+# Creating a sample DataFrame
+data = {'Year': [2010, 2011, 2012, 2013, 2014],
+        'Revenue': [1000, 1200, 1500, 1800, 2000]}
+df = pd.DataFrame(data)
+# Creating a line plot
+df.plot(x='Year', y='Revenue', kind='line', title='Revenue Over Years')
+plt.xlabel('Year')
+plt.ylabel('Revenue')
+plt.show()
+</code></pre>
+    <h2>5.2 Customizing Plots</h2>
+    <p>You can customize various aspects of your plots, such as labels, colors, and styles.</p>
+    <h3>Code Example: Customizing a line plot.</h3>
+    <pre><code># Customizing the line plot
+df.plot(x='Year', y='Revenue', kind='line', title='Revenue Over Years', color='green', linestyle='--', marker='o')
+plt.xlabel('Year')
+plt.ylabel('Revenue')
+plt.legend(['Revenue'])
+plt.grid(True)
+plt.show()
+</code></pre>
+    <h2>5.3 Exploratory Data Visualization</h2>
+    <p>Exploratory data visualization helps you understand data distribution and relationships between variables.</p>
+    <h3>Code Example: Creating a scatter plot for exploratory analysis.</h3>
+    <pre><code># Creating a sample DataFrame with two variables
+data = {'Age': [25, 30, 35, 40, 45],
+        'Income': [50000, 60000, 75000, 90000, 80000]}
+df = pd.DataFrame(data)
+# Creating a scatter plot to explore the relationship between Age and Income
+df.plot(x='Age', y='Income', kind='scatter', title='Age vs. Income')
+plt.xlabel('Age')
+plt.ylabel('Income')
+plt.show()
+</code></pre>
+    <p>These examples cover fundamental data visualization topics with Pandas, including basic plotting, customization of plots, and exploratory data visualization. Customizing your plots allows you to create visually appealing and informative visuals for your data analysis tasks. Exploratory visualization helps you gain insights into your data and identify patterns or relationships between variables.</p>
+</body>
+</html>

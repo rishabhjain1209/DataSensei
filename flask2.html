@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Week 2: Routing and Views in Flask</title>
+</head>
+<body>
+    <h1>Lesson 4: Understanding Routes and URLs in Flask</h1>
+    <p>In Lesson 4, we will delve into the fundamental concept of routing in Flask. Routing allows you to map specific URLs to functions that handle requests, making it possible to create dynamic web applications.</p>
+    <h2>Routes in Flask:</h2>
+    <ul>
+        <li>In Flask, routes are defined using the <code>@app.route()</code> decorator.</li>
+        <li>A route maps a URL (Uniform Resource Locator) to a Python function.</li>
+        <li>You can use route parameters to create dynamic URLs.</li>
+    </ul>
+    <h3>Example:</h3>
+    <pre>
+        <code>
+            from flask import Flask
+            app = Flask(__name__)
+            @app.route('/')
+            def home():
+                return 'This is the home page'
+            @app.route('/about')
+            def about():
+                return 'This is the about page'
+            @app.route('/user/<username>')
+            def user_profile(username):
+                return f'This is the profile page of {username}'
+        </code>
+    </pre>
+    <h1>Lesson 5: Creating Views and Handling HTTP Methods (GET, POST)</h1>
+    <p>In Lesson 5, we'll explore how to create views in Flask and handle different HTTP methods like GET and POST. Views are responsible for generating the HTML content that your users see.</p>
+    <h2>Creating Views:</h2>
+    <ul>
+        <li>Views in Flask are Python functions associated with routes.</li>
+        <li>They generate HTML responses or render templates.</li>
+        <li>Views can also access request data, such as form submissions or URL parameters.</li>
+    </ul>
+    <h3>Example of handling GET and POST methods:</h3>
+    <pre>
+        <code>
+            from flask import Flask, request, render_template
+            app = Flask(__name__)
+            @app.route('/login', methods=['GET', 'POST'])
+            def login():
+                if request.method == 'POST':
+                    username = request.form['username']
+                    password = request.form['password']
+                    # Check credentials and perform login logic here
+                    return f'Logged in as {username}'
+                return render_template('login.html')
+            @app.route('/profile/<username>')
+            def user_profile(username):
+                # Retrieve user data and display the profile
+                return f'Profile page of {username}'
+        </code>
+    </pre>
+    <p>In this example:</p>
+    <ul>
+        <li>We create a login route that accepts both GET and POST requests.</li>
+        <li>For GET requests, it renders an HTML form using <code>render_template</code>.</li>
+        <li>For POST requests, it handles form data and performs login logic.</li>
+    </ul>
+    <h1>Lab: Building a Simple Web Page with Multiple Routes</h1>
+    <p>In the lab, you will build a simple web page with multiple routes. Here's a step-by-step guide:</p>
+    <ol>
+        <li>Create a Flask application in a Python file (e.g., <code>app.py</code>).</li>
+        <li>Define routes for different sections of your web page.</li>
+        <li>Create views for each route to generate HTML content.</li>
+        <li>Handle form submissions, if necessary.</li>
+        <li>Use templates to render HTML pages dynamically.</li>
+    </ol>
+    <p>Here's a basic structure to get you started:</p>
+    <pre>
+        <code>
+            from flask import Flask, render_template
+            app = Flask(__name__)
+            @app.route('/')
+            def home():
+                return render_template('index.html')
+            @app.route('/about')
+            def about():
+                return render_template('about.html')
+            # Add more routes and views as needed
+            if __name__ == '__main__':
+                app.run()
+        </code>
+    </pre>
+    <p>In the lab, you can expand on this structure to create a simple multi-page website using Flask and templates. This hands-on experience will help solidify your understanding of routes, views, and HTTP methods in Flask.</p>
+</body>
+</html>

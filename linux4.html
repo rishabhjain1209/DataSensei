@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User and Group Management</title>
+</head>
+<body>
+<h1>Module 4: User and Group Management</h1>
+<h2>Lesson 1: User Accounts</h2>
+<p>In this lesson, we'll cover the basics of user accounts in Linux, which are essential for managing access and permissions on a system.</p>
+<p><strong>User Accounts:</strong></p>
+<ul>
+    <li>User accounts are individual identities that can log in and interact with a Linux system.</li>
+    <li>Each user has a unique username and associated user ID (UID).</li>
+    <li>User accounts are typically associated with home directories where users can store their files and configurations.</li>
+</ul>
+<p>No specific code example is needed for this lesson as it provides an overview of user accounts.</p>
+<h2>Lesson 2: User Management Commands (useradd, userdel, passwd)</h2>
+<p>In this lesson, we'll explore commands for managing user accounts, including creating, deleting, and modifying user attributes.</p>
+<p><strong>User Management Commands:</strong></p>
+<ul>
+    <li><code>useradd</code>: Create a new user account.</li>
+    <li><code>userdel</code>: Delete a user account.</li>
+    <li><code>passwd</code>: Change a user's password.</li>
+</ul>
+<p><strong>Code Example (Creating a User):</strong></p>
+<pre><code>sudo useradd newuser
+</code></pre>
+<p>This command creates a new user account named <code>newuser</code>. You may need administrative privileges to use <code>useradd</code>.</p>
+<p><strong>Code Example (Deleting a User):</strong></p>
+<pre><code>sudo userdel newuser
+</code></pre>
+<p>This command deletes the user account <code>newuser</code>. Be cautious when using <code>userdel</code> as it permanently removes the user's home directory and files by default.</p>
+<p><strong>Code Example (Changing Password):</strong></p>
+<pre><code>sudo passwd username
+</code></pre>
+<p>This command allows the user <code>username</code> to change their password. Replace <code>username</code> with the actual username.</p>
+<h2>Lesson 3: Group Management Commands (groupadd, groupdel)</h2>
+<p>In this lesson, we'll explore commands for managing groups, which allow you to organize users and assign permissions more efficiently.</p>
+<p><strong>Group Management Commands:</strong></p>
+<ul>
+    <li><code>groupadd</code>: Create a new group.</li>
+    <li><code>groupdel</code>: Delete a group.</li>
+</ul>
+<p><strong>Code Example (Creating a Group):</strong></p>
+<pre><code>sudo groupadd mygroup
+</code></pre>
+<p>This command creates a new group named <code>mygroup</code>. You may need administrative privileges to use <code>groupadd</code>.</p>
+<p><strong>Code Example (Deleting a Group):</strong></p>
+<pre><code>sudo groupdel mygroup
+</code></pre>
+<p>This command deletes the group <code>mygroup</code>. Be cautious when using <code>groupdel</code> as it does not automatically remove users from the group.</p>
+<h2>Lesson 4: Permissions and Ownership</h2>
+<p>In this lesson, we'll delve into the concepts of file and directory permissions and ownership, which are crucial for controlling access to files and directories in Linux.</p>
+<p><strong>Permissions and Ownership:</strong></p>
+<ul>
+    <li>Linux uses three levels of permissions: owner, group, and others, each with read (r), write (w), and execute (x) permissions.</li>
+    <li>The <code>chown</code> command changes the owner of a file or directory.</li>
+    <li>The <code>chmod</code> command modifies permissions.</li>
+</ul>
+<p><strong>Code Example (Changing Ownership):</strong></p>
+<pre><code>sudo chown newowner myfile.txt
+</code></pre>
+<p>This command changes the owner of <code>myfile.txt</code> to <code>newowner</code>. You may need administrative privileges to use <code>chown</code>.</p>
+<p><strong>Code Example (Changing Permissions):</strong></p>
+<pre><code>chmod 644 myfile.txt
+</code></pre>
+<p>This command changes the permissions of <code>myfile.txt</code> to read-only for the owner and read-only for others.</p>
+<p>Understanding user and group management, along with permissions and ownership, is crucial for securing your Linux system and controlling access to files and directories. Practice and careful management of user accounts, groups, and permissions are key to effective system administration.</p>
+</body>
+</html>

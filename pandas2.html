@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Module 2: Data Handling with Pandas</title>
+</head>
+<body>
+    <h1>Module 2: Data Handling with Pandas</h1>
+    <h2>2.1 Loading Data from Various Sources (CSV, Excel, SQL, etc.)</h2>
+    <p>Pandas supports reading data from various sources, including CSV files, Excel spreadsheets, SQL databases, and more.</p>
+    <h3>Code Example: Loading data from a CSV file.</h3>
+    <pre><code>import pandas as pd
+# Loading data from a CSV file
+csv_file = "data.csv"
+df = pd.read_csv(csv_file)
+# Displaying the first few rows of the DataFrame
+print(df.head())
+</code></pre>
+    <h2>2.2 Data Inspection and Exploration</h2>
+    <p>Once data is loaded, it's important to inspect and explore it to understand its structure and content.</p>
+    <h3>Code Example: Basic data exploration using Pandas functions.</h3>
+    <pre><code># Displaying the number of rows and columns
+print("Shape of the DataFrame:", df.shape)
+# Summary statistics
+print("Summary Statistics:")
+print(df.describe())
+# Unique values in a column
+print("Unique Values in 'Category' column:", df['Category'].unique())
+</code></pre>
+    <h2>2.3 Data Cleaning and Preprocessing</h2>
+    <p>Data cleaning involves tasks like removing unnecessary columns, handling data types, and correcting errors.</p>
+    <h3>Code Example: Removing unnecessary columns and converting data types.</h3>
+    <pre><code># Dropping a column
+df = df.drop(columns=['Column_Name'])
+# Converting data types (e.g., changing a column to datetime)
+df['Date'] = pd.to_datetime(df['Date'])
+# Handling string capitalization issues
+df['Category'] = df['Category'].str.lower()
+</code></pre>
+    <h2>2.4 Handling Missing Data and Duplicates</h2>
+    <p>Missing data and duplicate entries are common issues in datasets that need to be addressed.</p>
+    <h3>Code Example: Handling missing data and duplicates.</h3>
+    <pre><code># Checking for missing data
+missing_data = df.isnull().sum()
+# Dropping rows with missing data
+df = df.dropna()
+# Removing duplicates
+df = df.drop_duplicates()
+</code></pre>
+    <p>These examples cover various aspects of data handling with Pandas, including loading data from different sources, exploring and inspecting data, cleaning and preprocessing, and handling missing data and duplicates. These skills are essential for effective data analysis and manipulation using Pandas.</p>
+</body>
+</html>

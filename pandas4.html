@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Module 4: Data Manipulation</title>
+</head>
+<body>
+    <h1>Module 4: Data Manipulation</h1>
+    <h2>4.1 Adding and Dropping Columns</h2>
+    <p>You can add new columns or remove existing columns in a Pandas DataFrame.</p>
+    <h3>Code Example: Adding and dropping columns.</h3>
+    <pre><code>import pandas as pd
+# Creating a sample DataFrame
+data = {'Name': ['Alice', 'Bob', 'Charlie'],
+        'Age': [25, 30, 35]}
+df = pd.DataFrame(data)
+# Adding a new column
+df['City'] = ['New York', 'Los Angeles', 'Chicago']
+# Dropping a column
+df = df.drop(columns=['Age'])
+</code></pre>
+    <h2>4.2 Applying Functions to Data</h2>
+    <p>Pandas allows you to apply functions to DataFrame columns or rows.</p>
+    <h3>Code Example: Applying a function to a column.</h3>
+    <pre><code># Creating a sample DataFrame
+data = {'Numbers': [1, 2, 3, 4, 5]}
+df = pd.DataFrame(data)
+# Applying a function to double the values in the 'Numbers' column
+df['Doubled'] = df['Numbers'].apply(lambda x: x * 2)
+</code></pre>
+    <h2>4.3 Aggregation and Grouping</h2>
+    <p>You can aggregate data by grouping it based on specific criteria.</p>
+    <h3>Code Example: Aggregating data by grouping.</h3>
+    <pre><code># Creating a sample DataFrame
+data = {'Category': ['A', 'B', 'A', 'B', 'A'],
+        'Value': [10, 15, 20, 25, 30]}
+df = pd.DataFrame(data)
+# Grouping by 'Category' and calculating the mean for each group
+grouped_data = df.groupby('Category')['Value'].mean()
+</code></pre>
+    <h2>4.4 Pivoting and Melting Data</h2>
+    <p>Pivoting reshapes data, converting rows to columns and vice versa. Melting converts a wide-format DataFrame into a long-format one.</p>
+    <h3>Code Example: Pivoting and melting data.</h3>
+    <pre><code># Creating a sample DataFrame
+data = {'Date': ['2023-09-01', '2023-09-02', '2023-09-01', '2023-09-02'],
+        'Type': ['A', 'A', 'B', 'B'],
+        'Value': [10, 15, 20, 25]}
+df = pd.DataFrame(data)
+# Pivoting the data
+pivoted_data = df.pivot(index='Date', columns='Type', values='Value')
+# Melting the data
+melted_data = pd.melt(df, id_vars=['Date'], value_vars=['A', 'B'], var_name='Type', value_name='Value')
+</code></pre>
+    <p>These examples demonstrate essential data manipulation techniques in Pandas, including adding/dropping columns, applying functions to data, aggregating and grouping data, and pivoting/melting data to reshape it for different analysis needs. Understanding these techniques is crucial for data transformation and preparation in data analysis projects.</p>
+</body>
+</html>

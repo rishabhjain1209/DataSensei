@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Week 5: Advanced Querying Techniques</title>
+</head>
+<body>
+<h2>GROUP BY and HAVING Clauses</h2>
+<p>The <code>GROUP BY</code> clause is used to group rows from a table based on the values in one or more columns. It is often used in conjunction with aggregate functions to summarize data.</p>
+<p><strong>Example: Using GROUP BY to count the number of orders per customer</strong></p>
+<pre>
+SELECT customer_id, COUNT(order_id) AS order_count
+FROM orders
+GROUP BY customer_id;
+</pre>
+<p>The <code>HAVING</code> clause is used to filter the results of a <code>GROUP BY</code> query based on a specified condition.</p>
+<p><strong>Example: Using HAVING to filter customers with more than 3 orders</strong></p>
+<pre>
+SELECT customer_id, COUNT(order_id) AS order_count
+FROM orders
+GROUP BY customer_id
+HAVING order_count > 3;
+</pre>
+<h2>Aggregate Functions (GROUP_CONCAT, MAX, MIN, etc.)</h2>
+<p>Aggregate functions perform calculations on a set of values and return a single result. Some common aggregate functions include:</p>
+<ul>
+    <li><code>SUM</code>: Calculates the sum of values in a column.</li>
+    <li><code>AVG</code>: Calculates the average of values in a column.</li>
+    <li><code>MAX</code>: Retrieves the maximum value from a column.</li>
+    <li><code>MIN</code>: Retrieves the minimum value from a column.</li>
+    <li><code>COUNT</code>: Counts the number of rows in a group.</li>
+</ul>
+<p><strong>Example: Using SUM to calculate the total sales amount per product</strong></p>
+<pre>
+SELECT product_id, SUM(quantity * unit_price) AS total_sales
+FROM order_details
+GROUP BY product_id;
+</pre>
+<h2>CASE Statements and Control Flow in SQL</h2>
+<p>The <code>CASE</code> statement is used to perform conditional logic in SQL queries. It allows you to create conditional expressions within your queries.</p>
+<p><strong>Example: Using CASE to categorize employees based on salary</strong></p>
+<pre>
+SELECT employee_id, first_name, last_name,
+  CASE
+    WHEN salary > 70000 THEN 'High'
+    WHEN salary > 50000 THEN 'Medium'
+    ELSE 'Low'
+  END AS salary_category
+FROM employees;
+</pre>
+<h2>Window Functions and Common Table Expressions (CTEs)</h2>
+<p>Window functions perform calculations across a set of rows related to the current row within the result set. Common Table Expressions (CTEs) are temporary result sets that can be referenced within a SELECT, INSERT, UPDATE, or DELETE statement.</p>
+<p><strong>Example: Using a CTE and window function to calculate employee salary rankings</strong></p>
+<pre>
+WITH EmployeeRank AS (
+    SELECT employee_id, first_name, last_name, salary,
+           RANK() OVER (ORDER BY salary DESC) AS salary_rank
+    FROM employees
+)
+SELECT employee_id, first_name, last_name, salary, salary_rank
+FROM EmployeeRank;
+</pre>
+<p>In this week, you've explored advanced querying techniques in MySQL. You've learned how to use the <code>GROUP BY</code> and <code>HAVING</code> clauses to summarize and filter data, apply aggregate functions to perform calculations, employ the <code>CASE</code> statement for conditional logic, and utilize window functions and common table expressions (CTEs) to perform more complex operations on your data. These skills are invaluable for advanced data analysis and reporting in SQL.</p>
+</body>
+</html>

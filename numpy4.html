@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Linear Algebra with NumPy</title>
+</head>
+<body>
+    <h1>Module 4: Linear Algebra with NumPy</h1>
+    <h2>4.1 Matrix Operations: Multiplication, Inverse, and Determinant</h2>
+    <ul>
+        <li>NumPy provides efficient functions for performing matrix operations such as multiplication, finding the inverse, and calculating the determinant.</li>
+        <li>Code Example: Matrix multiplication, inverse, and determinant.</li>
+    </ul>
+    <pre><code>import numpy as np
+# Creating two matrices
+A = np.array([[1, 2],
+              [3, 4]])
+B = np.array([[5, 6],
+              [7, 8]])
+# Matrix multiplication
+C = np.dot(A, B)
+# Finding the inverse of a matrix
+A_inv = np.linalg.inv(A)
+# Calculating the determinant of a matrix
+det_B = np.linalg.det(B)</code></pre>
+    <h2>4.2 Solving Linear Equations and Eigenvalue Problems</h2>
+    <ul>
+        <li>NumPy can be used to solve systems of linear equations and find eigenvalues and eigenvectors.</li>
+        <li>Code Example: Solving a system of linear equations and finding eigenvalues and eigenvectors.</li>
+    </ul>
+    <pre><code># Solving a system of linear equations: Ax = b
+A = np.array([[2, 3],
+              [4, 5]])
+b = np.array([10, 20])
+x = np.linalg.solve(A, b)
+# Finding eigenvalues and eigenvectors of a matrix
+eigenvalues, eigenvectors = np.linalg.eig(A)</code></pre>
+    <h2>4.3 Singular Value Decomposition (SVD)</h2>
+    <ul>
+        <li>SVD is a matrix factorization technique used for dimensionality reduction and data compression.</li>
+        <li>NumPy provides functions for computing SVD.</li>
+        <li>Code Example: Computing the SVD of a matrix.</li>
+    </ul>
+    <pre><code># Computing the SVD of a matrix
+X = np.array([[1, 2, 3],
+              [4, 5, 6],
+              [7, 8, 9]])
+U, S, VT = np.linalg.svd(X)</code></pre>
+    <h2>4.4 Principal Component Analysis (PCA) with NumPy</h2>
+    <ul>
+        <li>PCA is a dimensionality reduction technique often used for feature extraction.</li>
+        <li>NumPy can be used to perform PCA.</li>
+        <li>Code Example: Performing PCA on a dataset.</li>
+    </ul>
+    <pre><code># Performing PCA on a dataset
+from sklearn.datasets import load_iris
+from sklearn.decomposition import PCA
+# Load the Iris dataset
+data = load_iris()
+X = data.data
+# Applying PCA to reduce to 2 principal components
+pca = PCA(n_components=2)
+X_pca = pca.fit_transform(X)</code></pre>
+    <p>These examples demonstrate how to perform various linear algebra operations with NumPy, including matrix operations, solving linear equations, finding eigenvalues and eigenvectors, computing Singular Value Decomposition (SVD), and applying Principal Component Analysis (PCA) for dimensionality reduction. These techniques are crucial for various data analysis and machine learning tasks.</p>
+</body>
+</html>

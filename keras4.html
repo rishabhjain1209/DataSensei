@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Module 4: Recurrent Neural Networks (RNNs) and Long Short-Term Memory (LSTM)</title>
+</head>
+<body>
+    <h1>Lesson 1: Introduction to sequential data and RNNs.</h1>
+    <p>In Lesson 1, we will introduce the concept of sequential data and how Recurrent Neural Networks (RNNs) are designed to handle such data. Topics covered include:</p>
+    <ul>
+        <li>Explanation of sequential data and its characteristics.</li>
+        <li>Challenges in processing sequential data with traditional neural networks.</li>
+        <li>Basic architecture and working principles of RNNs.</li>
+    </ul>
+    <h2>Code Example:</h2>
+    <pre><code># No specific code example for this lesson, as it's primarily theoretical.</code></pre>
+    <h1>Lesson 2: Building an RNN with Keras.</h1>
+    <p>In Lesson 2, we'll guide you through building a simple RNN using Keras. Topics covered include:</p>
+    <ul>
+        <li>Defining the architecture of an RNN model.</li>
+        <li>Configuring recurrent layers in Keras.</li>
+        <li>Handling variable-length sequences using padding.</li>
+    </ul>
+    <h2>Code Example:</h2>
+    <pre><code>import tensorflow as tf
+# Define a simple RNN model
+model = tf.keras.Sequential([
+    tf.keras.layers.SimpleRNN(64, activation='relu', input_shape=(10, 32)),  # 10 time steps, each with 32 features
+    tf.keras.layers.Dense(10, activation='softmax')
+])</code></pre>
+    <h1>Lesson 3: LSTM networks for sequential data.</h1>
+    <p>In Lesson 3, we'll explore Long Short-Term Memory (LSTM) networks, which are a type of RNN designed to overcome the vanishing gradient problem and capture long-term dependencies in sequential data. Topics covered include:</p>
+    <ul>
+        <li>Introduction to LSTM networks and their architecture.</li>
+        <li>How LSTMs handle short-term and long-term memory.</li>
+        <li>Implementing LSTMs using Keras.</li>
+    </ul>
+    <h2>Code Example:</h2>
+    <pre><code>import tensorflow as tf
+# Define an LSTM model
+model = tf.keras.Sequential([
+    tf.keras.layers.LSTM(64, activation='relu', input_shape=(10, 32)),  # 10 time steps, each with 32 features
+    tf.keras.layers.Dense(10, activation='softmax')
+])</code></pre>
+    <p>By the end of Module 4, you'll have a solid understanding of Recurrent Neural Networks (RNNs) and Long Short-Term Memory (LSTM) networks, as well as practical experience in building these models using Keras for tasks involving sequential data, such as time series forecasting and natural language processing.</p>
+</body>
+</html>

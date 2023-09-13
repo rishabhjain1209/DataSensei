@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Module 1: Introduction to Version Control and Git</title>
+</head>
+<body>
+<h1>Lesson 1.1: What is Version Control?</h1>
+<p>Version control is a system that helps developers track changes to their code and collaborate with others effectively. It allows you to record different versions of your project, revert to previous states, and manage code history. Popular version control systems include Git, SVN, and Mercurial.</p>
+<h1>Lesson 1.2: Introduction to Git</h1>
+<p>Git is a distributed version control system widely used in the software development industry. It was created by Linus Torvalds and is known for its speed and flexibility. Git helps teams manage code and track changes efficiently.</p>
+<h1>Lesson 1.3: Installing Git</h1>
+<p>To get started with Git, you need to install it on your computer. The installation process varies depending on your operating system.</p>
+<ul>
+    <li>On Linux (Ubuntu), you can use the package manager:</li>
+    <pre><code>sudo apt-get install git</code></pre>  
+    <li>On macOS, you can use Homebrew:</li>
+    <pre><code>brew install git</code></pre>   
+    <li>On Windows, you can download and install Git from the official website.</li>
+</ul>
+<h1>Lesson 1.4: Basic Git Configuration</h1>
+<p>Before using Git, it's essential to configure your username and email address. This information will be associated with your commits.</p>
+<pre><code>git config --global user.name "Your Name"
+git config --global user.email "your.email@example.com"
+</code></pre>
+<h1>Lesson 1.5: Creating Your First Repository</h1>
+<p>Now, let's create your first Git repository. A repository is a container for your project's files and their entire history.</p>
+<ol>
+    <li>Create a new directory for your project:</li>
+    <pre><code>mkdir my_project
+cd my_project
+</code></pre>   
+    <li>Initialize a Git repository in this directory:</li>
+    <pre><code>git init</code></pre>    
+    <li>Create a new file (e.g., <code>index.html</code>) and add some content:</li>
+    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;My First Git Project&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Hello, Git!&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    <li>Add this file to the staging area to prepare it for a commit:</li>
+    <pre><code>git add index.html</code></pre>
+    <li>Commit your changes with a descriptive message:</li>
+    <pre><code>git commit -m "Initial commit: Added index.html"</code></pre>
+</ol>
+<p>Congratulations! You've just created your first Git repository, added a file, and made your first commit.</p>
+<p>These foundational lessons will help you understand the basics of version control and Git, laying the groundwork for more advanced topics in future modules.</p>
+</body>
+</html>

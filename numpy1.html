@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Introduction to NumPy</title>
+</head>
+<body>
+    <h1>Module 1: Introduction to NumPy</h1>
+    <h2>1.1 Understanding NumPy and its Importance in Scientific Computing</h2>
+    <ul>
+        <li>NumPy is a fundamental Python library for numerical and scientific computing.</li>
+        <li>It provides support for large, multi-dimensional arrays and matrices, along with a collection of mathematical functions to operate on these arrays efficiently.</li>
+        <li>NumPy is essential for tasks such as data analysis, machine learning, and scientific research due to its speed and versatility.</li>
+    </ul>
+    <h2>1.2 Installation and Setup of NumPy</h2>
+    <ul>
+        <li>NumPy can be easily installed using Python's package manager, pip.</li>
+        <li>Code Example: Installing NumPy.</li>
+    </ul>
+    <pre><code>pip install numpy</code></pre>
+    <h2>1.3 Basic NumPy Arrays: Creation, Attributes, and Indexing</h2>
+    <ul>
+        <li>NumPy arrays (ndarrays) are the core data structure in NumPy.</li>
+        <li>You can create, manipulate, and access NumPy arrays efficiently.</li>
+        <li>Code Example: Creating a basic NumPy array, accessing attributes, and indexing.</li>
+    </ul>
+    <pre><code>import numpy as np
+# Creating a NumPy array from a Python list
+arr = np.array([1, 2, 3, 4, 5])
+# Accessing attributes of the array
+shape = arr.shape
+dtype = arr.dtype
+size = arr.size
+# Indexing and slicing the array
+first_element = arr[0]
+sliced_array = arr[1:4]</code></pre>
+    <h2>1.4 Data Types and <code>dtype</code> in NumPy</h2>
+    <ul>
+        <li>NumPy arrays have a data type (<code>dtype</code>) that specifies the type of elements they can hold.</li>
+        <li>NumPy supports a variety of data types, including integers, floats, booleans, and more.</li>
+        <li>Code Example: Creating NumPy arrays with specific data types.</li>
+    </ul>
+    <pre><code># Creating a NumPy array with a specific data type
+arr_int = np.array([1, 2, 3], dtype=np.int32)
+arr_float = np.array([1.0, 2.0, 3.0], dtype=np.float64)
+arr_bool = np.array([True, False, True], dtype=np.bool_)
+# Checking the data type of an array
+int_dtype = arr_int.dtype</code></pre>
+    <p>These examples provide an introduction to NumPy, its importance in scientific computing, installation, and setup, as well as the creation of basic NumPy arrays, understanding array attributes, and working with data types (<code>dtype</code>). NumPy's versatility in handling numerical data is a fundamental skill in scientific computing and data analysis.</p>
+</body>
+</html>

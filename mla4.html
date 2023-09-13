@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Week 6-7: Unsupervised Learning</title>
+</head>
+<body>
+    <h1>Clustering Algorithms (K-Means, Hierarchical)</h1>
+    <h2>Introduction to Clustering Algorithms</h2>
+    <p>Clustering is an unsupervised learning technique used to group similar data points together based on their similarity or distance. Two common clustering algorithms are K-Means and Hierarchical Clustering.</p>
+    <h3>K-Means Clustering</h3>
+    <p>K-Means is a partitioning clustering algorithm that divides data points into K clusters, where K is a predefined number of clusters. The algorithm iteratively assigns data points to the nearest cluster centroid and updates the centroids until convergence.</p>
+    <h3>Example Code for K-Means Clustering</h3>
+    <p>Here's an example of K-Means clustering using scikit-learn:</p>
+    <pre><code>
+import numpy as np
+from sklearn.cluster import KMeans
+import matplotlib.pyplot as plt
+# Sample data for clustering
+X = np.array([[1, 2], [2, 2], [2, 3], [8, 7], [8, 8], [9, 8]])
+# Create a K-Means clustering model with K=2
+kmeans = KMeans(n_clusters=2)
+# Fit the model to the data
+kmeans.fit(X)
+# Get cluster labels and cluster centroids
+labels = kmeans.labels_
+centroids = kmeans.cluster_centers_
+# Plot the data points and cluster centroids
+plt.scatter(X[:, 0], X[:, 1], c=labels)
+plt.scatter(centroids[:, 0], centroids[:, 1], marker='x', s=200, linewidths=3, color='r')
+plt.show()
+    </code></pre>
+    <h3>Hierarchical Clustering</h3>
+    <p>Hierarchical Clustering builds a tree-like hierarchy of clusters, also known as a dendrogram. It doesn't require specifying the number of clusters beforehand and is useful for exploring data at different levels of granularity.</p>
+    <h2>Dimensionality Reduction (PCA)</h2>
+    <h3>Introduction to Dimensionality Reduction</h3>
+    <p>Dimensionality Reduction techniques aim to reduce the number of features (dimensions) in a dataset while preserving as much relevant information as possible. Principal Component Analysis (PCA) is a widely used technique for this purpose.</p>
+    <h3>PCA (Principal Component Analysis)</h3>
+    <p>PCA transforms high-dimensional data into a lower-dimensional space by finding the principal components (linear combinations of original features) that capture the most variance in the data.</p>
+    <h3>Example Code for PCA</h3>
+    <p>Here's an example of PCA using scikit-learn:</p>
+    <pre><code>
+import numpy as np
+from sklearn.decomposition import PCA
+# Sample high-dimensional data
+X = np.random.rand(100, 5)  # 100 samples with 5 features
+# Create a PCA model with two components
+pca = PCA(n_components=2)
+# Fit the model and transform the data
+X_reduced = pca.fit_transform(X)
+# X_reduced now contains the data in a lower-dimensional space
+    </code></pre>
+    <h2>Anomaly Detection</h2>
+    <h3>Introduction to Anomaly Detection</h3>
+    <p>Anomaly detection is the process of identifying data points that are significantly different from the majority of the data. It's commonly used for fraud detection, network security, and quality control.</p>
+    <h3>Use Cases and Example Code for Anomaly Detection</h3>
+    <p>Use cases for anomaly detection include identifying fraudulent transactions in financial data or detecting anomalies in sensor data from IoT devices. Various techniques can be used, such as Isolation Forests, One-Class SVM, or autoencoders in deep learning.</p>
+    <p>Here's an example of anomaly detection using scikit-learn's Isolation Forest:</p>
+    <pre><code>
+import numpy as np
+from sklearn.ensemble import IsolationForest
+# Sample data with anomalies
+X = np.array([[1.1], [1.2], [1.3], [1.4], [10.0]])
+# Create an Isolation Forest model
+clf = IsolationForest(contamination=0.2)
+# Fit the model to the data
+clf.fit(X)
+# Predict anomalies (1 for normal, -1 for anomaly)
+predictions = clf.predict(X)
+    </code></pre>
+    <h2>Applications and Use Cases</h2>
+    <p>Unsupervised learning techniques like clustering, dimensionality reduction, and anomaly detection have a wide range of applications:</p>
+    <ul>
+        <li><strong>Clustering</strong>:
+            <ul>
+                <li>Customer segmentation in marketing.</li>
+                <li>Document clustering for topic modeling.</li>
+                <li>Image segmentation in computer vision.</li>
+            </ul>
+        </li>
+        <li><strong>Dimensionality Reduction</strong>:
+            <ul>
+                <li>Feature selection for machine learning.</li>
+                <li>Visualization of high-dimensional data.</li>
+                <li>Noise reduction in data.</li>
+            </ul>
+        </li>
+        <li><strong>Anomaly Detection</strong>:
+            <ul>
+                <li>Fraud detection in financial transactions.</li>
+                <li>Intrusion detection in network security.</li>
+                <li>Equipment failure detection in manufacturing.</li>
+            </ul>
+        </li>
+    </ul>
+    <h2>Practical Exercises</h2>
+    <p>To gain practical experience with unsupervised learning techniques:</p>
+    <ol>
+        <li><strong>Clustering</strong>:
+            <ul>
+                <li>Find a dataset suitable for clustering (e.g., customer data, image data).</li>
+                <li>Apply K-Means and Hierarchical Clustering to group data points.</li>
+                <li>Visualize the clusters and evaluate the results using metrics like silhouette score or Davies-Bouldin index.</li>
+            </ul>
+        </li>
+        <li><strong>Dimensionality Reduction</strong>:
+            <ul>
+                <li>Obtain a high-dimensional dataset (e.g., image data, feature-rich dataset).</li>
+                <li>Use PCA to reduce dimensionality while preserving information.</li>
+                <li>Visualize the reduced data to understand the impact of dimensionality reduction.</li>
+            </ul>
+        </li>
+        <li><strong>Anomaly Detection</strong>:
+            <ul>
+                <li>Find a dataset with anomalies (e.g., fraud detection dataset, sensor data with anomalies).</li>
+                <li>Apply an anomaly detection technique (e.g., Isolation Forest, One-Class SVM) to detect anomalies.</li>
+                <li>Evaluate the model's performance using metrics like precision, recall, and F1-score.</li>
+            </ul>
+        </li>
+        <li><strong>Applications and Use Cases</strong>:
+            <ul>
+                <li>Explore real-world applications of unsupervised learning in areas relevant to your interests or industry.</li>
+                <li>Identify specific use cases and datasets related to clustering, dimensionality reduction, or anomaly detection.</li>
+                <li>Apply the appropriate unsupervised learning techniques to address these use cases.</li>
+            </ul>
+        </li>
+    </ol>
+    <p>By completing these practical exercises, you'll gain a deeper understanding of unsupervised learning and its applications in various domains.</p>
+</body>
+</html>

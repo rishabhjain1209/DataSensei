@@ -1,0 +1,207 @@
+If Else
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Python If...Else Statements</title>
+</head>
+<body>
+    <h1>Python If...Else Statements</h1>
+    <h2>1. Basic <code>if</code> Statement</h2>
+    <p>The <code>if</code> statement is used to execute a block of code only if a specific condition is true.</p>
+    <pre>
+a = 33
+b = 200
+if b > a:
+    print("b is greater than a")
+    </pre>
+    <p>Output: "b is greater than a"</p>
+    <h2>2. <code>elif</code> Statement</h2>
+    <p>The <code>elif</code> keyword is used to check an additional condition if the previous condition is false.</p>
+    <pre>
+a = 33
+b = 33
+if b > a:
+    print("b is greater than a")
+elif a == b:
+    print("a and b are equal")
+    </pre>
+    <p>Output: "a and b are equal"</p>
+    <h2>3. <code>else</code> Statement</h2>
+    <p>The <code>else</code> keyword is used to execute a block of code when the <code>if</code> and <code>elif</code> conditions are false.</p>
+    <pre>
+a = 200
+b = 33
+if b > a:
+    print("b is greater than a")
+elif a == b:
+    print("a and b are equal")
+else:
+    print("a is greater than b")
+    </pre>
+    <p>Output: "a is greater than b"</p>
+    <h2>4. One-line <code>if</code> Statement</h2>
+    <p>If you have only one statement to execute, you can put it on the same line as the <code>if</code> statement.</p>
+    <pre>
+a = 10
+b = 5
+if a > b: print("a is greater than b")
+    </pre>
+    <p>Output: "a is greater than b"</p>
+    <h2>5. One-line <code>if...else</code> Statement</h2>
+    <p>You can also use a one-liner for <code>if...else</code> statements.</p>
+    <pre>
+a = 2
+b = 330
+print("A") if a > b else print("B")
+    </pre>
+    <p>Output: "B" (because <code>a</code> is not greater than <code>b</code>)</p>
+    <h2>6. Logical Operators</h2>
+    <p>Logical operators (<code>and</code>, <code>or</code>, <code>not</code>) are used to combine or reverse conditional statements.</p>
+    <pre>
+a = 200
+b = 33
+c = 500
+if a > b and c > a:
+    print("Both conditions are True")
+elif a > b or a > c:
+    print("At least one of the conditions is True")
+if not a > b:
+    print("a is NOT greater than b")
+    </pre>
+    <p>Output: "Both conditions are True" and "a is NOT greater than b"</p>
+    <h2>7. Nested <code>if</code> Statements</h2>
+    <p>You can have <code>if</code> statements inside other <code>if</code> statements, creating nested conditions.</p>
+    <pre>
+x = 41
+if x > 10:
+    print("Above ten,")
+    if x > 20:
+        print("and also above 20!")
+    else:
+        print("but not above 20.")
+    </pre>
+    <p>Output:<br>"Above ten,"<br>"and also above 20!"</p>
+    <h2>8. The <code>pass</code> Statement</h2>
+    <p>If an <code>if</code> statement must have some content but you don't want to execute anything, you can use the <code>pass</code> statement.</p>
+    <pre>
+a = 33
+b = 200
+if b > a:
+    pass
+    </pre>
+    <p>The <code>pass</code> statement doesn't do anything and is used as a placeholder.</p>
+<br><br>
+    <h1>Python While Loops</h1>
+    <h2>1. Basic <code>while</code> Loop</h2>
+    <p>The <code>while</code> loop is used to repeatedly execute a set of statements as long as a given condition is true.</p>
+    <pre>
+i = 1
+while i < 6:
+    print(i)
+    i += 1
+    </pre>
+    <p>Output:<br>1<br>2<br>3<br>4<br>5</p>
+    <h2>2. The <code>break</code> Statement</h2>
+    <p>The <code>break</code> statement is used to exit the loop prematurely, even if the loop condition is still true.</p>
+    <pre>
+i = 1
+while i < 6:
+    print(i)
+    if i == 3:
+        break
+    i += 1
+    </pre>
+    <p>Output:<br>1<br>2<br>3</p>
+    <h2>3. The <code>continue</code> Statement</h2>
+    <p>The <code>continue</code> statement is used to skip the rest of the current iteration and continue with the next iteration of the loop.</p>
+    <pre>
+i = 0
+while i < 6:
+    i += 1
+    if i == 3:
+        continue
+    print(i)
+    </pre>
+    <p>Output:<br>1<br>2<br>4<br>5<br>6</p>
+    <h2>4. The <code>else</code> Statement</h2>
+    <p>The <code>else</code> statement in a <code>while</code> loop is executed when the loop condition becomes false.</p>
+    <pre>
+i = 1
+while i < 6:
+    print(i)
+    i += 1
+else:
+    print("i is no longer less than 6")
+    </pre>
+    <p>Output:<br>1<br>2<br>3<br>4<br>5<br>i is no longer less than 6</p>
+<br><br>
+    <h1>Python For Loops</h1>
+    <h2>1. Basic <code>for</code> Loop</h2>
+    <p>A <code>for</code> loop in Python is used to iterate over a sequence.</p>
+    <pre>
+fruits = ["apple", "banana", "cherry"]
+for x in fruits:
+    print(x)
+    </pre>
+    <p>Output:<br>apple<br>banana<br>cherry</p>
+    <h2>2. Looping Through a String</h2>
+    <p>Even strings can be iterated using a <code>for</code> loop.</p>
+    <pre>
+for x in "banana":
+    print(x)
+    </pre>
+    <p>Output:<br>b<br>a<br>n<br>a<br>n<br>a</p>
+    <h2>3. The <code>break</code> Statement</h2>
+    <p>The <code>break</code> statement allows you to exit the loop prematurely.</p>
+    <pre>
+fruits = ["apple", "banana", "cherry"]
+for x in fruits:
+    if x == "banana":
+        break
+    print(x)
+    </pre>
+    <p>Output:<br>apple</p>
+    <h2>4. The <code>continue</code> Statement</h2>
+    <p>The <code>continue</code> statement allows you to skip the rest of the current iteration.</p>
+    <pre>
+fruits = ["apple", "banana", "cherry"]
+for x in fruits:
+    if x == "banana":
+        continue
+    print(x)
+    </pre>
+    <p>Output:<br>apple<br>cherry</p>
+    <h2>5. The <code>range()</code> Function</h2>
+    <p>The <code>range()</code> function generates a sequence of numbers.</p>
+    <pre>
+for x in range(6):
+    print(x)
+    </pre>
+    <p>Output:<br>0<br>1<br>2<br>3<br>4<br>5</p>
+    <h2>6. <code>else</code> in For Loop</h2>
+    <p>The <code>else</code> block in a <code>for</code> loop is executed once after the loop completes its iterations.</p>
+    <pre>
+for x in range(6):
+    print(x)
+else:
+    print("Finally finished!")
+    </pre>
+    <p>Output:<br>0<br>1<br>2<br>3<br>4<br>5<br>Finally finished!</p>
+    <h2>7. Nested Loops</h2>
+    <p>You can have nested loops, where one loop is inside another.</p>
+    <pre>
+adj = ["red", "big", "tasty"]
+fruits = ["apple", "banana", "cherry"]
+for x in adj:
+    for y in fruits:
+        print(x, y)
+    </pre>
+    <p>Output:<br>red apple<br>red banana<br>red cherry<br>big apple<br>big banana<br>big cherry<br>tasty apple<br>tasty banana<br>tasty cherry</p>
+    <h2>8. The <code>pass</code> Statement</h2>
+    <p>The <code>pass</code> statement serves as a placeholder when there's no content in the loop.</p>
+    <pre>
+for x in [0, 1, 2]:
+    pass
+    </pre>
+</body>
+</html>

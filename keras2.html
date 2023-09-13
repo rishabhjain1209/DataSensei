@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Module 2: Building Your First Neural Network with Keras</title>
+</head>
+<body>
+    <h1>Lesson 1: Overview of neural networks.</h1>
+    <p>In Lesson 1, we'll provide an in-depth understanding of neural networks. Topics covered include:</p>
+    <ul>
+        <li>What are neural networks and their biological inspiration.</li>
+        <li>Basic components of neural networks, such as neurons, layers, and weights.</li>
+        <li>The role of activation functions and loss functions in neural networks.</li>
+    </ul>
+    <h2>Code Example:</h2>
+    <pre><code># No specific code example for this lesson, as it's primarily theoretical.</code></pre>
+    <h1>Lesson 2: Building a simple feedforward neural network.</h1>
+    <p>In Lesson 2, we'll guide you through building your first neural network using Keras. Topics covered include:</p>
+    <ul>
+        <li>Defining the architecture of a feedforward neural network.</li>
+        <li>Adding layers and specifying activation functions.</li>
+        <li>Configuring the input and output layers.</li>
+    </ul>
+    <h2>Code Example:</h2>
+    <pre><code>import tensorflow as tf
+# Define a simple feedforward neural network
+model = tf.keras.Sequential([
+    tf.keras.layers.Dense(64, activation='relu', input_shape=(784,)),
+    tf.keras.layers.Dense(32, activation='relu'),
+    tf.keras.layers.Dense(10, activation='softmax')
+])</code></pre>
+    <h1>Lesson 3: Data preprocessing and model compilation.</h1>
+    <p>In Lesson 3, we'll focus on preparing your data for training and configuring your model for optimization. Topics covered include:</p>
+    <ul>
+        <li>Data preprocessing techniques, such as normalization and one-hot encoding.</li>
+        <li>Compiling the model by specifying the optimizer, loss function, and evaluation metrics.</li>
+    </ul>
+    <h2>Code Example:</h2>
+    <pre><code># Data preprocessing example (assuming you have a dataset 'X_train' and 'y_train')
+from sklearn.preprocessing import StandardScaler, OneHotEncoder
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+encoder = OneHotEncoder(sparse=False)
+y_train_encoded = encoder.fit_transform(y_train)
+# Compile the model
+model.compile(optimizer='adam',
+              loss='categorical_crossentropy',
+              metrics=['accuracy'])</code></pre>
+    <h1>Lesson 4: Training and evaluating your model.</h1>
+    <p>In Lesson 4, we'll cover the training process and evaluating the performance of your neural network. Topics covered include:</p>
+    <ul>
+        <li>Splitting data into training and validation sets.</li>
+        <li>Training the model using the `fit` method and specifying batch size and number of epochs.</li>
+        <li>Evaluating the model on a separate test set.</li>
+    </ul>
+    <h2>Code Example:</h2>
+    <pre><code># Split data into training and validation sets
+from sklearn.model_selection import train_test_split
+X_train, X_val, y_train, y_val = train_test_split(X_train_scaled, y_train_encoded, test_size=0.2)
+# Train the model
+history = model.fit(X_train, y_train, epochs=10, batch_size=64, validation_data=(X_val, y_val))
+# Evaluate the model on a test set
+X_test_scaled = scaler.transform(X_test)
+y_test_encoded = encoder.transform(y_test)
+test_loss, test_accuracy = model.evaluate(X_test_scaled, y_test_encoded)</code></pre>
+    <p>By the end of Module 2, you'll have hands-on experience in building, training, and evaluating your first neural network using Keras, along with an understanding of data preprocessing and model compilation techniques.</p>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Numerical Computations with NumPy</title>
+</head>
+<body>
+    <h1>Module 6: Numerical Computations with NumPy</h1>
+    <h2>6.1 Numerical Integration and Differentiation</h2>
+    <ul>
+        <li>NumPy can be used for numerical integration (e.g., definite integrals) and differentiation (e.g., derivatives).</li>
+        <li>Code Example: Numerical integration using the trapezoidal rule and numerical differentiation.</li>
+    </ul>
+    <pre><code>import numpy as np
+from scipy.integrate import quad
+# Numerical integration using the trapezoidal rule
+def f(x):
+    return x**2
+a = 0
+b = 1
+n = 1000
+x = np.linspace(a, b, n)
+integral = np.trapz(f(x), x)
+# Numerical integration using quad from scipy
+result, _ = quad(f, a, b)
+# Numerical differentiation
+x_values = np.linspace(0, 2*np.pi, 100)
+y_values = np.sin(x_values)
+derivative = np.gradient(y_values, x_values)</code></pre>
+    <h2>6.2 Optimization and Root-Finding Algorithms</h2>
+    <ul>
+        <li>NumPy can be used for optimizing functions (finding maxima or minima) and solving equations (root-finding).</li>
+        <li>Code Example: Using NumPy for optimization and root-finding.</li>
+    </ul>
+    <pre><code>import numpy as np
+from scipy.optimize import minimize, root
+# Optimization: Finding the minimum of a function
+def objective(x):
+    return x**2 + 3*x + 2
+result = minimize(objective, x0=0)
+# Root-finding: Solving an equation
+def equation(x):
+    return x**2 - 4
+solution = root(equation, x0=0)</code></pre>
+    <h2>6.3 Solving Differential Equations with NumPy</h2>
+    <ul>
+        <li>NumPy can be used to solve ordinary differential equations (ODEs) and partial differential equations (PDEs).</li>
+        <li>Code Example: Solving a simple ODE using NumPy.</li>
+    </ul>
+    <pre><code>import numpy as np
+from scipy.integrate import solve_ivp
+import matplotlib.pyplot as plt
+# Defining an ODE dy/dx = -2y
+def ode(t, y):
+    return -2 * y
+# Solving the ODE
+t_span = (0, 5)
+y0 = [1]  # Initial condition
+sol = solve_ivp(ode, t_span, y0, t_eval=np.linspace(*t_span, 100))
+# Plotting the solution
+plt.plot(sol.t, sol.y[0])
+plt.xlabel('Time')
+plt.ylabel('y(t)')
+plt.show()</code></pre>
+    <h2>6.4 Applications in Physics, Engineering, and Scientific Research</h2>
+    <ul>
+        <li>NumPy is widely used in physics, engineering, and scientific research for numerical simulations, data analysis, and modeling.</li>
+        <li>Applications include simulations of physical systems, data analysis in scientific experiments, and numerical modeling in various fields.</li>
+        <li>Code Example: Simulating a simple physical system.</li>
+    </ul>
+    <pre><code>import numpy as np
+import matplotlib.pyplot as plt
+# Simulating a simple harmonic oscillator
+t = np.linspace(0, 10, 1000)
+omega = 2*np.pi  # Angular frequency
+A = 1  # Amplitude
+x = A * np.sin(omega * t)
+# Plotting the motion of the oscillator
+plt.plot(t, x)
+plt.xlabel('Time')
+plt.ylabel('Displacement')
+plt.show()</code></pre>
+    <p>These examples demonstrate how NumPy can be used for various numerical computations, including integration, differentiation, optimization, and solving differential equations. NumPy's capabilities are essential in physics, engineering, and scientific research for numerical simulations and data analysis tasks.</p>
+</body>
+</html>

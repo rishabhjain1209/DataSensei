@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Week 4: Subplots and Multiple Axes</h1>
+    <h2>Lesson 9: Subplots</h2>
+    <h3>Creating multiple plots in a single figure:</h3>
+    <p>Subplots allow you to create multiple plots within a single figure, making it easy to compare and visualize different datasets or aspects of your data. You can use the <code>plt.subplots()</code> function to create subplots.</p>
+    <pre><code>import matplotlib.pyplot as plt
+# Sample data
+x = [1, 2, 3, 4, 5]
+y1 = [10, 12, 5, 8, 9]
+y2 = [5, 8, 6, 12, 7]
+# Create subplots with 1 row and 2 columns
+fig, axs = plt.subplots(1, 2)
+# Plot on the first subplot
+axs[0].plot(x, y1)
+axs[0].set_title('Subplot 1')
+# Plot on the second subplot
+axs[1].plot(x, y2)
+axs[1].set_title('Subplot 2')
+# Adjust spacing between subplots
+plt.tight_layout()
+# Show the subplots
+plt.show()</code></pre>
+    <h3>Grid layouts and customization:</h3>
+    <p>You can customize the layout and arrangement of subplots using the <code>plt.subplots()</code> function's <code>gridspec_kw</code> parameter. For example, creating a 2x2 grid of subplots:</p>
+    <pre><code>import matplotlib.pyplot as plt
+# Sample data
+x = [1, 2, 3, 4, 5]
+y1 = [10, 12, 5, 8, 9]
+y2 = [5, 8, 6, 12, 7]
+y3 = [8, 6, 10, 9, 11]
+y4 = [12, 7, 8, 5, 9]
+# Create a 2x2 grid of subplots
+fig, axs = plt.subplots(2, 2, gridspec_kw={'hspace': 0.3, 'wspace': 0.2})
+# Plot on the subplots
+axs[0, 0].plot(x, y1)
+axs[0, 0].set_title('Subplot 1')
+axs[0, 1].plot(x, y2)
+axs[0, 1].set_title('Subplot 2')
+axs[1, 0].plot(x, y3)
+axs[1, 0].set_title('Subplot 3')
+axs[1, 1].plot(x, y4)
+axs[1, 1].set_title('Subplot 4')
+# Adjust spacing between subplots
+plt.tight_layout()
+# Show the subplots
+plt.show()</code></pre>
+    <h2>Lesson 10: Twin Axes</h2>
+    <h3>Combining different types of plots on a single set of axes:</h3>
+    <p>You can create multiple axes on a single set of axes and plot different types of data on them. This is useful when you want to visualize data with different scales or units on the same plot.</p>
+    <pre><code>import matplotlib.pyplot as plt
+# Sample data
+x = [1, 2, 3, 4, 5]
+y1 = [10, 12, 5, 8, 9]
+y2 = [50, 60, 25, 40, 45]
+# Create the first axis
+fig, ax1 = plt.subplots()
+# Plot the first data on the first axis
+ax1.plot(x, y1, color='b', label='Data 1')
+ax1.set_xlabel('X-axis')
+ax1.set_ylabel('Data 1', color='b')
+# Create a second axis sharing the same x-axis
+ax2 = ax1.twinx()
+# Plot the second data on the second axis
+ax2.plot(x, y2, color='r', label='Data 2')
+ax2.set_ylabel('Data 2', color='r')
+# Add legends
+ax1.legend(loc='upper left')
+ax2.legend(loc='upper right')
+# Show the plot
+plt.show()</code></pre>
+    <h3>Creating secondary axes:</h3>
+    <p>You can create secondary axes using the <code>plt.gca()</code> function and then plot additional data on them.</p>
+    <pre><code>import matplotlib.pyplot as plt
+# Sample data
+x = [1, 2, 3, 4, 5]
+y1 = [10, 12, 5, 8, 9]
+# Create the primary axis
+fig, ax1 = plt.subplots()
+# Plot the primary data on the primary axis
+ax1.plot(x, y1, color='b', label='Primary Data')
+ax1.set_xlabel('X-axis')
+ax1.set_ylabel('Primary Data', color='b')
+# Create a secondary axis
+ax2 = ax1.twiny()
+# Plot additional data on the secondary axis
+ax2.plot([10, 20, 30, 40, 50], y1, color='r', label='Secondary Data')
+ax2.set_xlabel('Secondary X-axis', color='r')
+# Add legends
+ax1.legend(loc='upper left')
+ax2.legend(loc='upper right')
+# Show the plot
+plt.show()</code></pre>
+    <p>These examples demonstrate how to create subplots, customize their layout, combine different types of plots on a single set of axes, and create secondary axes for more complex visualizations. These techniques are valuable for creating informative and complex visualizations.</p>
+</body>
+</html>

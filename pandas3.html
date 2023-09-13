@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Module 3: Data Selection and Indexing</title>
+</head>
+<body>
+    <h1>Module 3: Data Selection and Indexing</h1>
+    <h2>3.1 Selecting Rows and Columns</h2>
+    <p>In Pandas, you can select specific rows and columns from a DataFrame.</p>
+    <h3>Code Example: Selecting rows and columns by label.</h3>
+    <pre><code>import pandas as pd
+# Creating a sample DataFrame
+data = {'Name': ['Alice', 'Bob', 'Charlie'],
+        'Age': [25, 30, 35],
+        'City': ['New York', 'Los Angeles', 'Chicago']}
+df = pd.DataFrame(data)
+# Selecting a single column by label
+age_column = df['Age']
+# Selecting multiple columns by label
+name_and_city = df[['Name', 'City']]
+# Selecting rows by index
+row_bob = df.loc[1]
+# Selecting multiple rows by index
+rows_1_and_2 = df.loc[[1, 2]]
+</code></pre>
+    <h2>3.2 Conditional Selection and Filtering</h2>
+    <p>Pandas allows you to filter rows based on conditions using boolean indexing.</p>
+    <h3>Code Example: Filtering rows based on a condition.</h3>
+    <pre><code># Filtering rows where Age is greater than 30
+age_above_30 = df[df['Age'] > 30]
+# Combining multiple conditions (AND)
+filtered_data = df[(df['Age'] > 30) & (df['City'] == 'New York')]
+</code></pre>
+    <h2>3.3 Indexing and Hierarchical Indexing</h2>
+    <p>Pandas uses indexes to label and access data in DataFrames efficiently. Hierarchical indexing allows for multi-level indexing.</p>
+    <h3>Code Example: Setting and using custom indexes.</h3>
+    <pre><code># Setting a custom index
+df.set_index('Name', inplace=True)
+# Accessing data using the custom index
+alice_data = df.loc['Alice']
+# Resetting the index
+df.reset_index(inplace=True)
+# Hierarchical indexing
+data = {'City': ['New York', 'New York', 'Los Angeles', 'Los Angeles'],
+        'Year': [2021, 2022, 2021, 2022],
+        'Population': [8_400_000, 8_500_000, 3_800_000, 3_900_000]}
+df = pd.DataFrame(data)
+# Creating a hierarchical index
+df.set_index(['City', 'Year'], inplace=True)
+# Accessing data with hierarchical index
+ny_2022_population = df.loc[('New York', 2022)]
+</code></pre>
+    <p>These examples cover data selection and indexing in Pandas, including selecting specific rows and columns, conditional filtering, and hierarchical indexing. These skills are fundamental for extracting and manipulating data from DataFrames in various data analysis scenarios.</p>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Introduction to NumPy's Applications</title>
+</head>
+<body>
+    <h1>Module 7: Introduction to NumPy's Applications</h1>
+    <h2>7.1 NumPy in Data Science and Machine Learning</h2>
+    <ul>
+        <li>NumPy is a fundamental library in data science and machine learning for its ability to efficiently handle numerical data.</li>
+        <li>Code Example: Using NumPy for data preprocessing in machine learning.</li>
+    </ul>
+    <pre><code>import numpy as np
+from sklearn.preprocessing import StandardScaler
+# Creating a dataset
+data = np.array([[1, 2, 3],
+                 [4, 5, 6],
+                 [7, 8, 9]])
+# Scaling the data using StandardScaler from scikit-learn
+scaler = StandardScaler()
+scaled_data = scaler.fit_transform(data)</code></pre>
+    <h2>7.2 Signal Processing and Image Manipulation with NumPy</h2>
+    <ul>
+        <li>NumPy is used extensively in signal processing and image manipulation due to its efficient array operations.</li>
+        <li>Code Example: Applying a Gaussian filter to an image using NumPy and OpenCV.</li>
+    </ul>
+    <pre><code>import cv2
+import numpy as np
+# Reading an image using OpenCV
+image = cv2.imread('image.jpg')
+# Applying a Gaussian filter using NumPy
+filtered_image = cv2.GaussianBlur(image, (5, 5), 0)</code></pre>
+    <h2>7.3 Scientific Simulations and Modeling</h2>
+    <ul>
+        <li>NumPy is essential for scientific simulations and modeling in various fields, such as physics, chemistry, and biology.</li>
+        <li>Code Example: Simulating a simple physics experiment.</li>
+    </ul>
+    <pre><code>import numpy as np
+import matplotlib.pyplot as plt
+# Simulating a free fall experiment
+time = np.linspace(0, 10, 100)
+gravity = 9.8  # Acceleration due to gravity (m/s^2)
+velocity = gravity * time
+# Plotting the velocity-time graph
+plt.plot(time, velocity)
+plt.xlabel('Time (s)')
+plt.ylabel('Velocity (m/s)')
+plt.title('Free Fall Experiment')
+plt.show()</code></pre>
+    <h2>7.4 Real-World Projects and Case Studies</h2>
+    <ul>
+        <li>NumPy is used in real-world projects and case studies across various domains, such as finance, biology, and climate modeling.</li>
+        <li>Code Example: Analyzing stock price data with NumPy and pandas.</li>
+    </ul>
+    <pre><code>import pandas as pd
+import numpy as np
+# Reading stock price data into a pandas DataFrame
+data = pd.read_csv('stock_prices.csv')
+# Calculating daily returns using NumPy
+daily_returns = (data['Close'] / data['Close'].shift(1) - 1).values</code></pre>
+    <p>These examples illustrate how NumPy is applied in practical scenarios, including data science, machine learning, signal processing, image manipulation, scientific simulations, and real-world projects. NumPy's versatility and efficiency make it a crucial tool in various domains and industries.</p>
+</body>
+</html>

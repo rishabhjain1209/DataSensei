@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Week 3: Advanced Plotly Charts</title>
+</head>
+<body>
+    <h2>Week 3: Advanced Plotly Charts</h2>
+    <p>In Week 3, you'll delve into more advanced Plotly chart types: Histograms, Box plots, Heatmaps, and 3D plots. Each
+        of these visualizations serves a specific purpose and can be a valuable tool for exploring and presenting
+        data.</p>
+    <h3>1. Histograms</h3>
+    <p>Histograms are used to display the distribution of a single variable. They divide the data into bins and represent
+        the frequency or count of data points in each bin. Here's an example of creating a simple histogram:</p>
+    <pre><code>import plotly.graph_objects as go
+import numpy as np
+# Generate sample data
+data = np.random.randn(1000)
+# Create a histogram
+fig = go.Figure(data=go.Histogram(x=data))
+# Customize the plot
+fig.update_layout(
+    title='Histogram',
+    xaxis=dict(title='Value'),
+    yaxis=dict(title='Frequency')
+)
+# Show the plot
+fig.show()
+</code></pre>
+    <p>In this example, we use <code>go.Histogram</code> to create a histogram of randomly generated data.</p>
+    <h3>2. Box Plots</h3>
+    <p>Box plots, also known as box-and-whisker plots, are used to display the distribution and spread of data, including
+        outliers. They provide a summary of key statistics such as the median, quartiles, and potential outliers. Here's
+        an example of creating a simple box plot:</p>
+    <pre><code>import plotly.graph_objects as go
+import numpy as np
+# Generate sample data
+data = [np.random.normal(0, 1) for _ in range(100)]
+# Create a box plot
+fig = go.Figure(data=go.Box(y=data))
+# Customize the plot
+fig.update_layout(
+    title='Box Plot',
+    yaxis=dict(title='Value')
+)
+# Show the plot
+fig.show()
+</code></pre>
+    <p>In this example, we use <code>go.Box</code> to create a box plot of randomly generated data.</p>
+    <h3>3. Heatmaps</h3>
+    <p>Heatmaps are used to visualize data in a matrix format, where each cell's color represents the value of a variable.
+        They are especially useful for displaying correlation matrices, density plots, or any data with a two-dimensional
+        structure. Here's an example of creating a simple heatmap:</p>
+    <pre><code>import plotly.graph_objects as go
+import numpy as np
+# Generate sample data for a correlation matrix
+data = np.corrcoef(np.random.randn(5, 5))
+# Create a heatmap
+fig = go.Figure(data=go.Heatmap(z=data))
+# Customize the plot
+fig.update_layout(
+    title='Heatmap',
+    xaxis=dict(title='X-axis Label'),
+    yaxis=dict(title='Y-axis Label')
+)
+# Show the plot
+fig.show()
+</code></pre>
+    <p>In this example, we use <code>go.Heatmap</code> to create a heatmap of a randomly generated correlation matrix.</p>
+    <h3>4. 3D Plots</h3>
+    <p>3D plots are used to visualize data in three-dimensional space. Plotly allows you to create various types of 3D
+        plots, including scatter plots, surface plots, and line plots. Here's an example of creating a simple 3D scatter
+        plot:</p>
+    <pre><code>import plotly.graph_objects as go
+import numpy as np
+# Generate sample 3D data
+x = np.random.randn(100)
+y = np.random.randn(100)
+z = np.random.randn(100)
+# Create a 3D scatter plot
+fig = go.Figure(data=[go.Scatter3d(x=x, y=y, z=z, mode='markers')])
+# Customize the plot
+fig.update_layout(
+    title='3D Scatter Plot',
+    scene=dict(
+        xaxis_title='X-axis Label',
+        yaxis_title='Y-axis Label',
+        zaxis_title='Z-axis Label'
+    )
+)
+# Show the plot
+fig.show()
+</code></pre>
+    <p>In this example, we use <code>go.Scatter3d</code> to create a 3D scatter plot of randomly generated data.</p>
+    <p>These advanced Plotly charts offer more specialized ways to visualize data, providing deeper insights into your
+        datasets. Experiment with these examples to gain proficiency in creating and customizing these advanced
+        visualizations.</p>
+</body>
+</html>

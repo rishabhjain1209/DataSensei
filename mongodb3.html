@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Week 3: Basic CRUD Operations</title>
+</head>
+<body>
+    <h1>Lesson 9: Inserting Documents</h1>
+    <p>In MongoDB, you can insert documents into collections using various methods, including <code>insertOne()</code>
+        and <code>insertMany()</code>.</p>
+    <p><strong>Example of inserting a single document:</strong></p>
+    <pre><code>const newUser = {
+  name: "Alice",
+  age: 28,
+  email: "alice@example.com"
+};
+// Insert the document into the 'users' collection
+db.collection('users').insertOne(newUser, (err, result) => {
+  if (err) throw err;
+  console.log("New user added:", result.insertedId);
+});</code></pre>
+    <p><strong>Example of inserting multiple documents:</strong></p>
+    <pre><code>const newUsers = [
+  { name: "Bob", age: 35, email: "bob@example.com" },
+  { name: "Charlie", age: 22, email: "charlie@example.com" }
+];
+// Insert the documents into the 'users' collection
+db.collection('users').insertMany(newUsers, (err, result) => {
+  if (err) throw err;
+  console.log("New users added:", result.insertedIds);
+});</code></pre>
+    <h1>Lesson 10: Querying Documents</h1>
+    <p>MongoDB provides powerful querying capabilities to retrieve documents from collections. You can use methods like
+        <code>find()</code> and various query operators to filter and sort results.</p>
+    <p><strong>Example of querying documents:</strong></p>
+    <pre><code>// Find all users with age greater than 30
+db.collection('users').find({ age: { $gt: 30 } }).toArray((err, users) => {
+  if (err) throw err;
+  console.log("Users over 30:", users);
+});</code></pre>
+    <h1>Lesson 11: Updating Documents</h1>
+    <p>Updating documents in MongoDB can be done using the <code>updateOne()</code> and <code>updateMany()</code>
+        methods. You can modify specific fields or replace entire documents.</p>
+    <p><strong>Example of updating a single document:</strong></p>
+    <pre><code>// Update the email of the user with name "Alice"
+db.collection('users').updateOne(
+  { name: "Alice" },
+  { $set: { email: "newalice@example.com" } },
+  (err, result) => {
+    if (err) throw err;
+    console.log("User updated:", result.modifiedCount);
+  }
+);</code></pre>
+    <p><strong>Example of updating multiple documents:</strong></p>
+    <pre><code>// Increase the age of all users by 1
+db.collection('users').updateMany(
+  {},
+  { $inc: { age: 1 } },
+  (err, result) => {
+    if (err) throw err;
+    console.log("Users updated:", result.modifiedCount);
+  }
+);</code></pre>
+    <h1>Lesson 12: Deleting Documents</h1>
+    <p>To remove documents from a collection, you can use the <code>deleteOne()</code> and <code>deleteMany()</code>
+        methods.</p>
+    <p><strong>Example of deleting a single document:</strong></p>
+    <pre><code>// Delete the user with name "Charlie"
+db.collection('users').deleteOne({ name: "Charlie" }, (err, result) => {
+  if (err) throw err;
+  console.log("User deleted:", result.deletedCount);
+});</code></pre>
+    <p><strong>Example of deleting multiple documents:</strong></p>
+    <pre><code>// Delete all users with age less than 25
+db.collection('users').deleteMany({ age: { $lt: 25 } }, (err, result) => {
+  if (err) throw err;
+  console.log("Users deleted:", result.deletedCount);
+});</code></pre>
+    <p>These CRUD operations are fundamental for working with MongoDB and are used extensively in building applications
+        that rely on MongoDB as their data store.</p>
+</body>
+</html>

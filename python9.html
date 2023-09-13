@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<body>
+    <h1>Python Try Except Blocks</h1>
+    <h2>1. Introduction</h2>
+    <p>Exception handling is a crucial aspect of programming, allowing you to gracefully handle errors that may occur
+        during the execution of your code. Python provides the <code>try</code>, <code>except</code>,
+        <code>else</code>, and <code>finally</code> blocks for effective exception handling.</p>
+    <h2>2. Try Block</h2>
+    <p>The <code>try</code> block is used to enclose a block of code where you expect an exception might occur. It
+        allows you to test a piece of code for errors.</p>
+    <pre><code>
+try:
+    # Code that may raise an exception
+except:
+    # Code to handle the exception
+</code></pre>
+    <h3>Example:</h3>
+    <pre><code>
+try:
+    x = 10 / 0  # This will raise a ZeroDivisionError
+except ZeroDivisionError:
+    print("Division by zero error")
+</code></pre>
+    <h2>3. Multiple Except Blocks</h2>
+    <p>You can have multiple <code>except</code> blocks to handle different types of exceptions. Python will execute the
+        appropriate block based on the type of exception that occurs.</p>
+    <h3>Example:</h3>
+    <pre><code>
+try:
+    x = int("abc")  # This will raise a ValueError
+except ValueError:
+    print("Invalid conversion to integer")
+except ZeroDivisionError:
+    print("Division by zero error")
+</code></pre>
+    <h2>4. Else Block</h2>
+    <p>The <code>else</code> block is executed if no exceptions are raised in the <code>try</code> block. It is often
+        used for code that should run only when there are no exceptions.</p>
+    <h3>Example:</h3>
+    <pre><code>
+try:
+    x = 10 / 2
+except ZeroDivisionError:
+    print("Division by zero error")
+else:
+    print("No exceptions occurred")
+</code></pre>
+    <h2>5. Finally Block</h2>
+    <p>The <code>finally</code> block is always executed, regardless of whether an exception was raised or not. It is
+        useful for cleanup operations such as closing files or releasing resources.</p>
+    <h3>Example:</h3>
+    <pre><code>
+try:
+    x = 10 / 2
+except ZeroDivisionError:
+    print("Division by zero error")
+finally:
+    print("This will always execute")
+</code></pre>
+    <h2>6. Raising Exceptions</h2>
+    <p>You can explicitly raise an exception using the <code>raise</code> keyword. This is useful when you want to
+        trigger an exception based on certain conditions.</p>
+    <h3>Example:</h3>
+    <pre><code>
+x = -1
+if x &lt; 0:
+    raise Exception("Sorry, no numbers below zero")
+</code></pre>
+    <pre><code>
+x = "hello"
+if not isinstance(x, int):
+    raise TypeError("Only integers are allowed")
+</code></pre>
+    <p>Exception handling is a fundamental part of writing robust and reliable Python programs. By using <code>try</code>,
+        <code>except</code>, <code>else</code>, and <code>finally</code> blocks, you can gracefully handle errors and
+        ensure that your code behaves as expected even when exceptions occur.</p>
+<br><br>
+    <h1>User Input in Python:</h1>
+    <p>Python allows you to take user input using the <code>input()</code> function in Python 3.6 and later versions. In Python 2.7, you can use <code>raw_input()</code> for the same purpose. Here's an example of how to use <code>input()</code> in Python 3.6:</p>
+    <pre><code># Python 3.6
+username = input("Enter username:")
+print("Username is: " + username)
+</code></pre>
+    <p>In this code, the <code>input()</code> function is used to prompt the user to enter their username. The input provided by the user is stored in the <code>username</code> variable, and it's then printed to the screen.</p>
+    <p>In Python 2.7, you would use <code>raw_input()</code> instead of <code>input()</code>.</p>
+    <h1>String Formatting in Python:</h1>
+    <h2>Basic String Formatting:</h2>
+    <p>String formatting allows you to create dynamic strings by replacing placeholders with actual values. Python provides the <code>format()</code> method for this purpose. You can use curly braces <code>{}</code> as placeholders in a string and then use the <code>format()</code> method to replace those placeholders with values. Here's a basic example:</p>
+    <pre><code>price = 49
+txt = "The price is {} dollars"
+formatted_text = txt.format(price)
+print(formatted_text)
+</code></pre>
+    <p>Output:</p>
+    <pre>The price is 49 dollars</pre>
+    <h2>Formatting with Precision:</h2>
+    <p>You can also format values with precision using <code>:.2f</code> to display numbers with two decimal places:</p>
+    <pre><code>txt = "The price is {:.2f} dollars"
+formatted_text = txt.format(49)
+print(formatted_text)
+</code></pre>
+    <p>Output:</p>
+    <pre>The price is 49.00 dollars</pre>
+    <h2>Multiple Values and Placeholders:</h2>
+    <p>You can use multiple placeholders and provide corresponding values in the <code>format()</code> method:</p>
+    <pre><code>quantity = 3
+itemno = 567
+price = 49
+myorder = "I want {} pieces of item number {} for {:.2f} dollars."
+formatted_order = myorder.format(quantity, itemno, price)
+print(formatted_order)
+</code></pre>
+    <p>Output:</p>
+    <pre>I want 3 pieces of item number 567 for 49.00 dollars.</pre>
+    <h2>Index Numbers and Reusing Values:</h2>
+    <p>You can use index numbers inside curly braces to specify the order of values to be replaced:</p>
+    <pre><code>age = 36
+name = "John"
+txt = "His name is {1}. {1} is {0} years old."
+formatted_text = txt.format(age, name)
+print(formatted_text)
+</code></pre>
+    <p>Output:</p>
+    <pre>His name is John. John is 36 years old.</pre>
+    <h2>Named Indexes:</h2>
+    <p>You can use named indexes by providing names inside curly braces and then passing named arguments to the <code>format()</code> method:</p>
+    <pre><code>myorder = "I have a {carname}, it is a {model}."
+formatted_order = myorder.format(carname="Ford", model="Mustang")
+print(formatted_order)
+</code></pre>
+    <p>Output:</p>
+    <pre>I have a Ford, it is a Mustang.</pre>
+    <p>These are some of the fundamental concepts of user input and string formatting in Python. They allow you to interact with users and create formatted, dynamic strings in your Python programs.</p>
+</body>
+</html>

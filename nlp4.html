@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 5-6: Sentiment Analysis</title>
+</head>
+<body>
+    <h1>Understanding Sentiment Analysis</h1>
+    <p><strong>Sentiment analysis</strong>, also known as opinion mining, is the process of determining the sentiment or emotional tone expressed in a piece of text, such as positive, negative, or neutral. Sentiment analysis can be applied to a wide range of text data, including product reviews, social media posts, customer feedback, and more.</p>
+    <p>Sentiment analysis can provide valuable insights for businesses and organizations, helping them understand customer opinions, track brand perception, and make data-driven decisions.</p>
+    <h1>Building a Sentiment Analysis Model</h1>
+    <p>Building a sentiment analysis model typically involves the following steps:</p>
+    <ol>
+        <li><strong>Data Collection:</strong> Gather a labeled dataset containing text samples and their corresponding sentiment labels (e.g., positive, negative, neutral).</li>
+        <li><strong>Data Preprocessing:</strong> Clean and preprocess the text data by removing stopwords, tokenizing, and normalizing the text.</li>
+        <li><strong>Feature Extraction:</strong> Convert the preprocessed text into numerical features. Common methods include TF-IDF or word embeddings (e.g., Word2Vec, GloVe).</li>
+        <li><strong>Model Selection:</strong> Choose a machine learning or deep learning model for sentiment analysis. Common choices include logistic regression, Naive Bayes, recurrent neural networks (RNNs), and transformer-based models like BERT.</li>
+        <li><strong>Model Training:</strong> Train the selected model using the labeled dataset.</li>
+        <li><strong>Model Evaluation:</strong> Assess the model's performance using evaluation metrics such as accuracy, precision, recall, and F1-score.</li>
+        <li><strong>Prediction:</strong> Use the trained model to predict sentiment on new, unseen text data.</li>
+    </ol>
+    <p>Here's a code example using scikit-learn and the TF-IDF feature extraction approach with a logistic regression classifier for sentiment analysis:</p>
+    <pre><code>
+<!-- Sample code example here -->
+    </code></pre>
+    <h2>Handling Negation and Context</h2>
+    <p>Sentiment analysis models often struggle with handling negation and context, where the sentiment can change based on the surrounding words. Advanced models like BERT and contextual embeddings have improved this aspect of sentiment analysis by considering the context of words.</p>
+    <p>For example, in the sentence "I didn't like the movie," a simple model may incorrectly classify it as positive because it detects the word "like" without considering the negation "didn't." Contextual models can capture the negation and correctly classify it as negative sentiment.</p>
+    <h2>Real-World Application</h2>
+    <p>One real-world application of sentiment analysis is social media monitoring for brand reputation management. Companies can use sentiment analysis to:</p>
+    <ul>
+        <li>Track mentions of their brand on social media platforms.</li>
+        <li>Analyze customer feedback and sentiment in real-time.</li>
+        <li>Identify emerging trends and issues.</li>
+        <li>Measure the impact of marketing campaigns on customer sentiment.</li>
+    </ul>
+    <p>By monitoring sentiment, companies can proactively address customer concerns, improve their products or services, and enhance their brand image.</p>
+    <p>In the context of a social media monitoring tool, you might use a sentiment analysis model to classify tweets or comments as positive, negative, or neutral and provide actionable insights to businesses.</p>
+    <p>Remember that building a robust sentiment analysis system often requires fine-tuning models on domain-specific data and continuously updating them to adapt to evolving language trends and customer preferences.</p>
+</body>
+</html>

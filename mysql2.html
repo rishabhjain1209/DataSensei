@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Week 2: Data Types and Constraints</title>
+</head>
+<body>
+<h2>MySQL Data Types</h2>
+<p>MySQL supports various data types to represent different kinds of information in your database. Understanding these data types is essential for designing efficient and accurate database schemas. Here are some common data types:</p>
+<ol>
+    <li><strong>Numeric Data Types:</strong>
+        <ul>
+            <li><strong>INT:</strong> Represents whole numbers (e.g., -5, 0, 42).</li>
+            <li><strong>FLOAT:</strong> Stores floating-point numbers with decimal places (e.g., 3.14, -0.5).</li>
+            <li><strong>DOUBLE:</strong> Provides higher precision for floating-point numbers (e.g., 3.14159265359).</li>
+        </ul>
+    </li>
+    <p><strong>Example: Creating a table with numeric data types</strong></p>
+    <pre>
+    CREATE TABLE products (
+        product_id INT,
+        price FLOAT,
+        discount DOUBLE
+    );
+    </pre>
+    <li><strong>String Data Types:</strong>
+        <ul>
+            <li><strong>VARCHAR:</strong> Stores variable-length character strings (e.g., 'Hello', 'MySQL').</li>
+            <li><strong>CHAR:</strong> Stores fixed-length character strings (e.g., 'OpenAI', 'Data').</li>
+        </ul>
+    </li>
+    <p><strong>Example: Creating a table with string data types</strong></p>
+    <pre>
+    CREATE TABLE customers (
+        customer_id INT,
+        first_name VARCHAR(50),
+        last_name VARCHAR(50)
+    );
+    </pre>
+    <li><strong>Date and Time Data Types:</strong>
+        <ul>
+            <li><strong>DATE:</strong> Stores dates (e.g., '2023-09-06').</li>
+            <li><strong>TIME:</strong> Stores times (e.g., '14:30:00').</li>
+            <li><strong>DATETIME:</strong> Combines date and time (e.g., '2023-09-06 14:30:00').</li>
+        </ul>
+    </li>
+    <p><strong>Example: Creating a table with date and time data types</strong></p>
+    <pre>
+    CREATE TABLE orders (
+        order_id INT,
+        order_date DATE,
+        delivery_time DATETIME
+    );
+    </pre>
+</ol>
+<h2>Understanding Constraints</h2>
+<p>Constraints are rules that define the permissible values in a column or the relationships between tables. They help ensure data integrity and maintain consistency in your database. Here are some common constraints:</p>
+<ol>
+    <li><strong>PRIMARY KEY:</strong> Ensures each row in a table is uniquely identifiable.</li>
+    <p><strong>Example: Adding a primary key constraint</strong></p>
+    <pre>
+    CREATE TABLE students (
+        student_id INT PRIMARY KEY,
+        first_name VARCHAR(50),
+        last_name VARCHAR(50)
+    );
+    </pre>
+    <li><strong>FOREIGN KEY:</strong> Defines a relationship between tables by referencing a column in another table's primary key.</li>
+    <p><strong>Example: Adding a foreign key constraint</strong></p>
+    <pre>
+    CREATE TABLE orders (
+        order_id INT PRIMARY KEY,
+        customer_id INT,
+        order_date DATE,
+        FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
+    );
+    </pre>
+    <li><strong>UNIQUE:</strong> Ensures that values in a column are unique across all rows in the table.</li>
+    <p><strong>Example: Adding a unique constraint</strong></p>
+    <pre>
+    CREATE TABLE email_addresses (
+        email_id INT PRIMARY KEY,
+        email VARCHAR(100) UNIQUE
+    );
+    </pre>
+    <li><strong>NOT NULL:</strong> Requires that a column must have a value and cannot be NULL.</li>
+    <p><strong>Example: Adding a not null constraint</strong></p>
+    <pre>
+    CREATE TABLE employees (
+        employee_id INT PRIMARY KEY,
+        first_name VARCHAR(50) NOT NULL,
+        last_name VARCHAR(50) NOT NULL
+    );
+    </pre>
+</ol>
+<h2>Creating and Altering Tables with Constraints</h2>
+<p>You can create tables with constraints as shown in the examples above. To alter an existing table, you can use the <code>ALTER TABLE</code> statement.</p>
+<p><strong>Example: Adding a new column with a NOT NULL constraint</strong></p>
+<pre>
+ALTER TABLE employees
+ADD department_id INT NOT NULL;
+</pre>
+<p><strong>Example: Adding a new FOREIGN KEY constraint</strong></p>
+<pre>
+ALTER TABLE orders
+ADD FOREIGN KEY (product_id) REFERENCES products(product_id);
+</pre>
+<h2>Data Integrity and Normalization Principles</h2>
+<p>Data integrity refers to the accuracy, consistency, and reliability of data in a database. To achieve data integrity, you should follow normalization principles. Normalization involves organizing data into structured tables to eliminate redundancy and dependency issues.</p>
+<p><strong>Example: Normalizing tables to achieve data integrity</strong></p>
+<p>Let's say you have an initial table like this:</p>
+<pre>
+CREATE TABLE library (
+    book_id INT PRIMARY KEY,
+    author VARCHAR(100),
+    title VARCHAR(200),
+    publication_year INT,
+    genre VARCHAR(50)
+);
+</pre>
+<p>You can normalize it into separate tables like <code>authors</code>, <code>books</code>, and <code>genres</code> to reduce data duplication and improve data integrity.</p>
+<p>Remember that data types and constraints play a significant role in maintaining data integrity and ensuring the accuracy of the data stored in your MySQL database.</p>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Week 2: Data Modeling in MongoDB</title>
+</head>
+<body>
+    <h1>Lesson 5: Document Structure and BSON</h1>
+    <p>In MongoDB, documents are the basic units of data storage, and they are represented in BSON (Binary JSON)
+        format. BSON is a binary-encoded serialization of JSON-like documents, which allows for efficient storage and
+        retrieval of data. BSON supports various data types, including strings, numbers, arrays, and even embedded
+        documents.</p>
+    <p><strong>Example of a BSON document:</strong></p>
+    <pre><code>{
+  "_id": ObjectId("5f6b0253f14f1c2f3e40c2a4"),
+  "name": "Alice",
+  "age": 28,
+  "address": {
+    "street": "123 Main St",
+    "city": "New York"
+  },
+  "hobbies": ["reading", "painting", "gardening"]
+}</code></pre>
+    <p>The <code>_id</code> field is a unique identifier for the document, and it's automatically generated if not
+        provided.</p>
+    <h1>Lesson 6: Collections and Documents</h1>
+    <p>Collections in MongoDB are containers for organizing related documents. Documents within a collection can have
+        different structures, but they typically share a common purpose. Collections are similar to tables in SQL
+        databases but without a fixed schema.</p>
+    <p><strong>Code example illustrating collections and document insertion:</strong></p>
+    <pre><code>// Access a collection named 'users'
+const usersCollection = db.collection('users');
+// Insert a new document into the 'users' collection
+const newUser = {
+  name: "Bob",
+  age: 35,
+  email: "bob@example.com"
+};
+usersCollection.insertOne(newUser, (err, result) => {
+  if (err) throw err;
+  console.log("New user added:", result.insertedId);
+});
+</code></pre>
+    <h1>Lesson 7: Schema Design Best Practices</h1>
+    <p>When designing the schema for MongoDB, consider the following best practices:</p>
+    <ul>
+        <li><strong>Embed or Reference:</strong> Decide whether to embed related data within a document or reference it
+            in a separate collection based on the specific use case and query patterns.</li>
+        <li><strong>Indexing:</strong> Use indexes to improve query performance. Identify fields that are frequently
+            queried and create indexes on them.</li>
+        <li><strong>Denormalization:</strong> In some cases, it's beneficial to duplicate data (denormalize) to reduce
+            the need for joins and improve query performance.</li>
+        <li><strong>Avoid Over-Normalization:</strong> Don't create too many collections with complex relationships, as
+            it can make querying and maintaining data more challenging.</li>
+        <li><strong>Use Consistent Field Names:</strong> Maintain consistent field names across documents to simplify
+            queries and application logic.</li>
+        <li><strong>Preallocate Space:</strong> If documents will grow over time, preallocate space for arrays to avoid
+            performance issues due to document growth.</li>
+    </ul>
+    <h1>Lesson 8: Modeling Relationships in MongoDB</h1>
+    <p>MongoDB supports two main approaches for modeling relationships: embedding and referencing.</p>
+    <p><strong>Embedding:</strong> Embed related data directly within a document. This is suitable when:</p>
+    <ul>
+        <li>The data is small and doesn't change frequently.</li>
+        <li>You frequently access the data together with the parent document.</li>
+        <li>You don't need to perform complex queries involving the related data.</li>
+    </ul>
+    <p><strong>Example of embedding:</strong></p>
+    <pre><code>{
+  "_id": ObjectId("5f6b0253f14f1c2f3e40c2a4"),
+  "name": "Alice",
+  "address": {
+    "street": "123 Main St",
+    "city": "New York"
+  },
+  "hobbies": ["reading", "painting"]
+}</code></pre>
+    <p><strong>Referencing:</strong> Store a reference (usually an ObjectId) to related data in another collection. This
+        is suitable when:</p>
+    <ul>
+        <li>The related data is large or frequently updated.</li>
+        <li>You need to perform complex queries on the related data.</li>
+        <li>There are many-to-many relationships.</li>
+    </ul>
+    <p><strong>Example of referencing:</strong></p>
+    <pre><code>// Users Collection
+{
+  "_id": ObjectId("5f6b0253f14f1c2f3e40c2a4"),
+  "name": "Alice",
+  "address_id": ObjectId("5f6b02a8f14f1c2f3e40c2a5")
+}
+// Addresses Collection
+{
+  "_id": ObjectId("5f6b02a8f14f1c2f3e40c2a5"),
+  "street": "123 Main St",
+  "city": "New York"
+}</code></pre>
+    <p>Choose the appropriate modeling approach based on your application's requirements and query patterns. MongoDB's
+        flexibility allows you to adapt your schema as your application evolves.</p>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 2: Text Preprocessing</title>
+</head>
+<body>
+    <h1>Tokenization</h1>
+    <p><strong>Tokenization</strong> is the process of splitting text into individual words or tokens. It's a crucial step in text preprocessing as it forms the basis for various NLP tasks. Let's look at an example in Python:</p>
+    <pre><code>
+import nltk
+from nltk.tokenize import word_tokenize
+text = "Tokenization is a key step in NLP. It breaks text into words and tokens."
+tokens = word_tokenize(text)
+print(tokens)
+    </code></pre>
+    <p>Output:</p>
+    <pre><code>
+['Tokenization', 'is', 'a', 'key', 'step', 'in', 'NLP', '.', 'It', 'breaks', 'text', 'into', 'words', 'and', 'tokens', '.']
+    </code></pre>
+    <h1>Stop Words Removal</h1>
+    <p><strong>Stop words</strong> are common words that often don't carry much meaning and are typically removed from text during preprocessing to reduce noise. NLTK provides a list of common stop words for different languages. Here's an example:</p>
+    <pre><code>
+import nltk
+from nltk.corpus import stopwords
+nltk.download('stopwords')
+stop_words = set(stopwords.words('english'))
+text = "This is an example sentence with some stop words."
+tokens = word_tokenize(text)
+filtered_tokens = [word for word in tokens if word.lower() not in stop_words]
+print(filtered_tokens)
+    </code></pre>
+    <p>Output:</p>
+    <pre><code>
+['example', 'sentence', 'stop', 'words', '.']
+    </code></pre>
+    <h1>Stemming and Lemmatization</h1>
+    <p><strong>Stemming</strong> and <strong>Lemmatization</strong> are techniques used to reduce words to their base or root form.</p>
+    <p><strong>Stemming</strong> involves removing suffixes from words to find their root form. NLTK provides several stemming algorithms, such as the Porter Stemmer:</p>
+    <pre><code>
+from nltk.stem import PorterStemmer
+stemmer = PorterStemmer()
+words = ["running", "flies", "happily"]
+stemmed_words = [stemmer.stem(word) for word in words]
+print(stemmed_words)
+    </code></pre>
+    <p>Output:</p>
+    <pre><code>
+['run', 'fli', 'happili']
+    </code></pre>
+    <p><strong>Lemmatization</strong>, on the other hand, aims to reduce words to their base form (lemma) using vocabulary and morphological analysis. NLTK provides a lemmatizer as well:</p>
+    <pre><code>
+from nltk.stem import WordNetLemmatizer
+lemmatizer = WordNetLemmatizer()
+words = ["running", "flies", "happily"]
+lemmatized_words = [lemmatizer.lemmatize(word) for word in words]
+print(lemmatized_words)
+    </code></pre>
+    <p>Output:</p>
+    <pre><code>
+['running', 'fly', 'happily']
+    </code></pre>
+    <h1>Text Normalization</h1>
+    <p><strong>Text normalization</strong> is the process of standardizing text to a common format. It includes tasks like converting text to lowercase, handling contractions, and removing special characters. Here's an example in Python:</p>
+    <pre><code>
+text = "Text normalization involves various tasks, like converting text to lowercase and removing special characters."
+text = text.lower()  # Convert text to lowercase
+text = text.replace(',', '')  # Remove commas
+text = text.replace('.', '')  # Remove periods
+print(text)
+    </code></pre>
+    <p>Output:</p>
+    <pre><code>
+text normalization involves various tasks like converting text to lowercase and removing special characters
+    </code></pre>
+    <p>Text normalization ensures that the text is consistent and easier to work with in NLP applications.</p>
+    <p>These text preprocessing techniques are essential for cleaning and preparing text data for NLP tasks, as they help reduce noise and ensure that the data is in a suitable format for analysis and modeling.</p>
+</body>
+</html>

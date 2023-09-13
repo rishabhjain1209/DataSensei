@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 1: Introduction to NLP</title>
+</head>
+<body>
+    <h1>What is NLP?</h1>
+    <p><strong>Natural Language Processing (NLP)</strong> is a field of artificial intelligence (AI) that focuses on the interaction between computers and humans through natural language. The ultimate goal of NLP is to enable computers to understand, interpret, and generate human language in a valuable way.</p>   
+    <p>NLP involves a wide range of tasks, including:</p>
+    <ol>
+        <li><strong>Text Classification:</strong> Assigning predefined categories or labels to text, such as spam detection or sentiment analysis.</li>
+        <li><strong>Named Entity Recognition (NER):</strong> Identifying and classifying named entities (e.g., names of people, organizations, locations) within text.</li>
+        <li><strong>Machine Translation:</strong> Translating text from one language to another, as seen in tools like Google Translate.</li>
+        <li><strong>Text Generation:</strong> Creating human-like text, such as chatbots or auto-generated content.</li>
+        <li><strong>Speech Recognition:</strong> Converting spoken language into written text, commonly used in voice assistants like Siri or Google Assistant.</li>
+        <li><strong>Text Summarization:</strong> Condensing long texts into shorter, coherent summaries.</li>
+        <li><strong>Question Answering:</strong> Providing answers to user questions based on a given text corpus.</li>
+        <li><strong>Sentiment Analysis:</strong> Determining the sentiment (positive, negative, neutral) expressed in a piece of text.</li>
+        <li><strong>Language Generation:</strong> Generating natural-sounding language, often used in creative writing or content generation.</li>
+        <li><strong>Information Extraction:</strong> Extracting structured information from unstructured text, like extracting product details from product descriptions.</li>
+    </ol>   
+    <p>NLP is a multidisciplinary field that draws from linguistics, computer science, machine learning, and data science. It plays a crucial role in many applications, making it a vibrant and rapidly evolving field.</p>   
+    <h2>Historical Overview of NLP</h2>
+    <p>The history of NLP can be traced back to the 1950s. Here are some key milestones:</p>
+    <ul>
+        <li><strong>1950s:</strong> The birth of NLP with the development of the first language processing computer programs, such as the Georgetown-IBM experiment for automated translation.</li>
+        <li><strong>1960s-1970s:</strong> The development of early NLP systems like ELIZA, a chatbot designed to simulate human conversation, and SHRDLU, a program for natural language understanding in the context of computer manipulation.</li>
+        <li><strong>1980s:</strong> The emergence of statistical and rule-based NLP systems, which laid the foundation for modern NLP techniques.</li>
+        <li><strong>1990s:</strong> The rise of machine learning approaches, particularly Hidden Markov Models (HMMs) and statistical models, for various NLP tasks.</li>
+        <li><strong>2000s-Present:</strong> The explosion of NLP with the advent of deep learning, especially Transformer-based models, like GPT (Generative Pre-trained Transformer) and BERT (Bidirectional Encoder Representations from Transformers), which achieved remarkable performance across various NLP tasks.</li>
+    </ul>   
+    <h2>Applications of NLP</h2>
+    <p>NLP has a wide range of applications across different industries. Let's explore some of them with code examples where applicable:</p>   
+    <ol>
+        <li>
+            <h3>Sentiment Analysis</h3>
+            <p>Example: Analyzing product reviews to determine customer sentiment.</p>
+            <pre><code>
+from textblob import TextBlob
+text = "I love this product! It's amazing."
+sentiment = TextBlob(text).sentiment
+print(sentiment)  # Output: Sentiment(polarity=0.5, subjectivity=0.6)
+            </code></pre>
+        </li>
+        <li>
+            <h3>Text Classification</h3>
+            <p>Example: Classifying news articles into categories.</p>
+            <pre><code>
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.pipeline import Pipeline
+# Build a text classification pipeline
+text_clf = Pipeline([
+   ('tfidf', TfidfVectorizer()),
+   ('clf', MultinomialNB())
+])
+# Train the classifier
+text_clf.fit(X_train, y_train)
+# Predict the category of a new article
+predicted_category = text_clf.predict(["Breaking news: AI advances in NLP!"])
+            </code></pre>
+        </li>
+        <li>
+            <h3>Named Entity Recognition (NER)</h3>
+            <p>Example: Extracting named entities from a text.</p>
+            <pre><code>
+import spacy
+nlp = spacy.load("en_core_web_sm")
+text = "Apple Inc. is headquartered in Cupertino, California."
+doc = nlp(text)
+for entity in doc.ents:
+   print(entity.text, entity.label_)
+            </code></pre>
+        </li>
+        <li>
+            <h3>Machine Translation</h3>
+            <p>Example: Using the Google Translate API for translation.</p>
+            <pre><code>
+from googletrans import Translator
+translator = Translator()
+translation = translator.translate("Hello, how are you?", dest="es")
+print(translation.text)  # Output: "Hola, ¿cómo estás?"
+            </code></pre>
+        </li>
+    </ol>   
+    <p>These examples demonstrate just a small fraction of the practical applications of NLP. As NLP continues to advance, it finds applications in virtually every domain where human language is involved, including healthcare, finance, customer support, and more.</p>
+</body>
+</html>

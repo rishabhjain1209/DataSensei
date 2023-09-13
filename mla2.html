@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Week 2-3: Linear Regression</title>
+</head>
+<body>
+    <h1>Introduction to Linear Regression</h1>
+    <p>Linear regression is a fundamental supervised learning algorithm used for modeling the relationship between a dependent variable (target) and one or more independent variables (features) by fitting a linear equation. It's a common choice for tasks involving predicting a continuous numeric output.</p>
+    <h2>Linear Regression for Single Variable</h2>
+    <h3>Model Representation</h3>
+    <p>For simple linear regression with a single input variable, the model can be represented as:</p>
+    <pre>
+        y = mx + b
+    </pre>
+    <p>Where:</p>
+    <ul>
+        <li><code>y</code> is the dependent variable (target).</li>
+        <li><code>x</code> is the independent variable (feature).</li>
+        <li><code>m</code> is the slope (coefficient) of the line.</li>
+        <li><code>b</code> is the y-intercept.</li>
+    </ul>
+    <h3>Example Code</h3>
+    <p>Let's use Python and scikit-learn to perform simple linear regression:</p>
+    <pre><code>
+import numpy as np
+from sklearn.linear_model import LinearRegression
+# Sample data
+X = np.array([1, 2, 3, 4, 5]).reshape(-1, 1)  # Features (independent variable)
+y = np.array([2, 4, 5, 4, 5])  # Target (dependent variable)
+# Create a linear regression model
+model = LinearRegression()
+# Fit the model to the data
+model.fit(X, y)
+# Predict values
+X_new = np.array([6]).reshape(-1, 1)
+y_pred = model.predict(X_new)
+    </code></pre>
+    <h2>Linear Regression for Multiple Variables</h2>
+    <p>In multiple linear regression, there are multiple independent variables that contribute to the prediction. The model can be represented as:</p>
+    <pre>
+        y = b0 + b1 * x1 + b2 * x2 + ... + bn * xn
+    </pre>
+    <p>Where:</p>
+    <ul>
+        <li><code>y</code> is the dependent variable (target).</li>
+        <li><code>x1</code>, <code>x2</code>, ..., <code>xn</code> are the independent variables (features).</li>
+        <li><code>b0</code> is the y-intercept.</li>
+        <li><code>b1</code>, <code>b2</code>, ..., <code>bn</code> are the coefficients for each feature.</li>
+    </ul>
+    <h3>Example Code</h3>
+    <pre><code>
+import numpy np
+from sklearn.linear_model import LinearRegression
+# Sample data with two features
+X = np.array([[1, 2], [2, 3], [3, 4], [4, 5], [5, 6]])
+y = np.array([3, 6, 7, 8, 9])
+# Create a linear regression model
+model = LinearRegression()
+# Fit the model to the data
+model.fit(X, y)
+# Predict values for new data
+X_new = np.array([[6, 7]])
+y_pred = model.predict(X_new)
+    </code></pre>
+    <h2>Model Evaluation and Metrics</h2>
+    <p>To assess the performance of a linear regression model, several evaluation metrics can be used, including:</p>
+    <ol>
+        <li><strong>Mean Absolute Error (MAE)</strong>: Measures the average absolute errors between predicted and actual values.</li>
+        <li><strong>Mean Squared Error (MSE)</strong>: Measures the average squared errors between predicted and actual values.</li>
+        <li><strong>Root Mean Squared Error (RMSE)</strong>: The square root of MSE, provides a measure of the error in the same units as the target variable.</li>
+        <li><strong>R-squared (R2)</strong>: A measure of how well the independent variables explain the variance in the target variable. R2 ranges from 0 to 1, with higher values indicating better fit.</li>
+    </ol>
+    <p>Example code to calculate and interpret metrics:</p>
+    <pre><code>
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+# Calculate predictions (y_pred) using the model
+y_pred = model.predict(X_test)
+# Calculate evaluation metrics
+mae = mean_absolute_error(y_test, y_pred)
+mse = mean_squared_error(y_test, y_pred)
+rmse = np.sqrt(mse)
+r2 = r2_score(y_test, y_pred)
+# Interpret the metrics
+print(f"Mean Absolute Error (MAE): {mae}")
+print(f"Mean Squared Error (MSE): {mse}")
+print(f"Root Mean Squared Error (RMSE): {rmse}")
+print(f"R-squared (R2): {r2}")
+    </code></pre>
+    <h2>Implementation and Practical Exercises</h2>
+    <p>Practical exercises for linear regression involve applying the concepts discussed above to real datasets. Here are some steps you can follow:</p>
+    <ol>
+        <li><strong>Data Preparation</strong>: Obtain a dataset with appropriate features and a target variable. Preprocess the data by handling missing values and encoding categorical variables if necessary.</li>
+        <li><strong>Data Splitting</strong>: Split the dataset into training and testing sets to train and evaluate your model.</li>
+        <li><strong>Model Selection</strong>: Choose the appropriate type of linear regression (simple or multiple) based on your dataset and problem.</li>
+        <li><strong>Model Training</strong>: Fit the selected linear regression model to the training data.</li>
+        <li><strong>Model Evaluation</strong>: Use evaluation metrics like MAE, MSE, RMSE, and R2 to assess the model's performance on the testing data.</li>
+        <li><strong>Visualization</strong>: Visualize the regression line and scatterplots to understand the relationship between variables.</li>
+        <li><strong>Predictions</strong>: Make predictions using the trained model on new data if applicable.</li>
+    </ol>
+    <p>Here's a simplified example of a complete linear regression workflow using a synthetic dataset:</p>
+    <pre><code>
+# Load and preprocess your dataset (data preprocessing steps)
+# Split data into training and testing sets
+# Choose the appropriate linear regression model (simple or multiple)
+# Train the model on the training data
+# Evaluate the model using evaluation metrics
+# Visualize the results (e.g., regression line and scatterplots)
+# Make predictions on new data (if needed)
+    </code></pre>
+    <p>By following these steps and working on different datasets, you can gain practical experience in implementing and applying linear regression models.</p>
+</body>
+</html>

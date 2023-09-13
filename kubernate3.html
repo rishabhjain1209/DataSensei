@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Module 4: Scaling and Load Balancing</title>
+</head>
+<body>
+<h1>Module 4: Scaling and Load Balancing (1 week)</h1>
+<h2>Topic 1: Horizontal Pod Autoscaling</h2>
+<p><strong>Horizontal Pod Autoscaling (HPA)</strong> is a Kubernetes feature that automatically adjusts the number of pod replicas in a deployment or replica set based on resource utilization or custom metrics.</p>
+<h3>Key Concepts:</h3>
+<ul>
+    <li><strong>Metrics:</strong> HPA can scale pods based on CPU utilization, memory utilization, or custom metrics provided by the application.</li>
+    <li><strong>Target Value:</strong> You specify a target value for the metric, and HPA maintains the desired value by adjusting the number of replicas.</li>
+</ul>
+<p><strong>Code Example (Creating an HPA):</strong></p>
+<pre>
+<code>
+Here's a YAML definition for an HPA that scales a deployment based on CPU utilization:
+apiVersion: autoscaling/v2beta2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: my-hpa
+spec:
+  scaleTargetRef:
+    kind: Deployment
+    name: my-deployment
+  minReplicas: 2
+  maxReplicas: 5
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 50
+</code>
+</pre>
+<p>This HPA scales the <code>my-deployment</code> to maintain an average CPU utilization of 50%.</p>
+<h2>Topic 2: Cluster Autoscaler</h2>
+<p>The <strong>Cluster Autoscaler</strong> is a Kubernetes component that automatically adjusts the size of a cluster by adding or removing nodes based on resource utilization and pod scheduling needs.</p>
+<h3>Key Concepts:</h3>
+<ul>
+    <li><strong>Node Scaling:</strong> Cluster Autoscaler adds nodes when pods cannot be scheduled due to resource constraints and removes underutilized nodes to save resources.</li>
+</ul>
+<p><strong>Code Example (Cluster Autoscaler Configuration):</strong></p>
+<pre>
+<code>
+Configuration for Cluster Autoscaler is often specific to your cluster provider (e.g., AWS, GCP, Azure). Here's an example of a configuration file for Cluster Autoscaler in an AWS cluster:
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cluster-autoscaler
+spec:
+  template:
+    spec:
+      containers:
+      - image: k8s.gcr.io/cluster-autoscaler:v1.3.9
+        name: cluster-autoscaler
+        command:
+        - ./cluster-autoscaler
+        - --v=4
+        - --stderrthreshold=info
+        - --cloud-provider=aws
+        - --skip-nodes-with-system-pods=false
+</code>
+</pre>
+<h2>Topic 3: Load Balancing with Services</h2>
+<p><strong>Services</strong> in Kubernetes provide a way to load balance traffic across multiple pods, ensuring high availability and reliability of applications.</p>
+<h3>Key Concepts:</h3>
+<ul>
+    <li><strong>Service Types:</strong> Kubernetes supports various service types, including ClusterIP, NodePort, LoadBalancer, and ExternalName.</li>
+    <li><strong>Service Discovery:</strong> Services provide DNS-based service discovery within the cluster.</li>
+</ul>
+<p><strong>Code Example (Creating a LoadBalancer Service):</strong></p>
+<pre>
+<code>
+Here's a YAML definition for a LoadBalancer service that exposes a deployment externally:
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+spec:
+  selector:
+    app: my-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: LoadBalancer
+</code>
+</pre>
+<p>This service type will provision a cloud load balancer (e.g., AWS ELB, GCP Load Balancer) to distribute external traffic to the <code>my-app</code> pods.</p>
+<h2>Topic 4: Rolling Updates and Rollbacks</h2>
+<p><strong>Rolling updates</strong> and <strong>rollbacks</strong> are strategies for deploying and managing changes to applications running in Kubernetes without causing downtime.</p>
+<h3>Key Concepts:</h3>
+<ul>
+    <li><strong>Rolling Update:</strong> Gradually replaces old pods with new ones, ensuring a smooth transition and minimal impact on application availability.</li>
+    <li><strong>Rollback:</strong> In case of issues with a new deployment, you can roll back to a previous version of the application.</li>
+</ul>
+<p><strong>Code Example (Performing a Rolling Update):</strong></p>
+<p>You can perform a rolling update using the <code>kubectl set image</code> command. For example, to update the image of a deployment:</p>
+<pre>
+<code>
+kubectl set image deployment/my-deployment my-container=my-new-image:tag
+</code>
+</pre>
+<p>This command updates the image of the <code>my-container</code> in <code>my-deployment</code> to <code>my-new-image:tag</code>.</p>
+<p>By the end of this module, students should understand how to scale their applications horizontally using HPA, manage cluster resources efficiently with Cluster Autoscaler, set up load balancing with services, and perform rolling updates and rollbacks to maintain application availability and reliability in Kubernetes.</p>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Week 3: Templates and Static Files in Flask</title>
+</head>
+<body>
+    <h1>Lesson 6: Introduction to Jinja2 Templating Engine</h1>
+    <p>In Lesson 6, we'll introduce you to Jinja2, a powerful templating engine used in Flask. Jinja2 allows you to create dynamic HTML templates by embedding Python code within your HTML files.</p>
+    <h2>Key Concepts:</h2>
+    <ul>
+        <li>Jinja2 templates use curly braces <code>{}</code> to denote expressions.</li>
+        <li>You can include control structures like loops and conditionals within templates.</li>
+        <li>Templates help separate the presentation (HTML) from the logic (Python).</li>
+    </ul>
+    <h3>Example template (<code>template.html</code>):</h3>
+    <pre>
+        <code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+            &lt;head&gt;
+                &lt;title&gt;{{ title }}&lt;/title&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;h1&gt;Welcome, {{ user }}!&lt;/h1&gt;
+                &lt;ul&gt;
+                    {% for item in items %}
+                        &lt;li&gt;{{ item }}&lt;/li&gt;
+                    {% endfor %}
+                &lt;/ul&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <h1>Lesson 7: Rendering HTML Templates</h1>
+    <p>In Lesson 7, we'll show you how to render HTML templates in Flask. Rendering templates allows you to generate dynamic web pages by injecting data into the templates.</p>
+    <h2>Rendering Templates in Flask:</h2>
+    <pre>
+        <code>
+            from flask import Flask, render_template
+            app = Flask(__name__)
+            @app.route('/')
+            def index():
+                title = 'My Website'
+                user = 'John Doe'
+                items = ['Item 1', 'Item 2', 'Item 3']
+                return render_template('template.html', title=title, user=user, items=items)
+            if __name__ == '__main__':
+                app.run()
+        </code>
+    </pre>
+    <p>In this example:</p>
+    <ul>
+        <li>We use the <code>render_template</code> function to render the <code>template.html</code> file.</li>
+        <li>We pass variables like <code>title</code>, <code>user</code>, and <code>items</code> to the template.</li>
+    </ul>
+    <h1>Lesson 8: Handling Static Files (CSS, JavaScript, Images)</h1>
+    <p>Lesson 8 covers the management of static files such as CSS, JavaScript, and images in Flask. Static files enhance the presentation and interactivity of your web applications.</p>
+    <h2>Organizing Static Files:</h2>
+    <ul>
+        <li>Create a folder named <code>static</code> in your project directory.</li>
+        <li>Place your static files (e.g., CSS, JS, images) inside the <code>static</code> folder.</li>
+    </ul>
+    <h2>Linking Static Files in Templates:</h2>
+    <ul>
+        <li>Use the <code>url_for</code> function in templates to generate URLs for static files.</li>
+    </ul>
+    <h3>Example of linking a CSS file in a template (<code>template.html</code>):</h3>
+    <pre>
+        <code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+            &lt;head&gt;
+                &lt;title&gt;{{ title }}&lt;/title&gt;
+                &lt;link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;!-- Content goes here --&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <h1>Lab: Building a Dynamic Web Page with Templates</h1>
+    <p>In the lab, you'll build a dynamic web page that incorporates templates and static files. Here's a step-by-step guide:</p>
+    <ol>
+        <li>Create an HTML template (e.g., <code>template.html</code>) and include placeholders for dynamic content.</li>
+        <li>Define routes and views that render this template and pass data to it.</li>
+        <li>Create a <code>static</code> folder in your project directory to store CSS and JavaScript files.</li>
+        <li>Link static files to your HTML template using the <code>url_for</code> function.</li>
+        <li>Test your web page by running your Flask application.</li>
+    </ol>
+    <p>By completing this lab, you'll gain hands-on experience in creating dynamic web pages with Flask templates and enhancing them with static files.</p>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Lesson 1: What is Matplotlib?</h1>
+    <h2>Overview of Matplotlib's history and purpose:</h2>
+    <p>Matplotlib is a popular Python library used for data visualization. It was originally created by John D. Hunter in 2003 and has since become a powerful tool for creating a wide range of static, animated, and interactive plots and charts. Matplotlib's primary purpose is to help users visualize their data effectively by providing a comprehensive set of tools for creating various types of plots and customizing them to suit their needs.</p>
+    <h2>Installation and setup:</h2>
+    <p>To use Matplotlib, you need to install it first. You can install it using pip:</p>
+    <pre><code>pip install matplotlib</code></pre>
+    <p>Once installed, you can import Matplotlib in your Python scripts or Jupyter notebooks.</p>
+    <pre><code>import matplotlib.pyplot as plt</code></pre>
+    <h1>Lesson 2: Getting Started with Matplotlib</h1>
+    <h2>Introduction to the pyplot module:</h2>
+    <p>Matplotlib's <code>pyplot</code> module provides a simple interface for creating and customizing plots. It's the most commonly used module for creating basic plots. Here's a basic example of creating a simple plot using <code>pyplot</code>:</p>
+    <pre><code>import matplotlib.pyplot as plt
+# Sample data
+x = [1, 2, 3, 4, 5]
+y = [10, 12, 5, 8, 9]
+# Create a line plot
+plt.plot(x, y)
+# Show the plot
+plt.show()</code></pre>
+    <h2>Understanding the Figure and Axes objects:</h2>
+    <p>In Matplotlib, a plot is typically composed of two main objects: the <code>Figure</code> and the <code>Axes</code>. The <code>Figure</code> is the top-level container that holds one or more <code>Axes</code> objects, which represent individual plots or subplots within the figure. Here's how you can create a <code>Figure</code> and <code>Axes</code>:</p>
+    <pre><code>import matplotlib.pyplot as plt
+# Create a Figure and a single Axes
+fig, ax = plt.subplots()
+# Create a line plot on the Axes
+ax.plot(x, y)
+# Show the plot
+plt.show()</code></pre>
+    <h1>Lesson 3: Basic Plot Types</h1>
+    <h2>Line plots:</h2>
+    <p>Line plots are used to visualize data points connected by lines. Here's an example of creating a line plot:</p>
+    <pre><code>import matplotlib.pyplot as plt
+# Sample data
+x = [1, 2, 3, 4, 5]
+y = [10, 12, 5, 8, 9]
+# Create a line plot
+plt.plot(x, y)
+# Add labels and title
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+plt.title('Line Plot Example')
+# Show the plot
+plt.show()</code></pre>
+    <h2>Scatter plots:</h2>
+    <p>Scatter plots are used to visualize individual data points. Here's an example:</p>
+    <pre><code>import matplotlib.pyplot as plt
+# Sample data
+x = [1, 2, 3, 4, 5]
+y = [10, 12, 5, 8, 9]
+# Create a scatter plot
+plt.scatter(x, y)
+# Add labels and title
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+plt.title('Scatter Plot Example')
+# Show the plot
+plt.show()</code></pre>
+    <h2>Bar plots:</h2>
+    <p>Bar plots are used to display data as bars, where the length or height of each bar represents the data value. Here's an example:</p>
+    <pre><code>import matplotlib.pyplot as plt
+# Sample data
+categories = ['Category A', 'Category B', 'Category C', 'Category D']
+values = [15, 7, 10, 12]
+# Create a bar plot
+plt.bar(categories, values)
+# Add labels and title
+plt.xlabel('Categories')
+plt.ylabel('Values')
+plt.title('Bar Plot Example')
+# Show the plot
+plt.show()</code></pre>
+    <h2>Histograms:</h2>
+    <p>Histograms are used to visualize the distribution of a dataset. Here's an example:</p>
+    <pre><code>import matplotlib.pyplot as plt
+# Sample data
+data = [10, 15, 10, 25, 30, 15, 5, 20, 15, 10]
+# Create a histogram
+plt.hist(data, bins=5, edgecolor='black')
+# Add labels and title
+plt.xlabel('Value')
+plt.ylabel('Frequency')
+plt.title('Histogram Example')
+# Show the plot
+plt.show()</code></pre>
+    <p>These are the fundamental concepts and code examples for getting started with Matplotlib in Week 1. In subsequent lessons, you can explore more advanced topics and plot types to enhance your data visualization skills.</p>
+</body>
+</html>

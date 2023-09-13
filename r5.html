@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Conditional Statements in R:</h1>
+    <h2>1. `if-else` Statements:</h2>
+    <p>Conditional statements in R allow you to make decisions based on certain conditions. The `if-else` construct allows you to execute different blocks of code depending on whether a condition is `TRUE` or `FALSE`.</p>
+    <h3>Syntax of an `if-else` Statement:</h3>
+    <pre><code>
+if (condition) {
+  # Code to execute if the condition is TRUE
+} else {
+  # Code to execute if the condition is FALSE
+}
+    </code></pre>
+    <h3>Example of an `if-else` Statement:</h3>
+    <pre><code>
+# Example: Determine if a number is positive or negative
+x <- -5
+if (x > 0) {
+  print("The number is positive.")
+} else {
+  print("The number is not positive (i.e., zero or negative).")
+}
+    </code></pre>
+    <h3>Nested `if-else` Statements:</h3>
+    <pre><code>
+# Example: Nested if-else statements to determine the grade based on a score
+score <- 85
+if (score >= 90) {
+  grade <- "A"
+} else {
+  if (score >= 80) {
+    grade <- "B"
+  } else {
+    if (score >= 70) {
+      grade <- "C"
+    } else {
+      grade <- "D"
+    }
+  }
+}
+print(paste("Your grade is:", grade))
+    </code></pre>
+    <h3>Vectorized `if-else` with `ifelse()`: </h3>
+    <pre><code>
+# Example: Using ifelse() for vectorized conditional operations
+scores <- c(75, 88, 92, 60, 78)
+pass_fail <- ifelse(scores >= 70, "Pass", "Fail")
+print(pass_fail)
+    </code></pre>
+    <p>`if-else` statements are fundamental for controlling the flow of your R programs, allowing you to make decisions and execute different code paths based on conditions.</p>
+<br><br>
+    <h1>Loops in R:</h1>
+    <h2>1. `for` Loops:</h2>
+    <p>A `for` loop in R allows you to iterate over a sequence of values and execute a block of code for each value in the sequence.</p>
+    <h3>Syntax of a `for` Loop:</h3>
+    <pre><code>
+for (variable in sequence) {
+  # Code to be executed in each iteration
+}
+    </code></pre>
+    <h3>Example of a `for` Loop:</h3>
+    <pre><code>
+# Example: Print numbers from 1 to 5 using a for loop
+for (i in 1:5) {
+  print(i)
+}
+    </code></pre>
+    <h2>2. `while` Loops:</h2>
+    <p>A `while` loop in R continues to execute a block of code as long as a specified condition is `TRUE`. It is used when you don't know in advance how many times the loop will run.</p>
+    <h3>Syntax of a `while` Loop:</h3>
+    <pre><code>
+while (condition) {
+  # Code to be executed while the condition is TRUE
+}
+    </code></pre>
+    <h3>Example of a `while` Loop:</h3>
+    <pre><code>
+# Example: Print numbers from 1 to 5 using a while loop
+i <- 1
+while (i <= 5) {
+  print(i)
+  i <- i + 1
+}
+    </code></pre>
+    <h2>Common Looping Patterns:</h2>
+    <p>Loops can be used for various purposes, including iterating through data structures, performing calculations, or executing repetitive tasks. Here are some common looping patterns:</p>
+    <ul>
+        <li>Summing elements in a vector.</li>
+        <li>Finding the maximum or minimum value in a vector.</li>
+        <li>Counting occurrences of a specific value in a vector.</li>
+        <li>Iterating through rows or columns of a data frame.</li>
+        <li>Repeating an operation until a convergence criterion is met.</li>
+    </ul>
+    <h3>Example: Summing Elements in a Vector using a `for` Loop:</h3>
+    <pre><code>
+# Example: Sum elements in a vector using a for loop
+numbers <- c(1, 2, 3, 4, 5)
+sum_result <- 0
+for (num in numbers) {
+  sum_result <- sum_result + num
+}
+print(paste("The sum is:", sum_result))
+    </code></pre>
+    <p>Loops are powerful tools for automating repetitive tasks and processing data iteratively. However, it's important to use them carefully to avoid infinite loops or inefficient code. In many cases, you can achieve the same results more efficiently using vectorized operations and functions in R.</p>
+</body>
+</html>

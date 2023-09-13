@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Module 1: Introduction to Power BI</title>
+</head>
+<body>
+    <h2>1.1 What is Power BI?</h2>
+    <h3>Understanding Power BI and its Features</h3>
+    <p>Power BI is a powerful business intelligence tool developed by Microsoft. It allows users to transform raw data into interactive and visually appealing reports and dashboards. Here are some key features of Power BI:</p>
+    <ul>
+        <li><strong>Data Visualization:</strong> Power BI enables you to create interactive charts, graphs, and tables to visualize your data.</li>
+        <li><strong>Data Modeling:</strong> You can create relationships between different data tables, enabling more complex analysis.</li>
+        <li><strong>Data Transformation:</strong> Power BI provides tools for cleaning and shaping your data, making it suitable for analysis.</li>
+        <li><strong>DAX (Data Analysis Expressions):</strong> This formula language allows you to create custom calculations and aggregations.</li>
+        <li><strong>Power Query:</strong> A data transformation tool in Power BI that helps you clean, reshape, and combine data from various sources.</li>
+    </ul>
+    <h3>Power BI Desktop vs. Power BI Service</h3>
+    <p>Power BI comes in two main flavors: Power BI Desktop and Power BI Service (also known as Power BI Online or Power BI Cloud). Here's a brief comparison:</p>
+    <ul>
+        <li><strong>Power BI Desktop:</strong> This is a Windows application used for creating reports and dashboards. It's the primary tool for designing and authoring reports.</li>
+        <li><strong>Power BI Service:</strong> This is the cloud-based platform where you can publish, share, and collaborate on your reports. It allows you to access your reports from anywhere and collaborate with others.</li>
+    </ul>
+    <h2>1.2 Getting Started with Power BI Desktop</h2>
+    <h3>Installation and Setup</h3>
+    <p>To get started with Power BI Desktop, follow these steps:</p>
+    <ol>
+        <li>Download and install Power BI Desktop from the official Microsoft website.</li>
+        <li>Launch the application and sign in with your Microsoft account or your organization's credentials.</li>
+    </ol>
+    <h3>The Power BI Interface</h3>
+    <p>The Power BI Desktop interface consists of several key components:</p>
+    <ul>
+        <li><strong>Ribbon:</strong> It contains various commands and options for creating and formatting visuals.</li>
+        <li><strong>Report View:</strong> This is where you design your reports and create visuals.</li>
+        <li><strong>Data View:</strong> Here, you can see and manipulate the data tables imported into your report.</li>
+        <li><strong>Fields Pane:</strong> Lists all the data fields available for use in your report.</li>
+        <li><strong>Visualizations Pane:</strong> Allows you to choose and customize visualizations for your data.</li>
+        <li><strong>Filters Pane:</strong> Used for applying filters to visuals.</li>
+    </ul>
+    <h2>1.3 Importing Data</h2>
+    <h3>Connecting to Various Data Sources</h3>
+    <p>Power BI Desktop allows you to connect to a wide range of data sources, including Excel files, databases, online services, and more. Here's how you can import data from an Excel file:</p>
+    <pre>
+        <code>
+            let
+                Source = Excel.Workbook(File.Contents("C:\Path\To\Your\File.xlsx"), null, true),
+                Sheet1_Sheet = Source{[Item="Sheet1",Kind="Sheet"]}[Data],
+                #"Changed Type" = Table.TransformColumnTypes(Sheet1_Sheet,{{"Column1", type text}, {"Column2", type number}})
+            in
+                #"Changed Type"
+        </code>
+    </pre>
+    <p>This code snippet imports data from an Excel file located at "C:\Path\To\Your\File.xlsx" and transforms it.</p>
+    <h3>Data Transformation and Cleaning</h3>
+    <p>Data transformation and cleaning are essential steps in preparing your data for analysis. In Power BI, you can perform various data cleaning operations using the Power Query Editor. Here's an example of cleaning data by removing duplicates:</p>
+    <ol>
+        <li>Select the column containing the data with duplicates.</li>
+        <li>Go to the "Transform" tab in the Power Query Editor.</li>
+        <li>Click on "Remove Duplicates."</li>
+    </ol>
+    <p>This action removes duplicate values from the selected column.</p>
+    <p>These are the fundamental concepts and steps for getting started with Power BI. As you progress through the course, you'll explore more advanced topics and techniques for data visualization and analysis.</p>
+</body>
+</html>

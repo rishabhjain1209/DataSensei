@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Linux Introduction</title>
+</head>
+<body>
+<h1>Module 1: Introduction to Linux</h1>
+<h2>Lesson 1: History of Linux</h2>
+<p>In this lesson, we will explore the history of the Linux operating system. Linux was created by Linus Torvalds in 1991 as a free and open-source alternative to Unix. It has since become a powerful and widely used operating system, running on a variety of hardware platforms. Let's take a closer look at its history.</p>
+<p><strong>History of Linux:</strong></p>
+<ul>
+    <li>In 1991, Linus Torvalds started working on a Unix-like kernel as a hobby project.</li>
+    <li>The first public release, Linux 0.01, was made available in September 1991.</li>
+    <li>Over the years, Linux has gained a large and active community of developers and users.</li>
+    <li>Major milestones include the release of the GNU General Public License (GPL) and the formation of the Free Software Foundation (FSF).</li>
+    <li>Linux has evolved to support a wide range of hardware architectures, from desktops and servers to embedded systems and supercomputers.</li>
+</ul>
+<p><strong>Code Example (Linux Kernel Version):</strong></p>
+<pre><code>uname -a
+</code></pre>
+<p>This command displays information about the current Linux kernel version. You can try it in your Linux terminal to see the version of the kernel you're running.</p>
+<h2>Lesson 2: Linux Distributions</h2>
+<p>In this lesson, we will discuss Linux distributions, also known as distros. A Linux distribution is a complete package of the Linux kernel, system utilities, libraries, and software applications bundled together to create a functional operating system. There are many different Linux distributions available, each with its own features and purposes.</p>
+<p><strong>Linux Distributions:</strong></p>
+<ul>
+    <li>Popular Linux distributions include Ubuntu, Debian, CentOS, Fedora, and Arch Linux.</li>
+    <li>Distributions may vary in terms of package management systems (e.g., apt, yum, pacman), desktop environments (e.g., GNOME, KDE, XFCE), and release cycles (e.g., stable, rolling release).</li>
+    <li>Choosing a distribution depends on your specific needs and preferences, such as ease of use, stability, and software availability.</li>
+</ul>
+<p><strong>Code Example (List Installed Distributions):</strong></p>
+<pre><code>ls /etc/*-release
+</code></pre>
+<p>This command lists the release files in the /etc directory, which contain information about the installed Linux distribution. It can help you identify the distribution you are using.</p>
+<h2>Lesson 3: Linux Installation and Virtualization</h2>
+<p>In this lesson, we will delve into the process of installing Linux and explore the concept of virtualization, which allows you to run multiple operating systems on a single physical machine simultaneously.</p>
+<p><strong>Linux Installation:</strong></p>
+<ul>
+    <li>Installing Linux typically involves creating bootable media (e.g., USB drive or DVD) with a Linux distribution image and booting your computer from it.</li>
+    <li>Follow the installation wizard to configure settings such as disk partitions, time zone, and user accounts.</li>
+    <li>After installation, you can update the system and install additional software packages using package managers like apt, yum, or pacman.</li>
+</ul>
+<p><strong>Code Example (Creating a Bootable USB Drive with Ubuntu):</strong></p>
+<pre><code>sudo dd if=ubuntu.iso of=/dev/sdX bs=4M status=progress && sync
+</code></pre>
+<p>Replace ubuntu.iso with the actual filename of the Ubuntu ISO image and /dev/sdX with your USB drive's device name. Be cautious when using this command, as it can erase data.</p>
+<p><strong>Virtualization:</strong></p>
+<ul>
+    <li>Virtualization allows you to run multiple virtual machines (VMs) on a single physical host.</li>
+    <li>Popular virtualization software includes VirtualBox, VMware, and KVM.</li>
+    <li>You can create VMs with various operating systems, including Linux, Windows, and macOS, for development, testing, or server consolidation.</li>
+</ul>
+<p><strong>Code Example (Creating a Virtual Machine with VirtualBox):</strong></p>
+<pre><code>VBoxManage createvm --name "MyVM" --ostype Ubuntu_64 --register
+</code></pre>
+<p>This command creates a new virtual machine named "MyVM" with an Ubuntu 64-bit operating system. You can then configure and start the VM using VirtualBox's graphical interface.</p>
+<p>These lessons provide a foundation for understanding Linux, its history, distributions, installation, and virtualization. Practice and exploration are essential to mastering these topics and becoming proficient with Linux.</p>
+</body>
+</html>

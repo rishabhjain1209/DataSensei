@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Week 3: Advanced Plot Types</h1>
+    <h2>Lesson 7: Pie Charts and Polar Plots</h2>
+    <h3>Creating pie charts:</h3>
+    <p>Pie charts are useful for visualizing the distribution of categories within a whole. You can create pie charts in Matplotlib using the <code>plt.pie()</code> function.</p>
+    <pre><code>import matplotlib.pyplot as plt
+# Sample data
+labels = ['A', 'B', 'C', 'D']
+sizes = [15, 30, 45, 10]
+# Create a pie chart
+plt.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=90)
+plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+# Add a title
+plt.title('Pie Chart Example')
+# Show the plot
+plt.show()</code></pre>
+    <h3>Polar plots for circular data:</h3>
+    <p>Polar plots are used to represent data with circular or angular relationships, such as radar data. You can create polar plots in Matplotlib using the <code>plt.polar()</code> function.</p>
+    <pre><code>import numpy as np
+import matplotlib.pyplot as plt
+# Sample data
+theta = np.linspace(0, 2 * np.pi, 6)  # Angular values
+radii = [1, 2, 3, 4, 5, 1]           # Corresponding radii
+# Create a polar plot
+plt.figure(figsize=(6, 6))
+plt.polar(theta, radii, marker='o', linestyle='-', linewidth=2)
+# Add a title
+plt.title('Polar Plot Example')
+# Show the plot
+plt.show()</code></pre>
+    <h2>Lesson 8: 3D Plotting</h2>
+    <h3>Introduction to 3D plots:</h3>
+    <p>Matplotlib supports 3D plotting, which is useful for visualizing data in three dimensions. To create 3D plots, you need to use the <code>mpl_toolkits.mplot3d</code> module.</p>
+    <pre><code>import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+# Sample data
+x = np.linspace(-5, 5, 50)
+y = np.linspace(-5, 5, 50)
+X, Y = np.meshgrid(x, y)
+Z = np.sin(np.sqrt(X**2 + Y**2))
+# Create a 3D plot
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+ax.plot_surface(X, Y, Z, cmap='viridis')
+# Add labels and a title
+ax.set_xlabel('X-axis')
+ax.set_ylabel('Y-axis')
+ax.set_zlabel('Z-axis')
+plt.title('3D Surface Plot')
+# Show the plot
+plt.show()</code></pre>
+    <h3>Creating 3D scatter plots and surface plots:</h3>
+    <p>You can create 3D scatter plots and surface plots to visualize 3D data points and surfaces. Here are examples of both:</p>
+    <h4>3D Scatter Plot:</h4>
+    <pre><code>import numpy np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+# Sample data
+n = 100
+x = np.random.rand(n)
+y = np.random.rand(n)
+z = np.random.rand(n)
+# Create a 3D scatter plot
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+ax.scatter(x, y, z, c='b', marker='o')
+# Add labels and a title
+ax.set_xlabel('X-axis')
+ax.set_ylabel('Y-axis')
+ax.set_zlabel('Z-axis')
+plt.title('3D Scatter Plot')
+# Show the plot
+plt.show()</code></pre>
+    <h4>3D Surface Plot:</h4>
+    <pre><code>import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+# Sample data
+x = np.linspace(-5, 5, 50)
+y = np.linspace(-5, 5, 50)
+X, Y = np.meshgrid(x, y)
+Z = np.sin(np.sqrt(X**2 + Y**2))
+# Create a 3D surface plot
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+ax.plot_surface(X, Y, Z, cmap='viridis')
+# Add labels and a title
+ax.set_xlabel('X-axis')
+ax.set_ylabel('Y-axis')
+ax.set_zlabel('Z-axis')
+plt.title('3D Surface Plot')
+# Show the plot
+plt.show()</code></pre>
+    <p>These examples demonstrate how to create pie charts, polar plots, and various types of 3D plots using Matplotlib. These advanced plot types are helpful for visualizing different types of data in a more specialized manner.</p>
+</body>
+</html>

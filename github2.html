@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Module 2: Git Basics</title>
+</head>
+<body>
+<h1>Lesson 2.1: Understanding Git Workflow</h1>
+<p>Git follows a simple workflow:</p>
+<ol>
+    <li><strong>Working Directory</strong>: Your local project directory where you make changes to files.</li>
+    <li><strong>Staging Area</strong>: An intermediate area where you prepare changes for commit.</li>
+    <li><strong>Repository</strong>: The Git database where all commits and project history are stored.</li>
+</ol>
+<h1>Lesson 2.2: Basic Git Commands (init, clone, add, commit, status)</h1>
+<p><code>git init</code>: Initializes a new Git repository in the current directory.</p>
+<pre><code>git init</code></pre>
+<p><code>git clone <repository_url></code>: Creates a local copy of a remote repository.</p>
+<pre><code>git clone https://github.com/username/repo.git</code></pre>
+<p><code>git add <file></code>: Adds changes from the working directory to the staging area.</p>
+<pre><code>git add myfile.txt</code></pre>
+<p><code>git commit -m "Commit message"</code>: Commits changes in the staging area with a descriptive message.</p>
+<pre><code>git commit -m "Added myfile.txt"</code></pre>
+<p><code>git status</code>: Shows the status of your working directory and staging area.</p>
+<pre><code>git status</code></pre>
+<h1>Lesson 2.3: Viewing the Commit History (log)</h1>
+<p><code>git log</code>: Displays the commit history of the repository.</p>
+<pre><code>git log</code></pre>
+<h1>Lesson 2.4: Working with Branches (branch, checkout)</h1>
+<p><code>git branch</code>: Lists all branches in the repository.</p>
+<pre><code>git branch</code></pre>
+<p><code>git branch <branch_name></code>: Creates a new branch.</p>
+<pre><code>git branch feature-branch</code></pre>
+<p><code>git checkout <branch_name></code>: Switches to a different branch.</p>
+<pre><code>git checkout feature-branch</code></pre>
+<h1>Lesson 2.5: Merging Branches (merge)</h1>
+<p><code>git merge <branch_name></code>: Combines changes from one branch into the current branch.</p>
+<pre><code>git merge feature-branch</code></pre>
+<h1>Lesson 2.6: Resolving Merge Conflicts</h1>
+<p>Merge conflicts occur when Git can't automatically merge changes from different branches. You'll need to manually resolve conflicts.</p>
+<ol>
+    <li>Git will mark conflicts in the affected files. Open these files in a text editor.</li>
+    <li>Locate the conflicting sections and decide which changes to keep.</li>
+    <li>Remove conflict markers (<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>) and keep the desired changes.</li>
+    <li>Save the file.</li>
+    <li>Add the resolved file and commit the changes:</li>
+</ol>
+<pre><code>git add resolved_file.txt
+git commit -m "Resolved merge conflict"</code></pre>
+<p>These lessons cover the fundamental Git commands and concepts you need to work effectively with version control and collaborate with others on your projects.</p>
+</body>
+</html>

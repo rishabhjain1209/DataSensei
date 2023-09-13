@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Module 2: Data Modeling</title>
+</head>
+<body>
+    <h2>2.1 Data Modeling Basics</h2>
+    <h3>Introduction to Data Modeling</h3>
+    <p>Data modeling is a crucial step in Power BI that involves defining how data tables are structured and related to each other. It serves as the foundation for creating meaningful visualizations and calculations. In Power BI, data modeling involves two key elements:</p>
+    <ul>
+        <li><strong>Tables:</strong> These are collections of data organized into rows and columns. Each table should represent a specific entity or data source.</li>
+        <li><strong>Relationships:</strong> These define how tables are related to each other, allowing you to combine and analyze data from multiple sources.</li>
+    </ul>
+    <h3>Creating a Data Model in Power BI</h3>
+    <p>To create a data model in Power BI, follow these steps:</p>
+    <ol>
+        <li>Load your data tables into Power BI Desktop.</li>
+        <li>Define relationships between the tables based on common fields (e.g., primary and foreign keys).</li>
+        <li>Create calculated columns and measures to enrich your data and enable more advanced analysis.</li>
+    </ol>
+    <h2>2.2 Relationships in Power BI</h2>
+    <h3>Understanding Relationships</h3>
+    <p>In Power BI, relationships determine how tables interact with each other. There are three types of relationships:</p>
+    <ul>
+        <li><strong>One-to-Many (1:N):</strong> This is the most common type of relationship, where one row in one table can relate to many rows in another table. For example, one customer can have multiple orders.</li>
+        <li><strong>Many-to-One (N:1):</strong> This is the inverse of a one-to-many relationship, where many rows in one table can relate to one row in another table. For example, many orders can belong to one customer.</li>
+        <li><strong>Many-to-Many (N:N):</strong> This type of relationship is less common and involves a bridge table or junction table to connect two tables with a many-to-many relationship.</li>
+    </ul>
+    <h3>Creating and Managing Relationships</h3>
+    <p>To create and manage relationships in Power BI:</p>
+    <ol>
+        <li>Go to the "Model" view in Power BI Desktop.</li>
+        <li>Drag and drop fields from one table to another to establish relationships.</li>
+        <li>Set relationship properties, such as cardinality and cross-filtering options.</li>
+    </ol>
+    <p>Here's a code example illustrating how to create a relationship between two tables using Power Query M language:</p>
+    <pre>
+        <code>
+            let
+                Source = Folder.Files("C:\Path\To\Your\Data"),
+                #"Imported Excel Files" = Table.Combine(
+                    Table.SelectRows(Source, each [Extension] = ".xlsx")[Content]
+                ),
+                #"Expanded Table" = Table.ExpandTableColumn(#"Imported Excel Files", "Data", {"Column1", "Column2"}, {"Column1", "Column2"}),
+                #"Renamed Columns" = Table.RenameColumns(#"Expanded Table",{{"Column1", "CustomerID"}, {"Column2", "OrderID"}}),
+                #"Merged Queries" = Table.NestedJoin(#"Renamed Columns", {"CustomerID"}, #"Other Table", {"CustomerID"}, "NewColumn", JoinKind.Inner),
+                #"Expanded NewColumn" = Table.ExpandTableColumn(#"Merged Queries", "NewColumn", {"CustomerName"}, {"CustomerName"})
+            in
+                #"Expanded NewColumn"
+        </code>
+    </pre>
+    <h2>2.3 DAX (Data Analysis Expressions)</h2>
+    <h3>Introduction to DAX</h3>
+    <p>Data Analysis Expressions (DAX) is a formula language used in Power BI for creating custom calculations and aggregations. It allows you to perform calculations based on the data in your model. Some common use cases for DAX include calculating totals, averages, percentages, and year-over-year growth.</p>
+    <h3>Common DAX Functions for Calculations</h3>
+    <p>Here are some commonly used DAX functions for calculations:</p>
+    <ul>
+        <li><strong>SUM:</strong> Adds up the values in a column.</li>
+        <pre><code>Total Sales = SUM(Sales[SalesAmount])</code></pre>
+        <li><strong>AVERAGE:</strong> Calculates the average of values in a column.</li>
+        <pre><code>Average Sales = AVERAGE(Sales[SalesAmount])</code></pre>
+        <li><strong>COUNT:</strong> Counts the number of rows in a table or column.</li>
+        <pre><code>Number of Customers = COUNT(Customer[CustomerID])</code></pre>
+        <li><strong>IF:</strong> Allows you to create conditional statements.</li>
+        <pre><code>Profitable Sales = IF(Sales[Profit] > 0, "Profitable", "Loss")</code></pre>
+        <li><strong>DATEADD:</strong> Adds a specified number of units (e.g., days, months) to a date.</li>
+        <pre><code>Previous Year Sales = SUMX(FILTER(Sales, Sales[Date] = DATEADD(Sales[Date], -1, YEAR)), Sales[SalesAmount])</code></pre>
+    </ul>
+    <p>These DAX functions enable you to perform a wide range of calculations and analysis within your Power BI reports and dashboards.</p>
+</body>
+</html>

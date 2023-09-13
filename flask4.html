@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Week 4: Forms and User Input in Flask</title>
+</head>
+<body>
+    <h1>Lesson 9: Creating and Handling HTML Forms in Flask</h1>
+    <p>In Lesson 9, we'll explore how to create HTML forms in Flask and handle user input. Forms are crucial for collecting data from users, such as text input, checkboxes, and radio buttons.</p>
+    <h2>Creating HTML Forms:</h2>
+    <ul>
+        <li>In HTML, use the <code>&lt;form&gt;</code> element to define a form.</li>
+        <li>Include input fields (e.g., text, password, radio buttons) and a submit button.</li>
+        <li>Assign a unique <code>name</code> attribute to each input element.</li>
+    </ul>
+    <h3>Example of a basic HTML form (<code>form.html</code>):</h3>
+    <pre>
+        <code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+            &lt;head&gt;
+                &lt;title&gt;Contact Us&lt;/title&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;h1&gt;Contact Us&lt;/h1&gt;
+                &lt;form method="POST" action="/submit"&gt;
+                    &lt;label for="name"&gt;Name:&lt;/label&gt;
+                    &lt;input type="text" id="name" name="name" required&gt;&lt;br&gt;
+                    &lt;label for="email"&gt;Email:&lt;/label&gt;
+                    &lt;input type="email" id="email" name="email" required&gt;&lt;br&gt;                  
+                    &lt;label for="message"&gt;Message:&lt;/label&gt;
+                    &lt;textarea id="message" name="message" required&gt;&lt;/textarea&gt;&lt;br&gt;                    
+                    &lt;input type="submit" value="Submit"&gt;
+                &lt;/form&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <h1>Lesson 10: Validating and Processing User Input</h1>
+    <p>In Lesson 10, we'll cover how to validate and process user input submitted through forms in Flask. This involves retrieving form data, validating it, and taking appropriate actions based on the data received.</p>
+    <h2>Handling Form Submissions in Flask:</h2>
+    <pre>
+        <code>
+            from flask import Flask, request, render_template
+            app = Flask(__name__)
+            @app.route('/contact', methods=['GET', 'POST'])
+            def contact():
+                if request.method == 'POST':
+                    name = request.form['name']
+                    email = request.form['email']
+                    message = request.form['message']                   
+                    # Validate and process the data here
+                    # Example: Send an email, save to a database, or perform other actions                   
+                    return 'Thank you for your message, ' + name + '!'
+                return render_template('form.html')
+            if __name__ == '__main__':
+                app.run()
+        </code>
+    </pre>
+    <p>In this example:</p>
+    <ul>
+        <li>We define a route <code>/contact</code> that handles both GET and POST requests.</li>
+        <li>For POST requests, we retrieve form data using <code>request.form</code>.</li>
+        <li>We can then validate the data and perform any desired actions, such as sending emails or saving to a database.</li>
+    </ul>
+    <h1>Lab: Building a Form-Based Application (e.g., a Contact Form)</h1>
+    <p>In the lab, you'll build a form-based application, like a contact form, using Flask. Here's a step-by-step guide:</p>
+    <ol>
+        <li>Create an HTML form (e.g., <code>form.html</code>) with input fields for user data.</li>
+        <li>Define a route in your Flask application (e.g., <code>/contact</code>) that handles both GET and POST requests.</li>
+        <li>In the route, use <code>request.method</code> to differentiate between GET (displaying the form) and POST (handling form submission) requests.</li>
+        <li>Retrieve and validate form data from <code>request.form</code> for POST requests.</li>
+        <li>Implement the desired actions based on the form data, such as sending an email or saving it to a database.</li>
+        <li>Return a response to the user, acknowledging the submission.</li>
+    </ol>
+    <p>By completing this lab, you'll gain practical experience in creating forms, handling user input, and building form-based applications in Flask.</p>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Module 7: Power BI Integration</title>
+</head>
+<body>
+    <h2>7.1 Power BI with Excel and SharePoint</h2>
+    <h3>Integrating Power BI Reports with Other Microsoft Tools</h3>
+    <p>Power BI seamlessly integrates with various Microsoft tools, enhancing your data analysis and reporting capabilities:</p>
+    <ol>
+        <li><strong>Power BI and Excel:</strong>
+            <ul>
+                <li>You can import Power BI reports and datasets into Excel, allowing you to leverage Excel's capabilities while still benefiting from Power BI's data modeling and visualization.</li>
+            </ul>
+        </li>
+        <li><strong>Power BI and SharePoint:</strong>
+            <ul>
+                <li>Embed Power BI reports and dashboards within SharePoint Online or SharePoint Server, making data insights easily accessible to SharePoint users.</li>
+            </ul>
+        </li>
+    </ol>
+    <h4>Code Example (Importing Power BI into Excel):</h4>
+    <pre>
+        <code>
+In Excel, you can use Power Query to connect to a Power BI dataset:
+Data > Get Data > Power Platform > Power BI
+This will open a dialog to connect to your Power BI dataset and bring the data into Excel for further analysis.
+        </code>
+    </pre>
+    <h2>7.2 Power BI API and Embedding</h2>
+    <h3>Embedding Power BI Reports into Applications and Websites</h3>
+    <p>The Power BI API allows you to programmatically interact with Power BI reports, datasets, and dashboards, enabling embedding into custom applications and websites. Here's how to do it:</p>
+    <ol>
+        <li><strong>Generate Embed Tokens:</strong>
+            <ul>
+                <li>To embed a Power BI report, you need to generate an embed token using the Power BI REST API.</li>
+                <li>This token provides secure access to a specific report or dashboard.</li>
+            </ul>
+        </li>
+        <li><strong>Embed Power BI Content:</strong>
+            <ul>
+                <li>Use the embed token and the Power BI JavaScript library to embed reports or dashboards in your web application.</li>
+                <li>Customize the embedded content's appearance and interactions to fit your application's needs.</li>
+            </ul>
+        </li>
+    </ol>
+    <h4>Code Example (Embedding a Power BI Report in a Web Page):</h4>
+    <pre>
+        <code>
+<div id="embedContainer"></div>
+<script>
+    var embedContainer = document.getElementById('embedContainer');
+    var config = {
+        type: 'report',
+        tokenType: 'Embed',
+        accessToken: 'your_access_token',
+        embedUrl: 'https://app.powerbi.com/reportEmbed?reportId=your_report_id',
+        permissions: models.Permissions.All,
+        settings: {
+            filterPaneEnabled: false,
+            navContentPaneEnabled: true
+        }
+    };
+    var report = powerbi.embed(embedContainer, config);
+</script>
+        </code>
+    </pre>
+    <p>In this module, you'll explore the integration possibilities of Power BI with other Microsoft tools like Excel and SharePoint. Additionally, you'll learn how to embed Power BI reports into custom applications and websites using the Power BI API, enabling you to extend the reach of your data insights.</p>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Module 4: Data Transformation and Modeling Advanced</title>
+</head>
+<body>
+    <h2>4.1 Advanced Data Transformations</h2>
+    <h3>Power Query: Advanced Data Cleaning and Shaping</h3>
+    <p>Power Query is a powerful tool for data transformation and cleansing. Here, we delve into more advanced techniques:</p>
+    <ol>
+        <li><strong>Advanced Data Cleaning:</strong>
+            <ul>
+                <li>Use custom functions to clean and validate data, such as removing special characters or formatting dates.</li>
+                <li>Apply conditional logic to filter out or keep specific rows based on complex criteria.</li>
+            </ul>
+        </li>
+        <li><strong>Shaping Data:</strong>
+            <ul>
+                <li>Combine data from multiple sources or tables using merge operations.</li>
+                <li>Pivot and unpivot columns to reshape data for analysis.</li>
+            </ul>
+        </li>
+    </ol>
+    <h4>Code Example (Power Query Custom Function):</h4>
+    <pre>
+        <code>
+let
+    CleanProductName = (productName) =>
+        Text.Replace(Text.Trim(productName), "_", " ") // Replace underscores with spaces and trim
+in
+    CleanProductName
+        </code>
+    </pre>
+    <p>You can call this custom function in Power Query to clean the product names.</p>
+    <ol start="3">
+        <li><strong>Parameters and Functions:</strong>
+            <ul>
+                <li>Use parameters to make your queries more dynamic.</li>
+                <li>Create custom functions that can be reused across queries.</li>
+            </ul>
+        </li>
+    </ol>
+    <h4>Code Example (Power Query Parameter):</h4>
+    <pre>
+        <code>
+let
+    StartDate = #datetime(2023, 1, 1, 0, 0, 0),
+    EndDate = #datetime(2023, 12, 31, 23, 59, 59),
+    DateRange = {StartDate, EndDate}
+in
+    DateRange
+        </code>
+    </pre>
+    <h2>4.2 Advanced Data Modeling</h2>
+    <h3>Calculated Columns and Tables</h3>
+    <ol>
+        <li><strong>Calculated Columns:</strong>
+            <ul>
+                <li>Create calculated columns using DAX to add new columns to your tables based on expressions.</li>
+                <li>Calculated columns are computed during data refresh and stored in the model.</li>
+            </ul>
+        </li>
+        <li><strong>Calculated Tables:</strong>
+            <ul>
+                <li>Calculated tables are dynamic tables created using DAX expressions.</li>
+                <li>They can be used for various purposes, such as filtering or segmenting data.</li>
+            </ul>
+        </li>
+        <li><strong>Time Intelligence Functions in DAX:</strong>
+            <ul>
+                <li>Time intelligence functions in DAX help with calculations involving dates and time periods.</li>
+                <li>Common functions include TOTALYTD, SAMEPERIODLASTYEAR, and DATESYTD.</li>
+            </ul>
+        </li>
+    </ol>
+    <h4>Code Example (Calculated Column):</h4>
+    <pre>
+        <code>
+Profit Margin % = (Sales[Profit] / Sales[Revenue]) * 100
+        </code>
+    </pre>
+    <h4>Code Example (Calculated Table):</h4>
+    <pre>
+        <code>
+HighSalesProducts = FILTER(Product, Product[Sales] > 10000)
+        </code>
+    </pre>
+    <h4>Code Example (Time Intelligence - Year-to-Date Sales):</h4>
+    <pre>
+        <code>
+YTD Sales = TOTALYTD(SUM(Sales[SalesAmount]), 'Calendar'[Date])
+        </code>
+    </pre>
+    <p>These advanced data transformation and modeling techniques in Power Query and DAX allow you to tackle complex data scenarios, create more dynamic models, and generate insightful reports in Power BI.</p>
+</body>
+</html>

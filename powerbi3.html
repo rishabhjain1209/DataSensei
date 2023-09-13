@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Module 3: Data Visualization</title>
+</head>
+<body>
+    <h2>3.1 Creating Visualizations</h2>
+    <h3>Building Basic Visualizations</h3>
+    <p>Visualizations are a key component of any Power BI report, helping you communicate insights effectively. Here's how to create basic visualizations:</p>
+    <ol>
+        <li><strong>Bar Charts:</strong>
+            <ul>
+                <li>Select the "Bar Chart" visualization type.</li>
+                <li>Drag and drop a field into the "Values" area to specify what you want to measure.</li>
+                <li>Drag a field into the "Axis" area for categories or groups.</li>
+            </ul>
+        </li>
+        <li><strong>Line Charts:</strong>
+            <ul>
+                <li>Choose the "Line Chart" visualization type.</li>
+                <li>Assign a field to the "Axis" area for dates or categories.</li>
+                <li>Add one or more fields to the "Values" area for the data series.</li>
+            </ul>
+        </li>
+        <li><strong>Customizing Visuals:</strong>
+            <ul>
+                <li>Customize visualizations using the formatting options in the "Format" pane.</li>
+                <li>Change colors, fonts, labels, and titles to match your report's style.</li>
+            </ul>
+        </li>
+    </ol>
+    <h4>Code Example (Bar Chart):</h4>
+    <pre>
+        <code>
+Total Sales by Category = 
+SUMMARIZE(
+    Sales,
+    Product[Category],
+    "Total Sales", SUM(Sales[SalesAmount])
+)
+        </code>
+    </pre>
+    <p>This DAX code creates a summarized table by category, which can be used to build a bar chart showing total sales by category.</p>
+    <h2>3.2 Advanced Visualizations</h2>
+    <h3>Maps, Tables, Matrices, and Cards</h3>
+    <p>Power BI offers various advanced visualizations:</p>
+    <ol>
+        <li><strong>Maps:</strong>
+            <ul>
+                <li>Choose the "Map" visualization type.</li>
+                <li>Assign geographic fields (e.g., city, country) to the appropriate map elements.</li>
+            </ul>
+        </li>
+        <li><strong>Tables:</strong>
+            <ul>
+                <li>Use the "Table" visualization to display detailed data in tabular format.</li>
+                <li>Drag and drop fields into the table to show specific information.</li>
+            </ul>
+        </li>
+        <li><strong>Matrices:</strong>
+            <ul>
+                <li>Create matrices to display data in rows and columns.</li>
+                <li>Add fields to the rows and columns sections of the matrix.</li>
+            </ul>
+        </li>
+        <li><strong>Cards:</strong>
+            <ul>
+                <li>Cards are single-value visualizations, ideal for displaying key metrics.</li>
+                <li>Assign a field to the "Data field" property to display the desired value.</li>
+            </ul>
+        </li>
+    </ol>
+    <h4>Slicers and Drill-Through</h4>
+    <p><strong>Slicers:</strong> Slicers allow users to filter data interactively. To create slicers:</p>
+    <ol>
+        <li>Add a slicer visual to your report.</li>
+        <li>Choose the field you want to use for filtering.</li>
+        <li>Users can select values in the slicer to filter data in other visuals.</li>
+    </ol>
+    <p><strong>Drill-Through:</strong> Drill-through enables users to explore data in more detail. To set up drill-through:</p>
+    <ol>
+        <li>Define drill-through fields in the "Model" view.</li>
+        <li>Right-click a visual and choose "Drillthrough" to configure which fields to show when drilling through.</li>
+        <li>Users can right-click a data point and choose "Drillthrough" to access more detailed data.</li>
+    </ol>
+    <h4>Code Example (Slicer):</h4>
+    <pre>
+        <code>
+Total Sales by Region = 
+SUMMARIZE(
+    Sales,
+    Geography[Region],
+    "Total Sales", SUM(Sales[SalesAmount])
+)
+        </code>
+    </pre>
+    <p>This DAX code creates a summarized table by region, which can be used in conjunction with a slicer to filter data by region in your report.</p>
+    <p>These advanced visualizations and interaction features in Power BI enhance the depth and interactivity of your reports, making it easier for users to explore and gain insights from your data.</p>
+</body>
+</html>

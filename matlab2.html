@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Module 2: MATLAB Programming Fundamentals</title>
+</head>
+<body>
+<h1>Module 2: MATLAB Programming Fundamentals</h1>
+<h2>Writing and Executing MATLAB Scripts:</h2>
+<p>In MATLAB, scripts are files that contain a sequence of MATLAB commands. Here's how to create and execute a MATLAB script:</p>
+<ol>
+    <li>
+        <h3>Create a Script:</h3>
+        <p>Open the MATLAB Editor or Script Window, then type your MATLAB commands. Save the file with a <code>.m</code> extension, e.g., <code>myscript.m</code>.</p>
+    </li>    
+    <li>
+        <h3>Run a Script:</h3>
+        <p>To run the script, simply type its name (without the file extension) in the Command Window and press Enter:</p>
+        <pre><code>myscript</code></pre>
+        <p>The MATLAB interpreter will execute the commands in the script sequentially.</p>
+    </li>
+</ol>
+<h2 Variables and Data Storage:</h2>
+<p>In MATLAB, you can create variables to store data. Variable names are case-sensitive and must begin with a letter, followed by letters, numbers, or underscores. Here's how to define variables:</p>
+<pre><code>
+x = 5; % Assigns the value 5 to the variable x
+name = 'John'; % Assigns the string 'John' to the variable name
+</code></pre>
+<p>You can use the <code>whos</code> command to display information about variables in the workspace:</p>
+<pre><code>whos</code></pre>
+<h2>Conditional Statements (if-else):</h2>
+<p>MATLAB supports conditional statements for making decisions in your code. The basic syntax for an if-else statement is:</p>
+<pre><code>
+if condition
+    % Code to execute if the condition is true
+else
+    % Code to execute if the condition is false
+end
+</code></pre>
+<p>For example:</p>
+<pre><code>
+grade = 75;
+if grade >= 60
+    disp('Pass');
+else
+    disp('Fail');
+end
+</code></pre>
+<h2>Loops (for and while):</h2>
+<p>Loops in MATLAB allow you to repeat a block of code multiple times. MATLAB supports both <code>for</code> and <code>while</code> loops.</p>
+<h3>For Loops:</h3>
+<p>A <code>for</code> loop is used when you know the number of iterations in advance. The basic syntax is:</p>
+<pre><code>
+for variable = start:step:end
+    % Code to execute in each iteration
+end
+</code></pre>
+<p>For example, a loop to print the numbers from 1 to 5:</p>
+<pre><code>
+for i = 1:5
+    disp(i);
+end
+</code></pre>
+<h3>While Loops:</h3>
+<p>A <code>while</code> loop is used when you want to repeat a block of code until a condition becomes false. The basic syntax is:</p>
+<pre><code>
+while condition
+    % Code to execute as long as the condition is true
+end
+</code></pre>
+<p>For example, a <code>while</code> loop to count down from 5 to 1:</p>
+<pre><code>
+count = 5;
+while count > 0
+    disp(count);
+    count = count - 1;
+end
+</code></pre>
+<h2>User-Defined Functions:</h2>
+<p>You can create your own custom functions in MATLAB using the <code>function</code> keyword. Here's the basic structure of a user-defined function:</p>
+<pre><code>
+function output = functionName(input1, input2)
+    % Function code here
+    output = result; % Optional: specify the function's output
+end
+</code></pre>
+<p>For example, a simple function to calculate the square of a number:</p>
+<pre><code>
+function result = square(x)
+    result = x^2;
+end
+</code></pre>
+<p>You can then call this function from your script or the Command Window:</p>
+<pre><code>
+result = square(5); % Calls the square function and assigns the result to the variable "result"
+</code></pre>
+<p>These fundamental concepts in MATLAB programming—scripts, variables, conditional statements, loops, and user-defined functions—form the building blocks for creating more complex programs and solving a wide range of numerical and scientific computing problems.</p>
+</body>
+</html>

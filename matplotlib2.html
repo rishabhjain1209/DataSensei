@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Week 2: Customizing Plots</h1>
+    <h2>Lesson 4: Adding Titles and Labels</h2>
+    <h3>Adding titles to plots:</h3>
+    <p>Titles provide context and information about the content of a plot. You can add titles using the <code>plt.title()</code> function in Matplotlib.</p>
+    <pre><code>import matplotlib.pyplot as plt
+# Sample data
+x = [1, 2, 3, 4, 5]
+y = [10, 12, 5, 8, 9]
+# Create a line plot
+plt.plot(x, y)
+# Add a title
+plt.title('Line Plot with Title')
+# Show the plot
+plt.show()</code></pre>
+    <h3>Labeling axes:</h3>
+    <p>Axes labels are essential for clarifying the meaning of each axis. You can label the x-axis and y-axis using <code>plt.xlabel()</code> and <code>plt.ylabel()</code>.</p>
+    <pre><code>import matplotlib.pyplot as plt
+# Sample data
+x = [1, 2, 3, 4, 5]
+y = [10, 12, 5, 8, 9]
+# Create a line plot
+plt.plot(x, y)
+# Label the axes
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+# Show the plot
+plt.show()</code></pre>
+    <h3>Customizing fonts and styles:</h3>
+    <p>You can customize fonts and styles for titles, labels, and other text elements in your plot using various keyword arguments in the title and label functions. For example:</p>
+    <pre><code>import matplotlib.pyplot as plt
+# Sample data
+x = [1, 2, 3, 4, 5]
+y = [10, 12, 5, 8, 9]
+# Create a line plot
+plt.plot(x, y)
+# Customize title and labels
+plt.title('Customized Title', fontsize=16, fontweight='bold', color='blue')
+plt.xlabel('X-axis', fontsize=12, fontstyle='italic')
+plt.ylabel('Y-axis', fontsize=12, fontfamily='serif')
+# Show the plot
+plt.show()</code></pre>
+    <h2>Lesson 5: Formatting Data</h2>
+    <h3>Adjusting line styles and markers:</h3>
+    <p>You can customize the appearance of lines in line plots and markers in scatter plots using various style and marker options. For example:</p>
+    <pre><code>import matplotlib.pyplot as plt
+# Sample data
+x = [1, 2, 3, 4, 5]
+y = [10, 12, 5, 8, 9]
+# Create a line plot with custom style
+plt.plot(x, y, linestyle='--', color='green', linewidth=2, marker='o', markersize=8)
+# Show the plot
+plt.show()</code></pre>
+    <h3>Coloring data points and lines:</h3>
+    <p>You can specify colors for data points and lines using color codes or names.</p>
+    <pre><code>import matplotlib.pyplot as plt
+# Sample data
+x = [1, 2, 3, 4, 5]
+y = [10, 12, 5, 8, 9]
+# Create a scatter plot with custom colors
+plt.scatter(x, y, c='red', label='Data Points')
+# Create a line plot with a custom color
+plt.plot(x, y, color='blue', label='Line Plot')
+# Add a legend
+plt.legend()
+# Show the plot
+plt.show()</code></pre>
+    <h3>Using legends:</h3>
+    <p>Legends help viewers understand the meaning of different elements in a plot. You can add legends to your plots using the <code>plt.legend()</code> function and specifying labels for each element.</p>
+    <h2>Lesson 6: Annotations and Text</h2>
+    <h3>Adding text annotations:</h3>
+    <p>Annotations provide additional information about specific data points or regions in a plot. You can add text annotations using the <code>plt.annotate()</code> function.</p>
+    <pre><code>import matplotlib.pyplot as plt
+# Sample data
+x = [1, 2, 3, 4, 5]
+y = [10, 12, 5, 8, 9]
+# Create a scatter plot
+plt.scatter(x, y)
+# Add a text annotation
+plt.annotate('Max Value', xy=(4, 8), xytext=(3.5, 11),
+             arrowprops={'arrowstyle': '->', 'color': 'red'})
+# Show the plot
+plt.show()</code></pre>
+    <h3>Highlighting specific data points:</h3>
+    <p>You can highlight specific data points by changing their appearance or adding additional elements, such as arrows or shapes.</p>
+    <pre><code>import matplotlib.pyplot as plt
+# Sample data
+x = [1, 2, 3, 4, 5]
+y = [10, 12, 5, 8, 9]
+# Create a scatter plot
+plt.scatter(x, y)
+# Highlight a specific data point
+plt.scatter(3, 5, color='red', label='Highlighted Point')
+# Add a legend
+plt.legend()
+# Show the plot
+plt.show()</code></pre>
+    <h3>Using arrows and shapes:</h3>
+    <p>You can use the <code>plt.arrow()</code> and <code>plt.shape</code> functions to add arrows and shapes to your plots for emphasis or annotation.</p>
+    <p>These are the key concepts and code examples for customizing plots and adding titles, labels, formatting data, and annotations in Matplotlib. These skills will allow you to create more informative and visually appealing visualizations.</p>
+</body>
+</html>

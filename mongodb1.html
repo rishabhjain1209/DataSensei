@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Lesson 1: What is MongoDB?</h1>
+    <p>
+        MongoDB is a popular open-source, NoSQL database management system designed for storing and retrieving data
+        in a flexible, schema-less format. Unlike traditional SQL databases, MongoDB uses a document-oriented data
+        model, which means it stores data in BSON (Binary JSON) documents. Each document can have a different
+        structure, making it suitable for a wide range of use cases, including web applications, big data, and
+        real-time analytics.
+    </p>
+    <p><strong>Key features of MongoDB:</strong></p>
+    <ul>
+        <li>Flexible schema: Documents in MongoDB can have varying structures, which allows for easy adaptation to
+            changing data requirements.</li>
+        <li>Horizontal scalability: MongoDB can distribute data across multiple servers, enabling high availability
+            and scaling to handle large datasets and high traffic.</li>
+        <li>Rich query language: MongoDB provides a powerful query language that supports complex queries and indexing
+            for efficient data retrieval.</li>
+        <li>Geospatial capabilities: It includes geospatial indexing and querying, making it suitable for
+            location-based applications.</li>
+        <li>Aggregation framework: MongoDB offers a flexible aggregation framework for data transformation and
+            analysis.</li>
+        <li>Replication and sharding: It supports data replication for fault tolerance and sharding for horizontal
+            partitioning of data.</li>
+    </ul>
+    <h1>Lesson 2: NoSQL vs. SQL Databases</h1>
+    <p>NoSQL databases, including MongoDB, differ from SQL databases in several ways:</p>
+    <ol>
+        <li>
+            <strong>Data Model:</strong>
+            <ul>
+                <li><em>SQL:</em> Follows a structured, tabular data model with predefined schemas.</li>
+                <li><em>MongoDB (NoSQL):</em> Uses a flexible, document-oriented data model with dynamic schemas.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Schema:</strong>
+            <ul>
+                <li><em>SQL:</em> Requires a fixed schema with defined tables and columns.</li>
+                <li><em>MongoDB (NoSQL):</em> Adapts to evolving data structures and allows different documents to have
+                    varying fields.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Query Language:</strong>
+            <ul>
+                <li><em>SQL:</em> Utilizes SQL (Structured Query Language) for querying.</li>
+                <li><em>MongoDB (NoSQL):</em> Employs a JSON-like query language.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Scalability:</strong>
+            <ul>
+                <li><em>SQL:</em> Vertical scaling (increasing server resources) is common.</li>
+                <li><em>MongoDB (NoSQL):</em> Supports horizontal scaling (adding more servers) for high availability and
+                    performance.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Relationships:</strong>
+            <ul>
+                <li><em>SQL:</em> Emphasizes relationships between tables using foreign keys.</li>
+                <li><em>MongoDB (NoSQL):</em> Supports embedding and referencing for managing relationships between
+                    documents.</li>
+            </ul>
+        </li>
+    </ol>
+    <h1>Lesson 3: Installing and Setting Up MongoDB</h1>
+    <p>To install MongoDB, follow these steps (Linux example):</p>
+    <ol>
+        <li>Update package manager:
+            <pre><code>sudo apt-get update</code></pre>
+        </li>
+        <li>Install MongoDB:
+            <pre><code>sudo apt-get install mongodb</code></pre>
+        </li>
+        <li>Start MongoDB service:
+            <pre><code>sudo systemctl start mongodb</code></pre>
+        </li>
+        <li>Enable MongoDB to start on boot:
+            <pre><code>sudo systemctl enable mongodb</code></pre>
+        </li>
+        <li>Verify MongoDB status:
+            <pre><code>sudo systemctl status mongodb</code></pre>
+        </li>
+    </ol>
+    <h1>Lesson 4: The MongoDB Data Model</h1>
+    <p>In MongoDB, data is organized into collections, and each collection contains documents. Here's a code example
+        illustrating the MongoDB data model:</p>
+    <pre><code>// Connect to MongoDB
+const MongoClient = require('mongodb').MongoClient;
+const url = 'mongodb://localhost:27017'; // MongoDB server URL
+MongoClient.connect(url, (err, client) => {
+  if (err) throw err;
+  // Access the database
+  const db = client.db('mydb');
+  // Create a collection (if not exists)
+  const collection = db.collection('mycollection');
+  // Insert a document
+  const document = { name: 'John', age: 30, city: 'New York' };
+  collection.insertOne(document, (err, result) => {
+    if (err) throw err;
+    console.log('Document inserted:', result.insertedId);
+    // Query the collection
+    collection.find({ name: 'John' }).toArray((err, documents) => {
+      if (err) throw err;
+      console.log('Query result:', documents);
+      // Close the MongoDB connection
+      client.close();
+    });
+  });
+});</code></pre>
+    <p>This example demonstrates connecting to MongoDB, creating a collection, inserting a document, and querying
+        data. MongoDB's document-oriented nature allows for dynamic and schema-less data structures within the same
+        collection.</p>
+</body>
+</html>

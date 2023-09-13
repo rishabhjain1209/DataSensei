@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Module 8: Advanced Topics</title>
+</head>
+<body>
+    <h2>8.1 Power Automate and Power Apps Integration</h2>
+    <h3>Automating Tasks with Power Automate</h3>
+    <p>Power Automate, formerly known as Microsoft Flow, allows you to automate workflows and tasks. Integration with Power BI enables you to trigger actions based on data changes or events in your Power BI reports or datasets. Here's how to use it:</p>
+    <ol>
+        <li><strong>Create Flows:</strong>
+            <ul>
+                <li>Define flows in Power Automate that specify the conditions or events that should trigger automated actions.</li>
+            </ul>
+        </li>
+        <li><strong>Power BI Connectors:</strong>
+            <ul>
+                <li>Power Automate includes connectors for Power BI that allow you to connect to your reports, datasets, and other Power BI resources.</li>
+            </ul>
+        </li>
+    </ol>
+    <h4>Code Example (Power Automate Flow Triggered by Power BI Data):</h4>
+    <pre>
+        <code>
+Suppose you want to send an email notification when a specific threshold is reached in your Power BI report:
+{
+    "type": "When a data-driven alert is triggered",
+    "contentVersion": "1.0",
+    "inputs": {
+        "host": {
+            "connectionName": "shared_powerbi"
+        },
+        "alertId": "your_alert_id"
+    }
+}
+        </code>
+    </pre>
+    <h3>Building Custom Apps with Power Apps</h3>
+    <p>Power Apps enables you to create custom applications tailored to your business needs. Integrating Power Apps with Power BI allows you to build interactive and data-driven applications. Here's how to get started:</p>
+    <ol>
+        <li><strong>Create Apps:</strong>
+            <ul>
+                <li>Use Power Apps to build canvas or model-driven apps that connect to your Power BI data.</li>
+            </ul>
+        </li>
+        <li><strong>Embed Apps:</strong>
+            <ul>
+                <li>You can embed Power Apps directly within Power BI reports or dashboards, providing an interactive experience.</li>
+            </ul>
+        </li>
+    </ol>
+    <h2>8.2 Power BI Premium and Premium Per User (PPU)</h2>
+    <h3>Understanding the Premium Features and Licensing</h3>
+    <p>Power BI offers two premium licensing options: Power BI Premium and Power BI Premium Per User (PPU). Here's a breakdown of these features:</p>
+    <ol>
+        <li><strong>Power BI Premium:</strong>
+            <ul>
+                <li>Power BI Premium is a capacity-based licensing model.</li>
+                <li>It provides dedicated capacity for your organization, ensuring consistent and high-performance access to reports and datasets.</li>
+            </ul>
+        </li>
+        <li><strong>Power BI Premium Per User (PPU):</strong>
+            <ul>
+                <li>PPU is a user-based licensing model.</li>
+                <li>It allows individual users to access premium features without the need for a full Power BI Premium capacity.</li>
+            </ul>
+        </li>
+    </ol>
+    <h4>Code Example (Licensing Code):</h4>
+    <p>Licensing in Power BI is managed through the Power BI Service portal, and it doesn't involve code implementation. Licensing decisions are made at the subscription level, and administrators assign licenses to users or capacities as needed.</p>
+    <p>In this advanced module, you'll explore the integration of Power BI with Power Automate and Power Apps to automate tasks, create custom applications, and enhance your data-driven workflows. You'll also gain an understanding of Power BI Premium and Premium Per User (PPU) licensing, which provides dedicated resources and premium features for your organization's analytics needs.</p>
+</body>
+</html>

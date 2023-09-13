@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Week 4-5: Classification Algorithms</title>
+</head>
+<body>
+    <h1>Logistic Regression</h1>
+    <h2>Introduction to Logistic Regression</h2>
+    <p>Logistic regression is a widely used classification algorithm that models the probability of a binary outcome (0 or 1). It's suitable for problems where the dependent variable is categorical. Unlike linear regression, logistic regression uses the logistic function to model the relationship between features and the probability of the outcome.</p>
+    <h3>Example Code</h3>
+    <p>Here's an example of logistic regression using scikit-learn:</p>
+    <pre><code>
+import numpy as np
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score, classification_report
+# Sample dataset with binary classification
+X = np.array([[1, 2], [2, 3], [3, 4], [4, 5], [5, 6]])
+y = np.array([0, 0, 1, 1, 1])  # Binary labels
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+# Create a logistic regression model
+model = LogisticRegression()
+# Fit the model to the training data
+model.fit(X_train, y_train)
+# Make predictions on the test data
+y_pred = model.predict(X_test)
+# Evaluate the model
+accuracy = accuracy_score(y_test, y_pred)
+report = classification_report(y_test, y_pred)
+    </code></pre>
+    <h1>k-Nearest Neighbors (k-NN)</h1>
+    <h2>Introduction to k-Nearest Neighbors</h2>
+    <p>k-Nearest Neighbors (k-NN) is a non-parametric classification algorithm that assigns a class label to a data point based on the majority class among its k-nearest neighbors in the feature space. It's a simple yet effective algorithm for both binary and multi-class classification tasks.</p>
+    <h3>Example Code</h3>
+    <p>Here's an example of k-NN classification using scikit-learn:</p>
+    <pre><code>
+import numpy as np
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score, classification_report
+# Sample dataset with binary classification
+X = np.array([[1, 2], [2, 3], [3, 4], [4, 5], [5, 6]])
+y = np.array([0, 0, 1, 1, 1])  # Binary labels
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+# Create a k-NN classifier with k=3
+model = KNeighborsClassifier(n_neighbors=3)
+# Fit the model to the training data
+model.fit(X_train, y_train)
+# Make predictions on the test data
+y_pred = model.predict(X_test)
+# Evaluate the model
+accuracy = accuracy_score(y_test, y_pred)
+report = classification_report(y_test, y_pred)
+    </code></pre>
+    <h1>Decision Trees and Random Forests</h1>
+    <h2>Introduction to Decision Trees and Random Forests</h2>
+    <p>Decision trees are a versatile machine learning algorithm used for classification and regression tasks. They create a tree-like structure where each node represents a feature and each leaf node represents a class or a regression value. Random Forests are an ensemble method that combines multiple decision trees to improve accuracy and reduce overfitting.</p>
+    <h3>Example Code</h3>
+    <p>Here's an example of decision tree classification and random forests using scikit-learn:</p>
+    <pre><code>
+import numpy as np
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score, classification_report
+# Sample dataset with binary classification
+X = np.array([[1, 2], [2, 3], [3, 4], [4, 5], [5, 6]])
+y = np.array([0, 0, 1, 1, 1])  # Binary labels
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+# Create a decision tree classifier
+decision_tree_model = DecisionTreeClassifier()
+# Fit the decision tree model to the training data
+decision_tree_model.fit(X_train, y_train)
+# Make predictions using the decision tree model
+y_pred_decision_tree = decision_tree_model.predict(X_test)
+# Create a random forest classifier
+random_forest_model = RandomForestClassifier(n_estimators=100)
+# Fit the random forest model to the training data
+random_forest_model.fit(X_train, y_train)
+# Make predictions using the random forest model
+y_pred_random_forest = random_forest_model.predict(X_test)
+# Evaluate both models
+accuracy_decision_tree = accuracy_score(y_test, y_pred_decision_tree)
+report_decision_tree = classification_report(y_test, y_pred_decision_tree)
+accuracy_random_forest = accuracy_score(y_test, y_pred_random_forest)
+report_random_forest = classification_report(y_test, y_pred_random_forest)
+    </code></pre>
+    <h2>Model Evaluation and Comparison</h2>
+    <p>When working with classification algorithms, it's essential to evaluate and compare their performance using appropriate metrics such as accuracy, precision, recall, F1-score, and ROC curves. You can use these metrics to assess how well each algorithm classifies data and make informed decisions about which one to use in your specific problem.</p>
+    <h2>Practical Exercises</h2>
+    <p>To gain hands-on experience with classification algorithms, follow these steps:</p>
+    <ol>
+        <li><strong>Data Preparation</strong>: Obtain a classification dataset with appropriate features and labels. Preprocess the data by handling missing values, encoding categorical variables, and normalizing/standardizing features if necessary.</li>
+        <li><strong>Data Splitting</strong>: Split the dataset into training and testing sets (usually around 80% for training and 20% for testing).</li>
+        <li><strong>Algorithm Selection</strong>: Choose the classification algorithm(s) that best suit your problem (e.g., logistic regression, k-NN, decision trees, random forests).</li>
+        <li><strong>Model Training</strong>: Train the selected algorithm(s) on the training data.</li>
+        <li><strong>Model Evaluation</strong>: Evaluate each model's performance on the testing data using relevant metrics like accuracy, precision, recall, and F1-score.</li>
+        <li><strong>Comparison</strong>: Compare the performance of different algorithms and select the one that performs the best for your specific problem.</li>
+        <li><strong>Tuning</strong>: Experiment with hyperparameter tuning to optimize the chosen algorithm's performance.</li>
+        <li><strong>Visualization</strong>: Visualize the results, such as decision boundaries for different algorithms or ROC curves for binary classification.</li>
+        <li><strong>Predictions</strong>: Make predictions on new data if applicable.</li>
+    </ol>
+    <p>By working through these steps and experimenting with different datasets, you'll gain a deeper understanding of classification algorithms and their practical applications.</p>
+</body>
+</html>

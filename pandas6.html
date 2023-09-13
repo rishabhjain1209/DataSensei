@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Module 6: Time Series Data with Pandas</title>
+</head>
+<body>
+    <h2>Module 6: Time Series Data with Pandas</h2>
+    <h3>6.1 Working with Date and Time Data</h3>
+    <p>Time series data often involves date and time information, and Pandas provides powerful tools to work with such data.</p>
+    <h4>Code Example: Creating a time series DataFrame and extracting date components.</h4>
+    <pre><code class="python">
+import pandas as pd
+# Creating a sample time series DataFrame
+data = {'Date': ['2023-09-01', '2023-09-02', '2023-09-03'],
+        'Temperature (C)': [25.5, 26.2, 24.8]}
+df = pd.DataFrame(data)
+# Converting the 'Date' column to datetime
+df['Date'] = pd.to_datetime(df['Date'])
+# Extracting date components
+df['Year'] = df['Date'].dt.year
+df['Month'] = df['Date'].dt.month
+df['Day'] = df['Date'].dt.day
+print(df)
+    </code></pre>
+    <h3>6.2 Resampling and Rolling Windows</h3>
+    <p>Resampling involves changing the frequency of time series data, e.g., aggregating daily data to monthly. Rolling windows allow you to compute moving statistics.</p>
+    <h4>Code Example: Resampling and calculating a rolling mean.</h4>
+    <pre><code class="python">
+# Creating a sample time series DataFrame
+data = {'Date': pd.date_range(start='2023-01-01', periods=365),
+        'Value': range(1, 366)}
+df = pd.DataFrame(data)
+# Resampling to monthly averages
+monthly_avg = df.resample('M', on='Date').mean()
+print(monthly_avg.head())
+# Calculating a rolling mean over a window of size 7
+rolling_mean = df['Value'].rolling(window=7).mean()
+print(rolling_mean.head(10))
+    </code></pre>
+    <h3>6.3 Time Series Visualization</h3>
+    <p>Visualizing time series data helps in understanding trends and patterns over time.</p>
+    <h4>Code Example: Creating a time series plot.</h4>
+    <pre><code class="python">
+import matplotlib.pyplot as plt
+# Plotting a time series
+df.set_index('Date', inplace=True)
+df['Value'].plot(figsize=(10, 5))
+plt.title('Time Series Data')
+plt.xlabel('Date')
+plt.ylabel('Value')
+plt.show()
+    </code></pre>
+    <p>These examples cover essential time series data manipulation and visualization techniques using Pandas. Working with date and time data, resampling, and creating time series plots are critical skills for analyzing and understanding time-based data.</p>
+</body>
+</html>

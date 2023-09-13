@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Week 1: Introduction to Databases and MySQL</title>
+</head>
+<body>
+<h2>Understanding Databases and Their Importance</h2>
+<p>Databases are essential tools for storing, organizing, and managing large volumes of data. They provide a structured way to access, retrieve, and manipulate information. Databases play a crucial role in various applications, from websites and business applications to scientific research and more.</p>
+<p><strong>Example:</strong> Imagine a library as a database. Each book represents a record, and the library catalog is the index. This makes it easy to find and manage books efficiently.</p>
+<h2>Introduction to MySQL and Its Features</h2>
+<p>MySQL is a popular open-source relational database management system (RDBMS). It is widely used for its robust features, performance, and scalability. MySQL supports SQL (Structured Query Language), making it a powerful tool for managing relational data.</p>
+<p><strong>Example:</strong> Let's explore some key features of MySQL:</p>
+<ul>
+    <li><strong>Relational Data:</strong> MySQL stores data in tables with rows and columns, allowing you to establish relationships between tables.</li>
+    <li><strong>ACID Compliance:</strong> MySQL ensures data integrity through Atomicity, Consistency, Isolation, and Durability (ACID) properties.</li>
+    <li><strong>Multi-User Support:</strong> Multiple users can access and modify data simultaneously, maintaining data consistency.</li>
+    <li><strong>Data Security:</strong> MySQL provides various authentication and authorization mechanisms to secure data.</li>
+</ul>
+<h2>Installation and Setup of MySQL</h2>
+<p>To get started with MySQL, you need to install it on your system. Here's a simplified guide for installing MySQL on a Unix-like system using the command line:</p>
+<ol>
+    <li>Open a terminal.</li>
+    <li>Update the package list: <code>sudo apt-get update</code> (for Ubuntu/Debian) or <code>sudo yum update</code> (for CentOS/Red Hat).</li>
+    <li>Install MySQL server: <code>sudo apt-get install mysql-server</code> (for Ubuntu/Debian) or <code>sudo yum install mysql-server</code> (for CentOS/Red Hat).</li>
+    <li>Start the MySQL service: <code>sudo service mysql start</code> or <code>sudo systemctl start mysql</code>.</li>
+    <li>Secure your MySQL installation: <code>sudo mysql_secure_installation</code>.</li>
+</ol>
+<h2>Basic SQL Commands (SELECT, INSERT, UPDATE, DELETE)</h2>
+<p>SQL commands are used to interact with databases. Here are some essential SQL commands:</p>
+<code>SELECT</code>: Used to retrieve data from one or more tables.
+<pre>
+SELECT column1, column2 FROM table_name WHERE condition;
+</pre>
+<code>INSERT</code>: Used to add new records to a table.
+<pre>
+INSERT INTO table_name (column1, column2) VALUES (value1, value2);
+</pre>
+<code>UPDATE</code>: Used to modify existing records in a table.
+<pre>
+UPDATE table_name SET column1 = value1, column2 = value2 WHERE condition;
+</pre>
+<code>DELETE</code>: Used to remove records from a table.
+<pre>
+DELETE FROM table_name WHERE condition;
+</pre>
+<h2>Creating and Dropping Databases and Tables</h2>
+<p>Databases consist of tables that store data. Here's how you create and drop databases and tables:</p>
+<p><strong>Creating a Database:</strong></p>
+<pre>
+CREATE DATABASE database_name;
+</pre>
+<p><strong>Creating a Table:</strong></p>
+<pre>
+CREATE TABLE table_name (
+    column1 datatype,
+    column2 datatype,
+    ...
+);
+</pre>
+<p><strong>Dropping a Database:</strong></p>
+<pre>
+DROP DATABASE database_name;
+</pre>
+<p><strong>Dropping a Table:</strong></p>
+<pre>
+DROP TABLE table_name;
+</pre>
+<p>Remember to replace <code>database_name</code>, <code>table_name</code>, <code>column1</code>, <code>column2</code>, <code>datatype</code>, and <code>condition</code> with your specific database and table names, column names, data types, and conditions.</p>
+<p>In this introductory week, you've learned the importance of databases, explored MySQL and its features, installed MySQL on your system, and gained a basic understanding of SQL commands and database/table creation and deletion. These fundamentals are crucial for building your database management skills.</p>
+</body>
+</html>
