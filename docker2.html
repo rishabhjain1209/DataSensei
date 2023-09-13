@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Module 2: Installation and Setup</title>
+</head>
+<body>
+<h1>Installing Docker on Different Platforms:</h1>
+<h2>Windows:</h2>
+<ol>
+    <li>
+        <strong>Windows 10 Pro/Enterprise</strong>:
+        <ul>
+            <li>Install <a href="https://www.docker.com/products/docker-desktop">Docker Desktop for Windows</a>.</li>
+            <li>Enable virtualization in your BIOS/UEFI settings (usually found under CPU settings).</li>
+        </ul>
+    </li>
+    <li>
+        <strong>Windows 10 Home</strong>:
+        <ul>
+            <li>Install <a href="https://docs.docker.com/toolbox/toolbox_install_windows/">Docker Toolbox</a>.</li>
+            <li>Ensure that VirtualBox is installed as it's used by Docker Toolbox for virtualization.</li>
+        </ul>
+    </li>
+</ol>
+<h2>macOS:</h2>
+<ol>
+    <li>
+        <strong>macOS with Intel Chip</strong>:
+        <ul>
+            <li>Install <a href="https://www.docker.com/products/docker-desktop">Docker Desktop for Mac</a>.</li>
+        </ul>
+    </li>
+    <li>
+        <strong>macOS with Apple Silicon (M1 Chip)</strong>:
+        <ul>
+            <li>Install <a href="https://www.docker.com/products/docker-desktop">Docker Desktop for Mac with Apple Silicon support</a>.</li>
+        </ul>
+    </li>
+</ol>
+<h2>Linux:</h2>
+<p>On Linux, Docker can be installed using your distribution's package manager. However, it's recommended to follow Docker's official installation instructions for your specific distribution as they can vary.</p>
+<h3>Docker Engine Components:</h3>
+<p>Docker Engine is the core of Docker and consists of several key components:</p>
+<ol>
+    <li><strong>Docker Daemon:</strong> The background service responsible for building, running, and managing containers. It listens for Docker API requests and manages container lifecycle.</li>
+    <li><strong>Docker Client (CLI):</strong> The command-line tool used to interact with the Docker Daemon. You use commands like <code>docker build</code>, <code>docker run</code>, and <code>docker ps</code> to manage containers.</li>
+    <li><strong>Docker Images:</strong> Read-only templates that define containers. Images are used to create containers and are typically stored in registries like Docker Hub.</li>
+    <li><strong>Docker Containers:</strong> Running instances of Docker images. Containers are isolated environments where applications run with their own filesystem, network, and processes.</li>
+</ol>
+<h3>Docker CLI Basics:</h3>
+<p>Here are some basic Docker CLI commands:</p>
+<pre>
+<code>
+- <strong>docker --version</strong>: Check the installed Docker version.
+- <strong>docker info</strong>: Display detailed information about your Docker installation.
+- <strong>docker pull &lt;image&gt;</strong>: Download a Docker image from a registry (e.g., Docker Hub). For example: <code>docker pull ubuntu:20.04</code>.
+- <strong>docker build -t &lt;tag&gt; &lt;path&gt;</strong>: Build a Docker image from a Dockerfile. For example: <code>docker build -t my-nginx-image .</code> (assuming you have a Dockerfile in the current directory).
+- <strong>docker run -d -p &lt;host_port&gt;:&lt;container_port&gt; &lt;image&gt;</strong>: Run a container in detached mode, mapping ports. For example: <code>docker run -d -p 8080:80 my-nginx-image</code>.
+- <strong>docker ps</strong>: List running containers.
+- <strong>docker images</strong>: List downloaded Docker images.
+- <strong>docker stop &lt;container_id&gt;</strong>: Stop a running container.
+- <strong>docker rm &lt;container_id&gt;</strong>: Remove a stopped container.
+- <strong>docker rmi &lt;image&gt;</strong>: Remove a Docker image.
+</code>
+</pre>
+<p>Example (using commands mentioned above):</p>
+<pre>
+<code>
+# Pull the official Ubuntu 20.04 image
+docker pull ubuntu:20.04
+# Build a Docker image from a Dockerfile
+docker build -t my-nginx-image .
+# Run a container based on the image
+docker run -d -p 8080:80 my-nginx-image
+# List running containers
+docker ps
+# Stop and remove the container
+docker stop &lt;container_id&gt;
+docker rm &lt;container_id&gt;
+</code>
+</pre>
+<p>These are some of the fundamental Docker CLI commands you'll use to work with containers and images. Docker provides many more commands and options for managing containers and images, and you can explore them further in the official Docker documentation.</p>
+</body>
+</html>

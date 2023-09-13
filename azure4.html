@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Module 4: Azure App Service</title>
+</head>
+<body>
+    <h1>Lesson 1: Introduction to Azure App Service</h1>
+    <p>Azure App Service is a Platform as a Service (PaaS) offering that allows you to build, host, and scale web applications and APIs. It supports multiple programming languages, frameworks, and continuous integration/continuous deployment (CI/CD) pipelines.</p>   
+    <h2>Code Example (N/A):</h2>
+    <p>This lesson is about introducing Azure App Service, which doesn't involve coding.</p>
+    <h1>Lesson 2: Web Apps</h1>
+    <p>Azure Web Apps are a specific type of App Service designed for hosting web applications. They offer features like automatic scaling, built-in DevOps, and integration with Azure services.</p>
+    <h2>Code Example (Azure CLI):</h2>
+    <p>You can create a basic Azure Web App using the Azure CLI. Replace the placeholders with your specific information.</p>
+    <pre><code>
+# Create a resource group
+az group create --name myResourceGroup --location eastus
+# Create a web app
+az webapp create --resource-group myResourceGroup --name myWebApp --plan myAppServicePlan
+    </code></pre>
+    <h1>Lesson 3: Deployment Slots</h1>
+    <p>Deployment slots allow you to deploy different versions of your web app to separate environments for testing and staging. This helps ensure smooth deployments and reduces downtime.</p>
+    <h2>Code Example (Azure CLI):</h2>
+    <p>Create a deployment slot for an existing web app using the Azure CLI:</p>
+    <pre><code>
+# Create a deployment slot
+az webapp deployment slot create --resource-group myResourceGroup --name myWebApp --slot staging
+    </code></pre>
+    <h1>Lesson 4: Scaling and Load Balancing</h1>
+    <p>Scaling and load balancing are essential for ensuring your web app can handle varying levels of traffic and maintain high availability.</p>
+    <h2>Code Example (Azure CLI):</h2>
+    <p>Scale up the number of instances for your web app using the Azure CLI:</p>
+    <pre><code>
+# Scale up to 3 instances
+az appservice plan update --name myAppServicePlan --resource-group myResourceGroup --number-of-workers 3
+    </code></pre>
+    <p>These lessons provide practical knowledge for working with Azure App Service, from creating web apps to using deployment slots for testing and staging, and scaling your web app to handle traffic efficiently. The provided code examples demonstrate how to perform these tasks using the Azure CLI.</p>
+</body>
+</html>

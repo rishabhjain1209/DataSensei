@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Module 1: Introduction to Azure</title>
+</head>
+<body>
+    <h1>Lesson 1: What is Cloud Computing?</h1>
+    <p>Cloud computing is the delivery of computing services, including servers, storage, databases, networking, software, and analytics, over the internet. Cloud computing offers several advantages, including scalability, cost-efficiency, and flexibility. Azure is a cloud computing platform provided by Microsoft that offers a wide range of cloud services.</p>  
+    <h2>Code Example (Python using Azure SDK):</h2>
+    <pre><code>
+# Importing Azure SDK libraries
+from azure.identity import DefaultAzureCredential
+from azure.mgmt.compute import ComputeManagementClient
+from azure.mgmt.compute.models import VirtualMachine
+# Authenticate to Azure
+credential = DefaultAzureCredential()
+compute_client = ComputeManagementClient(credential, 'YOUR_AZURE_SUBSCRIPTION_ID')
+# Create a virtual machine
+vm_name = 'my-vm'
+location = 'eastus'
+vm_params = {
+    'location': location,
+    'hardware_profile': {
+        'vm_size': 'Standard_DS2_v2'
+    }
+}
+vm = VirtualMachine(**vm_params)
+# Create the VM
+compute_client.virtual_machines.create_or_update('RESOURCE_GROUP_NAME', vm_name, vm)
+    </code></pre>
+    <h1>Lesson 2: Why Azure?</h1>
+    <p>Azure provides a vast ecosystem of services and tools that make it a compelling choice for cloud computing. Some key reasons to choose Azure include its global presence, extensive compliance certifications, and strong integration with Microsoft products.</p>
+    <h1>Lesson 3: Azure Service Models (IaaS, PaaS, SaaS)</h1>
+    <p><strong>Infrastructure as a Service (IaaS):</strong> In IaaS, you rent virtualized hardware resources over the internet. Azure offers services like Azure Virtual Machines (VMs).</p>
+    <p><strong>Platform as a Service (PaaS):</strong> PaaS provides a platform that allows developers to build, deploy, and manage applications without worrying about the underlying infrastructure. Azure App Service is an example of PaaS.</p>
+    <p><strong>Software as a Service (SaaS):</strong> SaaS delivers software applications over the internet. Examples include Microsoft 365 and Azure SaaS offerings like Azure SQL Database.</p>
+    <h1>Lesson 4: Azure Deployment Models (Public, Private, Hybrid)</h1>
+    <p><strong>Public Cloud:</strong> Resources are hosted on the cloud provider's infrastructure (e.g., Azure's public data centers) and are accessible over the internet. It's cost-effective and scalable.</p>
+    <p><strong>Private Cloud:</strong> Resources are hosted on a private network, providing more control and security. Azure offers Azure Stack for building private clouds.</p>
+    <p><strong>Hybrid Cloud:</strong> A combination of public and private clouds, allowing data and applications to be shared between them. Azure provides tools and services for hybrid cloud scenarios.</p>
+    <p>No specific code examples are needed for this lesson as it focuses on deployment models.</p>
+    <p>Remember to replace placeholders like 'YOUR_AZURE_SUBSCRIPTION_ID' and 'RESOURCE_GROUP_NAME' in the code example with your actual Azure subscription ID and resource group name.</p>
+</body>
+</html>

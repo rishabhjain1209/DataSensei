@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Managing Static Files (CSS, JavaScript, Images)</h1>
+    <p>Static files in Django include assets like CSS stylesheets, JavaScript files, and images that are served directly to users without any processing by the server. Django provides a built-in way to manage these static files.</p>
+    <h2>1. Setting Up Static Files:</h2>
+    <p>First, make sure you've set up your project to handle static files. In your project's settings (<code>settings.py</code>), configure the following:</p>
+    <pre><code># settings.py
+# Define the URL prefix for static files
+STATIC_URL = '/static/'
+# Define the root directory for static files
+STATICFILES_DIRS = [BASE_DIR / "static"]
+</code></pre>
+    <p>Here, <code>STATIC_URL</code> specifies the URL prefix for static files, and <code>STATICFILES_DIRS</code> points to the directory where your project's static files are stored (usually a folder named "static" in your project's root directory).</p>
+    <h2>2. Creating Static Files:</h2>
+    <p>Place your static files (CSS, JavaScript, images) in the <code>static</code> directory. For example, you can create a CSS file named <code>styles.css</code> inside <code>static/css/</code>.</p>
+    <h2>3. Using Static Files in Templates:</h2>
+    <p>To include static files in your HTML templates, you can use the <code>{% static %}</code> template tag. For example:</p>
+    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    <!-- Your HTML content here -->
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    <p>The <code>{% static 'css/styles.css' %}</code> tag generates the correct URL for the static CSS file.</p>
+    <h1>Handling User-Uploaded Media Files</h1>
+    <p>Media files in Django refer to user-uploaded files, such as images, videos, or documents. Unlike static files, media files require special handling because they can change and need to be served in a different way.</p>
+    <h2>1. Setting Up Media Files:</h2>
+    <p>In your project's settings (<code>settings.py</code>), configure the following for media files:</p>
+    <pre><code># settings.py
+# Define the URL prefix for media files
+MEDIA_URL = '/media/'
+# Define the root directory where media files will be stored
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+</code></pre>
+    <p><code>MEDIA_URL</code> specifies the URL prefix for media files, and <code>MEDIA_ROOT</code> points to the directory where media files will be stored (usually a folder named "media" in your project's root directory).</p>
+    <h2>2. Handling Media Files in Models:</h2>
+    <p>When you want to handle user-uploaded files in your models, use the <code>FileField</code> or <code>ImageField</code> field types. For example:</p>
+    <pre><code>from django.db import models
+class UserProfile(models.Model):
+   user = models.OneToOneField(User, on_delete=models.CASCADE)
+   profile_picture = models.ImageField(upload_to='profile_pictures/')
+</code></pre>
+    <p>In this example, <code>profile_picture</code> is an <code>ImageField</code> that specifies the <code>upload_to</code> parameter, indicating the subdirectory inside <code>MEDIA_ROOT</code> where uploaded profile pictures will be stored.</p>
+    <h2>3. Serving Media Files During Development:</h2>
+    <p>During development, you need to serve media files using Django's built-in views. In your project's <code>urls.py</code>, add the following code:</p>
+    <pre><code>from django.conf import settings
+from django.conf.urls.static import static
+urlpatterns = [
+   <!-- Your other URL patterns -->
+]
+if settings.DEBUG:
+   urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+</code></pre>
+    <p>This code serves media files when the <code>DEBUG</code> setting is <code>True</code>.</p>
+    <h2>Django's Built-in File Handling</h2>
+    <p>Django provides powerful file handling features, such as file uploads, storage backends, and built-in methods for working with files. For example, you can use <code>FileField</code> and <code>ImageField</code> to handle file uploads and use the <code>File</code> object to manipulate files.</p>
+    <p>Here's an example of handling file uploads in a view:</p>
+    <pre><code>from django.shortcuts import render, redirect
+from .models import UserProfile
+from .forms import UserProfileForm
+def upload_profile_picture(request):
+   if request.method == 'POST':
+       form = UserProfileForm(request.POST, request.FILES)
+       if form.is_valid():
+           form.save()
+           return redirect('profile')
+   else:
+       form = UserProfileForm()
+   return render(request, 'upload_profile_picture.html', {'form': form})
+</code></pre>
+    <p>In this example, we handle profile picture uploads using the <code>request.FILES</code> attribute, which contains the uploaded file data. The <code>UserProfileForm</code> includes an <code>ImageField</code> for handling profile pictures.</p>
+    <p>By understanding and implementing these concepts in Module 5, you'll be able to effectively manage static and media files in your Django project and handle user-uploaded content.</p>
+</body>
+</html>

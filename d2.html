@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 2: Selecting and Binding Data</title>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+</head>
+<body>
+    <h1>Week 2: Selecting and Binding Data</h1>
+    <h2>Selecting Elements in the DOM with D3:</h2>
+    <p>D3.js provides powerful methods for selecting and manipulating elements in the Document Object Model (DOM) of a web page. The basic idea is to select one or more elements from the DOM and then apply operations or transformations to those elements.</p>
+    <h3>Here are some common D3.js selection methods:</h3>
+    <ol>
+        <li><strong>Selecting by Tag Name:</strong>
+            <ul>
+                <li><code>d3.select("tagName")</code>: Selects the first element with the specified tag name.</li>
+                <li><code>d3.selectAll("tagName")</code>: Selects all elements with the specified tag name.</li>
+            </ul>
+        </li>
+        <li><strong>Selecting by Class or ID:</strong>
+            <ul>
+                <li><code>d3.select(".className")</code>: Selects the first element with the specified class.</li>
+                <li><code>d3.selectAll(".className")</code>: Selects all elements with the specified class.</li>
+                <li><code>d3.select("#elementID")</code>: Selects the element with the specified ID.</li>
+            </ul>
+        </li>
+        <li><strong>Selecting by Hierarchy:</strong>
+            <ul>
+                <li><code>d3.select("parentElement").selectAll("childElement")</code>: Selects all child elements within a parent element.</li>
+            </ul>
+        </li>
+    </ol>
+    <h2>Binding Data to Elements:</h2>
+    <p>D3.js allows you to bind data to selected DOM elements, creating a relationship between your data and the visual elements that represent it. Data binding is a fundamental concept in D3.js, enabling the creation of data-driven visualizations.</p>
+    <p>To bind data to elements, you typically follow these steps:</p>
+    <ol>
+        <li><strong>Select Elements:</strong> Use D3.js selection methods to select the elements you want to associate with data.</li>
+        <li><strong>Bind Data:</strong> Use the <code>.data(dataArray)</code> method to bind an array of data to the selected elements.</li>
+        <li><strong>Enter Selection:</strong> Use the <code>.enter()</code> method to access a selection of data elements that need to be added to the DOM. This selection represents the data elements that don't have corresponding DOM elements.</li>
+        <li><strong>Append New Elements:</strong> Use the <code>.append("elementType")</code> method to create new DOM elements for each data item in the enter selection.</li>
+        <li><strong>Update Existing Elements:</strong> You can use the enter selection to update existing elements with new data.</li>
+    </ol>
+    <h2>Creating Data-Driven Visualizations:</h2>
+    <h3>HTML File (index.html):</h3>
+    <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Data-Driven Visualization&lt;/title&gt;
+    &lt;script src="https://d3js.org/d3.v6.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Data-Driven Visualization&lt;/h1&gt;
+    &lt;div id="visualization"&gt;&lt;/div&gt;
+    &lt;script&gt;
+        // Sample data
+        const data = [10, 20, 30, 40, 50];
+        // Create an SVG container
+        const svg = d3.select("#visualization")
+            .append("svg")
+            .attr("width", 400)
+            .attr("height", 300);
+        // Bind data to circles
+        const circles = svg.selectAll("circle")
+            .data(data);
+        // Enter selection: Create new circles
+        circles.enter()
+            .append("circle")
+            .attr("cx", (d, i) => i * 80 + 50)
+            .attr("cy", 150)
+            .attr("r", (d) => d)
+            .style("fill", "blue");
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+    </pre>
+    <p>In this example:</p>
+    <ul>
+        <li>We define a sample data array <code>[10, 20, 30, 40, 50]</code>.</li>
+        <li>We select the SVG container and bind the data array to a selection of circles.</li>
+        <li>The <code>.enter()</code> method allows us to create new circles for data items that don't have corresponding DOM elements.</li>
+        <li>We use D3.js to set the position (<code>cx</code>, <code>cy</code>) and radius (<code>r</code>) of each circle based on the data values. The circles' sizes vary according to the data.</li>
+    </ul>
+    <p>When you open this HTML file in your web browser, you'll see a set of circles, each with a size determined by the data values. This demonstrates the concept of data binding and how D3.js can create data-driven visualizations.</p>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 4: Convolutional Neural Networks (CNNs)</title>
+</head>
+<body>
+    <h1>Lecture 13: Introduction to CNNs</h1>
+    <p>In this lecture, we provide an introduction to Convolutional Neural Networks (CNNs). CNNs are specialized deep learning models commonly used for image and spatial data processing. We discuss the motivation behind CNNs, their architecture, and how they differ from fully connected networks.</p>
+    <p><em>No code example in this lecture; it's an introductory discussion of CNNs.</em></p>
+    <h1>Lecture 14: Convolution and Pooling Layers</h1>
+    <p>In this lecture, we delve into the key components of CNNs: convolutional layers and pooling layers. We explain how convolution operations extract features from input images and how pooling layers downsample feature maps to reduce computational complexity.</p>
+    <pre>
+        <code class="python">
+# Example of a simple convolutional layer and max-pooling layer in Keras
+from tensorflow.keras.layers import Conv2D, MaxPooling2D
+# Create a sequential model
+model = Sequential()
+# Add a convolutional layer with 32 filters, a 3x3 kernel, and ReLU activation
+model.add(Conv2D(32, (3, 3), activation='relu', input_shape=(64, 64, 3)))
+# Add a max-pooling layer with a 2x2 pool size
+model.add(MaxPooling2D(pool_size=(2, 2)))
+        </code>
+    </pre>
+    <h1>Lecture 15: Building CNN Architectures</h1>
+    <p>In this lecture, we discuss how to build CNN architectures for specific tasks. We cover topics like stacking convolutional layers, using different activation functions, and designing deep CNNs. We also touch on techniques such as batch normalization.</p>
+    <pre>
+        <code class="python">
+# Example of building a custom CNN architecture in Keras
+from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
+# Create a sequential model
+model = Sequential()
+# Add a convolutional layer with 32 filters, a 3x3 kernel, and ReLU activation
+model.add(Conv2D(32, (3, 3), activation='relu', input_shape=(64, 64, 3)))
+# Add a max-pooling layer with a 2x2 pool size
+model.add(MaxPooling2D(pool_size=(2, 2)))
+# Add another convolutional layer with 64 filters and ReLU activation
+model.add(Conv2D(64, (3, 3), activation='relu'))
+# Add another max-pooling layer with a 2x2 pool size
+model.add(MaxPooling2D(pool_size=(2, 2)))
+# Flatten the feature maps for a fully connected layer
+model.add(Flatten())
+# Add a fully connected layer with 128 units and ReLU activation
+model.add(Dense(128, activation='relu'))
+# Add the output layer with the appropriate number of units and activation function for your task
+model.add(Dense(output_dim, activation='softmax'))
+        </code>
+    </pre>
+    <h1>Lecture 16: Applications of CNNs (Image Classification)</h1>
+    <p>In this lecture, we focus on one of the primary applications of CNNs: image classification. We discuss the architecture and training process of CNNs for image classification tasks. We also introduce datasets like CIFAR-10 and explain how to evaluate the performance of a CNN.</p>
+    <pre>
+        <code class="python">
+# Example of training a CNN for image classification using Keras (CIFAR-10 dataset)
+from tensorflow.keras.datasets import cifar10
+from tensorflow.keras.utils import to_categorical
+# Load the CIFAR-10 dataset
+(train_images, train_labels), (test_images, test_labels) = cifar10.load_data()
+# Preprocess the data (normalize and one-hot encode labels)
+train_images = train_images / 255.0
+test_images = test_images / 255.0
+train_labels = to_categorical(train_labels, num_classes=10)
+test_labels = to_categorical(test_labels, num_classes=10)
+# Build and compile a CNN model (similar to Lecture 15 example)
+# Train the model
+model.fit(train_images, train_labels, epochs=10, batch_size=64, validation_data=(test_images, test_labels))
+        </code>
+    </pre>
+</body>
+</html>

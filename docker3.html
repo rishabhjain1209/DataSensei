@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Module 3: Working with Containers</title>
+</head>
+<body>
+<h1>Creating and Running Containers:</h1>
+<p>To create and run containers, follow these steps:</p>
+<ol>
+    <li><strong>Pull or Build an Image:</strong> You can either pull an existing image from a registry (like Docker Hub) or build your own image using a Dockerfile.</li>
+    <li><strong>Run a Container:</strong> Use the <code>docker run</code> command to start a container based on an image. You can specify various options such as ports, volumes, and environment variables during container creation.</li>
+</ol>
+<p><strong>Example (running a basic Nginx web server container):</strong></p>
+<pre><code>docker run -d -p 8080:80 nginx</code></pre>
+<p>This command starts an Nginx container in detached mode (<code>-d</code>) and maps port 8080 on the host to port 80 in the container.</p>
+<h2>Docker Images and Containers:</h2>
+<ul>
+    <li><strong>Docker Images:</strong> Images are read-only templates that define containers. They are created from a Dockerfile and can be versioned and shared. You can list existing images with <code>docker images</code>.</li>
+    <li><strong>Docker Containers:</strong> Containers are running instances of Docker images. They have their own isolated environment and can be started, stopped, paused, and deleted. You can list running containers with <code>docker ps</code> and all containers (including stopped ones) with <code>docker ps -a</code>.</li>
+</ul>
+<h2>Container Lifecycle (Start, Stop, Pause, Delete):</h2>
+<ul>
+    <li><strong>Start:</strong> You can start a stopped container using <code>docker start &lt;container_id&gt;</code>.</li>
+    <li><strong>Stop:</strong> To stop a running container, you can use <code>docker stop &lt;container_id&gt;</code>.</li>
+    <li><strong>Pause and Unpause:</strong> Containers can be paused to temporarily stop their processes without actually stopping the container. Use <code>docker pause &lt;container_id&gt;</code> to pause and <code>docker unpause &lt;container_id&gt;</code> to resume.</li>
+    <li><strong>Delete:</strong> To remove a container, use <code>docker rm &lt;container_id&gt;</code>.</li>
+</ul>
+<h2>Container Networking:</h2>
+<p>Docker provides various options for networking containers, allowing them to communicate with each other and the outside world. By default, Docker containers can connect to the internet and each other using a private bridge network. Here's an overview of container networking:</p>
+<ul>
+    <li><strong>Bridge Network (Default):</strong> When you run a container, it's connected to a bridge network by default. Containers in the same bridge network can communicate with each other using their container names.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre><code>
+# Create two containers connected to the same bridge network
+docker run -d --name container1 nginx
+docker run -d --name container2 nginx
+# Containers can communicate using container names
+docker exec container1 ping container2
+</code></pre>
+<ul>
+    <li><strong>Host Network:</strong> You can run a container in the host network mode, where it shares the network namespace with the host. This gives the container full access to the host's network stack.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre><code>docker run -d --network host nginx</code></pre>
+<ul>
+    <li><strong>User-Defined Bridge Network:</strong> You can create your own bridge network and connect containers to it. This allows containers to communicate via container names within the same network.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre><code>
+# Create a custom bridge network
+docker network create my_network
+# Run containers in the custom network
+docker run -d --name container1 --network my_network nginx
+docker run -d --name container2 --network my_network nginx
+# Containers in the same network can communicate using container names
+docker exec container1 ping container2
+</code></pre>
+<p>These are some of the basic concepts and commands related to working with Docker containers, images, and networking. Docker offers more advanced networking features, such as overlay networks and macvlan, which allow for more complex network setups in containerized environments.</p>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 3: Compute Services</title>
+</head>
+<body>
+    <h1>AWS Lambda</h1>
+    <p>AWS Lambda is a serverless compute service that lets you run code in response to events without provisioning or managing servers. You can create Lambda functions that automatically scale in response to incoming traffic and execute code in various programming languages.</p>
+    <h2>Code Example (AWS Lambda - Creating a Simple Function):</h2>
+    <pre><code>
+# Python Lambda Function Example
+import json
+def lambda_handler(event, context):
+    message = "Hello, AWS Lambda!"
+    return {
+        'statusCode': 200,
+        'body': json.dumps(message)
+    }
+    </code></pre>
+    <p>This example shows a simple Python Lambda function that responds with a "Hello, AWS Lambda!" message when invoked. Lambda functions can be triggered by various AWS services, such as API Gateway, S3, or SNS.</p>
+    <h1>AWS Elastic Beanstalk</h1>
+    <p>AWS Elastic Beanstalk is a Platform-as-a-Service (PaaS) offering that simplifies deploying, managing, and scaling web applications and services. It supports various programming languages and web frameworks, allowing you to focus on your application code while AWS handles infrastructure management.</p>
+    <h2>Code Example (Elastic Beanstalk - Deploying a Node.js Application):</h2>
+    <ol>
+        <li>Create a Node.js application with a package.json file.</li>
+        <li>Install Elastic Beanstalk CLI (EB CLI).</li>
+        <li>Deploy the application using the EB CLI.</li>
+    </ol>
+    <pre><code>
+# Install EB CLI
+pip install awsebcli --upgrade --user
+# Create an Elastic Beanstalk environment
+eb init -p node.js my-node-app
+# Deploy the application to Elastic Beanstalk
+eb create my-node-env
+    </code></pre>
+    <p>This example demonstrates how to deploy a Node.js application to Elastic Beanstalk. Replace 'my-node-app' and 'my-node-env' with your application and environment names.</p>
+    <h1>Amazon ECS (Elastic Container Service)</h1>
+    <p>Amazon Elastic Container Service (Amazon ECS) is a highly scalable and flexible container management service. It allows you to run Docker containers in a fully managed environment, making it easy to build, deploy, and manage containerized applications.</p>
+    <h2>Code Example (Amazon ECS - Creating a Task Definition):</h2>
+    <pre><code>
+{
+  "family": "my-ecs-task",
+  "containerDefinitions": [
+    {
+      "name": "my-container",
+      "image": "nginx:latest",
+      "memory": 512,
+      "cpu": 256
+    }
+  ]
+}
+    </code></pre>
+    <p>This JSON snippet defines an ECS task definition named 'my-ecs-task' that uses the NGINX Docker image. You can use this task definition to run containers within an ECS cluster.</p>
+    <h1>AWS Auto Scaling</h1>
+    <p>AWS Auto Scaling helps you automatically adjust the number of EC2 instances in your application based on traffic demand. You can configure scaling policies to ensure that your application always has the right amount of resources to handle incoming traffic.</p>
+    <h2>Code Example (AWS Auto Scaling - Creating an Auto Scaling Group):</h2>
+    <pre><code>
+# Create an Auto Scaling group
+aws autoscaling create-auto-scaling-group \
+    --auto-scaling-group-name my-asg \
+    --launch-template LaunchTemplateName=my-launch-template \
+    --min-size 2 \
+    --max-size 5 \
+    --desired-capacity 3
+    </code></pre>
+    <p>In this example, an Auto Scaling group named 'my-asg' is created, specifying the minimum, maximum, and desired number of instances. Replace 'my-launch-template' with your launch template.</p>
+    <p>In this module, we've covered AWS compute services, including AWS Lambda for serverless functions, AWS Elastic Beanstalk for simplified web application deployment, Amazon ECS for container management, and AWS Auto Scaling for automatically adjusting resource capacity. Each service offers unique capabilities to meet your application's compute needs.</p>
+</body>
+</html>

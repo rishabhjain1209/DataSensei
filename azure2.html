@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Module 2: Getting Started with Azure</title>
+</head>
+<body>
+    <h1>Lesson 1: Creating an Azure Account</h1>
+    <p>Creating an Azure account is the first step in using Azure services. To create an Azure account, visit the <a href="https://portal.azure.com">Azure portal</a> and follow the registration process. You will need to provide payment information, but Azure often offers a free trial with a credit for new users.</p>  
+    <h2>Code Example (N/A):</h2>
+    <p>This lesson is about the account creation process, which doesn't involve coding.</p>
+    <h1>Lesson 2: Azure Portal Overview</h1>
+    <p>The Azure portal is a web-based interface for managing Azure resources. It provides a user-friendly dashboard for managing and monitoring your Azure services.</p>
+    <h2>Code Example (N/A):</h2>
+    <p>This lesson is about navigating and using the Azure portal, which doesn't involve coding.</p>
+    <h1>Lesson 3: Azure Resource Groups</h1>
+    <p>Azure Resource Groups are logical containers that help you manage and organize Azure resources. Resources within a resource group share the same lifecycle, permissions, and policies.</p>
+    <h2>Code Example (Azure CLI):</h2>
+    <p>You can create a resource group using the Azure CLI. Replace the placeholders with your specific information.</p>
+    <pre><code>
+# Create a new resource group
+az group create --name myResourceGroup --location eastus
+    </code></pre>
+    <h1>Lesson 4: Azure Subscriptions and Billing</h1>
+    <p>Azure Subscriptions are used to manage billing, access control, and resource organization. Understanding your subscription and its billing details is crucial to avoid unexpected charges.</p>
+    <h2>Code Example (Azure PowerShell):</h2>
+    <p>You can use Azure PowerShell to list your subscriptions and view details. First, authenticate to your Azure account using `Connect-AzAccount`, and then list subscriptions:</p>
+    <pre><code>
+# Authenticate to your Azure account
+Connect-AzAccount
+# List all subscriptions
+Get-AzSubscription
+    </code></pre>
+    <p>Remember to replace placeholders like 'myResourceGroup' and 'eastus' with your actual resource group name and desired location in the code example.</p>
+    <p>These lessons provide practical knowledge for getting started with Azure, from creating an account to understanding the Azure portal, managing resources using resource groups, and gaining insights into subscriptions and billing.</p>
+</body>
+</html>

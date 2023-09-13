@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Module 1: Introduction to Containerization</title>
+</head>
+<body>
+<h1>What is Containerization?</h1>
+<p>Containerization is a lightweight form of virtualization that allows you to package and run applications and their dependencies in isolated environments called containers. These containers are self-contained and portable, making it easier to develop, deploy, and manage software across different computing environments, such as development, testing, and production.</p>
+<h2>Benefits of Containerization:</h2>
+<ol>
+    <li><strong>Portability:</strong> Containers can run consistently across various environments, from your local development machine to production servers, ensuring that the application behaves the same way everywhere.</li>
+    <li><strong>Isolation:</strong> Each container is isolated from other containers and the host system, preventing conflicts between different applications and dependencies.</li>
+    <li><strong>Resource Efficiency:</strong> Containers share the host's operating system kernel, which reduces overhead and allows for efficient resource utilization.</li>
+    <li><strong>Rapid Deployment:</strong> Containers can be created and launched quickly, making it easier to scale applications up or down as needed.</li>
+    <li><strong>Version Control:</strong> Container images can be versioned, allowing you to roll back to a specific version if needed.</li>
+    <li><strong>Dependency Management:</strong> Containers encapsulate all dependencies, reducing compatibility issues and simplifying the software development process.</li>
+</ol>
+<h2>Docker and its Role in Containerization:</h2>
+<p><a href="https://www.docker.com/">Docker</a> is a widely used platform for containerization. It provides tools and services to create, deploy, and manage containers. Docker has played a pivotal role in popularizing containerization due to its simplicity and developer-friendly approach.</p>
+<h3>Docker Ecosystem Overview:</h3>
+<p>The Docker ecosystem consists of several key components:</p>
+<ol>
+    <li><strong>Docker Engine:</strong> The core of Docker, it allows you to create and run containers on your host system.</li>
+    <li><strong>Docker Hub:</strong> A cloud-based registry service where you can find and share container images. You can also host your own private registry.</li>
+    <li><strong>Docker Compose:</strong> A tool for defining and running multi-container applications using a YAML file. It simplifies the management of complex applications with multiple containers.</li>
+    <li><strong>Docker Swarm:</strong> A native clustering and orchestration solution for Docker. It allows you to create and manage a swarm of Docker nodes, making it easier to deploy and scale applications.</li>
+    <li><strong>Docker CLI:</strong> The command-line interface used to interact with Docker and manage containers.</li>
+</ol>
+<h3>Simple Docker Example:</h3>
+<pre><code>
+# Create a Dockerfile (e.g., "Dockerfile") in your project directory
+FROM ubuntu:20.04
+RUN apt-get update && apt-get install -y nginx
+CMD ["nginx", "-g", "daemon off;"]
+# Build the Docker image
+docker build -t my-nginx-image .
+# Run a container based on the image
+docker run -d -p 80:80 my-nginx-image
+</code></pre>
+<p>In this example:</p>
+<ul>
+    <li>We define a Dockerfile that specifies the base image (Ubuntu 20.04), installs the Nginx web server, and sets a command to start Nginx.</li>
+    <li>We build a Docker image from the Dockerfile.</li>
+    <li>We run a container based on the image, exposing port 80 of the container to port 80 of the host.</li>
+</ul>
+<p>This simple example demonstrates how Docker allows you to package an application and its dependencies into a container, making it portable and easy to manage.</p>
+</body>
+</html>

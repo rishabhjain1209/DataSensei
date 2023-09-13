@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 3: Building Deep Neural Networks</title>
+</head>
+<body>
+    <h1>Lecture 9: Architectural Components (Layers, Units, and Connections)</h1>
+    <p>In this lecture, we discuss the architectural components of deep neural networks. We explore the different types of layers (e.g., dense, convolutional, recurrent), the concept of neurons or units within a layer, and how these units are connected. Understanding the network's architecture is crucial for designing effective neural networks.</p>
+    <pre>
+        <code class="python">
+# Example of defining a simple feedforward neural network using Keras
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+# Create a Sequential model
+model = Sequential()
+# Add a dense (fully connected) layer with 64 units and ReLU activation
+model.add(Dense(64, activation='relu', input_shape=(input_dim,)))
+# Add another dense layer with 32 units and ReLU activation
+model.add(Dense(32, activation='relu'))
+# Add the output layer with the appropriate number of units and activation function for your task
+model.add(Dense(output_dim, activation='softmax'))
+# Compile the model with a loss function, optimizer, and metrics
+model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+# Print the model summary to view the architecture
+model.summary()
+        </code>
+    </pre>
+    <h1>Lecture 10: Loss Functions for Different Tasks</h1>
+    <p>In this lecture, we cover various loss functions used for different tasks in deep learning, such as mean squared error (MSE) for regression, categorical cross-entropy for classification, and more. We discuss when to use specific loss functions based on the problem you're trying to solve.</p>
+    <pre>
+        <code class="python">
+# Example of defining a custom loss function for regression in TensorFlow/Keras
+import tensorflow as tf
+# Define a custom mean squared error (MSE) loss function
+def custom_mse(y_true, y_pred):
+    return tf.reduce_mean(tf.square(y_true - y_pred))
+# Compile the model using the custom loss function
+model.compile(loss=custom_mse, optimizer='adam')
+        </code>
+    </pre>
+    <h1>Lecture 11: Regularization Techniques (Dropout, L1/L2 Regularization)</h1>
+    <p>In this lecture, we explore regularization techniques to prevent overfitting in deep neural networks. We discuss dropout, which randomly drops units during training, and L1/L2 regularization, which adds penalty terms to the loss function to encourage smaller weights.</p>
+    <pre>
+        <code class="python">
+# Example of adding dropout regularization to a Keras model
+from tensorflow.keras.layers import Dropout
+# Add a dropout layer with a specified dropout rate (e.g., 0.5)
+model.add(Dropout(0.5))
+        </code>
+    </pre>
+    <h1>Lecture 12: Weight Initialization</h1>
+    <p>In this lecture, we delve into the importance of weight initialization in neural networks. Proper weight initialization can significantly impact training stability and convergence. We discuss common initialization techniques like random initialization, Xavier/Glorot initialization, and He initialization.</p>
+    <pre>
+        <code class="python">
+# Example of using He initialization for weight initialization in Keras
+from tensorflow.keras.initializers import HeNormal
+# Define a dense layer with He initialization
+model.add(Dense(64, activation='relu', kernel_initializer=HeNormal()))
+        </code>
+    </pre>
+</body>
+</html>

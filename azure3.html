@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Module 3: Azure Virtual Machines (VMs)</title>
+</head>
+<body>
+    <h1>Lesson 1: Creating and Managing VMs</h1>
+    <p>In this lesson, you'll learn how to create and manage Azure Virtual Machines (VMs). VMs in Azure offer flexibility and scalability for running various workloads.</p>   
+    <h2>Code Example (Azure CLI):</h2>
+    <p>You can create a VM using the Azure CLI. Replace the placeholders with your specific information.</p>
+    <pre><code>
+# Create a VM
+az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --admin-username azureuser --generate-ssh-keys
+    </code></pre>
+    <h1>Lesson 2: Azure VM Storage</h1>
+    <p>Azure VMs rely on Azure Storage for their virtual hard disks (VHDs). Understanding Azure Storage is crucial for optimizing VM performance and durability.</p>
+    <h2>Code Example (Azure PowerShell):</h2>
+    <p>You can create a storage account for your VM using Azure PowerShell:</p>
+    <pre><code>
+# Create a storage account
+New-AzStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location eastus -SkuName Standard_LRS
+    </code></pre>
+    <h1>Lesson 3: VM Networking</h1>
+    <p>Azure VMs need network configurations for communication and security. This lesson covers aspects like virtual networks, subnets, and network security groups.</p>
+    <h2>Code Example (Azure CLI):</h2>
+    <p>Create a virtual network and a subnet using the Azure CLI:</p>
+    <pre><code>
+# Create a virtual network
+az network vnet create --resource-group myResourceGroup --name myVNet --address-prefix 10.0.0.0/16 --subnet-name mySubnet --subnet-prefix 10.0.0.0/24
+    </code></pre>
+    <h1>Lesson 4: VM Backup and Recovery</h1>
+    <p>Azure offers robust backup and recovery options for VMs. You'll learn about Azure Backup and how to protect your VMs.</p>
+    <h2>Code Example (Azure CLI):</h2>
+    <p>Enable backup for a VM using the Azure CLI:</p>
+    <pre><code>
+# Enable backup for a VM
+az backup protection enable-for-vm --resource-group myResourceGroup --vault-name myBackupVault --vm myVM
+    </code></pre>
+    <p>These lessons provide essential knowledge for working with Azure Virtual Machines (IaaS), from creating and managing VMs, understanding Azure VM storage, configuring VM networking, and implementing VM backup and recovery strategies. The provided code examples demonstrate how to perform these tasks using Azure CLI or PowerShell.</p>
+</body>
+</html>

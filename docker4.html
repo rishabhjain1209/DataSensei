@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Module 4: Docker Images</title>
+</head>
+<body>
+<h1>Building Custom Docker Images:</h1>
+<p>Building custom Docker images allows you to create containers tailored to your specific application requirements. You typically use a <strong>Dockerfile</strong> to define the image's contents and configuration. Here are the steps to build a custom Docker image:</p>
+<ol>
+    <li><strong>Create a Dockerfile:</strong> Create a plain text file named <code>Dockerfile</code> in your project directory.</li>
+    <li><strong>Define the Base Image:</strong> Start your Dockerfile with a <code>FROM</code> statement, specifying the base image you want to use. For example, if you need an image with Python and Ubuntu, you can use:</li>
+</ol>
+<pre><code>FROM ubuntu:20.04</code></pre>
+<ol start="3">
+    <li><strong>Add Application Code:</strong> Use <code>COPY</code> or <code>ADD</code> statements to copy your application code and files into the image.</li>
+</ol>
+<pre><code>COPY . /app</code></pre>
+<ol start="4">
+    <li><strong>Install Dependencies:</strong> Use <code>RUN</code> statements to execute commands within the image. For example, to install Python and dependencies:</li>
+</ol>
+<pre><code>RUN apt-get update && apt-get install -y python3 python3-pip</code></pre>
+<ol start="5">
+    <li><strong>Specify Container Startup Command:</strong> Use <code>CMD</code> or <code>ENTRYPOINT</code> to specify the command to run when the container starts. For example, to run a Python script:</li>
+</ol>
+<pre><code>CMD ["python3", "app.py"]</code></pre>
+<ol start="6">
+    <li><strong>Build the Image:</strong> Run the <code>docker build</code> command to build the image based on your Dockerfile. The <code>-t</code> flag allows you to tag the image with a name and optionally a version.</li>
+</ol>
+<pre><code>docker build -t my-app:1.0 .</code></pre>
+<h2>Dockerfile Syntax and Best Practices:</h2>
+<ul>
+    <li><strong>Layering:</strong> Each instruction in a Dockerfile creates a new layer in the image. To minimize image size, group related commands together and use multi-line <code>RUN</code> statements to reduce the number of layers.</li>
+    <li><strong>.dockerignore:</strong> Create a <code>.dockerignore</code> file to exclude unnecessary files and directories from being copied into the image. Similar to <code>.gitignore</code>, this helps reduce image size.</li>
+    <li><strong>Keep Images Clean:</strong> Remove unnecessary files and caches in the same <code>RUN</code> instruction to reduce image size. For example:</li>
+</ul>
+<pre><code>RUN apt-get update && apt-get install -y python3 && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*</code></pre>
+<ul>
+    <li><strong>Use Specific Base Images:</strong> Specify a specific version of the base image to ensure consistency and avoid unexpected changes in future pulls.</li>
+</ul>
+<h1>Pushing and Pulling Images from Docker Hub:</h1>
+<p>After building a custom Docker image, you can share it with others by pushing it to a container registry like Docker Hub. Here are the basic steps:</p>
+<ol>
+    <li><strong>Login to Docker Hub:</strong> Use <code>docker login</code> to authenticate with your Docker Hub account.</li>
+</ol>
+<pre><code>docker login</code></pre>
+<ol start="2">
+    <li><strong>Tag the Image:</strong> Tag your custom image with your Docker Hub username/repository and version.</li>
+</ol>
+<pre><code>docker tag my-app:1.0 yourusername/my-app:1.0</code></pre>
+<ol start="3">
+    <li><strong>Push the Image:</strong> Use <code>docker push</code> to upload the image to Docker Hub.</li>
+</ol>
+<pre><code>docker push yourusername/my-app:1.0</code></pre>
+<p>To pull an image from Docker Hub, you can use <code>docker pull</code>:</p>
+<pre><code>docker pull yourusername/my-app:1.0</code></pre>
+<h2>Managing Images (Tagging, Versioning):</h2>
+<ul>
+    <li><strong>Tagging:</strong> Tags are used to identify different versions of an image. When building an image, use the <code>-t</code> flag to specify the image name and version.</li>
+</ul>
+<pre><code>docker build -t my-app:1.0 .</code></pre>
+<ul>
+    <li><strong>Versioning:</strong> You can create different versions of your image by changing the tag. For example, you can have <code>my-app:1.0</code>, <code>my-app:1.1</code>, and so on. This allows you to track and deploy specific versions of your application.</li>
+    <li><strong>Listing Images:</strong> To list all downloaded and built images, use <code>docker images</code>.</li>
+    <li><strong>Removing Images:</strong> To remove an image, use <code>docker rmi &lt;image_name&gt;</code>.</li>
+</ul>
+<pre><code>docker rmi my-app:1.0</code></pre>
+<p>These practices and commands help you efficiently build, manage, and share custom Docker images for your applications. Remember to follow best practices for image versioning and naming to ensure clarity and consistency.</p>
+</body>
+</html>

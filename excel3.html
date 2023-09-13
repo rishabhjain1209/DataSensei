@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Week 3: Data Management and Sorting in Excel</h1>
+    <h2>Topic 1: Managing Data with Filters</h2>
+    <p>Filters allow you to quickly analyze and manage data by displaying only the information that meets specific criteria. Here's an example of applying and clearing filters programmatically:</p>
+    <pre><code>' Apply a filter to a range of data
+xlWorksheet.Range("A1:D10").AutoFilter Field:=1, Criteria1:="Apples"
+' Clear filters to show all data again
+xlWorksheet.AutoFilterMode = False
+</code></pre>
+    <h2>Topic 2: Sorting Data</h2>
+    <p>Sorting data helps you organize information in ascending or descending order based on specific columns. Here's an example of sorting a range of data:</p>
+    <pre><code>' Sort data in ascending order based on column A
+xlWorksheet.Range("A1:D10").Sort Key1:=xlWorksheet.Range("A1"), Order1:=Excel.XlSortOrder.xlAscending
+</code></pre>
+    <h2>Topic 3: Using AutoFill and Flash Fill</h2>
+    <p>AutoFill is used to fill a series of data automatically, while Flash Fill helps extract or transform data based on patterns. Here's an example:</p>
+    <pre><code>' AutoFill a series of numbers in a column
+xlWorksheet.Range("A1").Value = 1
+xlWorksheet.Range("A2").AutoFill(Destination:=xlWorksheet.Range("A2:A10"), Type:=Excel.XlAutoFillType.xlFillSeries)
+' Use Flash Fill to extract first names from a full name column
+xlWorksheet.Range("B1").Value = "John Doe"
+xlWorksheet.Range("B2").Formula = "=FLASHFILL(A2)"
+</code></pre>
+    <h2>Topic 4: Data Validation</h2>
+    <p>Data validation ensures that data entered in cells meets specified criteria. Here's an example of setting up data validation for a range of cells:</p>
+    <pre><code>' Set data validation for a range (allow only numbers between 1 and 100)
+With xlWorksheet.Range("C1:C10").Validation
+    .Delete
+    .Add Type:=Excel.XlDVType.xlValidateWholeNumber, AlertStyle:=Excel.XlDVAlertStyle.xlValidAlertStop, Operator:= _
+    Excel.XlFormatConditionOperator.xlBetween, Formula1:="1", Formula2:="100"
+    .IgnoreBlank = True
+    .InCellDropdown = True
+    .ShowInput = True
+    .ShowError = True
+End With
+</code></pre>
+    <h2>Topic 5: Conditional Formatting</h2>
+    <p>Conditional formatting allows you to format cells based on specific conditions or rules. Here's an example of applying conditional formatting to highlight values greater than 50 in a range:</p>
+    <pre><code>' Apply conditional formatting to highlight values > 50 with a yellow background
+xlWorksheet.Range("D1:D10").FormatConditions.Add Type:=Excel.XlFormatConditionType.xlCellValue, Operator:= _
+    Excel.XlFormatConditionOperator.xlGreater, Formula1:="50"
+xlWorksheet.Range("D1:D10").FormatConditions(1).Interior.Color = RGB(255, 255, 0)
+</code></pre>
+    <p>These code examples cover the key aspects of data management with filters, sorting data, using AutoFill and Flash Fill for data manipulation, setting up data validation rules, and applying conditional formatting in Excel. These skills are essential for efficiently managing and analyzing data in spreadsheets.</p>
+</body>
+</html>

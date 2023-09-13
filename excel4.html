@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Week 4: Advanced Functions and Formulas in Excel</h1>
+    <h2>Topic 1: IF, SUMIF, COUNTIF Functions</h2>
+    <p><strong>IF Function:</strong> The IF function allows you to perform conditional calculations. It returns one value if a condition is true and another value if it's false.</p>
+    <pre><code>' Use the IF function to calculate a bonus based on sales
+xlWorksheet.Cells(1, 1).Formula = "=IF(B1>10000, 1000, 500)"
+</code></pre>
+    <p><strong>SUMIF Function:</strong> The SUMIF function calculates the sum of values in a range that meet a specific condition.</p>
+    <pre><code>' Use the SUMIF function to calculate the total sales of a specific product
+xlWorksheet.Cells(2, 1).Formula = "=SUMIF(A1:A10, 'Product A', B1:B10)"
+</code></pre>
+    <p><strong>COUNTIF Function:</strong> The COUNTIF function counts the number of cells in a range that meet a specific condition.</p>
+    <pre><code>' Use the COUNTIF function to count the number of employees with sales > 5000
+xlWorksheet.Cells(3, 1).Formula = "=COUNTIF(B1:B10, '>5000')"
+</code></pre>
+    <h2>Topic 2: VLOOKUP and HLOOKUP Functions</h2>
+    <p><strong>VLOOKUP Function:</strong> The VLOOKUP function searches for a value in the first column of a table and returns a corresponding value from a specified column.</p>
+    <pre><code>' Use the VLOOKUP function to find the price of a product based on its code
+xlWorksheet.Cells(4, 1).Formula = "=VLOOKUP('Product Code', A1:B10, 2, FALSE)"
+</code></pre>
+    <p><strong>HLOOKUP Function:</strong> The HLOOKUP function is similar to VLOOKUP but searches for a value in the first row of a table and returns a corresponding value from a specified row.</p>
+    <pre><code>' Use the HLOOKUP function to find the total sales for a specific month
+xlWorksheet.Cells(5, 1).Formula = "=HLOOKUP('Jan', A1:D2, 2, FALSE)"
+</code></pre>
+    <h2>Topic 3: Text Functions (CONCATENATE, LEFT, RIGHT, MID)</h2>
+    <p><strong>CONCATENATE Function:</strong> The CONCATENATE function combines multiple text strings into one.</p>
+    <pre><code>' Use the CONCATENATE function to combine first name and last name
+xlWorksheet.Cells(6, 1).Formula = "=CONCATENATE('John', ' ', 'Doe')"
+</code></pre>
+    <p><strong>LEFT Function:</strong> The LEFT function extracts a specified number of characters from the beginning of a text string.</p>
+    <pre><code>' Use the LEFT function to get the first 3 characters of a text
+xlWorksheet.Cells(7, 1).Formula = "=LEFT('Hello, World!', 3)"
+</code></pre>
+    <p><strong>RIGHT Function:</strong> The RIGHT function extracts a specified number of characters from the end of a text string.</p>
+    <pre><code>' Use the RIGHT function to get the last 5 characters of a text
+xlWorksheet.Cells(8, 1).Formula = "=RIGHT('Excel is fun', 5)"
+</code></pre>
+    <p><strong>MID Function:</strong> The MID function extracts a specified number of characters from a text string, starting at a specified position.</p>
+    <pre><code>' Use the MID function to extract "Excel" from the text
+xlWorksheet.Cells(9, 1).Formula = "=MID('Microsoft Excel', 11, 5)"
+</code></pre>
+    <h2>Topic 4: Date and Time Functions</h2>
+    <p>Excel offers various date and time functions to work with date and time values. Here's an example of using the TODAY and NOW functions:</p>
+    <pre><code>' Use the TODAY function to display the current date
+xlWorksheet.Cells(10, 1).Formula = "=TODAY()"
+' Use the NOW function to display the current date and time
+xlWorksheet.Cells(11, 1).Formula = "=NOW()"
+</code></pre>
+    <h2>Topic 5: Logical Functions (AND, OR, NOT)</h2>
+    <p>Logical functions help evaluate logical conditions in Excel. Here's an example of using the AND, OR, and NOT functions:</p>
+    <pre><code>' Use the AND function to check if both conditions are true
+xlWorksheet.Cells(12, 1).Formula = "=AND(B1>10, C1<20)"
+' Use the OR function to check if at least one condition is true
+xlWorksheet.Cells(13, 1).Formula = "=OR(D1>30, E1<5)"
+' Use the NOT function to reverse the result of a condition
+xlWorksheet.Cells(14, 1).Formula = "=NOT(F1=0)"
+</code></pre>
+    <p>These code examples cover the use of advanced functions and formulas in Excel, including IF, SUMIF, COUNTIF, VLOOKUP, HLOOKUP, text functions (CONCATENATE, LEFT, RIGHT, MID), date and time functions (TODAY, NOW), and logical functions (AND, OR, NOT). These functions are essential for performing complex calculations and data manipulations in Excel.</p>
+</body>
+</html>

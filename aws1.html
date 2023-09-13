@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 1: Introduction to Cloud Computing and AWS</title>
+</head>
+<body>
+    <h1>Understanding Cloud Computing Concepts</h1>
+    <p>Cloud computing is a technology that allows you to access and use computing resources, such as servers, storage, databases, networking, software, and more, over the internet. These resources are hosted and managed by cloud service providers in data centers around the world. Cloud computing offers several benefits, including scalability, cost-efficiency, and flexibility.</p>
+    <h2>Code Example (Python - Using Boto3 to Interact with AWS):</h2>
+    <pre><code>
+import boto3
+# Create an S3 client
+s3 = boto3.client('s3')
+# List all S3 buckets
+response = s3.list_buckets()
+print("List of S3 Buckets:")
+for bucket in response['Buckets']:
+    print(f'- {bucket["Name"]}')
+    </code></pre>
+    <h1>AWS as a Cloud Service Provider</h1>
+    <p>Amazon Web Services (AWS) is one of the leading cloud service providers in the world. AWS offers a wide range of cloud services and solutions, including computing power, storage, databases, machine learning, analytics, and more. AWS provides these services on a pay-as-you-go basis, allowing organizations to scale their infrastructure as needed.</p>
+    <h2>Code Example (AWS CLI - Listing EC2 Instances):</h2>
+    <pre><code>
+# List all EC2 instances in your AWS account
+aws ec2 describe-instances
+    </code></pre>
+    <h1>AWS Global Infrastructure and Regions</h1>
+    <p>AWS has a global network of data centers located in various geographical regions around the world. Each region consists of multiple Availability Zones (AZs) that are physically separate data centers within the same region. This infrastructure is designed for high availability and fault tolerance.</p>
+    <h2>Code Example (AWS CLI - Listing AWS Regions):</h2>
+    <pre><code>
+# List all AWS regions
+aws ec2 describe-regions
+    </code></pre>
+    <h1>AWS Free Tier and Account Setup</h1>
+    <p>AWS offers a Free Tier that allows new customers to use a limited set of AWS services for free within certain usage limits. To get started with AWS, you need to create an AWS account and set up your billing information. AWS Free Tier helps you explore and experiment with AWS services at no cost.</p>
+    <h2>Code Example (AWS CLI - Creating an AWS IAM User):</h2>
+    <pre><code>
+# Create an IAM user (replace 'USERNAME' with your desired username)
+aws iam create-user --user-name USERNAME
+    </code></pre>
+    <p>Remember to replace 'USERNAME' with your preferred username when running the code example.</p>
+    <p>In this module, we've introduced cloud computing concepts, highlighted AWS as a cloud service provider, discussed AWS's global infrastructure and regions, and explained the AWS Free Tier along with a code example for each topic. This foundation will help you dive deeper into AWS services and how to use them effectively.</p>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Creating Views for Handling HTTP Requests</h1>
+    <p>Views in Django are responsible for processing HTTP requests and returning HTTP responses. Views are Python functions that take a request as an argument and return a response. Here's an example of creating a view to display a list of posts:</p>
+    <pre><code>from django.shortcuts import render
+from .models import Post
+def post_list(request):
+    posts = Post.objects.all()
+    return render(request, 'post_list.html', {'posts': posts})
+</code></pre>
+    <p>In this example, the <code>post_list</code> view retrieves all posts from the database and passes them to the <code>post_list.html</code> template for rendering.</p>
+    <h2>Rendering Templates for Dynamic Content</h2>
+    <p>Templates in Django are responsible for rendering HTML dynamically. They allow you to mix HTML with template tags and variables to display data from views. Here's an example of a simple template (<code>post_list.html</code>) that displays a list of posts:</p>
+    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Post List&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Post List&lt;/h1&gt;
+    &lt;ul&gt;
+        {% for post in posts %}
+        &lt;li&gt;{{ post.title }}&lt;/li&gt;
+        {% endfor %}
+    &lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    <p>In this template, <code>{% for post in posts %}</code> is a template tag that iterates over the <code>posts</code> variable passed from the view and displays each post's title.</p>
+    <h2>URL Routing and Mapping Views</h2>
+    <p>To map views to specific URLs, you need to define URL patterns in Django's <code>urls.py</code> file. Here's an example of how to create URL patterns for the <code>post_list</code> view:</p>
+    <pre><code>from django.urls import path
+from . import views
+urlpatterns = [
+    path('posts/', views.post_list, name='post_list'),
+]
+</code></pre>
+    <p>In this example, when a user visits the URL <code>/posts/</code>, Django will invoke the <code>post_list</code> view to handle the request.</p>
+    <h2>Building a Basic CRUD (Create, Read, Update, Delete) Application</h2>
+    <p>To create a basic CRUD application, you'll need views and templates for each CRUD operation. Let's create views and templates for creating and reading posts:</p>
+    <h3>Create View and Template:</h3>
+    <p>View (<code>views.py</code>):</p>
+    <pre><code>from django.shortcuts import render, redirect
+from .models import Post
+from .forms import PostForm
+def create_post(request):
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('post_list')
+    else:
+        form = PostForm()
+    return render(request, 'create_post.html', {'form': form})
+</code></pre>
+    <p>Template (<code>create_post.html</code>):</p>
+    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Create Post&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Create Post&lt;/h1&gt;
+    &lt;form method="post"&gt;
+        {% csrf_token %}
+        {{ form.as_p }}
+        &lt;button type="submit"&gt;Create&lt;/button&gt;
+    &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    <h3>Read View and Template (post_list is already defined above):</h3>
+    <p>Now, you can create URLs for these views in your <code>urls.py</code>:</p>
+    <pre><code>from django.urls import path
+from . import views
+urlpatterns = [
+    path('posts/', views.post_list, name='post_list'),
+    path('posts/create/', views.create_post, name='create_post'),
+]
+</code></pre>
+    <p>With these views and templates, you can list posts at <code>/posts/</code> and create new posts at <code>/posts/create/</code>. You can similarly create views and templates for updating and deleting posts to complete the CRUD application.</p>
+    <p>This module equips you with the knowledge and practical skills to create views, render templates, handle URL routing, and build basic CRUD functionality in your Django application.</p>
+</body>
+</html>

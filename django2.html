@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Defining Models and Relationships</h1>
+    <p>In Django, models are used to define the structure of your database tables. Each model corresponds to a table, and each field within the model class corresponds to a column in that table. Additionally, you can define relationships between models to represent complex data structures.</p>
+    <h2>Example of Defining Models with Relationships</h2>
+    <pre><code>from django.db import models
+# Define a model for a User
+class User(models.Model):
+    username = models.CharField(max_length=100)
+    email = models.EmailField()
+# Define a model for a Post with a ForeignKey relationship to User
+class Post(models.Model):
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    pub_date = models.DateTimeField('date published')
+</code></pre>
+    <p>In this example, we have two models: <code>User</code> and <code>Post</code>. The <code>Post</code> model has a <code>ForeignKey</code> relationship with the <code>User</code> model, indicating that each post is associated with a specific user.</p>
+    <h2>Creating Database Tables with Migrations</h2>
+    <p>After defining your models, you need to create database tables to store your data. Django provides a powerful tool called migrations to automate this process. Here are the steps to create and apply migrations:</p>
+    <ol>
+        <li>Create an initial migration for your app:</li>
+    </ol>
+    <pre><code>python manage.py makemigrations appname</code></pre>
+    <ol start="2">
+        <li>Apply the migrations to create the database tables:</li>
+    </ol>
+    <pre><code>python manage.py migrate</code></pre>
+    <p>Django will generate SQL statements based on your model definitions and execute them to create the database tables.</p>
+    <h2>Admin Interface for Managing Data</h2>
+    <p>Django includes a built-in admin interface that allows you to manage your application's data without writing custom views or forms. To enable the admin interface for your models, you'll need to create an admin.py file within your app and register your models.</p>
+    <pre><code>from django.contrib import admin
+from .models import User, Post
+# Register your models with the admin site
+admin.site.register(User)
+admin.site.register(Post)
+</code></pre>
+    <p>Once your models are registered, you can access the admin interface by running:</p>
+    <pre><code>python manage.py createsuperuser</code></pre>
+    <p>This command allows you to create an admin user with access to the admin interface. Afterward, you can log in to the admin interface in your web browser to manage your application's data.</p>
+    <h2>Querying the Database with Django ORM</h2>
+    <p>Django provides a powerful Object-Relational Mapping (ORM) system that allows you to query the database using Python rather than writing raw SQL queries. Here are some common query examples:</p>
+    <ul>
+        <li><strong>Retrieve all posts by a specific user</strong>:</li>
+    </ul>
+    <pre><code>user = User.objects.get(username='example_user')
+posts = Post.objects.filter(author=user)
+</code></pre>
+    <ul>
+        <li><strong>Retrieve the latest 5 posts</strong>:</li>
+    </ul>
+    <pre><code>latest_posts = Post.objects.order_by('-pub_date')[:5]
+</code></pre>
+    <ul>
+        <li><strong>Count the number of posts by a user</strong>:</li>
+    </ul>
+    <pre><code>user = User.objects.get(username='example_user')
+post_count = Post.objects.filter(author=user).count()
+</code></pre>
+    <p>These are just a few examples of how you can use the Django ORM to interact with your database. The ORM provides a high-level, Pythonic way to work with your data, making database operations more readable and maintainable.</p>
+    <p>By mastering these concepts in Module 2, you'll be well-equipped to create and manage your application's data using Django.</p>
+</body>
+</html>

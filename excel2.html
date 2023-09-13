@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Week 2: Basic Formatting and Cell Functions in Excel</h1>
+    <h2>Topic 1: Formatting Cells and Text</h2>
+    <p>Excel offers various formatting options to enhance the appearance of cells and text. You can change fonts, apply colors, adjust alignment, and more. Here's a code example for cell formatting:</p>
+    <pre><code>' Format a cell with bold text and a background color
+xlWorksheet.Cells(1, 1).Font.Bold = True
+xlWorksheet.Cells(1, 1).Interior.Color = RGB(255, 0, 0) ' Red color
+' Align text horizontally and vertically
+xlWorksheet.Cells(1, 1).HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter
+xlWorksheet.Cells(1, 1).VerticalAlignment = Excel.XlVAlign.xlVAlignCenter
+</code></pre>
+    <h2>Topic 2: Using Basic Formulas (SUM, AVERAGE, MAX, MIN)</h2>
+    <p>Excel provides built-in functions like SUM, AVERAGE, MAX, and MIN to perform calculations on data. Here's how you can use these functions:</p>
+    <pre><code>' Insert data in cells
+xlWorksheet.Cells(2, 2).Value = 10
+xlWorksheet.Cells(2, 3).Value = 20
+xlWorksheet.Cells(2, 4).Value = 30
+' Calculate the sum of values in a range
+xlWorksheet.Cells(3, 2).Formula = "=SUM(B2:D2)"
+' Calculate the average of values in a range
+xlWorksheet.Cells(3, 3).Formula = "=AVERAGE(B2:D2)"
+' Find the maximum value in a range
+xlWorksheet.Cells(3, 4).Formula = "=MAX(B2:D2)"
+' Find the minimum value in a range
+xlWorksheet.Cells(3, 5).Formula = "=MIN(B2:D2)"
+</code></pre>
+    <h2>Topic 3: Understanding Relative and Absolute Cell References</h2>
+    <p>Relative and absolute cell references are crucial when working with formulas. Relative references adjust as you copy them, while absolute references stay constant. Here's an example:</p>
+    <pre><code>' Relative reference: B2 will change if copied to another cell
+xlWorksheet.Cells(4, 2).Formula = "=B2 + 5"
+' Absolute reference: $B$2 will not change if copied to another cell
+xlWorksheet.Cells(4, 3).Formula = "=$B$2 + 5"
+</code></pre>
+    <h2>Topic 4: Managing Rows and Columns</h2>
+    <p>You can insert, delete, or modify rows and columns in Excel programmatically. Here's an example of inserting a row and deleting a column:</p>
+    <pre><code>' Insert a row at row 5
+xlWorksheet.Rows(5).Insert()
+' Delete column C
+xlWorksheet.Columns(3).Delete()
+</code></pre>
+    <h2>Topic 5: Printing and Page Setup</h2>
+    <p>You can control printing settings and page layout using Excel VBA. Here's an example of setting the print area and printing:</p>
+    <pre><code>' Set the print area to a specific range
+xlWorksheet.PageSetup.PrintArea = xlWorksheet.Range("A1:E10").Address
+' Set the page orientation to landscape
+xlWorksheet.PageSetup.Orientation = Excel.XlPageOrientation.xlLandscape
+' Print the worksheet
+xlWorksheet.PrintOut()
+</code></pre>
+    <p>These code examples cover key aspects of basic formatting, using common Excel functions, understanding cell references, managing rows and columns, and configuring printing settings in Excel. These skills are fundamental for working with Excel efficiently and effectively.</p>
+</body>
+</html>

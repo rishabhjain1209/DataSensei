@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 1: Introduction to Data Visualization and D3.js</title>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+</head>
+<body>
+    <h1>Week 1: Introduction to Data Visualization and D3.js</h1>
+    <h2>Introduction to Data Visualization:</h2>
+    <p>Data visualization is the graphical representation of data and information. It allows individuals and organizations to understand complex datasets, identify patterns, and make data-driven decisions. Effective data visualization can simplify the communication of data insights and make data more accessible and understandable.</p>
+    <h2>What is D3.js?</h2>
+    <p>D3.js, which stands for Data-Driven Documents, is a JavaScript library that is widely used for creating dynamic and interactive data visualizations in web browsers. It was created by Mike Bostock and is open-source, making it a popular choice among developers and data scientists for building custom data visualizations.</p>
+    <p>D3.js provides a powerful set of tools for binding data to HTML or SVG elements and then applying data-driven transformations to those elements. With D3.js, you can create a wide range of visualizations, from simple bar charts to complex interactive maps.</p>
+    <h2>Setting up the Development Environment:</h2>
+    <ol>
+        <li><strong>Text Editor/IDE:</strong> Choose a code editor or integrated development environment (IDE) to write your JavaScript and HTML code. Popular choices include Visual Studio Code, Sublime Text, and Atom.</li>
+        <li><strong>Web Browser:</strong> You'll need a web browser to view and interact with your D3.js visualizations. Google Chrome or Mozilla Firefox are commonly used for development.</li>
+        <li><strong>D3.js Library:</strong> Download the D3.js library or include it from a content delivery network (CDN) in your HTML file. Here's an example of how to include D3.js using a CDN in your HTML file:
+            <pre>
+&lt;script src="https://d3js.org/d3.v6.min.js"&gt;&lt;/script&gt;
+            </pre>
+        </li>
+        <li><strong>Local Server (Optional):</strong> If you plan to work with data files or want to serve your visualization locally, you may want to set up a local server. You can use tools like Node.js with Express or Python's SimpleHTTPServer.</li>
+    </ol>
+    <h2>First D3.js Example: Creating an SVG Element</h2>
+    <h3>HTML File (index.html):</h3>
+    <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;D3.js Example&lt;/title&gt;
+    &lt;script src="https://d3js.org/d3.v6.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;First D3.js Example&lt;/h1&gt;
+    &lt;div id="visualization"&gt;&lt;/div&gt;
+    &lt;script&gt;
+        // D3.js code goes here
+        const svg = d3.select("#visualization")
+            .append("svg")
+            .attr("width", 400)
+            .attr("height", 300);
+        const circle = svg.append("circle")
+            .attr("cx", 200)
+            .attr("cy", 150)
+            .attr("r", 50)
+            .style("fill", "blue");
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+    </pre>
+    <p>In this example:</p>
+    <ul>
+        <li>We include the D3.js library using a &lt;script&gt; tag.</li>
+        <li>Inside the &lt;body&gt; of the HTML document, we create a &lt;div&gt; element with the id "visualization" where our SVG will be placed.</li>
+        <li>In the &lt;script&gt; section, we use D3.js to select the "#visualization" div and append an SVG element to it. We set the width and height of the SVG and create a blue circle within it.</li>
+    </ul>
+    <p>When you open this HTML file in your web browser, you'll see a blue circle inside the specified SVG element. This is a basic example of using D3.js to create and manipulate SVG elements for data visualization.</p>
+</body>
+</html>

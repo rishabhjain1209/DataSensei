@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 2: Backpropagation and Optimization</title>
+</head>
+<body>
+    <h1>Lecture 5: Gradient Descent and Optimization</h1>
+    <p>In this lecture, we explore the fundamental optimization technique used in training neural networks: gradient descent. We'll discuss how gradient descent works, the role of learning rates, and variations such as stochastic gradient descent (SGD) and mini-batch gradient descent. Understanding these concepts is crucial for efficiently training deep neural networks.</p>
+    <pre>
+        <code class="python">
+# Example of gradient descent for a simple cost function
+import numpy as np
+# Define a simple quadratic cost function (e.g., for illustration purposes)
+def cost_function(x):
+    return x**2
+# Define the derivative (gradient) of the cost function
+def gradient(x):
+    return 2 * x
+# Initialize the starting point for optimization
+x = 4.0
+learning_rate = 0.1
+# Perform gradient descent iterations
+for _ in range(10):
+    gradient_value = gradient(x)
+    x = x - learning_rate * gradient_value
+    print("x:", x, "Cost:", cost_function(x))
+        </code>
+    </pre>
+    <h1>Lecture 6: Backpropagation Algorithm</h1>
+    <p>In this lecture, we introduce the backpropagation algorithm, which is the cornerstone of training deep neural networks. We'll explain how backpropagation computes gradients for each layer in a neural network, allowing us to update the network's weights and biases to minimize the loss function.</p>
+    <pre>
+        <code class="python">
+# Example of backpropagation for a simple neural network
+import numpy as np
+# Define the inputs and target output
+inputs = np.array([0.5, 0.7])
+target_output = 0.9
+# Initialize weights and biases for a single neuron
+weights = np.array([0.3, 0.2])
+bias = 0.1
+# Define the learning rate
+learning_rate = 0.1
+# Perform forward propagation
+weighted_sum = np.dot(inputs, weights) + bias
+output = weighted_sum  # For simplicity, we omit activation function
+# Compute the error (difference between target and actual output)
+error = target_output - output
+# Compute gradients using backpropagation
+weight_gradient = -2 * error * inputs
+bias_gradient = -2 * error
+# Update weights and bias using gradient descent
+weights -= learning_rate * weight_gradient
+bias -= learning_rate * bias_gradient
+print("Updated Weights:", weights)
+print("Updated Bias:", bias)
+        </code>
+    </pre>
+    <h1>Lecture 7: Activation Functions</h1>
+    <p>In this lecture, we delve into various activation functions used in neural networks, including the sigmoid, ReLU (Rectified Linear Unit), and others. We discuss the properties of each activation function and when to use them in different network architectures.</p>
+    <pre>
+        <code class="python">
+# Example of ReLU activation function
+import numpy as np
+# Define the ReLU activation function
+def relu(x):
+    return np.maximum(0, x)
+# Apply ReLU to an array of values
+input_data = np.array([-1, 0, 1, 2, 3])
+output_data = relu(input_data)
+print("Output after ReLU:", output_data)
+        </code>
+    </pre>
+    <h1>Lecture 8: Vanishing and Exploding Gradients</h1>
+    <p>In this lecture, we address the challenges of vanishing and exploding gradients during training. We'll discuss how these issues can hinder the training of deep neural networks and explore techniques such as weight initialization and gradient clipping to mitigate them.</p>
+    <pre>
+        <code class="python">
+# Example of gradient clipping to prevent exploding gradients
+import numpy np
+# Define the gradient values
+gradients = np.array([0.9, 1.2, 3.5, 5.0, 6.2])
+# Set a threshold for gradient clipping
+clip_threshold = 3.0
+# Clip the gradients to the threshold
+clipped_gradients = np.clip(gradients, -clip_threshold, clip_threshold)
+print("Original Gradients:", gradients)
+print("Clipped Gradients:", clipped_gradients)
+        </code>
+    </pre>
+</body>
+</html>

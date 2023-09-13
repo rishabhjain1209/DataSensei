@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 2: AWS Core Services</title>
+</head>
+<body>
+    <h1>Amazon EC2 (Elastic Compute Cloud)</h1>
+    <p>Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides resizable compute capacity in the cloud. It allows you to launch and manage virtual servers, known as instances, to run your applications. EC2 instances come in various instance types, each optimized for different use cases and workloads.</p>
+    <h2>Code Example (AWS CLI - Launching an EC2 Instance):</h2>
+    <pre><code>
+# Launch an EC2 instance with Amazon Linux 2 AMI
+aws ec2 run-instances --image-id ami-0c55b159cbfafe1f0 --instance-type t2.micro --key-name MyKeyPair
+    </code></pre>
+    <p>In this example, we're launching a t2.micro instance using the Amazon Linux 2 AMI. Replace 'ami-0c55b159cbfafe1f0' with the desired AMI ID and 'MyKeyPair' with your EC2 key pair name.</p>
+    <h1>Amazon S3 (Simple Storage Service)</h1>
+    <p>Amazon Simple Storage Service (Amazon S3) is an object storage service that allows you to store and retrieve data of any size from anywhere on the web. S3 is highly scalable, durable, and offers features like versioning, data encryption, and access control.</p>
+    <h2>Code Example (AWS CLI - Creating an S3 Bucket):</h2>
+    <pre><code>
+# Create an S3 bucket (replace 'my-unique-bucket-name' with your desired bucket name)
+aws s3 mb s3://my-unique-bucket-name
+    </code></pre>
+    <h1>Amazon RDS (Relational Database Service)</h1>
+    <p>Amazon Relational Database Service (Amazon RDS) is a managed database service that makes it easy to set up, operate, and scale a relational database in the cloud. It supports various database engines, such as MySQL, PostgreSQL, Oracle, and SQL Server.</p>
+    <h2>Code Example (AWS CLI - Creating an RDS MySQL Database):</h2>
+    <pre><code>
+# Create an RDS MySQL instance
+aws rds create-db-instance \
+    --db-instance-identifier mydbinstance \
+    --db-instance-class db.t2.micro \
+    --engine mysql \
+    --allocated-storage 20 \
+    --master-username myusername \
+    --master-user-password mypassword
+    </code></pre>
+    <p>Modify the parameters, such as '--db-instance-identifier', '--master-username', and '--master-user-password', according to your preferences.</p>
+    <h1>Amazon VPC (Virtual Private Cloud)</h1>
+    <p>Amazon Virtual Private Cloud (Amazon VPC) allows you to create a private network in the AWS cloud. You can launch AWS resources, such as EC2 instances, RDS databases, and more, into a VPC to control network traffic and configure network settings.</p>
+    <h2>Code Example (AWS CLI - Creating a VPC and Subnet):</h2>
+    <pre><code>
+# Create a VPC
+aws ec2 create-vpc --cidr-block 10.0.0.0/16
+# Create a subnet within the VPC
+aws ec2 create-subnet --vpc-id vpc-0123456789abcdef0 --cidr-block 10.0.0.0/24
+    </code></pre>
+    <p>Replace 'vpc-0123456789abcdef0' with the VPC ID returned when you created the VPC in the previous step.</p>
+    <p>In this module, we've explored four core AWS services: Amazon EC2, Amazon S3, Amazon RDS, and Amazon VPC. We've provided code examples to illustrate how to use these services, including launching an EC2 instance, creating an S3 bucket, setting up an RDS database, and creating a VPC with a subnet. These services form the foundation for many AWS-based applications and solutions.</p>
+</body>
+</html>

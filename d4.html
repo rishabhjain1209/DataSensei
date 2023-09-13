@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 4: Creating Basic Shapes</title>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+</head>
+<body>
+    <h1>Week 4: Creating Basic Shapes</h1>
+    <h2>Drawing Circles, Rectangles, and Lines:</h2>
+    <p>In D3.js, you can create basic shapes like circles, rectangles, and lines to build visual elements for your data visualizations. Here's how you can draw these shapes:</p>
+    <h3>Circles:</h3>
+    <pre>
+const svg = d3.select("svg");
+svg.append("circle")
+    .attr("cx", 50)
+    .attr("cy", 50)
+    .attr("r", 30)
+    .style("fill", "blue");
+    </pre>
+    <h3>Rectangles:</h3>
+    <pre>
+const svg = d3.select("svg");
+svg.append("rect")
+    .attr("x", 20)
+    .attr("y", 20)
+    .attr("width", 60)
+    .attr("height", 40)
+    .style("fill", "red");
+    </pre>
+    <h3>Lines:</h3>
+    <pre>
+const svg = d3.select("svg");
+svg.append("line")
+    .attr("x1", 10)
+    .attr("y1", 10)
+    .attr("x2", 90)
+    .attr("y2", 90)
+    .style("stroke", "green")
+    .style("stroke-width", 2);
+    </pre>
+    <h2>Adding Interactivity to Basic Shapes:</h2>
+    <p>D3.js allows you to add interactivity to your visualizations by responding to user events like clicks or mouseovers. Here's an example of adding interactivity to a circle:</p>
+    <pre>
+const svg = d3.select("svg");
+const circle = svg.append("circle")
+    .attr("cx", 50)
+    .attr("cy", 50)
+    .attr("r", 30)
+    .style("fill", "blue");
+circle.on("mouseover", () => {
+    circle.style("fill", "red");
+});
+circle.on("mouseout", () => {
+    circle.style("fill", "blue");
+});
+    </pre>
+    <h2>Grouping and Transforming Elements:</h2>
+    <p>D3.js allows you to group elements together using &lt;g&gt; elements in SVG. This is useful for applying transformations or styling to a group of elements as a whole.</p>
+    <p>Here's an example of grouping and transforming elements:</p>
+    <pre>
+const svg = d3.select("svg");
+// Create a group element
+const group = svg.append("g");
+// Add circles to the group
+group.append("circle")
+    .attr("cx", 50)
+    .attr("cy", 50)
+    .attr("r", 30)
+    .style("fill", "blue");
+group.append("circle")
+    .attr("cx", 100)
+    .attr("cy", 50)
+    .attr("r", 30)
+    .style("fill", "red");
+// Translate the group to move all circles
+group.attr("transform", "translate(20, 20)");
+    </pre>
+    <p>In this example, we create a group &lt;g&gt; element and add two circles to it. Then, we use the <code>attr("transform", "translate(20, 20)")</code> method to move the entire group of circles by 20 units in both the x and y directions.</p>
+    <p>This illustrates how you can create, group, and transform elements in D3.js to build complex visualizations.</p>
+</body>
+</html>

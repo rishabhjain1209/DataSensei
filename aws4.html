@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 4: Storage and Database Services</title>
+</head>
+<body>
+    <h1>Amazon S3 and Glacier</h1>
+    <h2>Amazon S3 (Simple Storage Service)</h2>
+    <p>Amazon S3 is an object storage service that allows you to store and retrieve data of any size. It is designed for high durability and availability. You can use S3 for data backup, static website hosting, data archiving, and more.</p>
+    <h3>Code Example (AWS CLI - Uploading a File to S3):</h3>
+    <pre><code>
+# Upload a file to an S3 bucket
+aws s3 cp my-local-file.txt s3://my-bucket-name/
+    </code></pre>
+    <p>Replace 'my-local-file.txt' with the local file you want to upload and 'my-bucket-name' with your S3 bucket name.</p>
+    <h2>Amazon Glacier</h2>
+    <p>Amazon Glacier is a low-cost storage service for archiving data. It's suitable for data that is rarely accessed but needs to be retained for compliance or long-term storage.</p>
+    <h1>Amazon EBS (Elastic Block Store)</h1>
+    <p>Amazon Elastic Block Store (Amazon EBS) provides block-level storage volumes for use with Amazon EC2 instances. It offers different types of volumes, such as SSD-backed (gp2) and HDD-backed (sc1), with varying performance characteristics.</p>
+    <h3>Code Example (AWS CLI - Creating an EBS Volume and Attaching to an EC2 Instance):</h3>
+    <pre><code>
+# Create an EBS volume
+aws ec2 create-volume --availability-zone us-east-1a --size 10 --volume-type gp2
+# Attach the volume to an EC2 instance
+aws ec2 attach-volume --volume-id vol-0123456789abcdef0 --instance-id i-0123456789abcdef0 --device /dev/sdf
+    </code></pre>
+    <p>In this example, we're creating a 10 GB gp2 EBS volume in the us-east-1a availability zone and attaching it to an EC2 instance.</p>
+    <h1>Amazon DynamoDB</h1>
+    <p>Amazon DynamoDB is a fully managed NoSQL database service. It provides low-latency, high-performance, and seamless scalability for applications that require single-digit millisecond response times.</p>
+    <h3>Code Example (AWS SDK for Python - Using DynamoDB):</h3>
+    <pre><code>
+import boto3
+# Create a DynamoDB client
+dynamodb = boto3.client('dynamodb')
+# Create a DynamoDB table
+table_name = 'MyTable'
+dynamodb.create_table(
+    TableName=table_name,
+    KeySchema=[
+        {'AttributeName': 'id', 'KeyType': 'HASH'}
+    ],
+    AttributeDefinitions=[
+        {'AttributeName': 'id', 'AttributeType': 'N'}
+    ],
+    ProvisionedThroughput={
+        'ReadCapacityUnits': 5,
+        'WriteCapacityUnits': 5
+    }
+)
+    </code></pre>
+    <p>This Python code demonstrates how to create a DynamoDB table named 'MyTable' with a numeric 'id' as the primary key.</p>
+    <h2>Amazon RDS and Aurora</h2>
+    <h3>Amazon RDS (Relational Database Service)</h3>
+    <p>Amazon RDS is a managed relational database service that supports multiple database engines, including MySQL, PostgreSQL, Oracle, and SQL Server. It simplifies database management tasks such as provisioning, patching, backup, recovery, and scaling.</p>
+    <h3>Code Example (AWS CLI - Creating an RDS MySQL Database):</h3>
+    <pre><code>
+# Create an RDS MySQL instance
+aws rds create-db-instance \
+    --db-instance-identifier mydbinstance \
+    --db-instance-class db.t2.micro \
+    --engine mysql \
+    --allocated-storage 20 \
+    --master-username myusername \
+    --master-user-password mypassword
+    </code></pre>
+    <p>Modify the parameters, such as '--db-instance-identifier', '--master-username', and '--master-user-password', according to your preferences.</p>
+    <h3>Amazon Aurora</h3>
+    <p>Amazon Aurora is a fully managed, high-performance relational database engine that is compatible with MySQL and PostgreSQL. It offers improved scalability and reliability compared to traditional databases.</p>
+    <p>In this module, we've explored storage and database services in AWS, including Amazon S3 for object storage, Amazon Glacier for data archiving, Amazon EBS for block storage, Amazon DynamoDB for NoSQL database needs, and Amazon RDS (Relational Database Service) and Amazon Aurora for managed relational databases. Each service provides unique capabilities for storing and managing data and databases in the cloud.</p>
+</body>
+</html>

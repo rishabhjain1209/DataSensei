@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 3: Scales and Axes</title>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+</head>
+<body>
+    <h1>Week 3: Scales and Axes</h1>
+    <h2>Introduction to Scales:</h2>
+    <p>In data visualization, scales are essential tools for mapping data values to visual properties such as position, size, and color. Scales help transform raw data into values that can be used to create meaningful visual representations. D3.js provides several types of scales to accommodate different types of data and visual encodings.</p>
+    <h3>Linear Scales:</h3>
+    <p>Linear scales are used to map a continuous input domain to an output range. They are suitable for numeric data that has a linear relationship. Here's how you can create a linear scale in D3.js:</p>
+    <pre>
+const scale = d3.scaleLinear()
+    .domain([dataMin, dataMax]) // Input data domain
+    .range([outputMin, outputMax]); // Output range
+    </pre>
+    <ul>
+        <li><code>domain([dataMin, dataMax])</code>: Specifies the range of input data values.</li>
+        <li><code>range([outputMin, outputMax])</code>: Defines the range of output values.</li>
+    </ul>
+    <h3>Ordinal Scales:</h3>
+    <p>Ordinal scales are used for categorical or discrete data. They map discrete input values to discrete output values, typically for positioning elements on an axis. Here's an example:</p>
+    <pre>
+const scale = d3.scaleOrdinal()
+    .domain(["Category A", "Category B", "Category C"]) // Input data domain
+    .range([10, 50, 90]); // Output range
+    </pre>
+    <ul>
+        <li><code>domain(["Category A", "Category B", "Category C"])</code>: Specifies the input categories.</li>
+        <li><code>range([10, 50, 90])</code>: Defines the output positions for each category.</li>
+    </ul>
+    <h3>Color Scales:</h3>
+    <p>Color scales are a type of ordinal scale used to map data values to colors. They are often used for thematic maps or heatmaps. D3.js provides color scales like <code>d3.scaleOrdinal()</code> for this purpose.</p>
+    <h2>Creating Axes with D3:</h2>
+    <p>In data visualization, axes are graphical elements used to indicate the scale and values of a chart. D3.js makes it easy to create axes for your visualizations.</p>
+    <h3>HTML File (index.html):</h3>
+    <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Scales and Axes Example&lt;/title&gt;
+    &lt;script src="https://d3js.org/d3.v6.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Scales and Axes Example&lt;/h1&gt;
+    &lt;svg width="400" height="300" id="visualization"&gt;&lt;/svg&gt;
+    &lt;script&gt;
+        // Sample data
+        const data = [10, 20, 30, 40, 50];
+        // Create a linear scale
+        const xScale = d3.scaleLinear()
+            .domain([0, d3.max(data)]) // Input data domain
+            .range([0, 300]); // Output range
+        // Create an axis generator
+        const xAxis = d3.axisBottom(xScale);
+        // Create an SVG container
+        const svg = d3.select("#visualization");
+        // Append the x-axis to the SVG
+        svg.append("g")
+            .attr("class", "x-axis")
+            .attr("transform", "translate(50, 200)") // Position the axis
+            .call(xAxis); // Call the axis generator
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+    </pre>
+    <p>In this example:</p>
+    <ul>
+        <li>We define a sample data array <code>[10, 20, 30, 40, 50]</code>.</li>
+        <li>We create a linear scale <code>xScale</code> to map data values to positions.</li>
+        <li>We use the <code>d3.axisBottom(xScale)</code> function to create a bottom-oriented axis generator.</li>
+        <li>We create an SVG container and append the x-axis to it.</li>
+    </ul>
+    <p>When you open this HTML file in your web browser, you'll see a horizontal axis at the bottom of the SVG, indicating the scale of the data values. This demonstrates how to create a basic axis using D3.js along with scales for data transformation.</p>
+</body>
+</html>
